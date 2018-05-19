@@ -215,7 +215,7 @@ class staff extends MY_Controller {
 		}else{
 
 			$imageupload = '';
-			if (isset( $_FILES['profile_img'])){
+			if (isset( $_FILES['profile_img']['name']) && !empty( $_FILES['profile_img']['name'])){
 				//upload data
 				$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
 					"folder"=>'profile'
@@ -235,9 +235,12 @@ class staff extends MY_Controller {
 				'zipcode' => $this->input->post('zipcode'),
 				'user_active' => $this->input->post('user_active'),
 				'job' => $this->input->post('job'),
+				'job_detail' => $this->input->post('job_detail'),
+				'job_type' => $this->input->post('job_type'),
 				'brand' => $this->input->post('brand'),
 				'website' => $this->input->post('website'),
 				'facebook' => $this->input->post('facebook'),
+				'lineid' => $this->input->post('lineid'),
 				
 			);
 								
@@ -296,7 +299,7 @@ class staff extends MY_Controller {
 				
 			}else{
 				$imageupload = '';
-				if (isset( $_FILES['profile_img'])){
+				if (isset( $_FILES['profile_img']['name']) && !empty( $_FILES['profile_img']['name'])){
 					//upload data
 					$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
 						"folder"=>'profile'
@@ -316,9 +319,12 @@ class staff extends MY_Controller {
 					'zipcode' => $this->input->post('zipcode'),
 					'user_active' => $this->input->post('user_active'),
 					'job' => $this->input->post('job'),
+					'job_detail' => $this->input->post('job_detail'),
+					'job_type' => $this->input->post('job_type'),
 					'brand' => $this->input->post('brand'),
 					'website' => $this->input->post('website'),
 					'facebook' => $this->input->post('facebook'),
+					'lineid' => $this->input->post('lineid'),
 					
 				);
 								

@@ -55,7 +55,7 @@ class register extends MY_Controller {
         }else{
 
 			$imageupload = '';
-			if (isset( $_FILES['profile_img'])){
+			if (isset( $_FILES['profile_img']['name']) && !empty( $_FILES['profile_img']['name'])){
 				//upload data
 				$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
 					"folder"=>'profile'
