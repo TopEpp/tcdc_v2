@@ -63,7 +63,7 @@ class login_model extends MY_Model{
                 $cookieName = "txtSignOut";
                 $this->input->set_cookie($cookieName, '0', 0);
             }
-            // $this->setLog($data->user_id);
+            $this->setLog($data->user_id);
             return $res;
 
         }else{
@@ -73,20 +73,21 @@ class login_model extends MY_Model{
         }
     }
 
-    // function setLog($user_id){
-    //     $ip = $this->input->ip_address();
-    //     $location = json_decode(file_get_contents('http://freegeoip.net/json/'.$ip));
+    function setLog($user_id){
+        $ip = $this->input->ip_address();
+        // $location = json_decode(file_get_contents('http://freegeoip.net/json/'.$ip));
 
-    //     $this->db->set('user_id',$user_id);
-    //     $this->db->set('log_date', @date('Y-m-d H:i:s'));
-    //     $this->db->set('ip_address',$ip);
-    //     if(!empty($location)){
-    //         $this->db->set('country_name',$location->country_name);
-    //         $this->db->set('region_name',$location->region_name);
-    //         $this->db->set('city',$location->city);
-    //         $this->db->set('latitude',$location->latitude);
-    //         $this->db->set('longitude',$location->longitude);
-    //     }
-    //     $this->db->insert('tbl_log');
-    // }
+        $this->db->set('user_id',$user_id);
+        $this->db->set('log_date', @date('Y-m-d'));
+        $this->db->set('log_time', @date('H:i:s'));
+        $this->db->set('ip_address',$ip);
+        // if(!empty($location)){
+        //     $this->db->set('country_name',$location->country_name);
+        //     $this->db->set('region_name',$location->region_name);
+        //     $this->db->set('city',$location->city);
+        //     $this->db->set('latitude',$location->latitude);
+        //     $this->db->set('longitude',$location->longitude);
+        // }
+        $this->db->insert('tcdc_member_log');
+    }
 }
