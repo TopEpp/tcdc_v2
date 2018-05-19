@@ -1,0 +1,77 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Kanit:300,400,600,700');
+
+
+@font-face {
+  font-family: 'dbbl';
+  src: url('assets/font/DBBunjerdXBdv3_2.eot'); /* IE9 Compat Modes */
+  src: url('assets/font/DBBunjerdXBdv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/font/DBBunjerdXBdv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/font/DBBunjerdXBdv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('assets/font/DBBunjerdXBdv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('assets/font/DBBunjerdXBdv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'dbbn';
+  src: url('assets/font/DBBunjerdXv3_2.eot'); /* IE9 Compat Modes */
+  src: url('assets/font/DBBunjerdXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/font/DBBunjerdXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/font/DBBunjerdXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('assets/font/DBBunjerdXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('assets/font/DBBunjerdXv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'dbch';
+  src: url('assets/font/DBChuanPimXv3_2.eot'); /* IE9 Compat Modes */
+  src: url('assets/font/DBChuanPimXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/font/DBChuanPimXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/font/DBChuanPimXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('assets/font/DBChuanPimXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('assets/font/DBChuanPimXv3_2.svg#DBChuanPimXv') format('svg'); /* Legacy iOS */
+}
+
+
+body ,h2,h3,h5,h4,h1{
+  font-family: 'Kanit', sans-serif;
+}
+
+.fn_from{
+  font-family: 'Kanit', sans-serif;
+}
+
+.btn-primary{
+  background-color: #d61a67;
+  border-color: #d61a67;
+}
+.btn-primary:hover{
+  background-color: #e54b8a;
+  border-color: #e54b8a;
+}
+
+.page-sidebar .sidebar-menu .menu-items > li > a {
+  font-family: 'Kanit', sans-serif;
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.card{
+  margin-bottom: 0px;
+}
+
+.card2{
+  margin-bottom: 20px;
+}
+
+.demo-card-scrollable {
+  height: 350px;
+}
+
+.card-title{
+  width: 100%;
+}

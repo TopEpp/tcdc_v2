@@ -1,0 +1,32 @@
+Options -Indexes
+AddType video/ogg	.ogv
+AddType application/x-httpd-php .html
+AddType application/x-httpd-php .htm
+#Addtype text/cache-manifest .appcache
+
+<IfModule mod_headers.c>
+Header add Access-Control-Allow-Origin "*"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+#	RewriteBase /
+
+
+	#PREVENT ACCESS TO SYSTEM FOLDER
+	RewriteCond %{REQUEST_URI} ^system.*
+	RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+
+	#ALLOW ACCESS TO THESE FOLDERS FOR CODE
+	RewriteCond $1 !^(index\.php|assets|uploads)
+	RewriteRule ^(.*)$ index.php/$1 [L]
+
+
+	RewriteRule ^/DIRECTORY/(.*)$ /DIRECTORY/$1 [L]
+
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+	ErrorDocument 404 /index.php
+</IfModule>
