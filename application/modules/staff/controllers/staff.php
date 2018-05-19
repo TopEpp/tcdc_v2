@@ -96,6 +96,7 @@ class staff extends MY_Controller {
         }else{
 			//save data project
             $data = array(
+            	'project_create' => $this->session->userdata('sesUserID'),
                 'project_name' => $this->input->post('project_name'),
                 'project_type' => $this->input->post('project_type'),
                 'project_detail' => $this->input->post('project_detail'),
@@ -126,6 +127,16 @@ class staff extends MY_Controller {
 		}
 	}
 
+	function management(){
+		$data = array();
+		$data['project'] = $this->staff_model->getProject();
+		$data['news'] = $this->staff_model->getNews();
+
+		$this->config->set_item('title','การจัดการโครงการ');
+		$this->setView('management',$data);
+        $this->publish();
+	}
+
 	function user_profile(){
 
 		// $this->template->javascript->add('assets/modules/staff/user_profile.js');
@@ -134,7 +145,7 @@ class staff extends MY_Controller {
         $this->publish();
 	}
 
-	function show_user_register(){
+	function show_user_register($project_id){
 
 		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
 		$this->setView('show_user_register');

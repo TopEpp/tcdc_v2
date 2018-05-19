@@ -116,14 +116,14 @@
             <li class="m-t-30 ">
               <a href="<?php echo base_url('staff');?>" class="detailed">
                 <span class="title"><?php echo lang('bashboard');?></span>
-                <span class="details">มี 3 การอัปเดท</span>
+                <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('staff/project_manage');?>" class="detailed">
+              <a href="<?php echo base_url('staff/management');?>" class="detailed">
                 <span class="title"><?php echo lang('manage');?></span>
-                <span class="details">มี 10 การแจ้งเตือน</span>
+                <!-- <span class="details">มี 10 การแจ้งเตือน</span> -->
               </a>
               <span class="icon-thumbnail"><i class="pg-mail"></i></span>
             </li>
