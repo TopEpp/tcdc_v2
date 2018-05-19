@@ -102,11 +102,11 @@
                     <div class="card-title">
                       <h3>ข่าวสาร</h3>
                       <p>คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
-                      <div class="pull-right">
+                      <!-- <div class="pull-right">
                         <div class="col-xs-12">
                           <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/news');?>"><i class="fa fa-plus"></i> สร้างข่าวสาร</a>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@
                       <div class="col-lg-4">
                         <div id="card-linear-color" class="card card-default card2">
                           <div class="card-header ">
-                            <div class="card-title">ข่าวเด่น</div>
+                            <div class="card-title"><?php echo $value->news_type; ?></div>
                           </div>
                           <div class="card-block">
                             <div class="scrollable">

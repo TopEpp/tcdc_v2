@@ -1,5 +1,17 @@
 <div class="content ">
         <!-- START JUMBOTRON -->
+        <?php 
+            if($this->session->flashdata('error')){
+              echo $this->session->flashdata('error');
+              $this->session->unset_userdata('error');
+            }
+            
+            if($this->session->flashdata('msg')){
+              echo $this->session->flashdata('msg');
+              $this->session->unset_userdata('msg');
+            }
+         ?>
+
         <div class="jumbotron" data-pages="parallax">
           <div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
             <div class="inner" style="transform: translateY(0px); opacity: 1;">
@@ -29,7 +41,7 @@
                       <p>คุณสามารถแก้ไขสถาณะโครงการ ปิด หรือ เปิด ให้ผู้ใช้ดำเนินการได้โดยการกำหนดจากหน้านี้</p>
                       <div class="pull-right">
                         <div class="col-xs-12">
-                          <a id="show-modal" class="btn btn-primary btn-cons" href="create_from.html"><i class="fa fa-plus"></i> สร้างโครงการ</a>
+                          <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างโครงการ</a>
                         </div>
                       </div>
                     </div>
@@ -60,7 +72,7 @@
 
                           ?>
                             <tr id="<?php echo $prj->project_id;?>">
-                              <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
+                              <td class="v-align-middle semi-bold"><span id="project_name_<?php echo $prj->project_id;?>"><?php echo $prj->project_name;?></span></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
                               <td class="v-align-middle"><?php echo $status;?></td>
                               <!-- <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td> -->
@@ -70,7 +82,7 @@
                               </td>
                               <td class="v-align-middle">
                                 <p><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
-                                <p><a href="delProject('<?php echo $prj->project_id;?>')"><i class="fa fa-trash-o"></i> ลบ</a></p>
+                                <p><a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
                               </td>
                             </tr>
                           <?php } ?>
@@ -92,7 +104,7 @@
                     <p>คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
                     <div class="pull-right">
                       <div class="col-xs-12">
-                        <button id="show-modal" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
+                        <button id="show-modal-news" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
                         </button>
                       </div>
                     </div>
@@ -105,24 +117,28 @@
                   <thead>
                     <tr>
                       <th width="50%">หัวข้อข่าว</th>
+                      <th width="10%">ประเภท</th>
                       <th>ดำเนินการล่าสุดโดย</th>
-                      <th></th>
+                      <th width="10%"></th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php foreach ($news as $key => $value) { ?>
                     <tr>
                       <td class="v-align-middle semi-bold"  width="50%">
-                        <p><?php echo $value->news_name?></p>
+                        <p><span id="news_name_<?php echo $value->news_id;?>"><?php echo $value->news_name?></span></p>
                       </td>
+                      <td><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
                       <td class="v-align-middle">
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
                       <td class="v-align-middle">
-                        <p><a href="#" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a></p>
-                        <p><a href="#"><i class="fa fa-trash-o"></i> ลบ</a></p>
+                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a></p>
+                        <p><a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
                       </td>
                     </tr>
+                    <input type="hidden" id="news_detail_<?php echo $value->news_id;?>" value="<?php echo $value->news_detail;?>">
+                    <input type="hidden" id="news_url_<?php echo $value->news_id;?>" value="<?php echo $value->news_url;?>">
                   <?php }?>
                   </tbody>
                 </table>
@@ -136,10 +152,48 @@
         <!-- END PLACE PAGE CONTENT HERE -->
       </div>
 
+      <!-- Modal -->
+      <div class="modal fade slide-up disable-scroll" id="modal-delnews" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog ">
+          <div class="modal-content-wrapper">
+            <div class="modal-content">
+              <div class="modal-header clearfix text-left">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                </button>
+                <h5>แจ้งเตือน <span class="semi-bold">ลบข่าว</span></h5>
+              </div>
+              <div class="modal-body">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>คำเตือน ! คุณต้องการลบข่าว <span id="news_name_del"></span> ใช่หรือไม่</p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+
+                  <div class="modal-footer">
+                  <?php $attributes = array('name' => 'form-del-news', 'id' => 'form-del-news');
+                          $lang = $this->uri->segment(1);
+                           echo form_open_multipart($lang.'/staff/delNews/', $attributes); 
+                    ?>
+                    <input type="hidden" name="del_news_id" id="del_news_id" value="">
+                    <button type="button" class="btn btn-primary btn-cons  pull-left inline" data-dismiss="modal" id="delNewsBtn">ยืนยัน</button>
+                    <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">ยกเลิก</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+      </div>
+
 
 
       <!-- Modal -->
-      <div class="modal fade slide-up disable-scroll" id="modalcll" tabindex="-1" role="dialog" aria-hidden="false">
+      <div class="modal fade slide-up disable-scroll" id="modal-delproject" tabindex="-1" role="dialog" aria-hidden="false">
         <div class="modal-dialog ">
           <div class="modal-content-wrapper">
             <div class="modal-content">
@@ -153,21 +207,21 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <p>คำเตือน ! คุณต้องการปิดให้บริการโครงการนี้ "ชื่อโครงการ" นั้นหมายถึงผู้ใช้จะไม่สามารถเข้าถึงโครงการนี่ได้ หรืออาจเกิดความเสียหายอื่นใดขณะผู้ใช้สมัครเข้าร่วมโครงการ</p>
-
+                    <p>คำเตือน ! คุณต้องการปิดให้บริการโครงการนี้ <span id="prj_name_del"></span> นั้นหมายถึงผู้ใช้จะไม่สามารถเข้าถึงโครงการนี่ได้ หรืออาจเกิดความเสียหายอื่นใดขณะผู้ใช้สมัครเข้าร่วมโครงการ</p>
                   </div>
-
                 </div>
-
                 <br>
-
-
-
                 <div class="row">
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-cons  pull-left inline" data-dismiss="modal">ยืนยัน</button>
+                  <?php $attributes = array('name' => 'frmDelProject', 'id' => 'form-del-project');
+                                  $lang = $this->uri->segment(1);
+                                   echo form_open_multipart($lang.'/staff/delProject/', $attributes); 
+                            ?>
+                    <input type="hidden" name="del_prj_id" id="del_prj_id" value="">
+                    <button type="button" class="btn btn-primary btn-cons  pull-left inline" data-dismiss="modal" id="delPrjBtn">ยืนยัน</button>
                     <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">ยกเลิก</button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -185,31 +239,32 @@
               <div class="modal-header clearfix text-left">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h5>สร้าง <span class="semi-bold">ข่าวสาร</span></h5>
+                <h5><span id="form_type">สร้าง</span> <span class="semi-bold">ข่าวสาร</span></h5>
                 <p class="p-b-10">ข่าวสารจะไปปรากฏยังหน้าแดชบอร์ดขอผู้ใช้งาน</p>
               </div>
               <div class="modal-body">
-                <form role="form">
+                <?php $attributes = array('name' => 'form-news', 'id' => 'form-news');
+                      $lang = $this->uri->segment(1);
+                       echo form_open_multipart($lang.'/staff/saveNews/', $attributes); 
+                ?>
+                <input type="hidden" class="form-control" name="news_id" id="news_id" value="">
                   <div class="form-group-attached">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group form-group-default">
                           <label>หัวเรื่อง</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="news_name" id="news_name" value="" required>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
 
-
-
-
                         <div class="wysiwyg5-wrapper b-a b-grey">
-                          <textarea id="wysiwyg6" class="wysiwyg demo-form-wysiwyg" placeholder="ใส่เนื้อหาตรงนี้..."  ui-jq="wysihtml5" ui-options="{
+                          <textarea name="news_detail" id="news_detail" class="wysiwyg demo-form-wysiwyg" placeholder="ใส่เนื้อหาตรงนี้..."  ui-jq="wysihtml5" ui-options="{
                           html: true,
                           stylesheets: ['pages/css/editor.css']
-                        }"></textarea>
+                        }" required></textarea>
 
                       </div>
 
@@ -219,14 +274,14 @@
                         <div class="col-md-6">
                           <div class="form-group form-group-default">
                             <label>ชื่อบนปุ่ม</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="news_type" id="news_type" value="">
                           </div>
 
                         </div>
                         <div class="col-md-6">
                           <div class="form-group form-group-default">
                             <label>ลิงก์ของปุ่ม</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="news_url" id="news_url" value="">
                           </div>
 
                         </div>
@@ -238,11 +293,8 @@
                   </div>
                 </form>
                 <div class="row">
-                  <div class="col-md-8">
-
-                  </div>
                   <div class="col-md-4 m-t-10 sm-m-t-10">
-                    <button type="button" class="btn btn-primary btn-block m-t-5">สร้างข่าวสาร</button>
+                    <button type="button" class="btn btn-primary btn-block m-t-5" id="btnSubmitNews"><span id="form_btn_type">สร้าง</span>ข่าวสาร</button>
                   </div>
                 </div>
               </div>
@@ -251,3 +303,6 @@
           <!-- /.modal-content -->
         </div>
       </div>
+
+
+      

@@ -4,7 +4,7 @@
 
     $('.datepicker-range').datepicker();
     $('.wysiwyg').wysihtml5();
-    $('#form-project').validate();
+    // $('#form-project').validate();
     
     // var validator = $('#form-project').validate({
     //   rules : {

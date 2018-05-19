@@ -127,11 +127,45 @@ class staff extends MY_Controller {
 		}
 	}
 
+	function delProject(){
+		$project_id = $this->input->post('del_prj_id');
+		$this->staff_model->delProject($project_id);
+
+		redirect(base_url($this->uri->segment(1).'/staff/management'));
+	}
+
+	function saveNews(){
+		$data = array(
+        	'news_create' => $this->session->userdata('sesUserID'),
+        	'news_id' => $this->input->post('news_id'),
+            'news_type' => $this->input->post('news_type'),
+            'news_name' => $this->input->post('news_name'),
+            'news_detail' => $this->input->post('news_detail'),
+            'news_url' => $this->input->post('news_url')
+		);    
+
+    	if($this->staff_model->saveNews($data)){
+    		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
+        	redirect(base_url('staff/management'));
+    	}else{
+    		$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
+	 		redirect(base_url('staff/management'));
+    	}
+	}
+
+	function delNews(){
+		$news_id = $this->input->post('del_news_id');
+		$this->staff_model->delNews($news_id);
+
+		redirect(base_url($this->uri->segment(1).'/staff/management'));
+	}
+
 	function management(){
 		$data = array();
 		$data['project'] = $this->staff_model->getProject();
 		$data['news'] = $this->staff_model->getNews();
 
+		$this->template->javascript->add('assets/modules/staff/management.js');
 		$this->config->set_item('title','การจัดการโครงการ');
 		$this->setView('management',$data);
         $this->publish();

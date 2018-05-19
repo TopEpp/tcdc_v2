@@ -111,6 +111,13 @@ class staff_model extends MY_Model{
         return $project_id;
     }
 
+    function delProject($project_id){
+        if($project_id){
+            $this->db->where('project_id',$project_id);
+            $this->db->delete('tcdc_prj');
+        }
+    }
+
     function saveProjectOwner($project_id,$data_owner){
         $this->db->where('project_id',$project_id);
         $this->db->delete('tcdc_prj_owner');
@@ -124,7 +131,27 @@ class staff_model extends MY_Model{
         }
         
         return true;
+    }
 
+    function saveNews($data){
+        $news_id = $data['news_id'];
+        if($news_id){
+            $this->db->where('news_id',$news_id);
+            $this->db->update('tcdc_news',$data);
+        }else{
+            unset($data['news_id']);
+            $this->db->insert('tcdc_news',$data);
+            $news_id = $this->db->insert_id();
+        }
+
+        return $news_id;
+    }
+
+    function delNews($news_id){
+        if($news_id){
+            $this->db->where('news_id',$news_id);
+            $this->db->delete('tcdc_news');
+        }
     }
 
     function getProjectData($project_id){
