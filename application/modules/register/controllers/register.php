@@ -26,10 +26,9 @@ class register extends MY_Controller {
 	public function signup()
 	{
 		$data = array();	
-		// get province
-		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
-		$data['province'] = $query->result();
+
 		// #tab1
+		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อจริง', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุลจริง', 'trim|required');
 		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email|callback_email_check');
@@ -47,12 +46,24 @@ class register extends MY_Controller {
 
 
 		if($this->form_validation->run() == false){
+			// get province
+			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+			$data['province'] = $query->result();
+
 			$this->load->view('register',$data);
             
         }else{
 
+			$imageupload = '';
+			if (isset( $_FILES['profile_img'])){
+				//upload data
+				$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
+					"folder"=>'profile'
+				));
+			}
 			//insert data  
             $data = array(
+				'prename' => $this->input->post('prename'),
                 'firstname' => $this->input->post('firstname'),
                 'lastname' => $this->input->post('lastname'),
 				'email' => $this->input->post('email'),
@@ -63,20 +74,23 @@ class register extends MY_Controller {
 				'province' => $this->input->post('province'),
 				'zipcode' => $this->input->post('zipcode')
 			);     
+			if($imageupload){
+				$data['profile_img'] = $imageupload['public_id'];
+			}
 
             if($this->register_model->insertMember($data)){
                 
                 //send confirm mail
                 if($this->register_model->sendEmail($this->input->post('email'))){
                     //redirect('Login_Controller/index');
-                    $msg = "Successfully registered with the sysytem.Conformation link has been sent to: ".$this->input->post('txt_email');
-                     $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully registered. Please confirm the mail that has been sent to your email. </div>');
+                    $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่<br/> Email: ".$this->input->post('email');
+                     $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">'.$msg.'. </div>');
                     // $this->load->view('header');
 					//  $this->load->view('welcome/index');
 					 redirect(base_url());
                     // $this->load->view('footer');
                 }else{
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
 					redirect(base_url());
                     //$error = "Error, Cannot insert new user details!";
                     // $this->load->view('header');
@@ -86,17 +100,7 @@ class register extends MY_Controller {
                 
                 
             }
-			// if (isset( $_FILES['profile_img'])){
-			// 	print_r($_FILES['profile_img']);
-			// }
-			// $config = array(
-			// 	'upload_path' => "./uploads/",
-			// 	'allowed_types' => "gif|jpg|png|jpeg|pdf",
-			// 	'overwrite' => TRUE,
-			// 	'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-			// 	'max_height' => "768",
-			// 	'max_width' => "1024"
-			// );
+			
 		
 		
 		}
@@ -110,11 +114,11 @@ class register extends MY_Controller {
 
 		if($this->register_model->verifyEmail($text)){
 	
-			$this->session->set_flashdata('verify', '<div class="alert alert-success text-center">Email address is confirmed. Please login to the system</div>');
+			$this->session->set_flashdata('verify', '<div class="alert alert-success text-center">ยืนยันการลงทะเบียนสำเร็จ. กรุณาลงชื่อเพื่อเข้าใช้งานระบบ</div>');
 			redirect(base_url());
 		}else{
 
-			$this->session->set_flashdata('verify', '<div class="alert alert-danger text-center">Email address is not confirmed. Please try to re-register.</div>');
+			$this->session->set_flashdata('verify', '<div class="alert alert-danger text-center">ยืนยันการลงทะเบียนไม่สำเร็จ. กรุณาลงทะเบียนอีกครั้งหรือติดต่อเจ้าหน้าที่</div>');
 			redirect(base_url());
 		}
 	}

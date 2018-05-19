@@ -47,20 +47,6 @@ class staff_model extends MY_Model{
     public function saveCreateUser($data){
         return $this->db->insert('tcdc_member',$data);
     }
-        //get users 
-    public function getUserCompany($id = '')
-    {
-        //get update user
-        if(!empty($id)){
-            $this->db->select('*');
-            $this->db->from('tcdc_member_company');
-            $this->db->where('user_id_pk',$id);
-            $query =  $this->db->get();
-            return $query->row();
-        }
-    
-    }
-  
     //save edit user
     public function saveEditUser($id='',$data,$data_company){
 
@@ -85,12 +71,6 @@ class staff_model extends MY_Model{
 
         return true;
 
-    }
-
-    //delete company member
-    public function deleteCompany($id = ''){
-        $this->db->where('user_id_pk',$id);
-        return $this->db->delete('tcdc_member_company');
     }
 
 

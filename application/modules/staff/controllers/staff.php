@@ -48,9 +48,9 @@ class staff extends MY_Controller {
 			$data['prj_owner'] = $this->staff_model->getProjectOwner($project_id);
 		}
 		
-		$this->config->set_item('title','สร้างกิจกรรมและโครงการ');
-		$this->template->javascript->add('assets/modules/staff/project.js');
+
 		$this->setView('project',$data);
+		$this->template->javascript->add('assets/modules/staff/project.js');
         $this->publish();
 	}
 
@@ -72,26 +72,8 @@ class staff extends MY_Controller {
 		$this->form_validation->set_rules('owner_id', 'owner_id', 'required');
 
 		if($this->form_validation->run() == false){
-			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
-			// redirect($this->input->post('redirect'), "location");
-
-			$data['project_id'] = $project_id;
-			$data['project_type'] = $this->staff_model->getProjectType();
-			$data['project_owner'] = $this->staff_model->getProjectManager();
-
-			// $data['prj']->project_id = $this->input->post('project_id');
-			@$data['prj']->project_name = $this->input->post('project_name');
-			@$data['prj']->project_type = $this->input->post('project_type');
-			@$data['prj']->project_detail = $this->input->post('project_detail');
-			@$data['prj']->project_provenance = $this->input->post('project_provenance');
-			@$data['prj']->project_start_date = $this->input->post('project_start_date');
-			@$data['prj']->project_finish_date = $this->input->post('project_finish_date');
-			@$data['prj']->register_start_date = $this->input->post('register_start_date');
-			@$data['prj']->register_finish_date = $this->input->post('register_finish_date');
-
-			$data['prj_owner'] = $this->input->post('owner_id');
-			$this->setView('project',$data);
-        	$this->publish();
+			// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+			redirect($this->input->post('redirect'), "location");
             
         }else{
 			//save data project
@@ -129,22 +111,18 @@ class staff extends MY_Controller {
 	function user_profile(){
 
 		// $this->template->javascript->add('assets/modules/staff/user_profile.js');
-		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
 		$this->setView('user_profile');
         $this->publish();
 	}
 
 	function show_user_register(){
 
-		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
 		$this->setView('show_user_register');
         $this->publish();
 	}
 
 	function show_user(){
 
-
-		$this->config->set_item('title','ผู้ขอเข้าร่วมโครงการ');
 		$this->setView('show_user');
         $this->publish();
 	}
@@ -235,13 +213,20 @@ class staff extends MY_Controller {
 			redirect($this->input->post('redirect'), "location");
 			
 		}else{
+
+			$imageupload = '';
+			if (isset( $_FILES['profile_img'])){
+				//upload data
+				$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
+					"folder"=>'profile'
+				));
+			}
 				
 			$data = array(
 				'prename' => $this->input->post('prename'),
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
-
 				'email' => $this->input->post('email'),
 				'address' => $this->input->post('address'),
 				'subdistrict' => $this->input->post('subdistrict'),
@@ -258,6 +243,10 @@ class staff extends MY_Controller {
 								
 			if (!empty($this->input->post('password'))){
 				$data['password'] = $this->encrypt->encode($this->input->post('password'));//new password
+			}
+
+			if($imageupload){
+				$data['profile_img'] = $imageupload['public_id'];
 			}
 
 			if($this->staff_model->saveCreateUser($data)){
@@ -306,7 +295,14 @@ class staff extends MY_Controller {
 				redirect($this->input->post('redirect'), "location");
 				
 			}else{
-				
+				$imageupload = '';
+				if (isset( $_FILES['profile_img'])){
+					//upload data
+					$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
+						"folder"=>'profile'
+					));
+				}
+
 				$data = array(
 					'prename' => $this->input->post('prename'),
 					'firstname' => $this->input->post('firstname'),
@@ -340,9 +336,14 @@ class staff extends MY_Controller {
 						'company_district' => $this->input->post('company_district'),
 						'company_subdistrict' => $this->input->post('company_subdistrict'),
 						'company_zipcode' => $this->input->post('company_zipcode')
+
 					);
-				}else{
-					$this->staff_model->deleteCompany($id);
+				}
+
+				if($imageupload){
+					$data['profile_img'] = $imageupload['public_id'];
+
+					$this->session->set_userdata('sesUserImage',$imageupload['public_id'] ) ;
 				}
 				
 

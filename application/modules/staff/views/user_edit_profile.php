@@ -45,7 +45,7 @@
                             <p>โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p>
                             <br>
                             <div class="profile-img-wrapper2 m-t-5 inline">
-                              <img alt="" src="<?php echo base_url();?>assets/img/profiles/pr_s1150.jpg" width="70" height="70">
+                              <?php echo  cl_image_tag(@$data->profile_img, array( "alt" => "profile","width" => 70 ,"height"=>70  )); ?>
                               <div class="chat-status available">
                               </div>
                             </div>
@@ -220,8 +220,16 @@
                                             </div>
                                           </div>
                                         </div>
-
-
+                                        
+                                        <br>
+                                         <p>รูปภาพโปรไฟล์</p>
+                                          <div class="col-sm-12">
+                                            <!-- <form  class="dropzone" id="form-regis-upload"> -->
+                                              <div class="fallback">
+                                                <input name="profile_img" type="file" size='20' />
+                                              </div>
+                                            <!-- </form> -->
+                                          </div>
                                         <br>
                                        
                                         <p>เกี่ยวกับงาน</p>

@@ -28,6 +28,7 @@ class login_model extends MY_Model{
                 'sesUserEmail' => $data->email,
                 'sesUserID' => $data->user_id,
                 'sesUserType' => $data->user_type,
+                'sesUserImage' => $data->profile_img,
             );
 
             $res['id'] = $data->user_id;
