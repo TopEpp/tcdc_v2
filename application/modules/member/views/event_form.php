@@ -429,29 +429,6 @@
                                   </div>
                                 </div>
                               </div>
-
-                              <div class="form-group-attached">
-                                <div class="row clearfix">
-                                
-
-                                  <div class="col-sm-6">
-                                    <div class="form-group form-group-default required">
-                                      <label>เบอร์โทรศัพท์</label>
-                                      <input name="phone" type="text" id="phone" class="form-control" value="<?php echo $member->phone;?>">
-                                    </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group form-group-default required">
-                                      <label>Email</label>
-                                      <input type="text" class="form-control" name="email"  value="<?php echo $member->email;?>">
-                                    </div>
-                                  </div>
-
-                                </div>
-                              </div>
-
-
-
                             </div>
                             <br>
                             <p>ที่อยู่</p>
@@ -501,21 +478,106 @@
                                 </div>
                               </div>
 
+                              <br>
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+                                
+
+                                  <div class="col-sm-6">
+                                    <div class="form-group form-group-default required">
+                                      <label>เบอร์โทรศัพท์</label>
+                                      <input name="phone" type="text" id="phone" class="form-control" value="<?php echo $member->phone;?>">
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group form-group-default required">
+                                      <label>Email</label>
+                                      <input type="text" class="form-control" name="email"  value="<?php echo $member->email;?>">
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
 
                               <br>
                               <p>เกี่ยวกับงาน</p>
                               <div class="form-group-attached">
                                 <div class="row clearfix">
+                                  <div class="col-sm-12">
+                                    <div class="form-group form-group-default  form-group-default-selectFx">
+                                      <label>อาชีพ</label>
+                                      <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                      
+                                        <option  <?php echo (@$member->job == '') ? 'selected':'';?> value="" >เลือก</option>
+                                        <option  <?php echo (@$member->job == 1) ? 'selected':'';?> value="1">ผู้ประกอบการ SME</option>
+                                        <option  <?php echo (@$member->job == 2) ? 'selected':'';?> value="2">ผู้ประกอบการธุรกิจสร้างสรรค์</option>
+                                        <option  <?php echo (@$member->job == 3) ? 'selected':'';?> value="3">ผู้ประกอบการรายใหม่</option>
+                                        <option  <?php echo (@$member->job == 4) ? 'selected':'';?> value="4">ผู้บริหาร/หุ้มส่วนกิจการ</option>
+                                        <option  <?php echo (@$member->job == 5) ? 'selected':'';?> value="5">พนักงาน/พนักงานบริษัท</option>
+                                        <option  <?php echo (@$member->job == 6) ? 'selected':'';?> value="6">นักออกแบบ/ศิลปิน/สถาปนิก/ช่างฝีมือ</option>
+                                        <option  <?php echo (@$member->job == 7) ? 'selected':'';?> value="7">นักเรียนนักศึกษา</option>
+                                        <option  <?php echo (@$member->job == 8) ? 'selected':'';?> value="8">อาชีพอิสระที่เกี่ยวข้องกับงานด้านการออกแบบและพัฒนาสินและบริการ</option>
+                                        <option  <?php echo (@$member->job == 9) ? 'selected':'';?> value="9">อื่นๆ (โปรดระบุ)</option>
+
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                                
+                                  <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$member->job == 9) ?  "" : "style='display:none;'" ?>>
+                                  <div class="col-sm-12">
+                                    <div class="form-group form-group-default ">
+                          
+                                      <input type="text" name="job_detail" placeholder="ระบุอาชีพของคุณ" class="form-control" value="<?php echo @$member->job_detail; ?>">
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+
+                                <div class="row clearfix">
+                                  <div class="col-sm-12">
+                                    <div class="form-group form-group-default  form-group-default-selectFx">
+                                      <label>กรณีที่กิจการของท่านอยู่ในอุตสาหกรรมสร้างสรรค์ โปรดระบุสาขา</label>
+                                      <select style="width:100%" name="job_type" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                      
+                                        <option  <?php echo (@$member->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
+                                        <option  <?php echo (@$member->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
+                                        <option  <?php echo (@$member->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
+                                        <option  <?php echo (@$member->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
+                                        <option  <?php echo (@$member->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
+                                        <option  <?php echo (@$member->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
+                                        <option  <?php echo (@$member->job_type == 6) ? 'selected':'';?> value="6">การพิมพ์</option>
+                                        <option  <?php echo (@$member->job_type == 7) ? 'selected':'';?> value="7">การกระจายเสียง</option>
+                                        <option  <?php echo (@$member->job_type == 8) ? 'selected':'';?> value="8">ซอฟต์แวร์</option>
+                                        <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
+                                        <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น</option>
+                                        <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
+                                        <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="11">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+
+
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default">
-                                      <label>อาชีพ</label>
-                                      <input type="text" class="form-control" name="job" value="<?php echo $member->job;?>">
+                                      <label>เว็บไซต์</label>
+                                      <input type="text" id="website" name="website" class="form-control" value="<?php echo @$member->website; ?>">
                                     </div>
                                   </div>
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                       <label>ชื่อแบรนด์</label>
-                                      <input type="text" class="form-control" name="brand" value="<?php echo $member->brand;?>">
+                                      <input type="text" class="form-control" name="brand" value="<?php echo @$member->brand; ?>" > 
                                     </div>
                                   </div>
                                 </div>
@@ -525,14 +587,14 @@
 
                                     <div class="col-sm-6">
                                       <div class="form-group form-group-default">
-                                        <label>เว็บไซต์</label>
-                                        <input type="text" id="phone" class="form-control" name="website" value="<?php echo $member->website;?>">
+                                        <label>LINE</label>
+                                        <input type="text" class="form-control" name="lineid" value="<?php echo @$member->lineid; ?>">
                                       </div>
                                     </div>
                                     <div class="col-sm-6">
                                       <div class="form-group form-group-default">
                                         <label>Facebook Fan Page</label>
-                                        <input type="text" class="form-control" name="facebook" value="<?php echo $member->facebook;?>">
+                                        <input type="text" class="form-control" name="facebook" value="<?php echo @$member->facebook; ?>">
                                       </div>
                                     </div>
                                   </div>
@@ -543,22 +605,23 @@
                               <h5>คุณเป็น ตัวแทนองค์กร หรือ บริษัท?</h5>
                               <br>
                               <?php 
-                                  $status1 = 'checked';
-                                  $status2 = '';
-                                  if (!empty($member->company_name)){ 
-                                    $status2 = 'checked';
-                                    $status1 = '';
+                                  $status2 = 'checked';
+                                  $status1 = '';
+                                  if (@$member->company_type == 0){ 
+                                    $status1 = 'checked';
+                                    $status2 = '';
                               }?>
-                              <div class="radio radio-default">
+                              <div class="radio radio-default" >
                                 <input type="radio" value="0" name="radio1" id="radio1Yes" <?php echo $status1; ?>>
                                 <label for="radio1Yes">ไม่ใช่</label>
                                 <input type="radio" value="1" name="radio1" id="radio1No" <?php echo $status2; ?>>
                                 <label for="radio1No">ใช่ฉันเป็นตัวแทนองค์กรหรือบริษัท</label>
                               </div>
                               <br><br>
-                              <p>เกี่ยวกับองค์กร/บริษัท</p>
+                              
 
-                              <div class="form-group-attached">
+                              <div class="form-group-attached" id="radio-company">
+                              <p>เกี่ยวกับองค์กร/บริษัท</p>
                                 <div class="row clearfix">
                                   <div class="col-sm">
                                     <div class="form-group form-group-default">
@@ -660,25 +723,9 @@
                                     </div>
                                   </div>
 
-                                  <div class="form-group-attached">
-                                    <div class="row clearfix">
 
-                                      <div class="col-sm-6">
-                                        <div class="form-group form-group-default required">
-                                          <label>เบอร์โทรศัพท์</label>
-                                          <input type="text" id="phone" class="form-control" name="coordinator_phone">
-                                        </div>
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <div class="form-group form-group-default required">
-                                          <label>Email</label>
-                                          <input type="text" class="form-control" name="coordinator_email">
-                                        </div>
-                                      </div>
-
-                                    </div>
-                                  </div>
                                 </div>
+                                <br>
 
                                 <p>ที่อยู่ผู้ประสานงาน</p>
                                 <div class="form-group-attached">
@@ -729,6 +776,37 @@
                                     </div>
                                   </div>
                                 </div>
+                                <br>
+                                <div class="form-group-attached">
+                                    <div class="row clearfix">
+
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default required">
+                                          <label>เบอร์โทรศัพท์</label>
+                                          <input type="text" id="phone" class="form-control" name="coordinator_phone">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default required">
+                                          <label>LINEID</label>
+                                          <input type="text" class="form-control" name="coordinator_lineid">
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                    <div class="row clearfix">
+
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default required">
+                                          <label>EMAIL</label>
+                                          <input type="text" id="phone" class="form-control" name="coordinator_email">
+                                        </div>
+                                      </div>
+                                      
+
+                                    </div>
+                                  </div>
                               </div>
 
 
@@ -744,6 +822,45 @@
 
 
                 <div class="tab-pane  slide-left padding-20 sm-no-padding " id="tab3">
+
+                 
+                  <div class="row clearfix">
+                     <div class="col-md-5 b-r b-dashed b-grey ">
+                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                        
+                      </div>
+                    </div>
+                    <div class="col-sm-7">
+                    <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
+                      <div class="checkbox check-success">
+                        <input type="checkbox"  value="1" name="target_type" id="check1">
+                        <label for="check1">เพื่อเพิ่มมูลค่าของสินค้า</label>
+                      </div>
+                      <div class="checkbox check-success">
+                        <input type="checkbox"  value="2" name="target_type" id="check2">
+                        <label for="check2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
+                      </div>
+                      <div class="checkbox check-success">
+                        <input type="checkbox"  value="3" name="target_type" id="check3">
+                        <label for="check3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
+                      </div>
+                      <div class="checkbox check-success">
+                        <input type="checkbox"  value="4" name="target_type" id="check15">
+                        <label for="check15">อื่นๆ (โปรดระบุ)</label>
+                      </div>
+
+                      <div class="form-group-attached" id="target_type" style="display:none;">
+                        <div class="form-group form-group-default ">
+
+                          <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" name="target_type_detail">
+                        </div>
+                      </div>
+                      
+
+
+                    </div>
+                  </div>
+
                   <div class="clone-form">
                     <div class="clonedInput" id="clonedInput1">
                       <div class="row row-same-height " id ="second">
@@ -756,18 +873,22 @@
 
                             <div class="col-md-7 ">
                               <div class="padding-30 sm-padding-5">
-                                <p id="num">1. ข้อมูลชิ้นงานชิ้นที่ 1</p>
+                                <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ 1</p>
                                 <div class="form-group-attached">
                                     <div class="row clearfix">
 
                                       <div class="col-sm-4">
                                         <div class="form-group form-group-default required form-group-default-selectFx">
                                           <label>ประเภทผลงาน</label>
-                                          <select name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
-                                            <option value="1">งานไม้จัดแสดง</option>
-                                            <option value="2">งานเหล็ก</option>
-                                            <option value="3">งานร่วมสมัย</option>
-                                            <option value="4">อื่นๆ</option>
+                                          <select id="product_type" style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
+                                            <option value="">เลือก</option>
+                                            <option value="1">เฟอร์นิเจอร์</option>
+                                            <option value="2">ไลฟ์สไตล์</option>
+                                            <option value="3">ตกแต่งบ้าน</option>
+                                            <option value="4">เครื่องประดับ</option>
+                                            <option value="5">แฟชั่น</option>
+                                            <option value="6">อาหาร</option>
+                                            <option value="7">สื่อ (multimedia, Graphic)</option>
                                           </select>
                                         </div>
                                       </div>
@@ -842,7 +963,7 @@
                                           <div class="form-group form-group-default input-group">
                                             <div class="form-input-group">
                                               <label class="">สูง</label>
-                                              <input  name="product_height"class="form-control" type="text">
+                                              <input  name="product_height[]"class="form-control" type="text">
                                             </div>
                                             <div class="input-group-addon">
                                               ซ.ม.
@@ -886,9 +1007,41 @@
                                     <p>4. ภาพผลงาน</p>
 
                                     <div class="col-sm-12">
-                                    
-                                        <div class="fallback">
-                                          <input name="product_img[]" type="file" multiple />
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group  ">
+                                              <label>ภาพรวมของผลงาน</label>
+                                              <div class="fallback">
+                                                <input id="product_img" name="product_img[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        
+                                        </div>
+
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group ">
+                                              <label>ภาพ Close Up</label>
+                                              <div class="fallback">
+                                                <input id="product_closeup" name="product_closeup[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        
+                                        </div>
+
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group ">
+                                              <label>ภาพ Pack Shot</label>
+                                              <div class="fallback">
+                                                <input id="product_packshot" name="product_packshot[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                              
+                                            </div>
+                                          </div>
+                                        
                                         </div>
                                     
                                     </div>
@@ -920,11 +1073,10 @@
                               </div>
                               </div>
 
-                              <hr>
+                          
 
                               <!-- เริ่มส่วนที่ 2 -->
 
-                              <br>
 
                             
                             <!-- จบส่วนที่ 2 -->
@@ -934,10 +1086,21 @@
                     </div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-sm-5">
+                  <div class="row clearfix">
+                    <div class="col-sm-7 offset-sm-5">
+                      <div class="padding-10 sm-padding-5">
+                        <div class="checkbox check-success  ">
+                             <input type="checkbox" value="1" id="product_check">
+                             <label for="product_check">ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                        </div>
+               
+                        <hr>
+                      </div>
                     </div>
-                    <div class="col-sm-6">
+                  </div>
+                
+                  <div class="row clearfix">
+                    <div class="col-sm-7 offset-sm-5">
                       <a  style="color:white;" id="clone" class="btn btn-primary btn-cons clone"><i class="fa fa-plus"></i> เพิ่มผลงาน</a>
                     </div>
                   </div>
@@ -948,124 +1111,138 @@
 
         <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
          <div class="row row-same-height">
-          <div class="col-md-5 b-r b-dashed b-grey ">
-            <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-              <h2>การร่วมจัดแสดงและเอกสาร</h2>
-              <p>เรามีคำถามอีกไม่มากที่ต้องการและเอกสารบางฉบับที่คุณต้องเตรียมการให้เรา</p>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="padding-30 sm-padding-5">
-               <p>1. เป้าหมายหลักของการจัดแสดงผลงาน</p>
-
-               <div class="form-group-attached">
-                <div class="row clearfix">
-                  <div class="col-sm">
-
-                    <div class="checkbox check-success">
-                      <input type="checkbox"  value="1" name="target_type" id="check1">
-                      <label for="check1">ต้องการพบคู่ค้าทางธุรกิจและรับออเดอร์</label>
-                    </div>
-                    <div class="checkbox check-success">
-                      <input type="checkbox"  value="2" name="target_type" id="check2">
-                      <label for="check2">ต้องการนำเสนอผลงานการออกแบบใหม่ และจับคู่ทางธุรกิจ</label>
-                    </div>
-                    <div class="checkbox check-success">
-                      <input type="checkbox"  value="3" name="target_type" id="check3">
-                      <label for="check3">ต้องการจำหน่ายสินค้า</label>
-                    </div>
-
-
-                  </div>
-
-                </div>
-
-                <br>
-                <p>2. พื้นที่จัดแสดง</p>
-
-                <div class="form-group-attached">
-                  <div class="row clearfix">
-
-
-                    <div class="col-sm">
-
-                     <div class="checkbox check-success">
-                      <input type="checkbox"  value="1" name="area_type" id="check4">
-                      <label for="check4">2 x 1.5 เมตร</label>
-                    </div>
-                    <div class="checkbox check-success">
-                      <input type="checkbox"  value="2" name="area_type" id="check5">
-                      <label for="check5">2 x 3 เมตร</label>
-                    </div>
-                    <div class="checkbox check-success">
-                      <input type="checkbox"  value="3" name="area_type" id="check6">
-                      <label for="check6">2 x 6 เมตร</label>
-                    </div>
-
-
-
-                  </div>
-
-                </div>
-
-
+            <div class="col-md-5 b-r b-dashed b-grey ">
+              <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                <h2>การร่วมจัดแสดงและเอกสาร</h2>
+                <p>เรามีคำถามอีกไม่มากที่ต้องการและเอกสารบางฉบับที่คุณต้องเตรียมการให้เรา</p>
               </div>
+            </div>
+            <div class="col-md-7">
+              <div class="padding-30 sm-padding-5">
+            
+                
+                    <!-- <p>1. เป้าหมายหลักของการจัดแสดงผลงาน</p>
+                    <div class="row clearfix">
+                      <div class="col-sm">
+
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="1" name="target_type" id="check1">
+                          <label for="check1">ต้องการพบคู่ค้าทางธุรกิจและรับออเดอร์</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="2" name="target_type" id="check2">
+                          <label for="check2">ต้องการนำเสนอผลงานการออกแบบใหม่ และจับคู่ทางธุรกิจ</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="target_type" id="check3">
+                          <label for="check3">ต้องการจำหน่ายสินค้า</label>
+                        </div>
 
 
-              <br>
-              <p>3. แผนผัง แบบการจัดแสดงและคำอธิบาย *หากมี</p>
-
-              <div class="form-group-attached">
-                <div class="row clearfix">
-
-                  <div class="col-sm-12">
-                 
-                      <div class="fallback">
-                        <input name="plan_img" type="file" multiple />
                       </div>
-                   
+
+                    </div> -->
+
+                    <p>1. ลักษณะพื้นที่ในการจัดแสดง</p>
+                    <div class="form-group-attached">
+                      <div class="row clearfix">
+                        <div class="col-sm">
+
+                          <div class="checkbox check-success">
+                            <input type="checkbox"  value="1" name="showarea_type" id="check7">
+                            <label for="check7">ภายในอาคาร</label>
+                          </div>
+                          <div class="checkbox check-success">
+                            <input type="checkbox"  value="2" name="showarea_type" id="check8">
+                            <label for="check8">ภายนอกอาคาร</label>
+                          </div>
+            
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <br>
+                    <p>2. พื้นที่จัดแสดง</p>
+                    <div class="form-group-attached">
+                      <div class="row clearfix">
 
 
-                  </div>
-                  
+                        <div class="col-sm">
+
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="1" name="area_type" id="check4">
+                          <label for="check4">2 x 1.5 เมตร</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="2" name="area_type" id="check5">
+                          <label for="check5">2 x 3 เมตร</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="area_type" id="check6">
+                          <label for="check6">2 x 6 เมตร</label>
+                        </div>
 
 
-                </div>
+
+                      </div>
+                    </div>
+
+                
+
+                    <br>
+                    <p>3. ลักษณะในการจัดแสดง (Drop Down)</p>
+
+                    <div class="form-group-attached">
+                      <div class="row clearfix">
+
+
+                        <div class="col-sm">
+
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="1" name="show_type" id="check9">
+                          <label for="check9">จัดวางพร้อมคำอธิบาย</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="2" name="show_type" id="check10">
+                          <label for="check10">จัดแสดงพร้อมพื้นที่ทดลอง</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="show_type" id="check11">
+                          <label for="check11">จัดแสดงพร้อมสื่อประกอบ (ภาพ&เสียง)</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="show_type" id="check12">
+                          <label for="check12">จัดแสดงแบบใช้สื่อ แสง สี เสียง</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="show_type" id="check13">
+                          <label for="check13">จัดแสดงโดยมีการสาธิตให้ดู</label>
+                        </div>
+                        <div class="checkbox check-success">
+                          <input type="checkbox"  value="3" name="show_type" id="check14">
+                          <label for="check14">จัดแสดงแบบมีกลิ่น</label>
+                        </div>
+
+
+
+                      </div>
+
+                    </div>
+    
+
+
+
               </div>
-
-              <br>
-              <p>4. เอกสารแสดงการเป็นเจ้าของผลงาน *หากมี</p>
-
-              <div class="col-sm-12">
-               
-                  <div class="fallback">
-                    <input name="reg_doc" type="file" multiple />
-                  </div>
-               
-
-
-              </div>
-
-
-
             </div>
 
 
-
-
+           </div>
           </div>
 
-
-
-
- 
-
-
-      </div>
-    </div>
-
-
-  </div>
+          </div>
+        </div>
   <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab5">
     <h1>ขอบคุณ</h1>
   </div>

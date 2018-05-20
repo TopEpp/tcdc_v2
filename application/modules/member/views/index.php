@@ -49,7 +49,7 @@
                         </thead>
                         <tbody>
                           <?php foreach ($project as $key => $prj) { 
-                              $diff=date_diff(date_create($prj->project_finish_date),date_create(date('Y-m-d')));
+                              $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
 
                                if($diff->format("%R%a")<0){
                                   $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เปิดให้บริการ</span>';
@@ -69,7 +69,7 @@
                       </table>
 
                       <?php foreach ($project as $key => $prj) { 
-                         $diff=date_diff(date_create($prj->project_finish_date),date_create(date('Y-m-d')));
+                         $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
 
                          if($diff->format("%R%a")<0){
                             $status = 1;

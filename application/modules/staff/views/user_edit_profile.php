@@ -238,7 +238,7 @@
                                             <div class="col-sm-12">
                                               <div class="form-group form-group-default  form-group-default-selectFx">
                                                 <label>อาชีพ</label>
-                                                <select name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                                <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                 
                                                   <option  <?php echo (@$data->job == '') ? 'selected':'';?> value="" >เลือก</option>
                                                   <option  <?php echo (@$data->job == 1) ? 'selected':'';?> value="1">ผู้ประกอบการ SME</option>
@@ -272,7 +272,7 @@
                                             <div class="col-sm-12">
                                               <div class="form-group form-group-default  form-group-default-selectFx">
                                                 <label>กรณีที่กิจการของท่านอยู่ในอุตสาหกรรมสร้างสรรค์ โปรดระบุสาขา</label>
-                                                <select name="job_type" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                                <select style="width:100%" name="job_type" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                 
                                                   <option  <?php echo (@$data->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
                                                   <option  <?php echo (@$data->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
@@ -338,11 +338,11 @@
                                         <h5>คุณเป็น ตัวแทนองค์กร หรือ บริษัท?</h5>
                                         <br>
                                         <?php 
-                                            $status1 = 'checked';
-                                            $status2 = '';
-                                            if (!empty($data->company_name)){ 
-                                              $status2 = 'checked';
-                                              $status1 = '';
+                                            $status2 = 'checked';
+                                            $status1 = '';
+                                            if (@$data->company_type == 0){ 
+                                              $status1 = 'checked';
+                                              $status2 = '';
                                         }?>
                                         <div class="radio radio-default">
                                           <input type="radio" value="0" name="radio1" id="radio1Yes" <?php echo $status1; ?>>
@@ -351,9 +351,10 @@
                                           <label for="radio1No">ใช่ฉันเป็นตัวแทนองค์กรหรือบริษัท</label>
                                         </div>
                                         <br><br>
-                                        <p>เกี่ยวกับองค์กร/บริษัท</p>
+                                    
 
-                                        <div class="form-group-attached">
+                                        <div class="form-group-attached" id="radio-company">
+                                        <p>เกี่ยวกับองค์กร/บริษัท</p>
                                           <div class="row clearfix">
                                             <div class="col-sm">
                                               <div class="form-group form-group-default">
