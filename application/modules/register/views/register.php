@@ -31,6 +31,28 @@
   <link href="<?php echo base_url('assets/css/pages-icons.css'); ?>" rel="stylesheet" type="text/css">
   <link class="main-stylesheet" href="<?php echo base_url('assets/css/themes/corporate.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
+
+    <!-- change style select2 -->
+  <style>
+    .select2-container{
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    
+
+
+  }
+  .select2-container .select2-selection {
+    border: 0px !important;
+  }
+  .select2-container .select2-selection.select2-selection--single{
+    height: 35px;
+    margin-top: 20px;
+  }
+
+  </style>
   <script type="text/javascript">
     window.onload = function()
     {
@@ -75,14 +97,27 @@
           <div class="tab-pane active slide" id="tab1">
           
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <div class="form-group form-group-default required ">
+                    <label>คำนำหน้า</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                    <select name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                                               
+                      <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
+                      <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
+                      <option  <?php echo (@set_value('prename') == 2) ? 'selected':'';?> value="2">นาง</option>
+                      <option  <?php echo (@set_value('prename') == 3) ? 'selected':'';?> value="3">นางสาว</option>
+                      <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
+                    </select>
+                  </div>
+                </div>  
+                <div class="col-md-4">
                   <div class="form-group form-group-default required">
                     <label>ชื่อจริง</label><span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
                     <input type="text"  id="firstname" name="firstname" placeholder="โปรดระบุบชื่อจริง" class="form-control" value="<?php echo set_value('firstname'); ?>" >
 
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group form-group-default required">
                     <label>นามสกุล</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
                     <input type="text" id="lastname" name="lastname" placeholder="โปรดระบุบนามสกุล" class="form-control" value="<?php echo set_value('lastname'); ?>">
@@ -151,7 +186,7 @@
                 <div class="col-sm-6">
                   <div class="form-group form-group-default required">
                     <label>เขต/อำเภอ</label><span class="text-danger"><?php echo form_error('district'); ?></span>
-                    <input type="text" name="district" class="form-control" value="<?php echo set_value('district'); ?>">
+                    <input type="text" name="district" class="form-control" placeholder="ระบุอำเภอของคุณ" value="<?php echo set_value('district'); ?>">
                   </div>
                 </div>
 
@@ -160,9 +195,9 @@
               <div class="row clearfix">
 
                 <div class="col-sm-8">
-                  <div class="form-group form-group-default required "><!--form-group-default-selectFx-->
-                    <label>จังหวัด</label><span class="text-danger"><?php echo form_error('province'); ?></span>
-                    <select  name="province" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select"  >
+                  <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
+                    <label>จังหวัด</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
+                    <select style="width:100%" name="province" class=" form-control" data-init-plugin="select2"  >
                       <option value="">เลือก</option>
                       <?php foreach ($province as $key => $value) { ?>
                         <?php 
@@ -180,7 +215,7 @@
                 <div class="col-sm-4">
                   <div class="form-group form-group-default required">
                     <label>รหัสไปรษณีย์</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
-                    <input type="text" name="zipcode" class="form-control" maxlength="5" value="<?php echo set_value('zipcode'); ?>">
+                    <input type="text" name="zipcode" class="form-control" placeholder="ระบุรหัสไปรษณีย์ของคุณ" maxlength="5" value="<?php echo set_value('zipcode'); ?>">
                   </div>
                 </div>
 

@@ -7,7 +7,7 @@
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
-                <li class="breadcrumb-item active">แก้ไขโปรไฟล์</li>
+                <li class="breadcrumb-item active">สร้างโปรไฟล์</li>
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -41,29 +41,29 @@
                         <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
                           <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                           
-                            <h2>แก้ไขโปรไฟล์</h2>
+                            <h2>สร้างโปรไฟล์</h2>
                             <p>โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p>
                             <br>
                             <div class="profile-img-wrapper2 m-t-5 inline">
-                              <?php echo  cl_image_tag(@$data->profile_img, array( "alt" => "profile","width" => 70 ,"height"=>70  )); ?>
+                              <img alt="" src="<?php echo base_url();?>assets/img/profiles/pr_s1150.jpg" width="70" height="70">
                               <div class="chat-status available">
                               </div>
                             </div>
                             <div class="inline m-l-20">
                               <p class="m-t-5">ชื่อ- สกุล : <?php echo @$data->firstname .' '.@$data->lastname;?>
-                                <br>อาชีพ : <?php echo @$data->job;?><br>ที่อยู่ : <?php echo @$data->address.' ต.'.@$data->subdistrict.' อ.'.@$data->district.' จ.'. @$province_name->name_th.' '.@$data->zipcode;?></p>
+                                <br>อาชีพ : <?php echo @$data->job;?><br>ที่อยู่ : </p>
                               </div>
 
                               <br>
                               <br >
                               <h5>สถานะบัญชี</h5>
-                              <p>สถานะ : <?php echo ($data->user_active == 1) ? "ปกติ" : "<span style='color:red'>ไม่ปกติ</span>"; ?></p>
+                              <p>สถานะ : <?php echo (@$data->user_active == 1) ? "ปกติ" : "<span style='color:red'>ไม่ปกติ</span>"; ?></p>
                               <h5>เปลี่ยนสถานะบัญชี</h5>
-                              <input type="checkbox" id="user-active" name="user_active" class="switchery" <?php echo ($data->user_active == 1) ? "checked value='1'" : "value='0'"; ?> />
+                              <input type="checkbox" id="user-active" name="user_active" class="switchery" <?php echo (@$data->user_active == 1) ? "checked value='1'" : "value='0'"; ?> />
                               <br><br>
-                              <p>สมัครเมื่อ : 15/05/2561</p>
+                              <!-- <p >สมัครเมื่อ : 15/05/2561</p>
                               <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p>
-                              
+                               -->
                               <br>
                             </div>
 
@@ -77,10 +77,10 @@
                             
 
                                   <div class="padding-30 sm-padding-5">
-                                    <?php $attributes = array('name' => 'frmEditProfile', 'id' => 'form-edit-profile');
+                                    <?php $attributes = array('name' => 'frmCreateProfile', 'id' => 'form-create-profile');
                                         $lang = $this->uri->segment(1);
                                         $id = $this->uri->segment(4);
-                                        echo form_open_multipart($lang.'/staff/editProfileSave'.'/'.$id, $attributes); 
+                                        echo form_open_multipart($lang.'/staff/createProfileSave', $attributes); 
                                     ?>
                                       <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
                                       <input type="hidden"  id="user_active" name="user_active" value="" />
@@ -92,12 +92,12 @@
                                               <label>คำนำหน้า</label>
                                               <select name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                
-                                                <option  <?php echo (@$data->prename == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
-                                                <option  <?php echo (@$data->prename == 2) ? 'selected':'';?> value="2">นาง</option>
-                                                <option  <?php echo (@$data->prename == 3) ? 'selected':'';?> value="3">นางสาว</option>
-                                                <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
-                                              </select>
+                                               <option  <?php echo (@$data->prename == '') ? 'selected':'';?> value="" >เลือก</option>
+                                               <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
+                                               <option  <?php echo (@$data->prename == 2) ? 'selected':'';?> value="2">นาง</option>
+                                               <option  <?php echo (@$data->prename == 3) ? 'selected':'';?> value="3">นางสาว</option>
+                                               <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
+                                             </select>
                                             </div>
                                           </div>
                                           <div class="col-sm-5">
@@ -119,17 +119,17 @@
                                         <br>
                                         <p>รหัสผ่าน</p>
                                         <div class="form-group form-group-default has-error">
-                                          <label class="">Old Password</label>
+                                          <label class="">Password</label>
                                           <span class="text-danger">
                                             <?php  if($this->session->flashdata('error_old_pass')){
                                                   echo $this->session->flashdata('error_old_pass');
                                                   $this->session->unset_userdata('error_old_pass');
                                                 }  ?>
                                           </span>
-                                          <input name="password" placeholder="ใส่รหัสผ่านเดิม" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password" value="<?php //echo $this->encrypt->decode(@$data->password);?>">
+                                          <input name="password" placeholder="ตั้งรหัสผ่าน" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password" value="<?php //echo $this->encrypt->decode(@$data->password);?>">
                                         </div>
-                                        <br>
-                                        <div class="form-group form-group-default has-error">
+                                        <!-- <br> -->
+                                        <!-- <div class="form-group form-group-default has-error">
                                           <label class="">New Password</label>
                                           <span class="text-danger">
                                           <?php   if($this->session->flashdata('error_pass_new')){
@@ -138,17 +138,17 @@
                                                 } ?>
                                           </span>
                                           <input name="pass_new" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
-                                        </div>
+                                        </div> -->
                                         <br>
                                         <div class="form-group form-group-default has-error">
-                                          <label class="">Confirm New Password</label>
+                                          <label class="">Confirm Password</label>
                                           <span class="text-danger">
                                           <?php  if($this->session->flashdata('error_pass_new_confirm')){
                                                   echo $this->session->flashdata('error_pass_new_confirm');
                                                   $this->session->unset_userdata('error_pass_new_confirm');
                                                 } ?>
                                           </span>
-                                          <input name="pass_new_confirm" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
+                                          <input name="pass_new_confirm" placeholder="พิมพ์รหัสผ่านอีกครั้ง" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                         </div>
 
 
@@ -172,21 +172,21 @@
                                           <div class="col-sm-6">
                                             <div class="form-group form-group-default required">
                                               <label>เขต/อำเภอ</label>
-                                              <input name="district" type="text" class="form-control" value="<?php echo @$data->district; ?>">
+                                              <input name="district" type="text" class="form-control" placeholder="ระบุอำเภอของคุณ" value="<?php echo @$data->district; ?>">
                                             </div>
                                           </div>
                                         </div>
                                         <div class="row clearfix">
                                         <div class="col-sm-9">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
-                                              <label for="province">จังหวัด</label>
+                                              <label>จังหวัด</label>
                                               <select style="width:100%" id="province" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" name="province">
-                                                <option  value="" >เลือก</option>
+                                                <option  value=""  >เลือก</option>
                                                 <?php foreach ($province as $key => $value) { ?>
                                                   <?php 
                                                     $select = '';
                                                     if(@$data->province == $value->code ){
-                                                        $select =  "selected='selected'";
+                                                        $select =  'selected="selected"';
                                                     } ?>
                                                   <option <?php echo $select; ?>  value="<?php echo $value->code;?>"><?php echo $value->name_th;?></option>
                                                 <?php } ?>
@@ -196,11 +196,10 @@
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default required">
                                               <label>รหัสไปรษณีย์</label>
-                                              <input name="zipcode" type="text" class="form-control" value="<?php echo @$data->zipcode; ?>" >
+                                              <input name="zipcode" type="text" class="form-control"  value="<?php echo @$data->zipcode; ?>" >
                                             </div>
                                           </div>
                                         </div>
-                                      
                                         <br>
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -208,57 +207,53 @@
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
                                                 <label>เบอร์โทรศัพท์</label>
-                                                <input type="text" id="phone" name="phone" class="form-control" value="<?php echo @$data->phone;?>">
+                                                <input type="text" id="phone" name="phone" class="form-control" value="">
                                               </div>
                                             </div>
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
                                                 <label>Email</label>
+                                                <span class="text-danger">
+                                                  <?php  if($this->session->flashdata('error_email')){
+                                                        echo $this->session->flashdata('error_email');
+                                                        $this->session->unset_userdata('error_email');
+                                                      }  ?>
+                                                </span>
                                                 <input name="email" type="text" class="form-control" value="<?php echo @$data->email;?>">
                                               </div>
                                             </div>
+
                                           </div>
 
                                         </div>
-                                        
-                                        <br>
-                                         <p>รูปภาพโปรไฟล์</p>
-                                          <div class="col-sm-12">
-                                            <!-- <form  class="dropzone" id="form-regis-upload"> -->
-                                              <div class="fallback">
-                                                <input name="profile_img" type="file" size='20' />
-                                              </div>
-                                            <!-- </form> -->
-                                          </div>
+
+
                                         <br>
                                        
                                         <p>เกี่ยวกับงาน</p>
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
-                                            <div class="col-sm-12">
-                                              <div class="form-group form-group-default  form-group-default-selectFx">
-                                                <label>อาชีพ</label>
-                                                <select name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                                                
-                                                  <option  <?php echo (@$data->job == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                  <option  <?php echo (@$data->job == 1) ? 'selected':'';?> value="1">ผู้ประกอบการ SME</option>
-                                                  <option  <?php echo (@$data->job == 2) ? 'selected':'';?> value="2">ผู้ประกอบการธุรกิจสร้างสรรค์</option>
-                                                  <option  <?php echo (@$data->job == 3) ? 'selected':'';?> value="3">ผู้ประกอบการรายใหม่</option>
-                                                  <option  <?php echo (@$data->job == 4) ? 'selected':'';?> value="4">ผู้บริหาร/หุ้มส่วนกิจการ</option>
-                                                  <option  <?php echo (@$data->job == 5) ? 'selected':'';?> value="5">พนักงาน/พนักงานบริษัท</option>
-                                                  <option  <?php echo (@$data->job == 6) ? 'selected':'';?> value="6">นักออกแบบ/ศิลปิน/สถาปนิก/ช่างฝีมือ</option>
-                                                  <option  <?php echo (@$data->job == 7) ? 'selected':'';?> value="7">นักเรียนนักศึกษา</option>
-                                                  <option  <?php echo (@$data->job == 8) ? 'selected':'';?> value="8">อาชีพอิสระที่เกี่ยวข้องกับงานด้านการออกแบบและพัฒนาสินและบริการ</option>
-                                                  <option  <?php echo (@$data->job == 9) ? 'selected':'';?> value="9">อื่นๆ (โปรดระบุ)</option>
-        
-                                                </select>
+                                              <div class="col-sm-12">
+                                                <div class="form-group form-group-default  form-group-default-selectFx">
+                                                  <label>อาชีพ</label>
+                                                  <select name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                                  
+                                                    <option  <?php echo (@$data->job == '') ? 'selected':'';?> value="" >เลือก</option>
+                                                    <option  <?php echo (@$data->job == 1) ? 'selected':'';?> value="1">ผู้ประกอบการ SME</option>
+                                                    <option  <?php echo (@$data->job == 2) ? 'selected':'';?> value="2">ผู้ประกอบการธุรกิจสร้างสรรค์</option>
+                                                    <option  <?php echo (@$data->job == 3) ? 'selected':'';?> value="3">ผู้ประกอบการรายใหม่</option>
+                                                    <option  <?php echo (@$data->job == 4) ? 'selected':'';?> value="4">ผู้บริหาร/หุ้มส่วนกิจการ</option>
+                                                    <option  <?php echo (@$data->job == 5) ? 'selected':'';?> value="5">พนักงาน/พนักงานบริษัท</option>
+                                                    <option  <?php echo (@$data->job == 6) ? 'selected':'';?> value="6">นักออกแบบ/ศิลปิน/สถาปนิก/ช่างฝีมือ</option>
+                                                    <option  <?php echo (@$data->job == 7) ? 'selected':'';?> value="7">นักเรียนนักศึกษา</option>
+                                                    <option  <?php echo (@$data->job == 8) ? 'selected':'';?> value="8">อาชีพอิสระที่เกี่ยวข้องกับงานด้านการออกแบบและพัฒนาสินและบริการ</option>
+                                                    <option  <?php echo (@$data->job == 9) ? 'selected':'';?> value="9">อื่นๆ (โปรดระบุ)</option>
+          
+                                                  </select>
+                                                </div>
                                               </div>
                                             </div>
-                                          </div>
-
-
-                                          
-                                           <div class="row clearfix" id="job_detail" <?php echo (@$data->job_detail && @$data->job == 9) ?  "" : "style='display:none;'" ?>>
+                                            <div class="row clearfix" id="job_detail" <?php echo (@$data->job_detail && @$data->job == 9) ?  "" : "style='display:none;'" ?>>
                                             <div class="col-sm-12">
                                               <div class="form-group form-group-default ">
                                     
@@ -293,8 +288,6 @@
                                               </div>
                                             </div>
                                           </div>
-
-                                        </div>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -332,6 +325,18 @@
                                           </div>
                                         </div>
 
+                                        </div>
+
+                                         <br>
+                                         <p>รูปภาพโปรไฟล์</p>
+                                          <div class="col-sm-12">
+                                            <!-- <form  class="dropzone" id="form-regis-upload"> -->
+                                              <div class="fallback">
+                                                <input name="profile_img" type="file" size='20' />
+                                              </div>
+                                            <!-- </form> -->
+                                          </div>
+
                                         <br>
 
                                        <?php if ($this->session->userdata('sesUserType') == 3){ ?>
@@ -340,7 +345,7 @@
                                         <?php 
                                             $status1 = 'checked';
                                             $status2 = '';
-                                            if (!empty($data->company_name)){ 
+                                            if (!empty($company->company_name)){ 
                                               $status2 = 'checked';
                                               $status1 = '';
                                         }?>
@@ -358,54 +363,51 @@
                                             <div class="col-sm">
                                               <div class="form-group form-group-default">
                                                 <label>ชื่อบริษัท/องค์กร</label>
-                                                <input type="text" name="company_name" id="company_name " class="form-control" value="<?php echo @$data->company_name;?>" >
+                                                <input type="text" name="company_name" id="company_name " class="form-control" value="<?php echo @$company->company_name;?>" >
                                               </div>
                                             </div>
                                             <div class="form-group form-group-default required">
                                               <label>ที่อยู่</label>
-                                              <input type="text" name="company_address" id="company_address " class="form-control" placeholder="โปรดระบุบที่อยู่ขององค์กรหรือบริษัท" value="<?php echo @$data->company_address;?>">
+                                              <input type="text" name="company_address" id="company_address " class="form-control" placeholder="โปรดระบุบที่อยู่ขององค์กรหรือบริษัท" value="<?php echo @$company->address;?>">
                                             </div>
                                           </div>
 
                                           <div class="row clearfix">
-                                          <div class="col-sm-6">
-                                              <div class="form-group form-group-default required">
-                                                <label>ตำบล/แขวง</label>
-                                                <input type="text" name="company_subdistrict" id="company_subdistrict" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo @$data->company_subdistrict;?>" >
-                                              </div>
-                                            </div>
-
                                             <div class="col-sm-6">
-                                              <div class="form-group form-group-default required">
-                                                <label>เขต/อำเภอ</label>
-                                                <input type="text" name="company_district" id="company_district" placeholder="ระบุอำเภอของคุณ" class="form-control" value="<?php echo @$data->company_district;?>">
-
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="row clearfix">
-
-                                          <div class="col-sm-9">
                                               <div class="form-group form-group-default required form-group-default-selectFx">
-                                                <label for="company_province">จังหวัด</label>
-                                                <select style=" width:100;"   name="company_province" id="company_province " class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2">
-                                                  <option value="" selected disable>เลือก</option>
+                                                <label>จังหวัด</label>
+                                                <select   name="company_province" id="company_province " class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="cs-select">
+                                                  <option   value="">เลือก</option>
                                                   <?php 
                                                    foreach ($province as $key => $value) { ?>
                                                     <?php 
                                                       $select = ''; 
-                                                      if(@$data->company_province == $value->code ){
-                                                          $select =  'selected';
+                                                      if(@$company->province == $value->code ){
+                                                          $select =  'selected="selected"';
                                                       } ?>
                                                     <option <?php echo $select; ?> value="<?php echo $value->code;?>"><?php echo $value->name_th;?></option>
                                                   <?php } ?>
                                                 </select>
                                               </div>
                                             </div>
+                                            <div class="col-sm-6">
+                                              <div class="form-group form-group-default required">
+                                                <label>เขต/อำเภอ</label>
+                                                <input type="text" name="company_district" id="company_district" class="form-control" value="<?php echo @$company->district;?>">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row clearfix">
+                                            <div class="col-sm-9">
+                                              <div class="form-group form-group-default required">
+                                                <label>ตำบล/แขวง</label>
+                                                <input type="text" name="company_subdistrict" id="company_subdistrict" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo @$company->subdistrict;?>" >
+                                              </div>
+                                            </div>
                                             <div class="col-sm-3">
                                               <div class="form-group form-group-default required">
                                                 <label>รหัสไปรษณีย์</label>
-                                                <input type="text" name="company_zipcode" id="company_zipcode"  class="form-control" value="<?php echo @$data->company_zipcode;?>">
+                                                <input type="text" name="company_zipcode" id="company_zipcode" class="form-control" value="<?php echo @$company->zipcode;?>">
                                               </div>
                                             </div>
                                           </div>
@@ -425,12 +427,12 @@
                                   <div class="padding-20 sm-padding-5 sm-m-b-20 sm-m-t-20 bg-white clearfix">
                                     <ul class="pager wizard no-style">
                                       <li class="next">
-                                        <button id="btn-finish" class="btn btn-primary btn-cons pull-right" type="button">
+                                        <button id="btn-create-finish" class="btn btn-primary btn-cons pull-right" type="button">
                                           <span>บันทึก</span>
                                         </button>
                                       </li>
                                       <li class="next finish hidden">
-                                        <button id="btn-finish" class="btn btn-primary btn-cons btn-animated from-left fa fa-cog pull-right" type="button">
+                                        <button id="btn-create-finish" class="btn btn-primary btn-cons btn-animated from-left fa fa-cog pull-right" type="button">
                                           <span>เสร็จสิ้น</span>
                                         </button>
                                       </li>
