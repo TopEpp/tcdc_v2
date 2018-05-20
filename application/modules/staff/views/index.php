@@ -94,7 +94,7 @@
           </div>
 
           <!-- start news crade -->
-          <div class=" container-fluid   container-fixed-lg">
+          <div class=" container-fluid   container-fixed-lg" style="padding-bottom: 50px;">
             <div class="row">
               <div class="col-lg-12">
                 <div class="card card-transparent">
@@ -138,20 +138,8 @@
         </div>
       </div>
 
-            <div class=" container-fluid  container-fixed-lg footer">
-              <div class="copyright sm-text-center">
-                <p class="small no-margin pull-left sm-pull-reset">
-                  <span class="hint-text">Copyright &copy; 2018 </span>
-                  <span class="font-montserrat">TCDC Chiang Mai</span>.
-                  <span class="hint-text">All rights reserved. </span>
-                  <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> <span class="muted">|</span> <a href="#" class="m-l-10">Privacy Policy</a></span>
-                </p>
-
-                <div class="clearfix"></div>
-              </div>
-            </div>
-            <!-- END COPYRIGHT -->
+            
           </div>
           <!-- END PAGE CONTENT WRAPPER -->
-        </div>
+        
         <!-- END PAGE CONTAINER -->

@@ -8,7 +8,7 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
                 <li class="breadcrumb-item"><a href="#">การจัดการ</a></li>
-                <li class="breadcrumb-item active">โครงการเชียงใหม่วิถีไทย ประจำปี 2561</li>
+                <li class="breadcrumb-item active"><?php echo $prj->project_name;?></li>
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -27,7 +27,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>ผู้ขอเข้าร่วม โครงการเชียงใหม่วิถีไทย ประจำปี 2561</h3>
+                      <h3>ผู้ขอเข้าร่วม <?php echo $prj->project_name;?></h3>
                       <p></p>
                     </div>
 
@@ -49,38 +49,22 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($member_reg as $key => $mem) { 
+                    $reg_status = '<span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>';
+                    if($mem->reg_status){
+                      $reg_status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>';
+                    } 
+                 ?>
                   <tr>
-                    <td class="v-align-middle semi-bold">สุขใจ งามดี</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> จัดการ</a>
+                    <td class="v-align-middle semi-bold"><?php echo $mem->member_name;?></td>
+                    <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
+                    <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
+                      <td class="v-align-middle semi-bold"><a href="#"><i class="fa fa-edit"></i> จัดการ</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="v-align-middle semi-bold">แก้วกล้า มามาก</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="v-align-middle semi-bold">ทอง ขาวขำ</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="v-align-middle semi-bold">เก่งกล้า มีใจ</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                    </td>
-                  </tr>
+                <?php } ?>
                 </tbody>
               </table>
-
-
 
             </div>
           </div>
@@ -91,9 +75,6 @@
   </div>
 
   <!-- start news crade -->
-
-
-
   <!-- end news crade -->
 
   <!-- END PLACE PAGE CONTENT HERE -->
