@@ -880,7 +880,7 @@
                                       <div class="col-sm-4">
                                         <div class="form-group form-group-default required form-group-default-selectFx">
                                           <label>ประเภทผลงาน</label>
-                                          <select id="product_type" style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
+                                          <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
                                             <option value="">เลือก</option>
                                             <option value="1">เฟอร์นิเจอร์</option>
                                             <option value="2">ไลฟ์สไตล์</option>

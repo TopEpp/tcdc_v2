@@ -130,23 +130,30 @@ class member extends MY_Controller
 		//end data register
 	
 		//save user detail
-		$this->member_model->saveRegis($data_regis);
+		$insert_id = $this->member_model->saveRegis($data_regis);
 		//end save user detail
 
 		//all product save
 		$status = false;
 		$product_name = $this->input->post('product_name');
+	
 		if(!empty($product_name)){
 			
 			foreach ($product_name as $key => $value) {
+			
 
 				if(!empty($value)){
 					
-					$dates = explode('/',$this->input->post('product_date')[$key]);
-					$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
+					$product_date = '';
+					if (!empty($this->input->post('product_date')[$key])){
+						$dates = explode('/',$this->input->post('product_date')[$key]);
+						$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
+					}
+					
 
 					$data_product = array(
-						'reg_id' =>'1',
+						'reg_id' => $insert_id,
+						'product_num' => $key,
 						'product_type' =>  $this->input->post('product_type')[$key],
 						'product_name' =>  $this->input->post('product_name')[$key],
 						'material' =>  $this->input->post('material')[$key],
@@ -166,15 +173,15 @@ class member extends MY_Controller
 					//end save user detail
 			
 				}
+				
 
 			}
 		}
 
 		if($status){
 			$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">ลงทะเบียน สำเร็จ </div>');
-			// redirect(base_url('member'));
-			$this->index();
-		
+			redirect(base_url('member'));
+			
 		}else{
 			$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียน ไม่สำเร็จ</div>');
 			 redirect(base_url('member'));

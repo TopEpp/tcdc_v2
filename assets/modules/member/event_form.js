@@ -15,9 +15,9 @@
             .appendTo(".clone-form")
             .attr("id", "clonedInput" +  cloneIndex)
             .find("*")
-            .each(function(){  
-                $(this).val('');
-             })
+            // .each(function(){  
+            //     // $(this).val('');
+            //  })
             .on('click', 'a#clone', clone);
         // .on('click', 'button.remove', remove);
 
@@ -25,6 +25,7 @@
         cloneIndex++;
 
         $('#num', clone_data).text(cloneIndex+". ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
+        $('input', clone_data).val('');
         $('.select2', clone_data).remove();
         $('.datepicker-range').datepicker(); 
         $("select[name='product_type[]']").select2();
