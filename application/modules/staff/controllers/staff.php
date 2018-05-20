@@ -179,7 +179,7 @@ class staff extends MY_Controller {
 
 		$this->config->set_item('title','ผู้ขอเข้าร่วมโครงการ');
 		$this->setView('show_user',$data);
-
+	}
 
 	//management members all
 	function user_manage()
