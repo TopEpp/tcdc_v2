@@ -145,15 +145,9 @@
             <li class="m-t-30 ">
               <a href="<?php echo base_url('staff');?>" class="detailed">
                 <span class="title"><?php echo lang('bashboard');?></span>
-                <span class="details">มี 3 การอัปเดท</span>
+                <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
-            </li>
-            <li class="">
-              <a href="<?php echo base_url('staff/project_manage');?>" class="detailed">
-                <span class="title"><?php echo lang('manage');?></span>
-              </a>
-              <span class="icon-thumbnail"><i class="pg-mail"></i></span>
             </li>
             <li class="">
               <a href="<?php echo base_url('news');?>" class="detailed">
@@ -167,7 +161,7 @@
             </li>
             <li class="">
               <a href="<?php echo base_url('faq');?>" class="detailed">
-                <span class="title"><?php echo lang('faq');?></span>
+                <span class="title"><?php echo lang('help');?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
             </li>

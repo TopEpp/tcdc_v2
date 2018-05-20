@@ -31,11 +31,13 @@
                     <div class="card-title">
                       <h3>แอพที่เปิดให้บริการ</h3>
                       <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p>
+                      <?php if($this->session->userdata('sesUserType')==1){?>
                       <div class="pull-right">
                         <div class="col-xs-12">
                           <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างโครงการ</a>
                         </div>
                       </div>
+                      <?php }?>
                     </div>
                   </div>
                   <div class="card-block">
