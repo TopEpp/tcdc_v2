@@ -180,8 +180,11 @@ class staff extends MY_Controller {
 	}
 
 	function show_user_register(){
-
 		$data = array();
+		$data['project'] = $this->staff_model->getProject();
+		foreach ($data['project'] as $key => $prj) {
+			$data['member_reg'][$prj->project_id] = $this->staff_model->getProjectRegist($prj->project_id);
+		}
 		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
 		$this->setView('show_user_register',$data);
         $this->publish();

@@ -128,7 +128,7 @@
                       <td class="v-align-middle semi-bold"  width="50%">
                         <p><span id="news_name_<?php echo $value->news_id;?>"><?php echo $value->news_name?></span></p>
                       </td>
-                      <td><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
+                      <td class="v-align-middle semi-bold" ><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
                       <td class="v-align-middle">
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
