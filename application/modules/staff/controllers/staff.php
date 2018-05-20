@@ -334,7 +334,7 @@ class staff extends MY_Controller {
 				
 				//company 
 				$data_company = array(
-					'company_type' => $this->input->post('radio1'),
+					
 					'company_name' => $this->input->post('company_name'),
 					'company_address' => $this->input->post('company_address'),
 					'company_province' => $this->input->post('company_province'),
@@ -343,6 +343,11 @@ class staff extends MY_Controller {
 					'company_zipcode' => $this->input->post('company_zipcode')
 
 				);
+				if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
+					$data_company['company_type'] = $this->input->post('radio1');
+				}else{
+					$data_company['company_type'] = '1';
+				}
 		
 				//end company
 			

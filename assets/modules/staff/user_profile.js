@@ -57,7 +57,8 @@
     }).get().join(",");
   
     if ($company != 1){
-      document.getElementById("radio-company").style.display = "none";
+      $("#radio-company").hide();
+      // document.getElementById("radio-company").style.display = "none";
     }
     else{
       document.getElementById("radio-company").style.display = "block";
