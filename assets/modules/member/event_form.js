@@ -26,6 +26,9 @@
 
         $('#num', clone_data).text(cloneIndex+". ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
         $('input', clone_data).val('');
+        $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
+        $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
+        $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
         $('.select2', clone_data).remove();
         $('.datepicker-range').datepicker(); 
         $("select[name='product_type[]']").select2();
@@ -104,7 +107,7 @@
     
      // max select file upload
      $("#product_img").on("change", function() {
-        if($("#product_img")[0].files.length > 1) {
+        if($("#product_img")[0].files.length > 5) {
             alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
             return false;
         } 

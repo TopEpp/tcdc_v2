@@ -1012,7 +1012,7 @@
                                             <div class="form-group  ">
                                               <label>ภาพรวมของผลงาน</label>
                                               <div class="fallback">
-                                                <input id="product_img" name="product_img[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                               </div>
                                             </div>
                                           </div>
@@ -1024,7 +1024,7 @@
                                             <div class="form-group ">
                                               <label>ภาพ Close Up</label>
                                               <div class="fallback">
-                                                <input id="product_closeup" name="product_closeup[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                               </div>
                                             </div>
                                           </div>
@@ -1036,7 +1036,7 @@
                                             <div class="form-group ">
                                               <label>ภาพ Pack Shot</label>
                                               <div class="fallback">
-                                                <input id="product_packshot" name="product_packshot[][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                               </div>
                                               
                                             </div>

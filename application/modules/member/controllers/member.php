@@ -53,6 +53,7 @@ class member extends MY_Controller
 	{
 		$id = $this->session->userdata('sesUserID');
 
+
 		//save user
 		$data_user = array(
 			'prename' => $this->input->post('prename'),
@@ -140,10 +141,59 @@ class member extends MY_Controller
 		if(!empty($product_name)){
 			
 			foreach ($product_name as $key => $value) {
-			
-
 				if(!empty($value)){
 					
+					//upload image  product_img
+					$product_img = array();
+					if ( !empty( $_FILES['product_img']['name'][$key+1]) && is_null($_FILES['product_img']['name'][$key+1])){
+						//upload data
+						$image = $_FILES['product_img']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_img,$imageupload['public_id']);
+						}
+						$product_img = implode(",",$product_img);
+					}
+
+				
+					//end upload product_img
+
+					//upload image  product_closeup
+					$product_closeup = array();
+					if ( !empty( $_FILES['product_closeup']['name'][$key+1]) && is_null($_FILES['product_closeup']['name'][$key+1]) ){
+						//upload data
+						$image = $_FILES['product_closeup']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_closeup,$imageupload['public_id']);
+						}
+						$product_closeup = implode(",",$product_closeup);
+					}
+
+					
+					//end upload product_closeup
+
+					//upload image  product_packshot
+					$product_packshot = array();
+					if (!empty( $_FILES['product_packshot']['name'][$key+1])&& is_null($_FILES['product_packshot']['name'][$key+1])  ){
+						//upload data
+						$image = $_FILES['product_packshot']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_packshot,$imageupload['public_id']);
+						}
+						$product_packshot = implode(",",$product_packshot);
+					}
+
+					
+					//end upload product_packshot
+
 					$product_date = '';
 					if (!empty($this->input->post('product_date')[$key])){
 						$dates = explode('/',$this->input->post('product_date')[$key]);
@@ -165,9 +215,14 @@ class member extends MY_Controller
 						'product_concept' =>  $this->input->post('product_concept')[$key],
 						'product_firstname' =>  $this->input->post('product_firstname')[$key],
 						'product_lastname' =>  $this->input->post('product_lastname')[$key],
-						'product_img' =>  $this->input->post('product_img')[$key],
 					);
-				
+					
+					if(!empty($product_img))
+						$data_product['product_img'] = $product_img;
+					if(!empty($product_closeup))
+						$data_product['product_closeup'] = $product_closeup;
+					if(!empty($product_packshot))
+						$data_product['product_packshot'] = $product_packshot;
 					//save user detail
 					$status = $this->member_model->saveProduct($data_product);
 					//end save user detail
