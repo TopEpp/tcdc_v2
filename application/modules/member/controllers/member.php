@@ -202,14 +202,14 @@ class member extends MY_Controller
 	function member_profile(){
 
 		// load the cloudinary dummy library
-		$this->load->library('cloudinarylib');
-		 $data['image'] = cl_image_tag("profile/flej8ut3cueyra8cfu2b", array( "alt" => "Sample Image" ));
-		// $data['imageupload'] = cloudinary_url("https://kojiflowers.com/wp-content/uploads/2017/01/vide-1050x478.png");
-		// $data['imageupload'] = \Cloudinary\Uploader::upload("https://kojiflowers.com/wp-content/uploads/2017/01/vide-1050x478.png",array(
-		// 	"folder"=>'profile'
-		// ));
+		// $this->load->library('cloudinarylib');
+		//  $data['image'] = cl_image_tag("profile/flej8ut3cueyra8cfu2b", array( "alt" => "Sample Image" ));
+		// // $data['imageupload'] = cloudinary_url("https://kojiflowers.com/wp-content/uploads/2017/01/vide-1050x478.png");
+		// // $data['imageupload'] = \Cloudinary\Uploader::upload("https://kojiflowers.com/wp-content/uploads/2017/01/vide-1050x478.png",array(
+		// // 	"folder"=>'profile'
+		// // ));
 
-		print_r($data);die();
+		// print_r($data);die();
 
 		$this->setView('member_profile');
         $this->publish();

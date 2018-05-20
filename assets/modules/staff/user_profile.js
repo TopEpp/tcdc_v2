@@ -27,6 +27,7 @@
 
   //user active status
   $(document).ready(function() {
+
     $("#user-active").change(function(){
    
       if($('#user-active').is(':checked')){
@@ -38,6 +39,17 @@
   });
 
   $(document).ready(function() {
+
+    //job change 
+    $("#job").change(function(){
+      if ($(this).val() == 9){
+
+         document.getElementById("job_detail").style.display = "block";
+      }else{
+        document.getElementById("job_detail").value = "";
+        document.getElementById("job_detail").style.display = "none";
+      }
+    });  
 
     //get status company
     $company =   $("input[name=radio1]:checked").map(function() {
