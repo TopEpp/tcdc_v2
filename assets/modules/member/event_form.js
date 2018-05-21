@@ -3,14 +3,12 @@
   {
       
     $('.datepicker-range').datepicker();
-    $('#form-event-profile').validate();
+    // $('#form-event-profile').validate();
    
-
-    var regex = /^(.+?)(\d+)$/i;
     var cloneIndex = $(".clonedInput").length;
   
     function clone(){
-        // console.log(cloneIndex)
+         console.log(cloneIndex)
         var clone_data = $("#second").parents(".clonedInput").clone()
             .appendTo(".clone-form")
             .attr("id", "clonedInput" +  cloneIndex)
@@ -24,7 +22,7 @@
                
         cloneIndex++;
 
-        $('#num', clone_data).text(cloneIndex+". ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
+        $('#num', clone_data).text("1. ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
         $('input', clone_data).val('');
         $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
         $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');

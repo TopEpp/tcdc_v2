@@ -294,7 +294,25 @@
                                             </div>
                                           </div>
 
-                                        </div>
+                                          <div class="row clearfix">
+                                              <div class="col-sm-12">
+                                                <div class="form-group form-group-default  form-group-default-selectFx">
+                                                  <label>ลักษณะสินค้าและบริการของท่านอยู่ในระยะใด</label>
+                                                  <select style="width:100%" name="company_service" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                                  
+                                                    <option  <?php echo (@$data->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
+                                                    <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังนำต้นแบบไปทดลองหรือทดสอบตลาด</option>
+                                                    <option  <?php echo (@$data->company_service == 2) ? 'selected':'';?> value="2">กำลังเริ่มการผลิตเชิงพาณิชย์</option>
+                                                    <option  <?php echo (@$data->company_service == 3) ? 'selected':'';?> value="3">ผลิตและจำหน่ายจริงมาแล้ว น้อยกว่า 3 ปี</option>
+                                                    <option  <?php echo (@$data->company_service == 4) ? 'selected':'';?> value="4">ผลิตและจำหน่ายจริงมาแล้ว 3-10 ปี</option>
+                                                    <option  <?php echo (@$data->company_service == 5) ? 'selected':'';?> value="5">ผลิตและจำหน่ายจริงมาแล้ว มากกว่า 10 ปี</option>
+                                      
+                                                  </select>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                          </div>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">

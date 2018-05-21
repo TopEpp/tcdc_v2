@@ -16,6 +16,28 @@ class member_model extends MY_Model{
         return $query->result_array();
     }
 
+    //get status user regis
+    public function getUserRegis($id,$user_id){
+        $this->db->select('*');
+        $this->db->where('tcdc_prj_register.project_id',$id);
+        $this->db->where('tcdc_prj_register.user_id',$user_id);
+        $this->db->from('tcdc_prj_register');
+        $query = $this->db->get();
+        $regis = $query->row_array();
+        if (!empty($regis)){
+            $this->db->select('*');
+            $this->db->where('tcdc_product.reg_id',$regis['reg_id']);
+            $this->db->from('tcdc_product');
+            $query = $this->db->get();
+            $product = $query->result_array();
+            
+            $regis['product'] = $product;
+        }
+      
+        return $regis;
+    }
+
+    //save or edit user regis
     public function saveRegis($data)
     {
         

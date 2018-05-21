@@ -49,8 +49,14 @@ class staff_model extends MY_Model{
 
 
     //create user save
-    public function saveCreateUser($data){
-        return $this->db->insert('tcdc_member',$data);
+    public function saveCreateUser($data,$data_company){
+        $status = $this->db->insert('tcdc_member',$data);
+        if ($status){
+            $data_company['member_id'] = $this->db->insert_id();
+            $this->db->insert('tcdc_member_company',$data_company);
+        }
+       
+        return true;
     }
     //save edit user
     public function saveEditUser($id='',$data,$data_company){

@@ -40,7 +40,7 @@ class member extends MY_Controller
 
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
-			// $data['company'] = $this->staff_model->getUserCompany($user_id);
+			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
 			$this->template->javascript->add('assets/modules/member/event_form.js');
 			$this->setView('event_form',$data);
         		$this->publish();
