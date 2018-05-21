@@ -2,12 +2,14 @@
       <div class="content ">
         <div class=" container-fluid   container-fixed-lg">
           <!-- START CONTAINER FLUID -->
+
           <?php $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
                               $lang = $this->uri->segment(1);
                               $id = $this->uri->segment(4);
                               echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
               ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
+           <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
             <div id="rootwizard" class="m-t-50">
               <!-- Nav tabs -->
@@ -33,6 +35,13 @@
              
               <div class="tab-content">
                 <div class="tab-pane padding-20 sm-no-padding active slide-left" id="tab1">
+                
+                <?php             
+                  if($this->session->flashdata('error')){
+                      echo $this->session->flashdata('error');
+                      $this->session->unset_userdata('error');
+                    } 
+                  ?>
                   <div class="row row-same-height">
                     <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
                       <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
@@ -837,7 +846,234 @@
                   </div>
                   
                   <div class="clone-form">
-                  <?php foreach ($regis['product'] as $key => $value) { ?>
+                  <?php if( empty(@$regis['product']) ) { ?>
+
+                   <div class="clonedInput" id="clonedInput">
+                      <div class="row row-same-height " id ="second">
+                          <div class="col-md-5 b-r b-dashed b-grey ">
+                            <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                              <h2>ข้อมูลผลงานออกแบบ</h2>
+                              <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
+                            </div>
+                          </div>
+
+                            <div class="col-md-7 ">
+                              <div class="padding-30 sm-padding-5">
+                                <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ </p>
+                                <div class="form-group-attached">
+                                    <div class="row clearfix">
+
+                                      <div class="col-sm-4">
+                                        <div class="form-group form-group-default required form-group-default-selectFx">
+                                          <label>ประเภทผลงาน</label>
+                                          <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
+                                            <option  value="">เลือก</option>
+                                            <option  value="1">เฟอร์นิเจอร์</option>
+                                            <option  value="2">ไลฟ์สไตล์</option>
+                                            <option  value="3">ตกแต่งบ้าน</option>
+                                            <option  value="4">เครื่องประดับ</option>
+                                            <option  value="5">แฟชั่น</option>
+                                            <option  value="6">อาหาร</option>
+                                            <option  value="7">สื่อ (multimedia, Graphic)</option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-sm-8">
+                                        <div class="form-group form-group-default required">
+                                          <label>ชื่อผลงาน</label>
+                                          <input  id="product_name" name="product_name[]" type="text" class="form-control" >
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default required">
+                                            <label>วัสดุ</label>
+                                            <input name="material[]" type="text" class="form-control"  >
+                                          </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default">
+                                            <p class="all-caps fs-12 bold">วันที่ออกแบบ/จัดทำ :</p>
+                                        
+                                            <div id="myDatepicker" class="input-group date">
+                                              <input name="product_date[]" type="text" class="form-control datepicker-range" >
+                                              <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                              </span>
+                                            </div>
+
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+
+
+                                    <br>
+                                    <p>2. ขนาดและจำนวนของผลงาน</p>
+
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+                                        <div class="col-sm-4">
+
+                                          <div class="form-group form-group-default input-group">
+                                            <div class="form-input-group">
+                                              <label class="">กว้าง</label>
+                                              <input name="product_width[]" class="form-control" type="text" >
+                                            </div>
+                                            <div class="input-group-addon">
+                                              ซ.ม.
+                                            </div>
+                                          </div>
+
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                          <div class="form-group form-group-default input-group">
+                                            <div class="form-input-group">
+                                              <label class="">ยาว</label>
+                                              <input name="product_length[]" class="form-control" type="text" >
+                                            </div>
+                                            <div class="input-group-addon">
+                                              ซ.ม.
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                          <div class="form-group form-group-default input-group">
+                                            <div class="form-input-group">
+                                              <label class="">สูง</label>
+                                              <input  name="product_height[]"class="form-control" type="text" >
+                                            </div>
+                                            <div class="input-group-addon">
+                                              ซ.ม.
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <br>
+                                        <div class="col-sm">
+                                          <br>
+                                          <div class="form-group">
+                                            <label>จำนวนผลงาน</label>
+                                            <span class="help">โปรดระบุบจำนวนชิ้นที่ประกอบการจัดแสดง</span>
+                                            <input name="product_amount[]" class="form-control"  type="text" >
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                          <p>3. แนวความคิดการออกแบบ</p>
+                                          <div class="wysiwyg5-wrapper b-a b-grey">
+                                            <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                                            html: true,
+                                            stylesheets: ['pages/css/editor.css']
+                                            }"></textarea>
+                                          </div>
+                                        </div>
+
+                                
+
+
+
+                                      </div>
+                                    </div>
+
+                                    <br>
+                                    <p>4. ภาพผลงาน</p>
+
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group  ">
+                                              <label>ภาพรวมของผลงาน</label>
+                                              <div class="fallback">
+                                                <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        
+                                        </div>
+
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group ">
+                                              <label>ภาพ Close Up</label>
+                                              <div class="fallback">
+                                                <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                            </div>
+                                          </div>
+                                        
+                                        </div>
+
+                                        <div class="row clearfix">
+                                          <div class="col-sm-12">
+                                            <div class="form-group ">
+                                              <label>ภาพ Pack Shot</label>
+                                              <div class="fallback">
+                                                <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                              </div>
+                                              
+                                            </div>
+                                          </div>
+                                        
+                                        </div>
+                                    
+                                    </div>
+
+                                  </div>
+
+
+                                <br>
+                                <p>5. ผู้ออกแบบ</p>
+
+                                <div class="form-group-attached">
+                                  <div class="row clearfix">
+
+
+                                    <div class="col-sm-6">
+                                      <div class="form-group form-group-default required">
+                                        <label>ชื่อ</label>
+                                        <input type="text" class="form-control" name="product_firstname[] "  >
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <div class="form-group form-group-default required">
+                                      <label>นามสกุล</label>
+                                      <input type="text" class="form-control" name="product_lastname[]" >
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                              </div>
+
+                                <hr>
+
+                              <!-- เริ่มส่วนที่ 2 -->
+
+
+                            
+                            <!-- จบส่วนที่ 2 -->
+                            </div>
+                                            
+                      </div>
+                    </div>
+                  
+                  <?php }else{ ?>
+                  <?php foreach (@$regis['product'] as $key => $value) { ?>
                   
                  
                     <div class="clonedInput" id="clonedInput<?php echo $key+1;?>">
@@ -1071,7 +1307,7 @@
                     </div>
                  
             
-                  <?php } ?>
+                  <?php }} ?>
                   </div>
 
                   <div class="row clearfix">

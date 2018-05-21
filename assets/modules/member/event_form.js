@@ -103,37 +103,43 @@
      //end status agent
  
     
-     // max select file upload
-     $("#product_img").on("change", function() {
-        if($("#product_img")[0].files.length > 5) {
-            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-            return false;
-        } 
-    });
+   
 
-    $("#product_closeup").on("change", function() {
-        if($("#product_closeup")[0].files.length > 5) {
-            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-            return false;
-        } 
-    });
-
-    $("#product_packshot").on("change", function() {
-        if($("#product_packshot")[0].files.length > 5) {
-            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-            return false;
-        } 
-    });
-    //end file upload
-
-    $('#btn-next').click(function(){
-        if(!$('#checkbox2').is(":checked")){
+    $('#btn-next #tab1').click(function(){
+        if(!$('#checkbox2').is(":checked") || !$('#product_check').is(":checked")){
             return false;
         }
+
+        // max select file upload
+        $("#product_img").on("change", function() {
+            if($("#product_img")[0].files.length > 5) {
+                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+                return false;
+            } 
+        });
+
+        $("#product_closeup").on("change", function() {
+            if($("#product_closeup")[0].files.length > 5) {
+                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+                return false;
+            } 
+        });
+
+        $("#product_packshot").on("change", function() {
+            if($("#product_packshot")[0].files.length > 5) {
+                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+                return false;
+            } 
+        });
+        //end file upload
+        
+        
     });
 
     $('#btn-finish').click(function(){
-      $('#form-event-profile').submit();
+
+      
+        $('#form-event-profile').submit();
     });
  
   });
