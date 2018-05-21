@@ -376,20 +376,26 @@ class staff extends MY_Controller {
 				if (!empty($this->input->post('pass_new'))){
 					$data['password'] = $this->encrypt->encode($this->input->post('pass_new'));//new password
 				}
+				
 				//company 
-				$data_company = array();
-				if (!empty($this->input->post('radio1')) && $this->input->post('radio1') == 1){
-	
-					$data_company = array(
-						'company_name' => $this->input->post('company_name'),
-						'company_address' => $this->input->post('company_address'),
-						'company_province' => $this->input->post('company_province'),
-						'company_district' => $this->input->post('company_district'),
-						'company_subdistrict' => $this->input->post('company_subdistrict'),
-						'company_zipcode' => $this->input->post('company_zipcode')
+				$data_company = array(
+					
+					'company_name' => $this->input->post('company_name'),
+					'company_address' => $this->input->post('company_address'),
+					'company_province' => $this->input->post('company_province'),
+					'company_district' => $this->input->post('company_district'),
+					'company_subdistrict' => $this->input->post('company_subdistrict'),
+					'company_zipcode' => $this->input->post('company_zipcode')
 
-					);
+				);
+				if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
+					$data_company['company_type'] = $this->input->post('radio1');
+				}else{
+					$data_company['company_type'] = '1';
 				}
+		
+				//end company
+			
 
 				if($imageupload){
 					$data['profile_img'] = $imageupload['public_id'];

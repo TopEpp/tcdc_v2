@@ -26,21 +26,8 @@ class member extends MY_Controller
 		$this->publish();
 	}
 
-	public function getProjectDetail()
-	{
-		$id = $this->input->post('id');
-		if(!empty($id)){
-			$data = $this->staff_model->getProject($id);
-			//add the header here
-			$data[0]->project_start_date = $this->mydate->date_eng2thai($data[0]->project_start_date);
-			header('Content-Type: application/json');
-			echo json_encode( $data );
-		}
-		
-	
-	}
-
-	function event_form($id = '')
+	//form register profile
+	public function event_form($id = '')
 	{
 		$this->config->set_item('title','ลงทะเบียน');
 
@@ -61,10 +48,11 @@ class member extends MY_Controller
 				
 	}
 
-	//save event form
+	//save event register form
 	public function saveEventForm()
 	{
 		$id = $this->session->userdata('sesUserID');
+
 
 		//save user
 		$data_user = array(
@@ -78,28 +66,30 @@ class member extends MY_Controller
 			'district' => $this->input->post('district'),
 			'province' => $this->input->post('province'),
 			'zipcode' => $this->input->post('zipcode'),
+			'user_active' => $this->input->post('user_active'),
 			'job' => $this->input->post('job'),
+			'job_detail' => $this->input->post('job_detail'),
+			'job_type' => $this->input->post('job_type'),
 			'brand' => $this->input->post('brand'),
 			'website' => $this->input->post('website'),
 			'facebook' => $this->input->post('facebook'),
+			'lineid' => $this->input->post('lineid'),
 			
 		);
 		//end user
 
 		//company 
-		$data_company = array();
-		if (!empty($this->input->post('radio1')) && $this->input->post('radio1') == 1){
+		$data_company = array(
+			'company_type' => $this->input->post('radio1'),
+			'company_name' => $this->input->post('company_name'),
+			'company_address' => $this->input->post('company_address'),
+			'company_province' => $this->input->post('company_province'),
+			'company_district' => $this->input->post('company_district'),
+			'company_subdistrict' => $this->input->post('company_subdistrict'),
+			'company_zipcode' => $this->input->post('company_zipcode')
 
-			$data_company = array(
-				'company_name' => $this->input->post('company_name'),
-				'company_address' => $this->input->post('company_address'),
-				'company_province' => $this->input->post('company_province'),
-				'company_district' => $this->input->post('company_district'),
-				'company_subdistrict' => $this->input->post('company_subdistrict'),
-				'company_zipcode' => $this->input->post('company_zipcode')
-
-			);
-		}
+		);
+		
 		//end company
 
 		// coordinator
@@ -114,44 +104,106 @@ class member extends MY_Controller
 			'coordinator_province' => $this->input->post('coordinator_province'),
 			'coordinator_district' => $this->input->post('coordinator_district'),
 			'coordinator_subdistrict' => $this->input->post('coordinator_subdistrict'),
-			'coordinator_zipcode' => $this->input->post('coordinator_zipcode')
+			'coordinator_zipcode' => $this->input->post('coordinator_zipcode'),
+			'coordinator_lineid' => $this->input->post('coordinator_lineid')
 
 		);
 		
 		//end data_coordinator
+		//mearge data_company and coordinator
 		$data_merage = array_merge($data_company,$data_coordinator);
 		
 		//save user detail
 		$this->staff_model->saveEditUser($id,$data_user,$data_merage);
 		//end save user detail
 
-		// coordinator
+		// data register 
 		$data_regis = array(
 			'project_id' => $this->input->post('project_id'),
 			'user_id' => $id,
 			'reg_date' => date('Y-m-d H:i:s'),
 			'target_type' => $this->input->post('target_type'),
-			'area_type' => $this->input->post('area_type'),
+			'target_type_detail' => $this->input->post('target_type_detail'),
+			'showarea_type' => $this->input->post('showarea_type'),
+			'show_type' => $this->input->post('show_type'),
+			'area_type' => $this->input->post('area_type')
 		);
+		//end data register
 	
 		//save user detail
-		$this->member_model->saveRegis($data_regis);
+		$insert_id = $this->member_model->saveRegis($data_regis);
 		//end save user detail
 
 		//all product save
 		$status = false;
 		$product_name = $this->input->post('product_name');
+	
 		if(!empty($product_name)){
 			
 			foreach ($product_name as $key => $value) {
-
 				if(!empty($value)){
 					
-					$dates = explode('/',$this->input->post('product_date')[$key]);
-					$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
+					//upload image  product_img
+					$product_img = array();
+					if ( !empty( $_FILES['product_img']['name'][$key+1]) && is_null($_FILES['product_img']['name'][$key+1])){
+						//upload data
+						$image = $_FILES['product_img']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_img,$imageupload['public_id']);
+						}
+						$product_img = implode(",",$product_img);
+					}
+
+				
+					//end upload product_img
+
+					//upload image  product_closeup
+					$product_closeup = array();
+					if ( !empty( $_FILES['product_closeup']['name'][$key+1]) && is_null($_FILES['product_closeup']['name'][$key+1]) ){
+						//upload data
+						$image = $_FILES['product_closeup']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_closeup,$imageupload['public_id']);
+						}
+						$product_closeup = implode(",",$product_closeup);
+					}
+
+					
+					//end upload product_closeup
+
+					//upload image  product_packshot
+					$product_packshot = array();
+					if (!empty( $_FILES['product_packshot']['name'][$key+1])&& is_null($_FILES['product_packshot']['name'][$key+1])  ){
+						//upload data
+						$image = $_FILES['product_packshot']['tmp_name'][$key+1];
+						foreach ($image as $keys => $value) {
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'product'
+							));
+							array_push($product_packshot,$imageupload['public_id']);
+						}
+						$product_packshot = implode(",",$product_packshot);
+					}
+
+					
+					//end upload product_packshot
+
+					$product_date = '';
+					if (!empty($this->input->post('product_date')[$key])){
+						$dates = explode('/',$this->input->post('product_date')[$key]);
+						$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
+					}
+					
 
 					$data_product = array(
-						'reg_id' =>'1',
+						'reg_id' => $insert_id,
+						'product_num' => $key,
 						'product_type' =>  $this->input->post('product_type')[$key],
 						'product_name' =>  $this->input->post('product_name')[$key],
 						'material' =>  $this->input->post('material')[$key],
@@ -163,14 +215,20 @@ class member extends MY_Controller
 						'product_concept' =>  $this->input->post('product_concept')[$key],
 						'product_firstname' =>  $this->input->post('product_firstname')[$key],
 						'product_lastname' =>  $this->input->post('product_lastname')[$key],
-						'product_img' =>  $this->input->post('product_img')[$key],
 					);
-				
+					
+					if(!empty($product_img))
+						$data_product['product_img'] = $product_img;
+					if(!empty($product_closeup))
+						$data_product['product_closeup'] = $product_closeup;
+					if(!empty($product_packshot))
+						$data_product['product_packshot'] = $product_packshot;
 					//save user detail
 					$status = $this->member_model->saveProduct($data_product);
 					//end save user detail
 			
 				}
+				
 
 			}
 		}
@@ -178,6 +236,7 @@ class member extends MY_Controller
 		if($status){
 			$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">ลงทะเบียน สำเร็จ </div>');
 			redirect(base_url('member'));
+			
 		}else{
 			$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียน ไม่สำเร็จ</div>');
 			 redirect(base_url('member'));

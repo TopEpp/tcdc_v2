@@ -9,24 +9,27 @@ class member_model extends MY_Model{
     public function saveRegis($data)
     {
         
-        $query = $this->db->query('SELECT * FROM tcdc.tcdc_prj_register WHERE project_id = '.$data['project_id'].' AND '.'user_id = '.$data['user_id']);
+        $query = $this->db->query('SELECT reg_id FROM tcdc.tcdc_prj_register WHERE project_id = '.$data['project_id'].' AND '.'user_id = '.$data['user_id']);
         
         if( $query->num_rows() > 0){
+            $id = $query->row();
             $this->db->where('project_id',$data['project_id']);
             $this->db->where('user_id',$data['user_id']);
-            return $this->db->update('tcdc_prj_register',$data);
+            $this->db->update('tcdc_prj_register',$data);
+            return $id->reg_id;
         }
-        
-        return $this->db->insert('tcdc_prj_register',$data);
+        $this->db->insert('tcdc_prj_register',$data);
+        return $this->db->insert_id();
     }
 
     public function saveProduct($data)
     {
        
-        $query = $this->db->query('SELECT * FROM tcdc.tcdc_product WHERE reg_id = '.$data['reg_id']);
+        $query = $this->db->query('SELECT * FROM tcdc.tcdc_product WHERE reg_id = '.$data['reg_id'].' AND '.'product_num = '.$data['product_num']);
         
         if( $query->num_rows() > 0){
             $this->db->where('reg_id',$data['reg_id']);
+            $this->db->where('product_num',$data['product_num']);
             return $this->db->update('tcdc_product',$data);
         }
         

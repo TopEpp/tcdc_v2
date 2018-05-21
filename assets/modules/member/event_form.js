@@ -10,30 +10,28 @@
     var cloneIndex = $(".clonedInput").length;
   
     function clone(){
-
+        // console.log(cloneIndex)
         var clone_data = $("#second").parents(".clonedInput").clone()
-        .appendTo(".clone-form")
-        .attr("id", "clonedInput" +  cloneIndex)
-        .find("*")
-        .each(function() {
-            var id = this.id || "";
-            var match = id.match(regex) || [];
-            if (match.length == 3) {
-                this.id = match[1] + (cloneIndex);
-            }
-            
-        })
-        .on('click', 'a#clone', clone)
+            .appendTo(".clone-form")
+            .attr("id", "clonedInput" +  cloneIndex)
+            .find("*")
+            // .each(function(){  
+            //     // $(this).val('');
+            //  })
+            .on('click', 'a#clone', clone);
         // .on('click', 'button.remove', remove);
-        
+
+               
         cloneIndex++;
 
         $('#num', clone_data).text(cloneIndex+". ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
-        // $('#myDatepicker', clone_data).attr("id","myDatepicker"+cloneIndex);
-        $('.datepicker-range').datepicker();
-
-
-       
+        $('input', clone_data).val('');
+        $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
+        $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
+        $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
+        $('.select2', clone_data).remove();
+        $('.datepicker-range').datepicker(); 
+        $("select[name='product_type[]']").select2();
     }
     
     function remove(){
@@ -48,40 +46,42 @@
 
   $(document).ready(function() {
 
-     //get status company
-     $company =   $("input[name=radio1]:checked").map(function() {
-        return this.value;
-     }).get().join(",");
 
-    //chechk company 
+    //target_type checked
+    $("#check15").change(function() {
+   
+     
+        if ($('#check15').is(":checked"))
+        {
+            document.getElementById("target_type").style.display = "block";
+        }
+        else{
+            document.getElementById("target_type").style.display = "none";
+        }
+    });
+
+//get status company
+    $company =   $("input[name=radio1]:checked").map(function() {
+    return this.value;
+    }).get().join(",");
+
     if ($company != 1){
-        $("input[name='company_name']").prop( "disabled", true );
-        $("input[name='company_address']").prop( "disabled", true );
-        $("input[name='company_district']").prop( "disabled", true );
-        $("input[name='company_subdistrict']").prop( "disabled", true );
-        $("input[name='company_zipcode']").prop( "disabled", true );
-        // $("$company_province").prop( "disabled", 'disabled' );
+    document.getElementById("radio-company").style.display = "none";
+    }
+    else{
+    document.getElementById("radio-company").style.display = "block";
     }
 
     $('#radio1No').on('change', function() {
         if($('input[name=radio1]').is(':checked')){
-
-            $("input[name='company_name']").prop( "disabled", false );
-            $("input[name='company_address']").prop( "disabled", false );
-            $("input[name='company_district']").prop( "disabled", false );
-            $("input[name='company_subdistrict']").prop( "disabled", false );
-            $("input[name='company_zipcode']").prop( "disabled", false );
+            document.getElementById("radio-company").style.display = "block";
             // $("$company_province").prop( "disabled", 'disabled' );
         }
     });
 
     $('#radio1Yes').on('change', function() {
         if($('input[name=radio1]').is(':checked')){
-            $("input[name='company_name']").prop( "disabled", true );
-            $("input[name='company_address']").prop( "disabled", true );
-            $("input[name='company_district']").prop( "disabled", true );
-            $("input[name='company_subdistrict']").prop( "disabled", true );
-            $("input[name='company_zipcode']").prop( "disabled", true );
+            document.getElementById("radio-company").style.display = "none";
             // $("$company_province").prop( "disabled", 'disabled' );
         }
     });
@@ -104,6 +104,29 @@
      });
      //end status agent
  
+    
+     // max select file upload
+     $("#product_img").on("change", function() {
+        if($("#product_img")[0].files.length > 5) {
+            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+            return false;
+        } 
+    });
+
+    $("#product_closeup").on("change", function() {
+        if($("#product_closeup")[0].files.length > 5) {
+            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+            return false;
+        } 
+    });
+
+    $("#product_packshot").on("change", function() {
+        if($("#product_packshot")[0].files.length > 5) {
+            alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
+            return false;
+        } 
+    });
+    //end file upload
 
     $('#btn-next').click(function(){
         if(!$('#checkbox2').is(":checked")){
