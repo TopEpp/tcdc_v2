@@ -11,14 +11,19 @@ class staff_model extends MY_Model{
         if(!empty($id)){
             $this->db->where('project_id',$id);
         }
-    	$this->db->select('*');
+    	$this->db->select("tcdc_prj.*, tcdc_prj_type.type_name, count(tcdc_prj_register.reg_id) as num_reg , concat(tcdc_member.firstname,' ',tcdc_member.lastname) as project_update_user");
     	$this->db->from('tcdc_prj');
     	$this->db->join('tcdc_prj_type','tcdc_prj.project_type = tcdc_prj_type.type_id');
+        $this->db->join('tcdc_prj_register','tcdc_prj_register.project_id = tcdc_prj.project_id','left');
+        $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj.project_create');
+        $this->db->group_by('tcdc_prj.project_id');
         $query = $this->db->get();
         return $query->result();
     }
 
     function getNews(){
+        $this->db->select("tcdc_news.*, concat(tcdc_member.firstname,' ',tcdc_member.lastname) as news_update_user");
+        $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_news.news_create');
     	$query = $this->db->get('tcdc_news');
     	return $query->result();
     }
@@ -86,6 +91,13 @@ class staff_model extends MY_Model{
         return $project_id;
     }
 
+    function delProject($project_id){
+        if($project_id){
+            $this->db->where('project_id',$project_id);
+            $this->db->delete('tcdc_prj');
+        }
+    }
+
     function saveProjectOwner($project_id,$data_owner){
         $this->db->where('project_id',$project_id);
         $this->db->delete('tcdc_prj_owner');
@@ -99,7 +111,27 @@ class staff_model extends MY_Model{
         }
         
         return true;
+    }
 
+    function saveNews($data){
+        $news_id = $data['news_id'];
+        if($news_id){
+            $this->db->where('news_id',$news_id);
+            $this->db->update('tcdc_news',$data);
+        }else{
+            unset($data['news_id']);
+            $this->db->insert('tcdc_news',$data);
+            $news_id = $this->db->insert_id();
+        }
+
+        return $news_id;
+    }
+
+    function delNews($news_id){
+        if($news_id){
+            $this->db->where('news_id',$news_id);
+            $this->db->delete('tcdc_news');
+        }
     }
 
     function getProjectData($project_id){

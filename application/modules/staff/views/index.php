@@ -76,7 +76,7 @@
                             <tbody>
                               <tr>
                                 <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
-                                <td width="10%" style="vertical-align:top">ผู้เข้าร่วม 15 ราย</td>
+                                <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg?> ราย</td>
                                 <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
                                                                            วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
                                 <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/staff/show_user/'.$prj->project_id)?>">เรียกดู</a></td>
@@ -102,11 +102,11 @@
                     <div class="card-title">
                       <h3>ข่าวสาร</h3>
                       <p>คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
-                      <div class="pull-right">
+                      <!-- <div class="pull-right">
                         <div class="col-xs-12">
                           <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/news');?>"><i class="fa fa-plus"></i> สร้างข่าวสาร</a>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@
                       <div class="col-lg-4">
                         <div id="card-linear-color" class="card card-default card2">
                           <div class="card-header ">
-                            <div class="card-title">ข่าวเด่น</div>
+                            <div class="card-title"><?php echo $value->news_type; ?></div>
                           </div>
                           <div class="card-block">
                             <div class="scrollable">
