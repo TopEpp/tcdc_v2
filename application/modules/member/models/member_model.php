@@ -6,6 +6,16 @@ class member_model extends MY_Model{
         parent::__construct();
     }
 
+        
+    //get status user regis
+    public function getStatusRegis(){
+        $this->db->select('project_id,reg_status');
+        $this->db->where('user_id',$this->session->userdata('sesUserID'));
+        $this->db->from('tcdc_prj_register');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function saveRegis($data)
     {
         

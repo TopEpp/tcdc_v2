@@ -20,6 +20,7 @@ class member extends MY_Controller
 		$this->config->set_item('title','แอพของฉัน');
 
 		$data['project'] = $this->staff_model->getProject();
+		$data['status'] = $this->member_model->getStatusRegis();
 		$data['news'] = $this->staff_model->getNews();
 	
 		$this->setView('index',$data);
