@@ -86,9 +86,9 @@
                                 <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
                                                                            วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เข้าร่วม</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:green;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เข้าร่วม</a></td>
                                 <?php }else{ ?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">เข้าร่วม</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:red; backgroud:red" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">เข้าร่วม</a></td>
                                 <?php } ?>
                               </tr>
                             </tbody>

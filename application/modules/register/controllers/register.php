@@ -49,7 +49,7 @@ class register extends MY_Controller {
 			// get province
 			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 			$data['province'] = $query->result();
-
+			$data['prename'] = $this->input->post('prename_detail');
 			$this->load->view('register',$data);
             
         }else{
@@ -64,6 +64,7 @@ class register extends MY_Controller {
 			//insert data  
             $data = array(
 				'prename' => $this->input->post('prename'),
+				'prename_detail' => $this->input->post('prename_detail'),
                 'firstname' => $this->input->post('firstname'),
                 'lastname' => $this->input->post('lastname'),
 				'email' => $this->input->post('email'),

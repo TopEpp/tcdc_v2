@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                   <div class="form-group form-group-default required ">
                     <label>คำนำหน้า</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
-                    <select name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                    <select id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                
                       <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
                       <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -108,6 +108,9 @@
                       <option  <?php echo (@set_value('prename') == 3) ? 'selected':'';?> value="3">นางสาว</option>
                       <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
                     </select>
+                    <div id="prename_detail" style="display:none;">
+                      <input type="text" name="prename_detail" value="<?php echo @$prename;?>">
+                    </div>
                   </div>
                 </div>  
                 <div class="col-md-4">
@@ -129,7 +132,7 @@
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
                     <label>Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
-                    <input type="text" id="email" name="email" placeholder="โปรดใส่อีเมล์ที่คุณต้องการ" class="form-control" value="<?php //echo set_value('email'); ?>"  >
+                    <input type="text" id="email" name="email" placeholder="โปรดใส่อีเมล์ที่คุณต้องการ" class="form-control"  value="<?php //echo set_value('email'); ?>"  >
                     
                   </div>
                 </div>
@@ -147,7 +150,7 @@
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
                     <label>Password</label><span class="text-danger"><?php echo form_error('password'); ?></span>
-                    <input type="password" id="password" name="password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control"  pattern=".{8,}" value="<?php //echo set_value('password'); ?>" >
+                    <input type="password" id="password" name="password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control"  minlength="8"  pattern=".{8,}" value="<?php //echo set_value('password'); ?>" >
                   </div>
                 </div>
               </div>
@@ -155,7 +158,7 @@
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
                     <label>Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
-                    <input type="password" id="password_again" name="password_again" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control" value="<?php //echo set_value('password_again'); ?>">
+                    <input type="password" id="password_again" name="password_again" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control"  minlength="8" value="<?php //echo set_value('password_again'); ?>">
                   </div>
                 </div>
               </div>
@@ -202,10 +205,10 @@
                       <?php foreach ($province as $key => $value) { ?>
                         <?php 
                           $select = '';
-                          if(set_value('province') == $value->code ){
+                          if(set_value('province') == $value->name_th ){
                               $select =  'selected="selected"';
                           } ?>
-                        <option <?php echo $select; ?>  value="<?php echo $value->code;?>"><?php echo $value->name_th;?></option>
+                        <option <?php echo $select; ?>  value="<?php echo $value->name_th;?>"><?php echo $value->name_th;?></option>
                       <?php } ?>
                       
                     </select>
@@ -215,7 +218,7 @@
                 <div class="col-sm-4">
                   <div class="form-group form-group-default required">
                     <label>รหัสไปรษณีย์</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
-                    <input type="text" name="zipcode" class="form-control" placeholder="ระบุรหัสไปรษณีย์ของคุณ" maxlength="5" value="<?php echo set_value('zipcode'); ?>">
+                    <input type="text" name="zipcode" class="form-control" placeholder="ระบุรหัสไปรษณีย์ของคุณ"  pattern="[0-9]*"  value="<?php echo set_value('zipcode'); ?>">
                   </div>
                 </div>
 
@@ -389,18 +392,17 @@
 
   $(document).ready(function() {
 
-    // $('#next').click(function(){
-     
-    //   var output = validate();
-    //   console.log(output);
-    //   if (output === true) {
-        
-    //   }else{
-    //     return false;
-    //   }
-    // });
-
-    // var URL = domain+'/register/signup';
+    //prename
+    if (document.getElementById("prename").value == 4){
+      document.getElementById("prename_detail").style.display = "block";
+    }
+    $('#prename').on('change', function() {
+        if(this.value == 4){
+          document.getElementById("prename_detail").style.display = "block";
+        }else{
+          document.getElementById("prename_detail").style.display = "none";
+        }
+    })
 
     $('#btn-finish').click(function(){
       $('#form-register').submit();
@@ -410,52 +412,6 @@
 
   });
 
-  
-
-  // function validate() {
-  //     var output = true;
-  //      $(".signup-error").html('');
-
-  //     if ($("#tab1").css('display') != 'none') {
-
-  //         if (!($("#firstname_th").val())) {
-  //           output = false;
-  //           $("#name-error").html("<div style='color:red'>กรุณาใส่ชื่อจริง</div>");
-  //         }else{
-  //           $("#name-error").html("");
-  //         }
-  
-  //         if (!($("#lastname").val())) {
-  //           output = false;
-  //           $("#last-error").html("<div style='color:red'>กรุณาใส่นามสกุลจริง</div>");
-  //         }else{
-          
-  //           $("#name-error").html("");
-  //         }
-
-          
-  //     }
-
-  //      if ($("#tab2").css('display') != 'none') {
-  //     //     if (!($("#user-password").val())) {
-  //     //         output = false;
-  //     //         $("#password-error").html("Password required!");
-  //     //     }
-
-  //     //     if (!($("#confirm-password").val())) {
-  //     //         output = false;
-  //     //         $("#confirm-password-error").html("Confirm password required!");
-  //     //     }
-
-  //     //     if ($("#user-password").val() != $("#confirm-password").val()) {
-  //     //         output = false;
-  //     //         $("#confirm-password-error").html("Password not matched!");
-  //     //     }
-  //     }
-
-
-  //     return output;
-  // }
 </script>
 
 
