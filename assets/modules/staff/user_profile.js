@@ -49,7 +49,21 @@
         document.getElementById("job_detail").value = "";
         document.getElementById("job_detail").style.display = "none";
       }
-    });  
+    });
+
+    //prename
+    if (document.getElementById("prename").value == 4){
+      document.getElementById("prename_detail").style.display = "block";
+      // $("input[name='prename_detail']").focus();
+    }
+    $('#prename').on('change', function() {
+        if(this.value == 4){
+          document.getElementById("prename_detail").style.display = "block";
+          $("input[name='prename_detail']").focus();
+        }else{
+          document.getElementById("prename_detail").style.display = "none";
+        }
+    });
 
     //get status company
     $company =   $("input[name=radio1]:checked").map(function() {

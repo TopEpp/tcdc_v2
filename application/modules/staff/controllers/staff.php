@@ -11,9 +11,7 @@ class staff extends MY_Controller {
 
 		$this->load->model('staff_model');
 		$this->session->keep_flashdata('msg');
-		$this->session->keep_flashdata('error_old_pass');
-		$this->session->keep_flashdata('error_pass_new');
-		$this->session->keep_flashdata('error_pass_new_confirm');
+		$this->session->keep_flashdata('error');
 
         if($this->session->userdata('sesUserID')==''){
             redirect(base_url());
@@ -188,6 +186,7 @@ class staff extends MY_Controller {
 		$this->config->set_item('title','การจัดการผู้ใช้');
 
 		$data['data'] = $this->staff_model->getUsers();
+		$data['regisprj'] = $this->staff_model->getProjectUser();
 		$this->setView('user_manage',$data);
         $this->publish();	
 	}
@@ -242,29 +241,14 @@ class staff extends MY_Controller {
 	//save create profile members
 	public function createProfileSave()
 	{
-		// echo $this->encrypt->encode('11111111');die();
-		// if(!empty($id)){
 
 		$this->form_validation->set_rules('email','Email', 'trim|required|valid_email|callback_email_check');
 		$this->form_validation->set_rules('password','Password', 'trim|min_length[8]|required');
-	//	$this->form_validation->set_rules('pass_new', 'Pass_new', 'trim|min_length[8]');
+		$this->form_validation->set_rules('phone','Phone', 'trim|required');
 		$this->form_validation->set_rules('pass_new_confirm', 'Pass_confirm', 'trim|min_length[8]|matches[password]');
 
 		if($this->form_validation->run() == false){
-			//  echo (form_error('pass_new'));die();
-			if (form_error('email')!= ''){
-				$this->session->set_flashdata('error_email',form_error('email') );
-			}
-
-			if (form_error('password')!= ''){
-				$this->session->set_flashdata('error_old_pass',form_error('password') );
-			}
-
-			if(form_error('pass_new_confirm')!=''){
-				$this->session->set_flashdata('error_pass_new_confirm',form_error('pass_new_confirm'));
-			}
-		
-			// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
 			redirect($this->input->post('redirect'), "location");
 			
 		}else{
@@ -279,6 +263,7 @@ class staff extends MY_Controller {
 				
 			$data = array(
 				'prename' => $this->input->post('prename'),
+				'prename_detail' => $this->input->post('prename_detail'),
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
@@ -338,38 +323,21 @@ class staff extends MY_Controller {
 			 
 		}
 		
-			
-		 
-
 	}
 	
 	//save edit profile members
 	public function editProfileSave($id = '')
 	{
-		// echo $this->encrypt->encode('11111111');die();
 		if(!empty($id)){
 
 			$this->form_validation->set_rules('email','Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password','Password', 'trim|min_length[8]|callback_pass_check');
-			// $this->form_validation->set_rules('password','Password', 'trim|min_length[8]|required');
+			$this->form_validation->set_rules('phone','Phone', 'trim|required');
 			$this->form_validation->set_rules('pass_new', 'Pass_new', 'trim|min_length[8]');
 			$this->form_validation->set_rules('pass_new_confirm', 'Pass_new_confirm', 'trim|min_length[8]|matches[pass_new]');
 
 			if($this->form_validation->run() == false){
-				//  echo (form_error('pass_new'));die();
-				if (form_error('password')!= ''){
-					$this->session->set_flashdata('error_old_pass',form_error('password') );
-				}
-			
-				if (form_error('pass_new')!= ''){
-					$this->session->set_flashdata('error_pass_new',form_error('pass_new') );
-				}
-				
-				if(form_error('pass_new_confirm')!=''){
-					$this->session->set_flashdata('error_pass_new_confirm',form_error('pass_new_confirm'));
-				}
-			
-				// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+				$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
 				redirect($this->input->post('redirect'), "location");
 				
 			}else{
@@ -383,6 +351,7 @@ class staff extends MY_Controller {
 
 				$data = array(
 					'prename' => $this->input->post('prename'),
+					'prename_detail' => $this->input->post('prename_detail'),
 					'firstname' => $this->input->post('firstname'),
 					'lastname' => $this->input->post('lastname'),
 					'phone' => $this->input->post('phone'),
@@ -433,10 +402,7 @@ class staff extends MY_Controller {
 
 					$this->session->set_userdata('sesUserImage',$imageupload['public_id'] ) ;
 				}
-				
-
-
-				
+								
 				if($this->staff_model->saveEditUser($id,$data,$data_company)){
 					$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">อัพเดทข้อมูลเรียบร้อย. </div>');
 				}

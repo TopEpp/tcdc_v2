@@ -67,7 +67,6 @@ class staff_model extends MY_Model{
         //update company or create
         if (!empty($data_company)){
             $this->db->where('member_id',$id);
-            $this->db->where('user_type','3');
             $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_member_company.member_id');
             $query = $this->db->get('tcdc_member_company');
             if ($query->num_rows() > 0){
@@ -82,6 +81,21 @@ class staff_model extends MY_Model{
 
         return true;
 
+    }
+
+    //get project user regis now
+    public function getProjectUser(){
+        $this->db->select("tcdc_member.user_id,tcdc_prj.project_name");
+        $this->db->from('tcdc_prj_register');
+        $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj_register.user_id');
+        $this->db->join('tcdc_prj','tcdc_prj.project_id = tcdc_prj_register.project_id');
+        $this->db->order_by('reg_date');
+        $query = $this->db->get();
+        $data = array();
+        foreach ($query->result_array() as $key => $value) {
+            $data[$value['user_id']] = $value['project_name'];
+        }
+        return $data;
     }
 
 

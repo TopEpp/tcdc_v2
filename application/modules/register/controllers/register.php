@@ -83,20 +83,14 @@ class register extends MY_Controller {
                 
                 //send confirm mail
                 if($this->register_model->sendEmail($this->input->post('email'))){
-                    //redirect('Login_Controller/index');
                     $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่<br/> Email: ".$this->input->post('email');
                      $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">'.$msg.'. </div>');
-                    // $this->load->view('header');
-					//  $this->load->view('welcome/index');
 					 redirect(base_url());
-                    // $this->load->view('footer');
+
                 }else{
 					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
 					redirect(base_url());
-                    //$error = "Error, Cannot insert new user details!";
-                    // $this->load->view('header');
-                    // $this->load->view('signup_view');
-                    // $this->load->view('footer');
+            
                 }
                 
                 

@@ -71,7 +71,7 @@
                             <p><?php echo $value->email; ?></p>
                           </td>
                           <td class="v-align-middle">
-                            <p>- ไม่ยังไมี -</p>
+                            <p><?php echo (@$regisprj[$value->user_id])?$regisprj[$value->user_id]:'- ไม่ยังไม่มี -'; ?></p>
                           </td>
                           <td class="v-align-middle">
                             <p><?php echo ($value->user_active == 1) ? '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ปกติ</span>' : '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ไม่ปกติ</span>'; ?></p>

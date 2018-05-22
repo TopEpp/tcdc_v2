@@ -36,6 +36,11 @@
                           echo $this->session->flashdata('msg');
                           $this->session->unset_userdata('msg');
                         } 
+                      if($this->session->flashdata('error')){
+                          echo $this->session->flashdata('error');
+                          $this->session->unset_userdata('error');
+                      }  
+                         
                       ?>
                       <div class="row row-same-height">
                         <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
@@ -74,8 +79,6 @@
                               
                               <div class="row">
                                 <div class="card-block">
-                            
-
                                   <div class="padding-30 sm-padding-5">
                                     <?php $attributes = array('name' => 'frmEditProfile', 'id' => 'form-edit-profile');
                                         $lang = $this->uri->segment(1);
@@ -90,7 +93,7 @@
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>คำนำหน้า</label>
-                                              <select name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                                              <select name="prename" id="prename"  class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                
                                                 <option  <?php echo (@$data->prename == '') ? 'selected':'';?> value="" >เลือก</option>
                                                 <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -98,6 +101,9 @@
                                                 <option  <?php echo (@$data->prename == 3) ? 'selected':'';?> value="3">นางสาว</option>
                                                 <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
                                               </select>
+                                              <div id="prename_detail" style="display:none;">
+                                                <input  type="text" name="prename_detail" value="<?php echo @$data->prename_detail;?>">
+                                              </div>
                                             </div>
                                           </div>
                                           <div class="col-sm-5">
@@ -107,7 +113,7 @@
                                             </div>
                                           </div>
                                           <div class="col-sm-4">
-                                            <div class="form-group form-group-default">
+                                            <div class="form-group form-group-default required">
                                               <label>นามสกุล</label>
                                               <input type="text" name="lastname" class="form-control" value="<?php echo @$data->lastname;?>">
                                             </div>
@@ -120,34 +126,17 @@
                                         <p>รหัสผ่าน</p>
                                         <div class="form-group form-group-default has-error">
                                           <label class="">Old Password</label>
-                                          <span class="text-danger">
-                                            <?php  if($this->session->flashdata('error_old_pass')){
-                                                  echo $this->session->flashdata('error_old_pass');
-                                                  $this->session->unset_userdata('error_old_pass');
-                                                }  ?>
-                                          </span>
+
                                           <input name="password" placeholder="ใส่รหัสผ่านเดิม" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password" value="<?php //echo $this->encrypt->decode(@$data->password);?>">
                                         </div>
                                         <br>
                                         <div class="form-group form-group-default has-error">
                                           <label class="">New Password</label>
-                                          <span class="text-danger">
-                                          <?php   if($this->session->flashdata('error_pass_new')){
-                                                  echo $this->session->flashdata('error_pass_new');
-                                                  $this->session->unset_userdata('error_pass_new');
-                                                } ?>
-                                          </span>
                                           <input name="pass_new" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                         </div>
                                         <br>
                                         <div class="form-group form-group-default has-error">
                                           <label class="">Confirm New Password</label>
-                                          <span class="text-danger">
-                                          <?php  if($this->session->flashdata('error_pass_new_confirm')){
-                                                  echo $this->session->flashdata('error_pass_new_confirm');
-                                                  $this->session->unset_userdata('error_pass_new_confirm');
-                                                } ?>
-                                          </span>
                                           <input name="pass_new_confirm" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                         </div>
 
@@ -196,7 +185,12 @@
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default required">
                                               <label>รหัสไปรษณีย์</label>
-                                              <input name="zipcode" type="text" class="form-control" value="<?php echo @$data->zipcode; ?>" >
+                                              <?php 
+                                                      $zipcode = '';
+                                                      if(@$data->zipcode){
+                                                        $zipcode = $data->zipcode;
+                                              }?>
+                                              <input name="zipcode" type="text" class="form-control" value="<?php echo @$zipcode; ?>" >
                                             </div>
                                           </div>
                                         </div>
@@ -208,7 +202,14 @@
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
                                                 <label>เบอร์โทรศัพท์</label>
-                                                <input type="text" id="phone" name="phone" class="form-control" value="<?php echo @$data->phone;?>">
+                                               
+                                                <?php 
+                                                      $phone = '';
+                                                      if(@$data->phone){
+                                                        $phone = $data->phone;
+                                                  }?>
+                                            
+                                                <input type="text" id="phone" name="phone" class="form-control" value="<?php echo @$phone;?>">
                                               </div>
                                             </div>
                                             <div class="col-sm-6">

@@ -205,10 +205,10 @@
                       <?php foreach ($province as $key => $value) { ?>
                         <?php 
                           $select = '';
-                          if(set_value('province') == $value->name_th ){
+                          if(set_value('province') == $value->code ){
                               $select =  'selected="selected"';
                           } ?>
-                        <option <?php echo $select; ?>  value="<?php echo $value->name_th;?>"><?php echo $value->name_th;?></option>
+                        <option <?php echo $select; ?>  value="<?php echo $value->code;?>"><?php echo $value->name_th;?></option>
                       <?php } ?>
                       
                     </select>
