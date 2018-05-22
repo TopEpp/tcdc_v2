@@ -152,15 +152,9 @@
             <li class="m-t-30 ">
               <a href="<?php echo base_url('staff');?>" class="detailed">
                 <span class="title"><?php echo lang('bashboard');?></span>
-                <span class="details">มี 3 การอัปเดท</span>
+                <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
-            </li>
-            <li class="">
-              <a href="<?php echo base_url('staff/project_manage');?>" class="detailed">
-                <span class="title"><?php echo lang('manage');?></span>
-              </a>
-              <span class="icon-thumbnail"><i class="pg-mail"></i></span>
             </li>
             <li class="">
               <a href="<?php echo base_url('news');?>" class="detailed">
@@ -174,7 +168,7 @@
             </li>
             <li class="">
               <a href="<?php echo base_url('faq');?>" class="detailed">
-                <span class="title"><?php echo lang('faq');?></span>
+                <span class="title"><?php echo lang('help');?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
             </li>
@@ -215,7 +209,21 @@
       <!-- <div class="content "> -->
              <?php echo $this->template->content;?>
       <!-- </div> -->
+      <div class=" container-fluid  container-fixed-lg footer" style="padding-left: 60px">
+              <div class="copyright sm-text-center">
+                <p class="small no-margin pull-left sm-pull-reset">
+                  <span class="hint-text">Copyright &copy; 2018 </span>
+                  <span class="font-montserrat">TCDC Chiang Mai</span>.
+                  <span class="hint-text">All rights reserved. </span>
+                  <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> <span class="muted">|</span> <a href="#" class="m-l-10">Privacy Policy</a></span>
+                </p>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <!-- END COPYRIGHT -->
     </div>
+
         
         <!-- END QUICKVIEW-->
         <!-- START OVERLAY -->

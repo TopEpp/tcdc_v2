@@ -78,7 +78,7 @@
                               <!-- <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td> -->
                               <td class="v-align-middle"><?php echo $prj->project_update_user.'<br>'.$this->mydate->date_eng2thai($prj->project_update,543,'S');?></td>
                               <td class="v-align-middle">
-                                <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url('staff/show_user_register/'.$prj->project_id);?>">เรียกดู</a></p>
+                                <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>">เรียกดู</a></p>
                               </td>
                               <td class="v-align-middle">
                                 <p><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
@@ -128,7 +128,7 @@
                       <td class="v-align-middle semi-bold"  width="50%">
                         <p><span id="news_name_<?php echo $value->news_id;?>"><?php echo $value->news_name?></span></p>
                       </td>
-                      <td><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
+                      <td class="v-align-middle semi-bold" ><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
                       <td class="v-align-middle">
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
@@ -303,6 +303,7 @@
           <!-- /.modal-content -->
         </div>
       </div>
+    </div>
 
 
       

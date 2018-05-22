@@ -25,155 +25,61 @@
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">ปี</a></li>
-                  <li class="breadcrumb-item "><a href="#">2560</a></li>
-                  <li class="breadcrumb-item active"><a href="#">2561</a></li>
+                  <li class="breadcrumb-item active"><a href="#"><?php echo (date('Y')+543)?></a></li>
                 </ol>
                 <!-- END BREADCRUMB -->
               </div>
-
+              <?php foreach ($project as $key => $prj) { ?>
+              
               <div class="col-lg-12">
                 <!-- START card -->
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>ผู้ขอเข้าร่วม โครงการเชียงใหม่วิถีไทย ประจำปี 2561</h3>
+                      <h3>ผู้ขอเข้าร่วม <?php echo $prj->project_name;?></h3>
                       <p></p>
                     </div>
-
-
-
                     <div class="card-block">
                       <div class="table-responsive">
 
                         <table class="table table-hover table-condensed" id="condensedTable">
                           <thead>
                             <tr>
-                            <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user
-                      Comman Practice Followed
-                    -->
-                    <th style="width:40%">ชื่อ - สกุล</th>
-                    <th style="width:20%">เวลาที่ลงทะเบียน</th>
-                    <th style="width:20%">สถาณะ</th>
-                    <th style="width:20%">การดำเนินการ</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="v-align-middle semi-bold">สุขใจ งามดี</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> จัดการ</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">แก้วกล้า มามาก</td>
-                      <td class="v-align-middle">April 13, 2014</td>
-                      <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                        <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-align-middle semi-bold">ทอง ขาวขำ</td>
-                        <td class="v-align-middle">April 13, 2014</td>
-                        <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                          <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="v-align-middle semi-bold">เก่งกล้า มีใจ</td>
-                          <td class="v-align-middle">April 13, 2014</td>
-                          <td class="v-align-middle semi-bold"><span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>
-                            <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-
-
-                    </div>
-                  </div>
-                </div>
-                <!-- END card -->
-              </div>
-
-
-              <div class="card card-transparent">
-                <div class="card-header ">
-                  <div class="card-title">
-                    <h3>โครงการถนนคนเดินสายวัฒนธรรม</h3>
-                    <p></p>
-                  </div>
-
-
-
-                  <div class="card-block">
-                    <div class="table-responsive">
-
-                      <table class="table table-hover table-condensed" id="condensedTable">
-                        <thead>
+                              <th style="width:40%">ชื่อ - สกุล</th>
+                              <th style="width:20%">เวลาที่ลงทะเบียน</th>
+                              <th style="width:20%">สถาณะ</th>
+                              <th style="width:20%">การดำเนินการ</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php foreach ($member_reg[$prj->project_id] as $key => $mem) { 
+                            $reg_status = '<span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>';
+                            if($mem->reg_status){
+                              $reg_status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>';
+                            } 
+                         ?>
                           <tr>
-                            <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user
-                      Comman Practice Followed
-                    -->
-                    <th style="width:40%">ชื่อ - สกุล</th>
-                    <th style="width:20%">เวลาที่ลงทะเบียน</th>
-                    <th style="width:20%">สถาณะ</th>
-                    <th style="width:20%">การดำเนินการ</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="v-align-middle semi-bold">สุขใจ งามดี</td>
-                    <td class="v-align-middle">April 13, 2014</td>
-                    <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                      <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> จัดการ</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="v-align-middle semi-bold">แก้วกล้า มามาก</td>
-                      <td class="v-align-middle">April 13, 2014</td>
-                      <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                        <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="v-align-middle semi-bold">ทอง ขาวขำ</td>
-                        <td class="v-align-middle">April 13, 2014</td>
-                        <td class="v-align-middle semi-bold"><span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>
-                          <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="v-align-middle semi-bold">เก่งกล้า มีใจ</td>
-                          <td class="v-align-middle">April 13, 2014</td>
-                          <td class="v-align-middle semi-bold"><span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>
-                            <td class="v-align-middle semi-bold"><a href="user_profile.html"><i class="fa fa-edit"></i> เรียกดู</a>
+                            <td class="v-align-middle semi-bold"><?php echo $mem->member_name;?></td>
+                            <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
+                            <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
+                              <td class="v-align-middle semi-bold"><a href="#"><i class="fa fa-edit"></i> จัดการ</a>
                             </td>
                           </tr>
-                        </tbody>
-                      </table>
-
-
-
+                        <?php } ?>
+                          </tbody>
+                        </table>
                     </div>
                   </div>
                 </div>
                 <!-- END card -->
               </div>
-
+            </div>
+              <?php } ?>
 
             </div>
           </div>
-
-          <!-- start news crade -->
-
-
-
-          <!-- end news crade -->
-
+        </div>
           <!-- END PLACE PAGE CONTENT HERE -->
         </div>
         <!-- END CONTAINER FLUID -->
-      </div>
-      <!-- END PAGE CONTENT -->
+      

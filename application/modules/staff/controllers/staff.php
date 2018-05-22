@@ -160,16 +160,26 @@ class staff extends MY_Controller {
         $this->publish();
 	}
 
-	function show_user_register($project_id){
-
-		$this->setView('show_user_register');
+	function show_user_register(){
+		$data = array();
+		$data['project'] = $this->staff_model->getProject();
+		foreach ($data['project'] as $key => $prj) {
+			$data['member_reg'][$prj->project_id] = $this->staff_model->getProjectRegist($prj->project_id);
+		}
+		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
+		$this->setView('show_user_register',$data);
         $this->publish();
 	}
 
-	function show_user(){
+	function show_user($project_id){
+		$data = array();
+		$data['prj'] = $this->staff_model->getProjectData($project_id);
+		// $data['prj_owner'] = $this->staff_model->getProjectOwner($project_id);
+		$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
 
-		$this->setView('show_user');
-        $this->publish();
+		$this->config->set_item('title','ผู้ขอเข้าร่วมโครงการ');
+		$this->setView('show_user',$data);
+		$this->publish();
 	}
 
 	//management members all
