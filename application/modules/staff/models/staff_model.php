@@ -9,13 +9,13 @@ class staff_model extends MY_Model{
     function getProject($id = ''){
         
         if(!empty($id)){
-            $this->db->where('project_id',$id);
+            $this->db->where('tcdc_prj.project_id',$id);
         }
-    	$this->db->select("tcdc_prj.*, tcdc_prj_type.type_name, count(tcdc_prj_register.reg_id) as num_reg , concat(tcdc_member.firstname,' ',tcdc_member.lastname) as project_update_user");
-    	$this->db->from('tcdc_prj');
+    	$this->db->select("tcdc_prj.*, tcdc_prj_type.type_name, count(tcdc_prj_register.reg_id) as num_reg , concat(tcdc_member.firstname,' ',tcdc_member.lastname) as project_update_user ");
+        $this->db->from('tcdc_prj');
     	$this->db->join('tcdc_prj_type','tcdc_prj.project_type = tcdc_prj_type.type_id');
-        $this->db->join('tcdc_prj_register','tcdc_prj_register.project_id = tcdc_prj.project_id','left');
-        $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj.project_create');
+        $this->db->join('tcdc_prj_register ','tcdc_prj_register.project_id = tcdc_prj.project_id','left');
+        $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj.project_create','left');
         $this->db->group_by('tcdc_prj.project_id');
         $query = $this->db->get();
         return $query->result();
@@ -49,8 +49,14 @@ class staff_model extends MY_Model{
 
 
     //create user save
-    public function saveCreateUser($data){
-        return $this->db->insert('tcdc_member',$data);
+    public function saveCreateUser($data,$data_company){
+        $status = $this->db->insert('tcdc_member',$data);
+        if ($status){
+            $data_company['member_id'] = $this->db->insert_id();
+            $this->db->insert('tcdc_member_company',$data_company);
+        }
+       
+        return true;
     }
     //save edit user
     public function saveEditUser($id='',$data,$data_company){

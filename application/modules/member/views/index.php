@@ -49,12 +49,12 @@
                         </thead>
                         <tbody>
                           <?php foreach ($project as $key => $prj) { 
-                              $diff=date_diff(date_create($prj->project_finish_date),date_create(date('Y-m-d')));
+                              $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
 
-                               if($diff->format("%R%a")<0){
-                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เปิดให้บริการ</span>';
+                               if(@$status[$key]['reg_status'] == 1){
+                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เข้าร่วมแล้ว</span>';
                                }else{
-                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ปิดให้บริการ</span>';
+                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ยังไม่ได้เข้าร่วม</span>';
                                }
 
                           ?>
@@ -69,7 +69,7 @@
                       </table>
 
                       <?php foreach ($project as $key => $prj) { 
-                         $diff=date_diff(date_create($prj->project_finish_date),date_create(date('Y-m-d')));
+                         $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
 
                          if($diff->format("%R%a")<0){
                             $status = 1;
@@ -82,13 +82,13 @@
                             <tbody>
                               <tr>
                                 <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
-                                <td width="10%" style="vertical-align:top">ผู้เข้าร่วม 15 ราย</td>
+                                <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
                                 <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
                                                                            วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เรียกดู</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เข้าร่วม</a></td>
                                 <?php }else{ ?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="#">เรียกดู</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">เข้าร่วม</a></td>
                                 <?php } ?>
                               </tr>
                             </tbody>
