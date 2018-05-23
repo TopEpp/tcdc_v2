@@ -101,9 +101,7 @@
                                                 <option  <?php echo (@$data->prename == 3) ? 'selected':'';?> value="3">นางสาว</option>
                                                 <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
                                               </select>
-                                              <div id="prename_detail" style="display:none;">
-                                                <input  type="text" name="prename_detail" value="<?php echo @$data->prename_detail;?>">
-                                              </div>
+                                        
                                             </div>
                                           </div>
                                           <div class="col-sm-5">
@@ -116,6 +114,17 @@
                                             <div class="form-group form-group-default required">
                                               <label>นามสกุล</label>
                                               <input type="text" name="lastname" class="form-control" value="<?php echo @$data->lastname;?>">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        <div class="form-group-attached" id="prename_detail" style="display:none;">
+                                          <div class="row clearfix">
+                                            <div class="col-sm-3">
+                                              <div class="form-group form-group-default ">
+                                                <label>โปรดระบุ</label>
+                                                <input  type="text" name="prename_detail" class="form-control" value="<?php echo @$data->prename_detail;?>">
+                                              </div>
                                             </div>
                                           </div>
                                         </div>

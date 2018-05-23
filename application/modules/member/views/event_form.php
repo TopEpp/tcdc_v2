@@ -47,8 +47,8 @@
                       <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                         
                         <h2>ที่มาและข้อตกลง</h2>
-                        <p><?php echo $project[0]->project_name.' '.$project[0]->project_detail?> </p>
-                        <p class="small hint-text">งานจัดแสดง , สินค้า , อาหารและเครื่องดืม </p>
+                        <p><?php echo $project[0]->project_name.' '.$project[0]->project_provenance;?> </p>
+                        <p class="small hint-text"><?php echo $project[0]->type_name;?></p><!--งานจัดแสดง , สินค้า , อาหารและเครื่องดืม--> 
                         <br>
                         <div>
                           <div class="profile-img-wrapper m-t-5 inline">
@@ -399,7 +399,7 @@
                             </div>
                           </div>
                           <div class="inline m-l-10">
-                            <p class="small hint-text m-t-5">นันธิดา แก้วจันทร์
+                            <p class="small hint-text m-t-5"><?php echo @$project[0]->project_update_user; ?>
                               <br>ผู้ประสานงานโครงการ</p>
                             </div>
                           </div>
@@ -416,7 +416,7 @@
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
                                     <label>คำนำหน้า</label>
-                                    <select name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                                    <select  id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
       
                                       <option  <?php echo (@$member->prename == '') ? 'selected':'';?> value="" >เลือก</option>
                                       <option  <?php echo (@$member->prename == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -440,7 +440,20 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="form-group-attached" id="prename_detail" style="display:none;">
+                              <div class="row clearfix">
+                                <div class="col-sm-3">
+                                  <div class="form-group form-group-default ">
+                                    <label>โปรดระบุ</label>
+                                    <input type="text" name="prename_detail"  class="form-control" value="<?php echo @$member->prename_detail;?>">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                             <br>
+
                             <p>ที่อยู่</p>
                             <div class="form-group-attached">
                               <div class="form-group form-group-default required">
@@ -537,10 +550,9 @@
 
 
                                 
-                                  <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$member->job == 9) ?  "" : "style='display:none;'" ?>>
+                                  <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$data->job == 9) ?  "" : "style='display:none;'" ?>>
                                   <div class="col-sm-12">
                                     <div class="form-group form-group-default ">
-                          
                                       <input type="text" name="job_detail" placeholder="ระบุอาชีพของคุณ" class="form-control" value="<?php echo @$member->job_detail; ?>">
                                     </div>
                                   </div>

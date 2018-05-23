@@ -79,6 +79,7 @@ class member extends MY_Controller
 			//save user
 			$data_user = array(
 				'prename' => $this->input->post('prename'),
+				'prename_detail' => $this->input->post('prename_detail'),
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),

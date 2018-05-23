@@ -109,7 +109,7 @@
                       <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
                     </select>
                     <div id="prename_detail" style="display:none;">
-                      <input type="text" name="prename_detail" value="<?php echo @$prename;?>">
+                      <input type="text" class="form-control" name="prename_detail" value="<?php echo @$prename;?>">
                     </div>
                   </div>
                 </div>  
@@ -399,6 +399,7 @@
     $('#prename').on('change', function() {
         if(this.value == 4){
           document.getElementById("prename_detail").style.display = "block";
+          $("input[name='prename_detail']").focus();
         }else{
           document.getElementById("prename_detail").style.display = "none";
         }
