@@ -8,7 +8,7 @@ $lang['next'] = 'ถัดไป';
 $lang['back'] = 'ย้อนกลับ';
 
 #side menu
-$lang['bashboard'] = 'แดชบอร์ด';
+$lang['bashboard'] = 'กิจกรรม';
 $lang['manage'] = 'การจัดการ';
 $lang['joiner'] = 'ผู้เข้าร่วม';
 $lang['user'] = 'ผู้ใช้งาน';

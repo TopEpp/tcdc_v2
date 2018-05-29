@@ -2,7 +2,15 @@
   $(function()
   {
       
-    $('.datepicker-range').datepicker();
+    $('.datepicker-range').datepicker({
+        format: "yyyy",
+         weekStart: 1,
+        // orientation: "bottom",
+        // language: "{{ app.request.locale }}",
+            // keyboardNavigation: false,
+        viewMode: "years",
+        minViewMode: "years"
+    });
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;
@@ -46,8 +54,8 @@
 
      //job change 
      $("#job").change(function(){
-        if ($(this).val() == 9){
-  
+        if ($(this).val() ==  11){
+           
            document.getElementById("job_detail").style.display = "block";
         }else{
           document.getElementById("job_detail").value = "";

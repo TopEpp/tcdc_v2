@@ -52,6 +52,10 @@
     margin-top: 20px;
   }
 
+  .form-group label:not(.error){
+    text-transform: none;
+  }
+
   </style>
   <script type="text/javascript">
     window.onload = function()
@@ -78,14 +82,14 @@
 
         <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
           <li class="nav-item">
-            <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span>สร้างชื่อผู้ใช้</span></a>
+            <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span>สร้างบัญชี</span></a>
           </li>
           <li class="nav-item">
             <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span>ข้อมูลส่วนตัว</span></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-check tab-icon"></i> <span>ยืนยันข้อมูล</span></a>
-          </li>
+          </li> -->
         </ul>
         <!-- Tab panes -->
         <?php $attributes = array('name' => 'frmRegistration', 'id' => 'form-register');
@@ -96,10 +100,63 @@
         <div class="tab-content">
           <div class="tab-pane active slide" id="tab1">
           
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-group-default required">
+                    <label>อีเมล/Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
+                    <input type="text" id="email" name="email" placeholder="โปรดระบุอีเมลที่ใช้ลงทะเบียน" class="form-control"  value="<?php //echo set_value('email'); ?>"  >
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-group-default required">
+                    <label>ยืนยันอีเมล/Confirm Email</label>
+                    <span class="text-danger"><?php echo form_error('email_again'); ?></span>
+                    <input type="text" id="email_again" name="email_again" placeholder="โปรดยืนยันอีเมล" class="form-control" value="<?php //echo set_value('email_again'); ?>" >
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-group-default required">
+                    <label>รหัสผ่าน/Password</label>
+                   <span class="text-danger"><?php echo form_error('password'); ?></span>
+                    <input type="password" id="password" name="password" placeholder="กำหนดรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control"  minlength="8"  pattern=".{8,}" value="<?php //echo set_value('password'); ?>" >
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group form-group-default required">
+                    <label>ยืนยันรหัสผ่าน/Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
+                    <input type="password" id="password_again" name="password_again" placeholder="โปรดยืนยันรหัสผ่าน" class="form-control"  minlength="8" value="<?php //echo set_value('password_again'); ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-10">
+                <div class="col-lg-12">
+                  <div class="checkbox check-success  ">
+
+                    <input type="checkbox" value="1" id="checkbox2" >
+                    <label for="checkbox2"> <p><small>ฉันยอมรับและได้อ่าน <a href="#" class="text-info">เงื่อนไขการให้บริการ</a> และ <a href="#" class="text-info">การรักษาความปลอดภัย</a></small></p> </label>
+                  </div>
+                 
+                </div>
+              </div>
+            <!-- </form> -->
+
+          </div>
+          <div class="tab-pane slide" id="tab2">
+
+            <!-- <form id="form-regis-user" class="p-t-15" role="form" action="#"> -->
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group form-group-default required ">
-                    <label>คำนำหน้า</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                    <label>คำนำหน้า/Prename</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
                     <select id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                
                       <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -115,80 +172,101 @@
                 </div>  
                 <div class="col-md-4">
                   <div class="form-group form-group-default required">
-                    <label>ชื่อจริง</label><span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
-                    <input type="text"  id="firstname" name="firstname" placeholder="โปรดระบุบชื่อจริง" class="form-control" value="<?php echo set_value('firstname'); ?>" >
+                    <label>ชื่อ/First Name</label>
+                    <span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
+                    <input type="text"  id="firstname" name="firstname" placeholder="ระบุชื่อ" class="form-control" value="<?php echo set_value('firstname'); ?>" >
 
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group form-group-default required">
-                    <label>นามสกุล</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
-                    <input type="text" id="lastname" name="lastname" placeholder="โปรดระบุบนามสกุล" class="form-control" value="<?php echo set_value('lastname'); ?>">
+                    <label>นามสกุล/Last Name</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
+                    <input type="text" id="lastname" name="lastname" placeholder="ระบุนามสกุล" class="form-control" value="<?php echo set_value('lastname'); ?>">
       
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default required">
-                    <label>Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
-                    <input type="text" id="email" name="email" placeholder="โปรดใส่อีเมล์ที่คุณต้องการ" class="form-control"  value="<?php //echo set_value('email'); ?>"  >
-                    
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default required">
-                    <label>Confirm Email</label> <span class="text-danger"><?php echo form_error('email_again'); ?></span>
-                    <input type="text" id="email_again" name="email_again" placeholder="โปรดใส่อีเมล์อีกครั้ง" class="form-control" value="<?php //echo set_value('email_again'); ?>" >
-                   
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default required">
-                    <label>Password</label><span class="text-danger"><?php echo form_error('password'); ?></span>
-                    <input type="password" id="password" name="password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control"  minlength="8"  pattern=".{8,}" value="<?php //echo set_value('password'); ?>" >
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group form-group-default required">
-                    <label>Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
-                    <input type="password" id="password_again" name="password_again" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control"  minlength="8" value="<?php //echo set_value('password_again'); ?>">
-                  </div>
-                </div>
-              </div>
-              <div class="row m-t-10">
-                <div class="col-lg-12">
-                  <p><small>ฉันยอมรับและได้อ่าน <a href="#" class="text-info">เงื่อนไขการให้บริการ</a> และ <a href="#" class="text-info">การรักษาความปลอดภัย</a></small></p>
-                </div>
-              </div>
-            <!-- </form> -->
 
-          </div>
-          <div class="tab-pane slide" id="tab2">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group form-group-default required form-group-default-selectFx ">
+                    <label>วันเกิด</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                    <select  style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">                
+                      <option  value="" >เลือก</option>
+                      <?php for ($i = 1;$i<=31;$i++) { ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                      <?php } ?>                  
+                    </select>
+                  </div>
+                </div>  
+                <div class="col-md-4">
+                  <div class="form-group form-group-default required form-group-default-selectFx">
+                    <label>เดือนเกิด</label>
+                    <span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
+                    <?php $thaimonth=array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");  ?>
+                    <select  style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                        <option  value="" >เลือก</option>
+                        <?php foreach ($thaimonth as $key => $value) { ?>
+                          <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                        <?php } ?>  
+                      </select>
 
-            <!-- <form id="form-regis-user" class="p-t-15" role="form" action="#"> -->
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group form-group-default required form-group-default-selectFx">
+                    <label>ปีเกิด</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
+                    <select style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                        <option  value="" >เลือก</option>
+                        <?php for ($i = 1950;$i<=2018;$i++) { ?>
+                          <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php } ?>
+      
+                        
+                      </select>
+      
+                  </div>
+                </div>
+              </div>
 
-              <div class="form-group form-group-default required">
-                <label>ที่อยู่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                <input type="text" name="address" class="form-control" placeholder="โปรดระบุบที่อยู่ปัจจุบันของคุณ" value="<?php echo set_value('address'); ?>">
+
+              <div class="row clearfix">
+                <div class="col-sm-3">
+                  <div class="form-group form-group-default required">
+                    <label>บ้านเลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                    <input type="text" name="address" class="form-control" placeholder="ระบุบ้านเลขที่" value="<?php echo set_value('address'); ?>">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group form-group-default required">
+                    <label>หมู่/Moo</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                    <input type="text" name="address" class="form-control" placeholder="ระบุหมู่" value="<?php echo set_value('address'); ?>">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group form-group-default required">
+                    <label>ซอย</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                    <input type="text" name="address" class="form-control" placeholder="ระบุซอย" value="<?php echo set_value('address'); ?>">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group form-group-default required">
+                    <label>ถนน</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                    <input type="text" name="address" class="form-control" placeholder="ระบุถนน" value="<?php echo set_value('address'); ?>">
+                  </div>
+                </div>
               </div>
 
               <div class="row clearfix">
                 <div class="col-sm-6">
                   <div class="form-group form-group-default required">
-                    <label>ตำบล/แขวง</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
+                    <label>ตำบล/แขวง/Subdistrict</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
                     <input type="text" name="subdistrict" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo set_value('subdistrict'); ?>">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group form-group-default required">
-                    <label>เขต/อำเภอ</label><span class="text-danger"><?php echo form_error('district'); ?></span>
+                    <label>เขต/อำเภอ/District</label><span class="text-danger"><?php echo form_error('district'); ?></span>
                     <input type="text" name="district" class="form-control" placeholder="ระบุอำเภอของคุณ" value="<?php echo set_value('district'); ?>">
                   </div>
                 </div>
@@ -196,11 +274,28 @@
               </div>
 
               <div class="row clearfix">
+                <div class="col-sm-4">
+                    <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
+                      <label>ประเทศ/Countries</label><span class="text-danger" style="text-align:center;"><?php echo form_error('countries'); ?></span>
+                      <select style="width:100%" name="countries" id="countries" class=" form-control" data-init-plugin="select2"  >
+                        <option value="">เลือก</option>
+                        <?php foreach ($countries as $key => $value) { ?>
+                          <?php 
+                            $select = '';
+                            if( 'Thailand' == $value->name ){
+                                $select =  'selected="selected"';
+                            } ?>
+                          <option <?php echo $select; ?>  value="<?php echo $value->id;?>"><?php echo $value->name;?></option>
+                        <?php } ?>
+                        
+                      </select>
+                    </div>
+                  </div>
 
-                <div class="col-sm-8">
+                <div class="col-sm-4" id="province" >
                   <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                    <label>จังหวัด</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
-                    <select style="width:100%" name="province" class=" form-control" data-init-plugin="select2"  >
+                    <label>จังหวัด/Province</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
+                    <select style="width:100%"  name="province" class=" form-control" data-init-plugin="select2"  >
                       <option value="">เลือก</option>
                       <?php foreach ($province as $key => $value) { ?>
                         <?php 
@@ -217,33 +312,43 @@
 
                 <div class="col-sm-4">
                   <div class="form-group form-group-default required">
-                    <label>รหัสไปรษณีย์</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
+                    <label>รหัสไปรษณีย์/Zipcode</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
                     <input type="text" name="zipcode" class="form-control" placeholder="ระบุรหัสไปรษณีย์ของคุณ"  pattern="[0-9]*"  value="<?php echo set_value('zipcode'); ?>">
                   </div>
                 </div>
 
                 <br>
-                <p>รูปภาพโปรไฟล์</p>
-                <div class="col-sm-12">
-                  <!-- <form  class="dropzone" id="form-regis-upload"> -->
-                    <div class="fallback">
-                      <input name="profile_img" type="file" size='20' />
-                    </div>
-                  <!-- </form> -->
+                <div class="row clearfix">
+                  <p>รูปโปรไฟล์</p>
+                  <div class="col-sm-12">
+                    <!-- <form  class="dropzone" id="form-regis-upload"> -->
+                      <div class="fallback">
+                        <input name="profile_img" type="file" size='20' />
+                      </div>
+                    <!-- </form> -->
+                  </div>
                 </div>
+              </div>
+
+              <div class="checkbox check-success  ">
+
+                <input type="checkbox" value="1" id="checkbox3" >
+                <label for="checkbox3"> <p><small>ยอมรับนโยบายความเป็นส่วนตัวและข้อกำหนด </small></p> </label>
+                </div>
+
               </div>
             <!-- </form> -->
           </div>
-          <div class="tab-pane slide" id="tab3">
+          <!-- <div class="tab-pane slide" id="tab3">
             <h2>ขอบคุณที่สมัครสมาชิก</h2>
             <p>คุณจะได้รับ E-mail ยืนยันการสมัครสมาชิกส่งไปยังอีเมล์ที่คุณกรอกมา กดปุ่มเสร็จสิ้นเพื่อดำเนินการต่อไป</p>
-          </div>
+          </div> -->
           
 
           <ul class="pager wizard no-style">
             <li class="next">
-              <button id="next" class="btn btn-primary btn-cons btn-animated from-left fa fa-truck pull-right" type="button">
-                <span>ถัดไป</span>
+              <button id="next" class="btn btn-primary btn-cons btn-animated from-left fa fa-angle-right pull-right" type="button">
+                <span>ถัดไป <i class="fa fa-angle-right "></i></span>
               </button>
             </li>
             <!-- <a href="user_template.html"> -->
@@ -260,7 +365,7 @@
             </li>
             <li class="previous">
               <button class="btn btn-white btn-cons pull-right" type="button">
-                <span>ย้อนกลับ</span>
+                <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
               </button>
             </li>
           </ul>
@@ -403,7 +508,19 @@
         }else{
           document.getElementById("prename_detail").style.display = "none";
         }
-    })
+    });
+
+    //countries
+    if (document.getElementById("countries").value == 217){
+      document.getElementById("province").style.display = "block";
+    }
+    $('#countries').on('change', function() {
+        if(this.value != 217){
+          document.getElementById("province").style.display = "none";
+        }else{
+          document.getElementById("province").style.display = "block";
+        }
+    });
 
     $('#btn-finish').click(function(){
       $('#form-register').submit();

@@ -18,7 +18,7 @@ class member extends MY_Controller
 	}
 	public function index()
 	{
-		$this->config->set_item('title','แอพของฉัน');
+		$this->config->set_item('title','กิจกรรม');
 
 		$data['project'] = $this->staff_model->getProject();
 		$data['status'] = $this->member_model->getStatusRegis();

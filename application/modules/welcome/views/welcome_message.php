@@ -61,7 +61,7 @@
 
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
           <img src="<?php echo base_url('assets/img/logo_b.png');?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png');?>" width="78">
-          <p class="p-t-35 fs-16">โปรดเข้าสู่ระบบ</p>
+          <p class="p-t-35 fs-16">เข้าสู่ระบบ</p>
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
           <?php $attributes = array('name' => 'frmLogin', 'id' => 'form-login');
               $lang = $this->uri->segment(1);
@@ -87,17 +87,17 @@
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label class="fn_from">ชื่อผู้ใช้ หรือ อีเมล์</label>
+              <label class="fn_from">อีเมล์</label>
               <div class="controls">
-                <input type="text" name="username" id="username" placeholder="User Name" class="form-control" required>
+                <input type="text" name="username" id="username" placeholder="ระบุอีเมล์" class="form-control" required >
               </div>
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label>รหัสผ่าน</label>
+              <label>ป้อนรหัสผ่าน</label>
               <div class="controls">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="ป้อนรหัสผ่าน" required>
               </div>
             </div>
             <!-- START Form Control-->
@@ -105,17 +105,30 @@
               <div class="col-md-6 no-padding sm-p-l-10">
                 <div class="checkbox ">
                   <input type="checkbox" value="1" id="checkbox1">
-                  <label for="checkbox1">จำฉันไว้ตลอด</label>
+                  <label for="checkbox1">จำรหัสผ่าน</label>
                 </div>
               </div>
               <div class="col-md-6 d-flex align-items-center justify-content-end">
-                <a href="#" class="text-info small">ช่วยเหลือ? โปรดติดต่อเรา</a>
+                <a href="#" class="text-info small">ลืมรหัสผ่าน</a>
               </div>
             </div>
             <!-- END Form Control-->
+            <a class="btn btn-primary btn-cons m-t-10 fn_from" href="#" id="btn-login" ><?php echo lang('login');?></a>
             <a class="btn btn-info btn-cons m-t-10 fn_from" href="<?php echo base_url('register')?>"><?php echo lang('register');?></a>
-            <a class="btn btn-primary btn-cons m-t-10 fn_from" href="#" id="btn-login" "><?php echo lang('login');?></a>
-            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="row">
+              <div class="col-md-6 no-padding sm-p-l-10">
+                <div class="col-md-6 d-flex ">
+                  <a href="#" class="text-info small">ติดต่อเรา</a>
+                </div>
+              </div>
+            </div>
+
+           
           </form>
         </div>
       </div>
@@ -145,7 +158,20 @@
     <script>
     $(function()
     {
-      $('#form-login').validate();
+
+      var validator = $("#form-login").validate({
+          rules: {
+            username: "required",
+          },
+          messages: {
+            username: "ข้อมูลจำเป็น",
+            password: "ข้อมูลจำเป็น",
+
+          }
+      });
+
+      
+  
 
       $('#btn-login').click(function(){
         $('#form-login').submit();

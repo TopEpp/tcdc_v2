@@ -6,8 +6,8 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
-                  <li class="breadcrumb-item active">แอพของฉัน</li>
+                  <li class="breadcrumb-item"><a href="<?php echo base_url('member');?>">หน้าหลัก</a></li>
+                  <li class="breadcrumb-item active">กิจกรรม</li>
                 </ol>
                 <!-- END BREADCRUMB -->
               </div>
@@ -32,8 +32,8 @@
                         } 
                       ?>
                     <div class="card-title">
-                      <h3>แอพของฉัน</h3>
-                      <p>รวบรวมกิจกรรมและงานที่คุณสามารถสมัครได้</p>
+                      <h3>กิจกรรมที่เปิดรับสมัคร</h3>
+                      
                     </div>
                   </div>
                   <div class="card-block">
@@ -41,10 +41,10 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
-                            <th style="width:35%">โครงการ</th>
-                            <th style="width:25%">ประเภท</th>
+                            <th style="width:35%">ประเภทกิจกรรม</th>
+                            <th style="width:25%"></th>
                             <th style="width:20%">สถานะ</th>
-                            <th style="width:20%">อัพเดทเมื่อ</th>
+                            <th style="width:20%"></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -52,9 +52,9 @@
                               $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
 
                                if(@$status[$key]['reg_status'] == 1){
-                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เข้าร่วมแล้ว</span>';
+                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">สมัครแล้ว</span>';
                                }else{
-                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ยังไม่ได้เข้าร่วม</span>';
+                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ไม่ได้สมัคร</span>';
                                }
 
                           ?>
@@ -81,14 +81,17 @@
                           <table class="table table-inline" >
                             <tbody>
                               <tr>
-                                <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
+                                <td width="60%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail;?></p></td>
                                 <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
-                                <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
-                                                                           วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
+                                <?php $start_reg = explode('-',$prj->register_start_date);
+                                      $end_reg = explode('-',$prj->register_finish_date);
+                                 ?>
+                                <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $start_reg[2].'/'.$start_reg[1].'/'.$start_reg[0].' - '.$end_reg[2].'/'.$end_reg[1].'/'.$end_reg[0]?></p> <br>
+                                                                        
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:green;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เข้าร่วม</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:green;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">สมัคร</a></td>
                                 <?php }else{ ?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:red; backgroud:red" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">เข้าร่วม</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:red; backgroud:red" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                 <?php } ?>
                               </tr>
                             </tbody>
@@ -111,7 +114,7 @@
                       <div class="card-header ">
                         <div class="card-title">
                           <h3>ข่าวสาร</h3>
-                          <p>ติดตามข้อมูลของเราได้ง่ายๆ เพียงแค่เข้าสู่ระบบมายังหน้าหลัก</p>
+                     
                     </div>
                   </div>
                 </div>
@@ -125,7 +128,7 @@
                     <div class="col-lg-4">
                       <div id="card-linear-color" class="card card-default card2">
                         <div class="card-header  ">
-                          <div class="card-title"><?php echo ($value->news_type == 1)? 'ข่าวด่วน':'ประกาศแจ้ง' ; ?>
+                          <div class="card-title"><?php echo ($value->news_type == 1)? 'ประกาศ':'ประกาศแจ้ง' ; ?>
                           </div>
                           <div class="card-controls">
                             <ul>
@@ -187,7 +190,7 @@
                     <div class="col-lg-4">
                       <div id="card-error" class="card card-default bg-danger-light">
                         <div class="card-header ">
-                          <div class="card-title">แจ้งจากระบบ
+                          <div class="card-title">ประกาศ
                           </div>
                           <div class="card-controls">
                             <ul>

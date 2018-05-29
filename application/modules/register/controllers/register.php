@@ -18,6 +18,9 @@ class register extends MY_Controller {
 		// get province
 		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 		$data['province'] = $query->result();
+		//get country
+		$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+		$data['countries'] = $query->result();
 		
 		$this->load->view('register',$data);
 		
