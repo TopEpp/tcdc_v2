@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8" />
-  <title>สมัครสมาชิก : CMDW</title>
+  <title>สร้างบัญชี : CMDW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
   <link rel="apple-touch-icon" href="pages/ico/60.png">
   <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -70,7 +70,7 @@
   <div class="register-container full-height sm-p-t-30">
     <div class="d-flex justify-content-center flex-column full-height ">
       <img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78">
-      <h3>สร้างชื่อผู้ใช้งาน</h3>
+      <h3>สร้างบัญชี</h3>
       <p>
         เมื่อคุณมีชื่อผู้ใช้งานแล้วคุณสามารถสมัครเข้าร่วมโครงการต่างๆ ที่เราจัดขึ้นได้โดยกรอกข้อมูลที่เราต้องการด้านล่างนี้
       </p>
@@ -104,7 +104,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
-                    <label>อีเมล/Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
+                    <label>อีเมล,Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
                     <input type="text" id="email" name="email" placeholder="โปรดระบุอีเมลที่ใช้ลงทะเบียน" class="form-control"  value="<?php //echo set_value('email'); ?>"  >
                     
                   </div>
@@ -113,7 +113,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
-                    <label>ยืนยันอีเมล/Confirm Email</label>
+                    <label>ยืนยันอีเมล,Confirm Email</label>
                     <span class="text-danger"><?php echo form_error('email_again'); ?></span>
                     <input type="text" id="email_again" name="email_again" placeholder="โปรดยืนยันอีเมล" class="form-control" value="<?php //echo set_value('email_again'); ?>" >
                    
@@ -123,7 +123,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
-                    <label>รหัสผ่าน/Password</label>
+                    <label>รหัสผ่าน,Password</label>
                    <span class="text-danger"><?php echo form_error('password'); ?></span>
                     <input type="password" id="password" name="password" placeholder="กำหนดรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control"  minlength="8"  pattern=".{8,}" value="<?php //echo set_value('password'); ?>" >
                   </div>
@@ -132,7 +132,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group form-group-default required">
-                    <label>ยืนยันรหัสผ่าน/Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
+                    <label>ยืนยันรหัสผ่าน,Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
                     <input type="password" id="password_again" name="password_again" placeholder="โปรดยืนยันรหัสผ่าน" class="form-control"  minlength="8" value="<?php //echo set_value('password_again'); ?>">
                   </div>
                 </div>
@@ -156,7 +156,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group form-group-default required ">
-                    <label>คำนำหน้า/Prename</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                    <label>คำนำหน้า,Pre Name</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
                     <select id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                
                       <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -172,7 +172,7 @@
                 </div>  
                 <div class="col-md-4">
                   <div class="form-group form-group-default required">
-                    <label>ชื่อ/First Name</label>
+                    <label>ชื่อ,First Name</label>
                     <span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
                     <input type="text"  id="firstname" name="firstname" placeholder="ระบุชื่อ" class="form-control" value="<?php echo set_value('firstname'); ?>" >
 
@@ -180,7 +180,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group form-group-default required">
-                    <label>นามสกุล/Last Name</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
+                    <label>นามสกุล,Last Name</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
                     <input type="text" id="lastname" name="lastname" placeholder="ระบุนามสกุล" class="form-control" value="<?php echo set_value('lastname'); ?>">
       
                   </div>
@@ -190,24 +190,49 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group form-group-default required form-group-default-selectFx ">
-                    <label>วันเกิด</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
-                    <select  style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">                
+                    <label>วันเกิด/Birthday</label><span class="text-danger"><?php  echo  form_error('birthday'); ?></span>
+                    <select  style="width:100%" id="birthday" name="birthday" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">                
                       <option  value="" >เลือก</option>
-                      <?php for ($i = 1;$i<=31;$i++) { ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                      <?php for ($i = 1;$i<=31;$i++) {
+                          $select = '';
+                          
+                          if(set_value('birthday') == $i ){
+                            $select =  'selected="selected"';
+                          }
+                        ?>
+                        <option <?php echo $select;?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                       <?php } ?>                  
                     </select>
                   </div>
                 </div>  
                 <div class="col-md-4">
                   <div class="form-group form-group-default required form-group-default-selectFx">
-                    <label>เดือนเกิด</label>
-                    <span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
-                    <?php $thaimonth=array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");  ?>
-                    <select  style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                    <label>เดือนเกิด/Month Of Birth</label>
+                    <span class="text-danger"><?php  echo  form_error('month_of_birth'); ?></span>
+                    <?php $months = array(
+                              'January',
+                              'February',
+                              'March',
+                              'April',
+                              'May',
+                              'June',
+                              'July ',
+                              'August',
+                              'September',
+                              'October',
+                              'November',
+                              'December',
+                          );  ?>
+                    <select  style="width:100%" id="month_of_birth" name="month_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                         <option  value="" >เลือก</option>
-                        <?php foreach ($thaimonth as $key => $value) { ?>
-                          <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                        <?php foreach ($months as $key => $value) { 
+                          $select = '';
+                          
+                          if(set_value('month_of_birth') == $value ){
+                            $select =  'selected="selected"';
+                          }
+                          ?>
+                          <option  <?php echo $select;?> value="<?php echo $value; ?>"><?php echo $value; ?></option>
                         <?php } ?>  
                       </select>
 
@@ -215,11 +240,19 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group form-group-default required form-group-default-selectFx">
-                    <label>ปีเกิด</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
-                    <select style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                    <label>ปีเกิด/Year Of Birth</label><span class="text-danger"><?php echo form_error('year_of_birth'); ?></span>
+                    <select style="width:100%" id="year_of_birth" name="year_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                         <option  value="" >เลือก</option>
-                        <?php for ($i = 1950;$i<=2018;$i++) { ?>
-                          <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+       
+                        <?php for ($i = 1950;$i<=2018;$i++) { 
+                           $select = '';
+                          
+                             if(set_value('year_of_birth') == $i ){
+                               $select =  'selected="selected"';
+                             }
+                      
+                          ?>
+                          <option <?php echo $select; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php } ?>
       
                         
@@ -233,26 +266,26 @@
               <div class="row clearfix">
                 <div class="col-sm-3">
                   <div class="form-group form-group-default required">
-                    <label>บ้านเลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                    <label>บ้านเลขที่,Number</label><span class="text-danger"><?php echo form_error('address'); ?></span>
                     <input type="text" name="address" class="form-control" placeholder="ระบุบ้านเลขที่" value="<?php echo set_value('address'); ?>">
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="form-group form-group-default required">
-                    <label>หมู่/Moo</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                    <input type="text" name="address" class="form-control" placeholder="ระบุหมู่" value="<?php echo set_value('address'); ?>">
+                    <label>หมู่,Village No</label><span class="text-danger"><?php echo form_error('village'); ?></span>
+                    <input type="text" name="village" class="form-control" placeholder="ระบุหมู่" value="<?php echo set_value('village'); ?>">
                   </div>
                 </div>
                 <div class="col-sm-3">
-                  <div class="form-group form-group-default required">
-                    <label>ซอย</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                    <input type="text" name="address" class="form-control" placeholder="ระบุซอย" value="<?php echo set_value('address'); ?>">
+                  <div class="form-group form-group-default ">
+                    <label>ซอย,Lane</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
+                    <input type="text" name="lane" class="form-control" placeholder="ระบุซอย" value="<?php echo set_value('lane'); ?>">
                   </div>
                 </div>
                 <div class="col-sm-3">
-                  <div class="form-group form-group-default required">
-                    <label>ถนน</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                    <input type="text" name="address" class="form-control" placeholder="ระบุถนน" value="<?php echo set_value('address'); ?>">
+                  <div class="form-group form-group-default ">
+                    <label>ถนน,Road</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
+                    <input type="text" name="road" class="form-control" placeholder="ระบุถนน" value="<?php echo set_value('Road'); ?>">
                   </div>
                 </div>
               </div>
@@ -260,13 +293,13 @@
               <div class="row clearfix">
                 <div class="col-sm-6">
                   <div class="form-group form-group-default required">
-                    <label>ตำบล/แขวง/Subdistrict</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
+                    <label>ตำบล/แขวง,Subdistrict</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
                     <input type="text" name="subdistrict" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo set_value('subdistrict'); ?>">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group form-group-default required">
-                    <label>เขต/อำเภอ/District</label><span class="text-danger"><?php echo form_error('district'); ?></span>
+                    <label>เขต/อำเภอ,District</label><span class="text-danger"><?php echo form_error('district'); ?></span>
                     <input type="text" name="district" class="form-control" placeholder="ระบุอำเภอของคุณ" value="<?php echo set_value('district'); ?>">
                   </div>
                 </div>
@@ -276,15 +309,23 @@
               <div class="row clearfix">
                 <div class="col-sm-4">
                     <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                      <label>ประเทศ/Countries</label><span class="text-danger" style="text-align:center;"><?php echo form_error('countries'); ?></span>
-                      <select style="width:100%" name="countries" id="countries" class=" form-control" data-init-plugin="select2"  >
+                      <label>ประเทศ,Countries</label><span class="text-danger" style="text-align:center;"><?php echo form_error('country'); ?></span>
+                      <select style="width:100%" name="country" id="country" class=" form-control" data-init-plugin="select2"  >
                         <option value="">เลือก</option>
                         <?php foreach ($countries as $key => $value) { ?>
                           <?php 
                             $select = '';
-                            if( 'Thailand' == $value->name ){
+                            if (!empty(set_value('country'))){
+                              if(set_value('country') == $value->id ){
                                 $select =  'selected="selected"';
-                            } ?>
+                              }
+                            }else{
+                              if( 'Thailand' == $value->name ){
+                                $select =  'selected="selected"';
+                              }
+                            }
+                           
+                            ?>
                           <option <?php echo $select; ?>  value="<?php echo $value->id;?>"><?php echo $value->name;?></option>
                         <?php } ?>
                         
@@ -294,7 +335,7 @@
 
                 <div class="col-sm-4" id="province" >
                   <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                    <label>จังหวัด/Province</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
+                    <label>จังหวัด,Province</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
                     <select style="width:100%"  name="province" class=" form-control" data-init-plugin="select2"  >
                       <option value="">เลือก</option>
                       <?php foreach ($province as $key => $value) { ?>
@@ -312,7 +353,7 @@
 
                 <div class="col-sm-4">
                   <div class="form-group form-group-default required">
-                    <label>รหัสไปรษณีย์/Zipcode</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
+                    <label>รหัสไปรษณีย์,Zipcode</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
                     <input type="text" name="zipcode" class="form-control" placeholder="ระบุรหัสไปรษณีย์ของคุณ"  pattern="[0-9]*"  value="<?php echo set_value('zipcode'); ?>">
                   </div>
                 </div>
@@ -347,7 +388,7 @@
 
           <ul class="pager wizard no-style">
             <li class="next">
-              <button id="next" class="btn btn-primary btn-cons btn-animated from-left fa fa-angle-right pull-right" type="button">
+              <button id="btn-next" class="btn btn-primary btn-cons btn-animated from-left fa fa-angle-right pull-right" type="button">
                 <span>ถัดไป <i class="fa fa-angle-right "></i></span>
               </button>
             </li>
@@ -435,16 +476,23 @@
 <script>
   $(document).ready(function() {
     $('#myFormWizard').bootstrapWizard({
+      onTabClick : function () {
+        return false;
+      },
       onTabShow: function(tab, navigation, index) {
         var $total = navigation.find('li').length;
         var $current = index + 1;
 
+              
             // If it's the last tab then hide the last button and show the finish instead
             if ($current >= $total) {
+              
+              
               $('#myFormWizard').find('.pager .next').hide();
               $('#myFormWizard').find('.pager .finish').show();
               $('#myFormWizard').find('.pager .finish').removeClass('disabled');
             } else {
+              
               $('#myFormWizard').find('.pager .next').show();
               $('#myFormWizard').find('.pager .finish').hide();
             }
@@ -475,6 +523,7 @@
               removeIcons(btnPrev);
               btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
             } else if ($current == 1) {
+            
                 // remove classes needed for button animations from previous button
                 btnPrev.removeClass('btn-animated from-left fa');
                 removeIcons(btnPrev);
@@ -497,6 +546,15 @@
 
   $(document).ready(function() {
 
+     $('#btn-next').click(function(){
+        if(!$('#checkbox2').is(":checked") ){
+          alert('กรุณาคลิก!! ยอมรับและได้อ่าน เงื่อนไขการให้บริการ และ การรักษาความปลอดภัย ')
+            return false;
+        }
+      });
+
+
+
     //prename
     if (document.getElementById("prename").value == 4){
       document.getElementById("prename_detail").style.display = "block";
@@ -511,18 +569,27 @@
     });
 
     //countries
-    if (document.getElementById("countries").value == 217){
+    if (document.getElementById("country").value == 217){
       document.getElementById("province").style.display = "block";
+    }else{
+      document.getElementById("province").style.display = "none";
     }
-    $('#countries').on('change', function() {
+
+    $('#country').on('change', function() {
         if(this.value != 217){
           document.getElementById("province").style.display = "none";
         }else{
           document.getElementById("province").style.display = "block";
         }
     });
+    //end country
 
     $('#btn-finish').click(function(){
+
+        if(!$('#checkbox3').is(":checked") ){
+          alert('กรุณา ยอมรับนโยบายความเป็นส่วนตัวและข้อกำหนด ')
+            return false;
+        }
       $('#form-register').submit();
     });
  

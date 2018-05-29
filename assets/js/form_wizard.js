@@ -10,6 +10,9 @@
     $(document).ready(function() {
 
         $('#rootwizard').bootstrapWizard({
+            onTabClick : function () {
+                return false;
+              },
             onTabShow: function(tab, navigation, index) {
                 var $total = navigation.find('li').length;
                 var $current = index + 1;
@@ -66,7 +69,8 @@
             },
             onInit: function() {
                 $('#rootwizard ul').removeClass('nav-pills');
-            }
+            },
+          
 
         });
 

@@ -31,18 +31,20 @@ class register extends MY_Controller {
 		$data = array();	
 
 		// #tab1
-		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
-		$this->form_validation->set_rules('firstname', 'ชื่อจริง', 'trim|required');
-		$this->form_validation->set_rules('lastname', 'นามสกุลจริง', 'trim|required');
-		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email|callback_email_check');
-        $this->form_validation->set_rules('email_again', 'ยืนยันอีเมล์', 'trim|required|valid_email|matches[email]');
+	
+		$this->form_validation->set_rules('email','อีเมล', 'trim|required|valid_email|callback_email_check');
+        $this->form_validation->set_rules('email_again', 'ยืนยันอีเมล', 'trim|required|valid_email|matches[email]');
 		$this->form_validation->set_rules('password','รหัสผ่าน', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('password_again', 'ยืนยันรหัสผ่าน', 'trim|required|min_length[8]|matches[password]');
 		// #tab2
-		$this->form_validation->set_rules('address','ที่อยู่', 'trim|required');
+		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
+		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
+		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
+		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
+		$this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
 		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
 		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
-		$this->form_validation->set_rules('province','จังหวัด', 'required');
+		$this->form_validation->set_rules('country','ประเทศ', 'required');
 		$this->form_validation->set_rules('zipcode','รหัสไปรณีย์', 'trim|required|min_length[5]|max_length[5]|callback_numeric_dash');
 
 	
@@ -52,6 +54,10 @@ class register extends MY_Controller {
 			// get province
 			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 			$data['province'] = $query->result();
+			//get country
+			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$data['countries'] = $query->result();
+
 			$data['prename'] = $this->input->post('prename_detail');
 			$this->load->view('register',$data);
             
@@ -71,11 +77,18 @@ class register extends MY_Controller {
                 'firstname' => $this->input->post('firstname'),
                 'lastname' => $this->input->post('lastname'),
 				'email' => $this->input->post('email'),
+				'birthday' => $this->input->post('birthday'),
+				'month_of_birth' => $this->input->post('month_of_birth'),
+				'year_of_birth' => $this->input->post('year_of_birth'),
 				'password' =>  $this->encrypt->encode($this->input->post('password')),
-            	'address' => $this->input->post('address'),
+				'address' => $this->input->post('address'),
+				'village' => $this->input->post('village'),
+				'lane' => $this->input->post('lane'),
+				'road' => $this->input->post('road'),
 				'subdistrict' => $this->input->post('subdistrict'),
 				'district' => $this->input->post('district'),
 				'province' => $this->input->post('province'),
+				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode')
 			);     
 			if($imageupload){
