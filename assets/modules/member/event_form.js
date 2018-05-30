@@ -64,18 +64,18 @@
       });
 
           //prename
-    if (document.getElementById("prename").value == 4){
-        document.getElementById("prename_detail").style.display = "block";
-        // $("input[name='prename_detail']").focus();
-      }
-      $('#prename').on('change', function() {
-          if(this.value == 4){
-            document.getElementById("prename_detail").style.display = "block";
-            $("input[name='prename_detail']").focus();
-          }else{
-            document.getElementById("prename_detail").style.display = "none";
-          }
-      });
+    // if (document.getElementById("prename").value == 4){
+    //     document.getElementById("prename_detail").style.display = "block";
+    //     // $("input[name='prename_detail']").focus();
+    //   }
+    //   $('#prename').on('change', function() {
+    //       if(this.value == 4){
+    //         document.getElementById("prename_detail").style.display = "block";
+    //         $("input[name='prename_detail']").focus();
+    //       }else{
+    //         document.getElementById("prename_detail").style.display = "none";
+    //       }
+    //   });
   
 
 
@@ -92,31 +92,31 @@
         }
     });
 
-//get status company
-    $company =   $("input[name=radio1]:checked").map(function() {
-    return this.value;
-    }).get().join(",");
+// //get status company
+//     $company =   $("input[name=radio1]:checked").map(function() {
+//     return this.value;
+//     }).get().join(",");
 
-    if ($company != 1){
-    document.getElementById("radio-company").style.display = "none";
-    }
-    else{
-    document.getElementById("radio-company").style.display = "block";
-    }
+//     if ($company != 1){
+//     document.getElementById("radio-company").style.display = "none";
+//     }
+//     else{
+//     document.getElementById("radio-company").style.display = "block";
+//     }
 
-    $('#radio1No').on('change', function() {
-        if($('input[name=radio1]').is(':checked')){
-            document.getElementById("radio-company").style.display = "block";
-            // $("$company_province").prop( "disabled", 'disabled' );
-        }
-    });
+//     $('#radio1No').on('change', function() {
+//         if($('input[name=radio1]').is(':checked')){
+//             document.getElementById("radio-company").style.display = "block";
+//             // $("$company_province").prop( "disabled", 'disabled' );
+//         }
+//     });
 
-    $('#radio1Yes').on('change', function() {
-        if($('input[name=radio1]').is(':checked')){
-            document.getElementById("radio-company").style.display = "none";
-            // $("$company_province").prop( "disabled", 'disabled' );
-        }
-    });
+//     $('#radio1Yes').on('change', function() {
+//         if($('input[name=radio1]').is(':checked')){
+//             document.getElementById("radio-company").style.display = "none";
+//             // $("$company_province").prop( "disabled", 'disabled' );
+//         }
+//     });
 
     //end check company
 

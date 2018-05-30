@@ -15,6 +15,8 @@
           </div>
           <!-- END JUMBOTRON -->
           <!-- START CONTAINER FLUID -->
+
+          
           <div class=" container-fluid   container-fixed-lg">
             <!-- BEGIN PlACE PAGE CONTENT HERE -->
             
@@ -22,6 +24,38 @@
             <div class="row">
               <div class="col-lg-12">
                 <!-- START card -->
+
+
+
+              <!-- Modal fist login-->
+              <input type="hidden" id="login" value="<?php echo @$first_login;?>">
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="loginModal">CMDW</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ยินดีต้อนรับเข้าสู่ CMDW
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <!-- check login -->
+                <script>
+                  setTimeout(function(){
+                    var login =$('#login').val();
+                    if (login == 0 ){
+                      $('#loginModal').modal();
+                    }
+                    
+                  }, 1000);
+                </script>
+
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <!-- status product -->

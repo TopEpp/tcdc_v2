@@ -23,7 +23,11 @@ class member extends MY_Controller
 		$data['project'] = $this->staff_model->getProject();
 		$data['status'] = $this->member_model->getStatusRegis();
 		$data['news'] = $this->staff_model->getNews();
-	
+		
+		//check user first login
+		$user_id = $this->session->userdata('sesUserID');
+		$data['first_login'] = $this->member_model->getUserLogin($user_id);
+
 		$this->setView('index',$data);
 		$this->publish();
 	}
@@ -38,6 +42,9 @@ class member extends MY_Controller
 			// get province
 			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 			$data['province'] = $query->result();
+			//get country
+			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$data['countries'] = $query->result();
 
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
@@ -63,11 +70,11 @@ class member extends MY_Controller
 			$this->form_validation->set_rules('coordinator_phone','เบอร์โทรประสานงาน', 'trim|required');
 		}
 
-		$this->form_validation->set_rules('product_type','ประเภทผลงาน', 'trim|required');
-		$this->form_validation->set_rules('product_name','ชื่อผลงาน', 'trim|required');
-		$this->form_validation->set_rules('material','วัสดุ', 'trim|required');
-		$this->form_validation->set_rules('product_firstname','ชื่อผู้ออกแบบ', 'trim|required');
-		$this->form_validation->set_rules('product_lastname','นามสกุลผู้ออกแบบ', 'trim|required');
+		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 
 
 		if($this->form_validation->run() == false){
@@ -145,6 +152,7 @@ class member extends MY_Controller
 				'project_id' => $this->input->post('project_id'),
 				'user_id' => $id,
 				'reg_date' => date('Y-m-d H:i:s'),
+				'reg_status' => '1',
 				'target_type' => $this->input->post('target_type'),
 				'target_type_detail' => $this->input->post('target_type_detail'),
 				'showarea_type' => $this->input->post('showarea_type'),

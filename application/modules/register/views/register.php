@@ -137,16 +137,6 @@
                   </div>
                 </div>
               </div>
-              <div class="row m-t-10">
-                <div class="col-lg-12">
-                  <div class="checkbox check-success  ">
-
-                    <input type="checkbox" value="1" id="checkbox2" >
-                    <label for="checkbox2"> <p><small>ฉันยอมรับและได้อ่าน <a href="#" class="text-info">เงื่อนไขการให้บริการ</a> และ <a href="#" class="text-info">การรักษาความปลอดภัย</a></small></p> </label>
-                  </div>
-                 
-                </div>
-              </div>
             <!-- </form> -->
 
           </div>
@@ -163,7 +153,7 @@
                       <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
                       <option  <?php echo (@set_value('prename') == 2) ? 'selected':'';?> value="2">นาง</option>
                       <option  <?php echo (@set_value('prename') == 3) ? 'selected':'';?> value="3">นางสาว</option>
-                      <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
+                      <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">ไม่ระบุ</option>
                     </select>
                     <div id="prename_detail" style="display:none;">
                       <input type="text" class="form-control" name="prename_detail" value="<?php echo @$prename;?>">
@@ -331,7 +321,7 @@
                         
                       </select>
                     </div>
-                  </div>
+                </div>
 
                 <div class="col-sm-4" id="province" >
                   <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
@@ -371,12 +361,15 @@
                 </div>
               </div>
 
-              <div class="checkbox check-success  ">
+              <div class="row m-t-10">
+                <div class="col-lg-12">
+                  <div class="checkbox check-success  ">
 
-                <input type="checkbox" value="1" id="checkbox3" >
-                <label for="checkbox3"> <p><small>ยอมรับนโยบายความเป็นส่วนตัวและข้อกำหนด </small></p> </label>
+                    <input type="checkbox" value="1" id="checkbox2" >
+                    <label for="checkbox2"> <p><small>ฉันยอมรับและได้อ่าน <a href="#" class="text-info">เงื่อนไขการให้บริการ</a> และ <a href="#" class="text-info">การรักษาความปลอดภัย</a></small></p> </label>
+                  </div>
+                 
                 </div>
-
               </div>
             <!-- </form> -->
           </div>
@@ -395,7 +388,7 @@
             <!-- <a href="user_template.html"> -->
             <li class="next finish" style="display:none;">
               <button id="btn-finish" class="btn btn-primary btn-cons btn-animated from-left fa fa-cog pull-right" type="button">
-                <span>เสร็จสิ้น</span>
+                <span>ยืนยัน</span>
               </button>
             </li>
             <!-- </a> -->
@@ -546,27 +539,6 @@
 
   $(document).ready(function() {
 
-     $('#btn-next').click(function(){
-        if(!$('#checkbox2').is(":checked") ){
-          alert('กรุณาคลิก!! ยอมรับและได้อ่าน เงื่อนไขการให้บริการ และ การรักษาความปลอดภัย ')
-            return false;
-        }
-      });
-
-
-
-    //prename
-    if (document.getElementById("prename").value == 4){
-      document.getElementById("prename_detail").style.display = "block";
-    }
-    $('#prename').on('change', function() {
-        if(this.value == 4){
-          document.getElementById("prename_detail").style.display = "block";
-          $("input[name='prename_detail']").focus();
-        }else{
-          document.getElementById("prename_detail").style.display = "none";
-        }
-    });
 
     //countries
     if (document.getElementById("country").value == 217){
@@ -585,11 +557,13 @@
     //end country
 
     $('#btn-finish').click(function(){
-
-        if(!$('#checkbox3').is(":checked") ){
-          alert('กรุณา ยอมรับนโยบายความเป็นส่วนตัวและข้อกำหนด ')
-            return false;
-        }
+        
+      //check confirm 
+      if(!$('#checkbox2').is(":checked") ){
+        alert('กรุณาคลิก!! ยอมรับและได้อ่าน เงื่อนไขการให้บริการ และ การรักษาความปลอดภัย ')
+          return false;
+      }
+    
       $('#form-register').submit();
     });
  

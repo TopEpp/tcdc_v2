@@ -89,8 +89,10 @@ class register extends MY_Controller {
 				'district' => $this->input->post('district'),
 				'province' => $this->input->post('province'),
 				'country' => $this->input->post('country'),
-				'zipcode' => $this->input->post('zipcode')
+				'zipcode' => $this->input->post('zipcode'),
+				'rec_create_date' => date('Y-m-d')
 			);     
+
 			if($imageupload){
 				$data['profile_img'] = $imageupload['public_id'];
 			}

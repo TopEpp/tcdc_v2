@@ -221,6 +221,9 @@ class staff extends MY_Controller {
 			// get province
 			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 			$data['province'] = $query->result();
+			//get country
+			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$data['countries'] = $query->result();
 
 			
 
@@ -330,7 +333,7 @@ class staff extends MY_Controller {
 	{
 		if(!empty($id)){
 
-			$this->form_validation->set_rules('email','Email', 'trim|required|valid_email');
+			// $this->form_validation->set_rules('email','Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password','Password', 'trim|min_length[8]|callback_pass_check');
 			$this->form_validation->set_rules('phone','Phone', 'trim|required');
 			$this->form_validation->set_rules('pass_new', 'Pass_new', 'trim|min_length[8]');
@@ -355,7 +358,6 @@ class staff extends MY_Controller {
 					'firstname' => $this->input->post('firstname'),
 					'lastname' => $this->input->post('lastname'),
 					'phone' => $this->input->post('phone'),
-					'email' => $this->input->post('email'),
 					'address' => $this->input->post('address'),
 					'subdistrict' => $this->input->post('subdistrict'),
 					'district' => $this->input->post('district'),
@@ -371,6 +373,8 @@ class staff extends MY_Controller {
 					'lineid' => $this->input->post('lineid'),
 					
 				);
+
+			
 								
 				if (!empty($this->input->post('pass_new'))){
 					$data['password'] = $this->encrypt->encode($this->input->post('pass_new'));//new password

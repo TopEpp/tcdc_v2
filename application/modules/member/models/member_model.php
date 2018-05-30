@@ -80,6 +80,13 @@ class member_model extends MY_Model{
         return $query->result();
     }
 
+    //get User login
+    public function getUserLogin($id){
+        $this->db->where('user_id',$id);
+        $query = $this->db->get('tcdc_member_log');
+        return $query->num_rows();
+    }
+
   
 
 }

@@ -37,6 +37,12 @@
         document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/windows.chrome.fix.css');?>" />'
     }
     </script>
+    <style>
+    
+    .form-group label:not(.error){
+      text-transform: none;
+    }
+    </style>
   </head>
   <body class="fixed-header menu-pin menu-behind">
     <div class="login-wrapper ">
@@ -87,7 +93,7 @@
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label class="fn_from">อีเมล์</label>
+              <label class="fn_from">อีเมล/Email</label>
               <div class="controls">
                 <input type="text" name="username" id="username" placeholder="ระบุอีเมล์" class="form-control" required >
               </div>
@@ -95,7 +101,7 @@
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label>ป้อนรหัสผ่าน</label>
+              <label>ป้อนรหัสผ่าน/Password</label>
               <div class="controls">
                 <input type="password" class="form-control" name="password" id="password" placeholder="ป้อนรหัสผ่าน" required>
               </div>
