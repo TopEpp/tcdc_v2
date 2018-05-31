@@ -914,35 +914,38 @@
                 <div class="tab-pane  slide-left padding-20 sm-no-padding " id="tab3">
 
                  
-                      <div class="row clearfix">
+                      <div class="row clearfix row-same-height ">
 
                         <div class="col-md-12">
-                        <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="check1">
-                            <label for="check1">เพื่อเพิ่มมูลค่าของสินค้า</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="check2">
-                            <label for="check2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="check3">
-                            <label for="check3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="check15">
-                            <label for="check15">อื่นๆ (โปรดระบุ)</label>
-                          </div>
+                        <div class="padding-30 sm-padding-5">
+                          <div class="form-group-default required">
+                            <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="check1">
+                              <label for="check1">เพื่อเพิ่มมูลค่าของสินค้า</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="check2">
+                              <label for="check2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="check3">
+                              <label for="check3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="check15">
+                              <label for="check15">อื่นๆ (โปรดระบุ)</label>
+                            </div>
 
-                          <div class="form-group-attached" id="target_type" style="display:none;">
-                            <div class="form-group form-group-default ">
+                            <div class="form-group-attached" id="target_type" style="display:none;">
+                              <div class="form-group form-group-default ">
 
-                              <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" name="target_type_detail">
+                                <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" name="target_type_detail">
+                              </div>
                             </div>
                           </div>
                           
-
+                        </div>
 
                         </div>
                       </div>

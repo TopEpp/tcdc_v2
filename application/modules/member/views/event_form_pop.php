@@ -643,6 +643,7 @@
                         <p >ประเภทของที่ขาย</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <div class="form-group-default required">
                               <div class="checkbox check-success">
                                 <input  type="checkbox"  value="1" name="pop_product_type" id="check1">
                                 <label for="check1">Lifstyle</label>
@@ -663,7 +664,7 @@
                                 <input  type="checkbox"  value="5" name="pop_product_type" id="check5">
                                 <label for="check5">Home Decor</label>
                               </div>
-
+                            </div>
                             </div>
                         </div>
                         <br>
@@ -671,6 +672,7 @@
                         <p>ประเภทของที่ขาย</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <div class="form-group-default required">
                               <div class="checkbox check-success">
                                 <input  type="checkbox"  value="1" name="pop_food_type" id="check6">
                                 <label for="check6">อาหาร</label>
@@ -684,7 +686,7 @@
                                 <label for="check8">เบเกอรี่ / ของหวาน</label>
                               </div>
 
-
+                            </div>
                             </div>
                         </div>
 

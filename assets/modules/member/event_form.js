@@ -13,8 +13,11 @@
     });
 
     $('.datepicker-range_event').datepicker({
-        // dateFormat: 'yy-dd-mm',
     });
+
+    
+    $('.timepicker').timepicker();
+    $('.wysiwyg').wysihtml5();
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;

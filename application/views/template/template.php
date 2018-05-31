@@ -23,6 +23,7 @@
   <link href="<?php echo base_url('assets/plugins/select2/css/select2.min.css'); ?>" rel="stylesheet" type="text/css" media="screen" />
   <link href="<?php echo base_url('assets/plugins/switchery/css/switchery.min.css'); ?>" rel="stylesheet" type="text/css" media="screen" />
   <link href="<?php echo base_url('assets/css/pages-icons.css'); ?>" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url('assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css'); ?>" rel="stylesheet" type="text/css" />
   <link class="main-stylesheet" href="<?php echo base_url('assets/css/themes/corporate.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
   <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css'); ?>">

@@ -123,9 +123,9 @@
                                 <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $start_reg[2].'/'.$start_reg[1].'/'.$start_reg[0].' - '.$end_reg[2].'/'.$end_reg[1].'/'.$end_reg[0]?></p> <br>
                                                                         
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:green;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">สมัคร</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">สมัคร</a></td>
                                 <?php }else{ ?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color:red; backgroud:red" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                 <?php } ?>
                               </tr>
                             </tbody>

@@ -634,6 +634,7 @@
                       <div class="padding-30 sm-padding-5">
                         <p >ประเภทกิจกรรม</p>
                         <div class="row clearfix">
+                          <div class="form-group-default required">
                             <div class="col-sm-12">
                               <div class="checkbox check-success">
                                 <input  type="checkbox"  value="1" name="event_type" id="check1">
@@ -652,6 +653,7 @@
                                 <label for="check4">Talk : Business presentation / International presentation</label>
                               </div>
                             </div>
+                          </div>
                         </div>
                         <br>
 
@@ -722,15 +724,19 @@
                         <label>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</label>
                         <p>กิจกรรมเกิดขึ้นในช่วงจัดเทศกาล</p>
                         <div class="row clearfix">
-                          <div class="input-daterange input-group" id="datepicker-range2">
-                            <input required class="input-sm form-control datepicker-range_event" name="event_start_time" id="event_start_time" value="<?php if(!empty($prj)){ echo $prj->register_start_date; }?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                          <div class="col-sm-5" >
+                            <input required class="input-sm form-control timepicker" name="event_start_time" id="event_start_time" value="<?php if(!empty($prj)){ echo $prj->register_start_date; }?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
-                            <div class="input-group-addon">ถึงเวลา</div>
-                            <input required class="input-sm form-control datepicker-range_event" name="event_finish_time" id="event_finish_time" value="<?php if(!empty($prj)){ echo $prj->register_finish_date; }?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="col-sm-2 text-center">ถึงเวลา</div>
+                            <div class="col-sm-5" >
+                            <input required class="input-sm form-control timepicker" name="event_finish_time" id="event_finish_time" value="<?php if(!empty($prj)){ echo $prj->register_finish_date; }?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
                           </div>
+                       
                         </div>
                         <br/>
+
                         <label>สถานที่จัดกิจกรรม</label>
                         <p >โปรดระบุในรูปแบบ อาคาร เลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์</p>
                         <div class="row clearfix">
