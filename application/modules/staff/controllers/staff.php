@@ -200,6 +200,9 @@ class staff extends MY_Controller {
 
 		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 		$data['province'] = $query->result();
+		//get country
+		$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+		$data['countries'] = $query->result();
 
 		$this->setView('user_create_profile',$data);
 		$this->template->javascript->add('assets/modules/staff/user_profile.js');

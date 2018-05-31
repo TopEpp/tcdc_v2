@@ -35,7 +35,7 @@ class member extends MY_Controller
 	//form register profile
 	public function event_form($id = '')
 	{
-		$this->config->set_item('title','ลงทะเบียน');
+	
 
 		$user_id = $this->session->userdata('sesUserID');
 		if(!empty($id)){
@@ -47,11 +47,30 @@ class member extends MY_Controller
 			$data['countries'] = $query->result();
 
 			$data['project'] = $this->staff_model->getProject($id);
+			
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
 			$this->template->javascript->add('assets/modules/member/event_form.js');
-			$this->setView('event_form',$data);
-        		$this->publish();
+			
+			switch ($data['project'][0]->project_type) {
+				case 1:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_show',$data);break;
+				case 2:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_pop',$data);break;
+				case 3:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_work_talk',$data);break;
+				case 4:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_event',$data);break;
+				default:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_international',$data);break;
+			}
+			
+        	$this->publish();
 		}
 
 				

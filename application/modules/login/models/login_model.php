@@ -24,7 +24,7 @@ class login_model extends MY_Model{
             $item_session = array(
                 'sesUserName' => $data->firstname,
                 'sesUserLastName' => $data->lastname,
-                'sesUserFullName' => $data->prename.$data->firstname.' '.$data->lastname,
+                'sesUserFullName' => $data->firstname.' '.$data->lastname,
                 'sesUserEmail' => $data->email,
                 'sesUserID' => $data->user_id,
                 'sesUserType' => $data->user_type,

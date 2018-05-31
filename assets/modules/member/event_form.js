@@ -11,6 +11,10 @@
         viewMode: "years",
         minViewMode: "years"
     });
+
+    $('.datepicker-range_event').datepicker({
+        // dateFormat: 'yy-dd-mm',
+    });
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;
