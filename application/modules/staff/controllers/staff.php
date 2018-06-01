@@ -64,7 +64,7 @@ class staff extends MY_Controller {
 		$this->form_validation->set_rules('register_start_date', 'register_start_date', 'required');
 		$this->form_validation->set_rules('register_finish_date', 'register_finish_date', 'required');
 		$this->form_validation->set_rules('project_detail', 'project_detail', 'required');
-		$this->form_validation->set_rules('project_provenance', 'project_provenance', 'required');
+		// $this->form_validation->set_rules('project_provenance', 'project_provenance', 'required');
 		
 		// #tab2
 		$this->form_validation->set_rules('owner_id', 'owner_id', 'required');
@@ -80,7 +80,7 @@ class staff extends MY_Controller {
                 'project_name' => $this->input->post('project_name'),
                 'project_type' => $this->input->post('project_type'),
                 'project_detail' => $this->input->post('project_detail'),
-                'project_provenance' => $this->input->post('project_provenance'),
+                // 'project_provenance' => $this->input->post('project_provenance'),
                 'project_start_date' => $this->mydate->date_thai2eng($this->input->post('project_start_date')),
                 'project_finish_date' => $this->mydate->date_thai2eng($this->input->post('project_finish_date')),
                 'register_start_date' => $this->mydate->date_thai2eng($this->input->post('register_start_date')),
@@ -161,6 +161,7 @@ class staff extends MY_Controller {
 	function show_user_register(){
 		$data = array();
 		$data['project'] = $this->staff_model->getProject();
+		$data['project_type'] = $this->staff_model->getProjectType();
 		foreach ($data['project'] as $key => $prj) {
 			$data['member_reg'][$prj->project_id] = $this->staff_model->getProjectRegist($prj->project_id);
 		}
