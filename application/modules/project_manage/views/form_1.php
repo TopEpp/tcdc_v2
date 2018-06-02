@@ -489,13 +489,16 @@
 
                       <h5>คุณได้ตรวจสอบข้อมูลข้างต้นแล้ว ข้อมูลครบถ้วนหรือไม่?</h5>
                       <br>
+                      <input type="hidden" name="reg_id" value="<?php echo $regis['reg_id']?>">
+                      <input type="hidden" name="reg_status" id="reg_status" value="<?php echo $regis['reg_status']?>">
                       <div class="radio radio-default">
-                        <input value="1" name="radio_app" id="radio5Yes" type="radio">
+                        <input value="1" name="radio_app" id="radio5Yes" type="radio" <?php echo ($regis['reg_status']==1) ? 'checked="checked"':''; ?> >
                         <label for="radio5Yes">ผ่านการตรวจสอบ</label>
-                        <input value="0" name="radio_app" id="radio5No" type="radio">
+                        <input value="0" name="radio_app" id="radio5No" type="radio" <?php echo ($regis['reg_status']==0) ? 'checked="checked"':''; ?> >
                         <label for="radio5No">ไม่ผ่าน</label>
                       </div>
                       <br>
+                      <div id='div_reject' style="display: none;">
                       <h5>สิ่งที่ต้องแก้ไข</h5>
                       <p class="all-caps fs-12 bold">โปรดระบุส่งที่ต้องแก้ไข : </p>
                       <div class="card-block">
@@ -506,7 +509,7 @@
                         }"><?php if(!empty($prj)){ echo $prj->reject_detail;}?></textarea>
                         </div>
                       </div>
-
+                      </div>
 
 
                     </div>

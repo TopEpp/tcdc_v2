@@ -201,9 +201,6 @@ class staff extends MY_Controller {
 
 		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
 		$data['province'] = $query->result();
-		//get country
-		$query = $this->db->query('SELECT * FROM tcdc.std_countries');
-		$data['countries'] = $query->result();
 
 		$this->setView('user_create_profile',$data);
 		$this->template->javascript->add('assets/modules/staff/user_profile.js');
@@ -276,13 +273,9 @@ class staff extends MY_Controller {
 				'phone' => $this->input->post('phone'),
 				'email' => $this->input->post('email'),
 				'address' => $this->input->post('address'),
-				'village' => $this->input->post('village'),
-				'lane' => $this->input->post('lane'),
-				'road' => $this->input->post('road'),
 				'subdistrict' => $this->input->post('subdistrict'),
 				'district' => $this->input->post('district'),
 				'province' => $this->input->post('province'),
-				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
 				'user_active' => $this->input->post('user_active'),
 				'job' => $this->input->post('job'),
@@ -307,12 +300,7 @@ class staff extends MY_Controller {
 			$data_company = array(
 	
 				'company_name' => $this->input->post('company_name'),
-				'company_service' => $this->input->post('company_service'),
 				'company_address' => $this->input->post('company_address'),
-				'company_village' => $this->input->post('company_village'),
-				'company_lane' => $this->input->post('company_lane'),
-				'company_road' => $this->input->post('company_road'),
-				'company_country' => $this->input->post('company_country'),
 				'company_province' => $this->input->post('company_province'),
 				'company_district' => $this->input->post('company_district'),
 				'company_subdistrict' => $this->input->post('company_subdistrict'),

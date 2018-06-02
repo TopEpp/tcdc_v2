@@ -36,30 +36,31 @@ class project_manage extends MY_Controller {
 		$data['regis'] = $this->member_model->getUserRegis($project_id,$user_id);
 
 		$this->config->set_item('title','จัดการข้อมูลผู้สมัคร');
+		$this->template->javascript->add('assets/modules/project_manage/approve.js');
         $this->setView('form_1',$data);
         $this->publish();
 	}
 
 	function saveAppv(){
 		$data = array();	
-		$this->form_validation->set_rules('radio_app', 'radio_app', 'required');
-		$this->form_validation->set_rules('reject_detail', 'reject_detail', 'required');
+		// $this->form_validation->set_rules('reg_id', 'radio_app', 'required');
+		// $this->form_validation->set_rules('radio_app', 'radio_app', 'required');
+		// $this->form_validation->set_rules('reject_detail', 'reject_detail', 'required');
 
-		if($this->form_validation->run() == false){
-			// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
-			redirect($this->input->post('redirect'), "location");
+		// if($this->form_validation->run() == false){
+		// 	// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+		// 	redirect($this->input->post('redirect'), "location");
             
-        }else{
+  //       }else{
 			//save data project
             $data = array(
             	'user_app' => $this->session->userdata('sesUserID'),
-                'radio_app' => $this->input->post('radio_app'),
+            	'reg_id' => $this->input->post('reg_id'),
+                'reg_status' => $this->input->post('reg_status'),
                 'reject_detail' => $this->input->post('reject_detail')
 			);    
 
-
-			$pid = $this->staff_model->saveAppv($data);
-
+			$pid = $this->pm_model->saveAppv($data);
             if($pid){
             	$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
             	redirect(base_url('staff/show_user_register'));	
@@ -68,6 +69,6 @@ class project_manage extends MY_Controller {
 			 	redirect(base_url('staff/show_user_register'));
             }
 		
-		}
+		// }
 	}
 }
