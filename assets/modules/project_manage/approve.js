@@ -19,12 +19,12 @@ $(function(){
   });
     
   $('#btn-finish').click(function(){
-    if($('#reg_status').val()!=1){
-      alert('โปรดระบุส่งที่ต้องแก้ไข');
-      $('#reject_detail').focus();
-    }else{
+    // if($('#reg_status').val()!=1 && $('#reject_detail').val()==''){
+      // alert('โปรดระบุส่งที่ต้องแก้ไข');
+      // $('#reject_detail').focus();
+    // }else{
       $('#form-profile-approve').submit();
-    }
+    // }
     
   });
 

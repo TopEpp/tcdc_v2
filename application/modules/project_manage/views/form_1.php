@@ -25,11 +25,11 @@
               <!-- status edit -->
               <?php             
               if($this->session->flashdata('msg')){
-                  echo $this->session->flashdata('msg');
+                  //echo $this->session->flashdata('msg');
                   $this->session->unset_userdata('msg');
                 } 
               if($this->session->flashdata('error')){
-                  echo $this->session->flashdata('error');
+                  //echo $this->session->flashdata('error');
                   $this->session->unset_userdata('error');
               }  
                   
@@ -506,7 +506,7 @@
                           <textarea required id="reject_detail" name="reject_detail" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุส่งที่ต้องแก้ไข ..." ui-jq="wysihtml5" ui-options="{
                           html: true,
                           stylesheets: ['pages/css/editor.css']
-                        }"><?php if(!empty($prj)){ echo $prj->reject_detail;}?></textarea>
+                        }"><?php if(!empty($regis)){ echo $regis['reject_detail'];}?></textarea>
                         </div>
                       </div>
                       </div>
