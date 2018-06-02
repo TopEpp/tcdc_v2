@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+ini_set('max_execution_time', 0); 
+ini_set('memory_limit','2048M');
+
 
 class member extends MY_Controller 
 {
@@ -50,7 +53,7 @@ class member extends MY_Controller
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
-
+		
 			$data['regis']['join_start_date'] = $this->mydate->date_db2str(@$data['regis']['join_start_date']);
 			$data['regis']['join_finish_date'] = $this->mydate->date_db2str(@$data['regis']['join_finish_date']);
 	
@@ -85,7 +88,7 @@ class member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
-		//  print_r($this->input->post());die();
+		
 		$project_type = $this->input->post('project_type');
 		
 		//validate form
@@ -107,6 +110,8 @@ class member extends MY_Controller
 				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 				break;
 			case 2:
+				$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
+			
 				# code...
 				break;
 			
@@ -118,8 +123,147 @@ class member extends MY_Controller
 
 
 		if($this->form_validation->run() == false){
+			
 			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
-			redirect($this->input->post('redirect'), "location");
+			
+			$user_id = $this->session->userdata('sesUserID');
+			$id = $this->input->post('project_id');
+			$data = array();
+			if(!empty($id)){
+				// get province
+				$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+				$data['province'] = $query->result();
+				//get country
+				$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+				$data['countries'] = $query->result();
+	
+				$data['project'] = $this->staff_model->getProject($id);
+				$data['member'] = $this->staff_model->getUsers($user_id);
+				$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
+
+				//get data post member
+				$data['member']->prename = $this->input->post('prename');
+				$data['member']->prename_detail = $this->input->post('prename_detail');
+				$data['member']->firstname = $this->input->post('firstname');
+				$data['member']->lastname = $this->input->post('lastname');
+				$data['member']->phone = $this->input->post('phone');
+				$data['member']->email = $this->input->post('email');
+				$data['member']->address = $this->input->post('address');
+				$data['member']->village = $this->input->post('village');
+				$data['member']->lane = $this->input->post('lane');
+				$data['member']->road = $this->input->post('road');
+				$data['member']->subdistrict = $this->input->post('subdistrict');
+				$data['member']->district = $this->input->post('district');
+				$data['member']->province = $this->input->post('province');
+				$data['member']->country = $this->input->post('country');
+				$data['member']->zipcode = $this->input->post('zipcode');
+				$data['member']->job = $this->input->post('job');
+				$data['member']->job_detail = $this->input->post('job_detail');
+				$data['member']->job_type = $this->input->post('job_type');
+				$data['member']->brand = $this->input->post('brand');
+				$data['member']->website = $this->input->post('website');
+				$data['member']->facebook = $this->input->post('facebook');
+				$data['member']->lineid = $this->input->post('lineid');
+				
+				$data['member']->company_type = $this->input->post('radio1');
+				$data['member']->company_name = $this->input->post('company_name');
+				$data['member']->company_service = $this->input->post('company_service');
+				$data['member']->company_address = $this->input->post('company_address');
+				$data['member']->company_village = $this->input->post('company_village');
+				$data['member']->company_lane = $this->input->post('company_lane');
+				$data['member']->company_road = $this->input->post('company_road');
+				$data['member']->company_country = $this->input->post('company_country');
+				$data['member']->company_province = $this->input->post('company_province');
+				$data['member']->company_district = $this->input->post('company_district');
+				$data['member']->company_subdistrict = $this->input->post('company_subdistrict');
+				$data['member']->company_zipcode = $this->input->post('company_zipcode');
+
+				$data['member']->coordinator_type = $this->input->post('radio2');
+				$data['member']->coordinator_prename = $this->input->post('coordinator_prename');
+				$data['member']->coordinator_firstname = $this->input->post('coordinator_firstname');
+				$data['member']->coordinator_lastname = $this->input->post('coordinator_lastname');
+				$data['member']->coordinator_phone = $this->input->post('coordinator_phone');
+				$data['member']->coordinator_email = $this->input->post('coordinator_email');
+				$data['member']->coordinator_lineid = $this->input->post('coordinator_lineid');
+
+				// post data form event
+				switch ($data['project'][0]->project_type) {
+					case 1:
+						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+
+						$data['regis']['target_type'] = $this->input->post('target_type');
+						$data['regis']['target_type_detail'] = $this->input->post('target_type_detail');
+						$data['regis']['showarea_type'] = $this->input->post('showarea_type');
+						$data['regis']['show_type'] = $this->input->post('show_type');
+						$data['regis']['area_type'] = $this->input->post('area_type');
+
+						foreach ($this->input->post('product_name') as $key => $value) {
+							$data['regis']['product'][$key]['product_type'] =  $this->input->post('product_type')[$key];
+							$data['regis']['product'][$key]['product_name'] =  $this->input->post('product_name')[$key];
+							$data['regis']['product'][$key]['material'] =  $this->input->post('material')[$key];
+							$data['regis']['product'][$key]['product_date'] =  $this->input->post('product_date')[$key];
+							$data['regis']['product'][$key]['product_width'] =  $this->input->post('product_width')[$key];
+							$data['regis']['product'][$key]['product_length'] =  $this->input->post('product_length')[$key];
+							$data['regis']['product'][$key]['product_height'] =  @$this->input->post('product_height')[$key];
+							$data['regis']['product'][$key]['product_amount'] =  $this->input->post('product_amount')[$key];
+							$data['regis']['product'][$key]['product_concept'] =  $this->input->post('product_concept')[$key];
+							$data['regis']['product'][$key]['product_firstname'] =  $this->input->post('product_firstname')[$key];
+							$data['regis']['product'][$key]['product_lastname'] =  $this->input->post('product_lastname')[$key];
+						}
+						
+						$this->setView('event_form_show',$data);break;
+					case 2:
+						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+
+						$data['regis']['pop_shop_name'] = $this->input->post('pop_shop_name');
+						$data['regis']['pop_story'] = $this->input->post('pop_story');
+						$data['regis']['pop_product_type'] = $this->input->post('pop_product_type');
+						$data['regis']['pop_food_type'] = $this->input->post('pop_food_type');
+
+						$this->setView('event_form_pop',$data);break;
+					case 3:
+						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+
+						$data['regis']['work_talk_type'] = $this->input->post('work_talk_type');
+						$data['regis']['work_talk_type_at'] = $this->input->post('work_talk_type_at');
+						$data['regis']['work_talk_title_th'] = $this->input->post('work_talk_title_th');
+						$data['regis']['work_talk_title_en'] = $this->input->post('work_talk_title_en');
+						$data['regis']['work_talk_name_th'] = $this->input->post('work_talk_name_th');
+						$data['regis']['work_talk_name_en'] = $this->input->post('work_talk_name_en');
+						$data['regis']['work_talk_detail'] = $this->input->post('work_talk_detail');
+
+						$data['regis']['join_number'] = $this->input->post('join_number');
+						$data['regis']['join_property'] = $this->input->post('join_property');
+						$data['regis']['join_start_date'] = $this->input->post('join_start_date');
+						$data['regis']['join_finish_date'] =  $this->input->post('join_finish_date');
+						$data['regis']['join_start_time'] = $this->input->post('join_start_time');
+						$data['regis']['join_finish_time'] = $this->input->post('join_finish_time');
+
+						$this->setView('event_form_work_talk',$data);break;
+					case 4:
+						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+
+						$data['regis']['event_type'] = $this->input->post('event_type');
+						$data['regis']['event_name_th'] = $this->input->post('event_name_th');
+						$data['regis']['event_name_en'] = $this->input->post('event_name_en');
+						$data['regis']['event_detail'] = $this->input->post('event_detail');
+						$data['regis']['join_number'] = $this->input->post('join_number');
+						$data['regis']['join_property'] = $this->input->post('join_property');
+						$data['regis']['join_start_date'] = $start_date;
+						$data['regis']['join_finish_date'] =  $finish_date;
+						$data['regis']['join_start_time'] = $this->input->post('join_start_time');
+						$data['regis']['join_finish_time'] = $this->input->post('join_finish_time');
+						$data['regis']['event_address'] = $this->input->post('event_address');
+						$data['regis']['event_address_detail'] = $this->input->post('event_address_detail');
+						
+						$this->setView('event_form_event',$data);break;
+					default:
+						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+						$this->setView('event_form_international',$data);break;
+				}
+				$this->template->javascript->add('assets/modules/member/event_form.js');
+				$this->publish();
+			}
 		}
 		else{
 			$id = $this->session->userdata('sesUserID');
@@ -286,24 +430,31 @@ class member extends MY_Controller
 			//all product save
 			$status = true;
 			$product_name = $this->input->post('product_name');
-			
+		
 			if(!empty($product_name)){
 				
 				foreach ($product_name as $key => $value) {
 					if(!empty($value)){
 						
 						//upload image  product_img
+						
 						$product_img = array();
-						if ( !empty( $_FILES['product_img']['name'][$key+1]) && is_null($_FILES['product_img']['name'][$key+1])){
+						
+						if ( !empty( $_FILES['product_img']['name'][$key+1]) && !is_null($_FILES['product_img']['name'][$key+1])){
 							//upload data
+						
 							$image = $_FILES['product_img']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'product'
-								));
-								array_push($product_img,$imageupload['public_id']);
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'product'
+									));
+									array_push($product_img,$imageupload['public_id']);
+								}
+							
 							}
 							$product_img = implode(",",$product_img);
+							
 						}
 
 					
@@ -311,14 +462,16 @@ class member extends MY_Controller
 
 						//upload image  product_closeup
 						$product_closeup = array();
-						if ( !empty( $_FILES['product_closeup']['name'][$key+1]) && is_null($_FILES['product_closeup']['name'][$key+1]) ){
+						if ( !empty( $_FILES['product_closeup']['name'][$key+1]) && !is_null($_FILES['product_closeup']['name'][$key+1]) ){
 							//upload data
 							$image = $_FILES['product_closeup']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'product'
-								));
-								array_push($product_closeup,$imageupload['public_id']);
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'product'
+									));
+									array_push($product_closeup,$imageupload['public_id']);
+								}
 							}
 							$product_closeup = implode(",",$product_closeup);
 						}
@@ -328,14 +481,16 @@ class member extends MY_Controller
 
 						//upload image  product_packshot
 						$product_packshot = array();
-						if (!empty( $_FILES['product_packshot']['name'][$key+1])&& is_null($_FILES['product_packshot']['name'][$key+1])  ){
+						if (!empty( $_FILES['product_packshot']['name'][$key+1])&& !is_null($_FILES['product_packshot']['name'][$key+1])  ){
 							//upload data
 							$image = $_FILES['product_packshot']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'product'
-								));
-								array_push($product_packshot,$imageupload['public_id']);
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'product'
+									));
+									array_push($product_packshot,$imageupload['public_id']);
+								}
 							}
 							$product_packshot = implode(",",$product_packshot);
 						}
@@ -343,11 +498,11 @@ class member extends MY_Controller
 						
 						//end upload product_packshot
 
-						$product_date = '';
-						if (!empty($this->input->post('product_date')[$key])){
-							$dates = explode('/',$this->input->post('product_date')[$key]);
-							$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
-						}
+						// $product_date = '';
+						// if (!empty($this->input->post('product_date')[$key])){
+						// 	$dates = explode('/',$this->input->post('product_date')[$key]);
+						// 	$product_date = $dates[2].'-'.$dates[0].'-'.$dates[1];
+						// }
 						
 
 						$data_product = array(
@@ -356,7 +511,7 @@ class member extends MY_Controller
 							'product_type' =>  $this->input->post('product_type')[$key],
 							'product_name' =>  $this->input->post('product_name')[$key],
 							'material' =>  $this->input->post('material')[$key],
-							'product_date' =>  $product_date,
+							'product_date' =>  $this->input->post('product_date')[$key],
 							'product_width' =>  $this->input->post('product_width')[$key],
 							'product_length' =>  $this->input->post('product_length')[$key],
 							'product_height' =>  @$this->input->post('product_height')[$key],
@@ -373,6 +528,8 @@ class member extends MY_Controller
 						if(!empty($product_packshot))
 							$data_product['product_packshot'] = $product_packshot;
 						//save user detail
+
+						
 						$status = $this->member_model->saveProduct($data_product);
 						//end save user detail
 				

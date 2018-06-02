@@ -1179,7 +1179,7 @@
                         </div>
                       
                       <?php }else{ ?>
-                      <?php foreach (@$regis['product'] as $key => $value) { ?>
+                      <?php foreach (@$regis['product'] as $key => $value) {?>
                       
                     
                         <div class="clonedInput" id="clonedInput<?php echo $key+1;?>">
@@ -1236,10 +1236,10 @@
                                               <div class="form-group form-group-default">
                                                 <p class="all-caps fs-12 bold">ปีที่ออกแบบ</p>
                                                 <?php 
-                                                $date = '';
+                                                $date = $value['product_date'];
                                                 if (!empty(@$value['product_date']) && @$value['product_date'] != '0000-00-00'  ){
-                                                  $dates = explode('-',$value['product_date']);
-                                                  $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
+                                                  // $dates = explode('-',@$value['product_date']);
+                                                  // $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
                                             
                                                 }?>
                                                 <div id="myDatepicker" class="input-group date">
@@ -1316,10 +1316,10 @@
                                             <div class="col-sm-12">
                                               <p>3. โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" value="<?php echo @$value['product_concept']?>" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
-                                                }"></textarea>
+                                                }"><?php echo @$value['product_concept']?></textarea>
                                               </div>
                                             </div>
 
@@ -1338,6 +1338,18 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_img'])){
+                                                        $product_img = explode(',',$value['product_img']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
                                                     <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1350,6 +1362,18 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
                                                   <label>ภาพ Close Up</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_closeup'])){
+                                                        $product_img = explode(',',$value['product_closeup']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($value, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
                                                     <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1362,6 +1386,18 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
                                                   <label>ภาพ Pack Shot</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_packshot'])){
+                                                        $product_img = explode(',',$value['product_packshot']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($value, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
                                                     <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1386,13 +1422,13 @@
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default required">
                                             <label>ชื่อ</label>
-                                            <input type="text" class="form-control" name="product_firstname[] " value="<?php echo @$value['product_firstname']?>" >
+                                            <input type="text" class="form-control" name="product_firstname[] " value="<?php echo @$value['product_firstname'];?>" >
                                           </div>
                                         </div>
                                         <div class="col-sm-6">
                                         <div class="form-group form-group-default required">
                                           <label>นามสกุล</label>
-                                          <input type="text" class="form-control" name="product_lastname[]" value="<?php echo @$value['product_lastname']?>">
+                                          <input type="text" class="form-control" name="product_lastname[]" value="<?php echo @$value['product_lastname'];?>">
                                         </div>
                                       </div>
 

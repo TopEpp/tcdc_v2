@@ -70,8 +70,24 @@ class staff extends MY_Controller {
 		$this->form_validation->set_rules('owner_id', 'owner_id', 'required');
 
 		if($this->form_validation->run() == false){
-			// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
-			redirect($this->input->post('redirect'), "location");
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+			// redirect($this->input->post('redirect'), "location");
+			$data['project_id'] = $project_id;
+			$data['project_type'] = $this->staff_model->getProjectType();
+			$data['project_owner'] = $this->staff_model->getProjectManager();
+			// $data['prj']->project_id = $this->input->post('project_id');
+			@$data['prj']->project_name = $this->input->post('project_name');
+			@$data['prj']->project_type = $this->input->post('project_type');
+			@$data['prj']->project_detail = $this->input->post('project_detail');
+			@$data['prj']->project_provenance = $this->input->post('project_provenance');
+			@$data['prj']->project_start_date = $this->input->post('project_start_date');
+			@$data['prj']->project_finish_date = $this->input->post('project_finish_date');
+			@$data['prj']->register_start_date = $this->input->post('register_start_date');
+			@$data['prj']->register_finish_date = $this->input->post('register_finish_date');
+			$data['prj_owner'] = $this->input->post('owner_id');
+			$this->setView('project',$data);
+			$this->template->javascript->add('assets/modules/staff/project.js');
+        	$this->publish();
             
         }else{
 			//save data project
