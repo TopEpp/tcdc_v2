@@ -49,9 +49,9 @@
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>การจัดการ</span></a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab6" role="tab"><i class="fa fa-check tab-icon"></i> <span>เผยแพร่</span></a>
-                </li>
+                </li> -->
               </ul>
               <!-- Tab panes -->
 
@@ -161,7 +161,7 @@
                                   </div>
                                   <div class="col-sm-4">
                                     <p>ประสบการณ์</p>
-                                    <?php echo (@$member->company_service == 1) ? 'กำลังพัฒนาและทดลองต้นแบ':'';?> 
+                                    <?php echo (@$member->company_service == 1) ? 'กำลังพัฒนาและทดลองต้นแบบ':'';?> 
                                     <?php echo (@$member->company_service == 2) ? '0 - 3 ปี':'';?> 
                                     <?php echo (@$member->company_service == 3) ? '3 - 10 ปี':'';?> 
                                     <?php echo (@$member->company_service == 4) ? 'มากกว่า 10 ปี':'';?> 
