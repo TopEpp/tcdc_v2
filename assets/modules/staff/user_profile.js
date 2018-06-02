@@ -42,7 +42,7 @@
 
     //job change 
     $("#job").change(function(){
-      if ($(this).val() == 9){
+      if ($(this).val() == 11){
 
          document.getElementById("job_detail").style.display = "block";
       }else{
@@ -52,18 +52,18 @@
     });
 
     //prename
-    if (document.getElementById("prename").value == 4){
-      document.getElementById("prename_detail").style.display = "block";
-      // $("input[name='prename_detail']").focus();
-    }
-    $('#prename').on('change', function() {
-        if(this.value == 4){
-          document.getElementById("prename_detail").style.display = "block";
-          $("input[name='prename_detail']").focus();
-        }else{
-          document.getElementById("prename_detail").style.display = "none";
-        }
-    });
+    // if (document.getElementById("prename").value == 4){
+    //   document.getElementById("prename_detail").style.display = "block";
+    //   // $("input[name='prename_detail']").focus();
+    // }
+    // $('#prename').on('change', function() {
+    //     if(this.value == 4){
+    //       document.getElementById("prename_detail").style.display = "block";
+    //       $("input[name='prename_detail']").focus();
+    //     }else{
+    //       document.getElementById("prename_detail").style.display = "none";
+    //     }
+    // });
 
     //get status company
     $company =   $("input[name=radio1]:checked").map(function() {

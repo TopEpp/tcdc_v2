@@ -13,7 +13,11 @@ class member_model extends MY_Model{
         $this->db->where('user_id',$this->session->userdata('sesUserID'));
         $this->db->from('tcdc_prj_register');
         $query = $this->db->get();
-        return $query->result_array();
+        $data =array();
+        foreach ($query->result() as $key => $value) {
+            $data[$value->project_id] = $value->reg_status;
+        }
+        return $data;
     }
 
     //get status user regis
@@ -50,6 +54,7 @@ class member_model extends MY_Model{
             $this->db->update('tcdc_prj_register',$data);
             return $id->reg_id;
         }
+        $data['reg_date'] = date('Y-m-d H:i:s');
         $this->db->insert('tcdc_prj_register',$data);
         return $this->db->insert_id();
     }

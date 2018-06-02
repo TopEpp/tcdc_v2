@@ -10,6 +10,7 @@
                               echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
               ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
+           <input type="hidden"  name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
             <div id="rootwizard" class="m-t-50">
@@ -679,7 +680,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p>เกี่ยวกับองค์กร/บริษัท</p>
+                              <p>เกี่ยวกับองค์กร/บริษัท/หน่วยงาน</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">

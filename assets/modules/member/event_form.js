@@ -11,6 +11,16 @@
         viewMode: "years",
         minViewMode: "years"
     });
+
+    $('.datepicker-range_event').datepicker({
+    });
+
+    
+    $('.timepicker').timepicker();
+    $('.wysiwyg').wysihtml5();
+     $('.event_detail').wysihtml5();
+     $('.work_talk_detail').wysihtml5();
+     
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;
@@ -139,38 +149,76 @@
     
    
 
-    $('#btn-next #tab1').click(function(){
-        if(!$('#checkbox2').is(":checked") || !$('#product_check').is(":checked")){
+    $('#btn-next').click(function(){
+        if(!$('#checkbox2').is(":checked")){
+            alert('ยังไม่ได้ยอมรับ ฉันเข้าใจและยอมรับในเงื่อนไข และ ข้อตกลง ');
             return false;
         }
 
-        // max select file upload
-        $("#product_img").on("change", function() {
-            if($("#product_img")[0].files.length > 5) {
-                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-                return false;
-            } 
-        });
-
-        $("#product_closeup").on("change", function() {
-            if($("#product_closeup")[0].files.length > 5) {
-                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-                return false;
-            } 
-        });
-
-        $("#product_packshot").on("change", function() {
-            if($("#product_packshot")[0].files.length > 5) {
-                alert("คุณสามารถเรียกภาพได้สูงสุด 5 ภาพ");
-                return false;
-            } 
-        });
-        //end file upload
-        
         
     });
 
+      // max select file upload
+      $("#product_img").on("change", function() {
+        if($("#product_img").files.length > 2) {
+            alert("คุณสามารถอัพโหลด ภาพรวมของผลงาน ได้สูงสุด 2 ภาพ");
+            return false;
+        } 
+    });
+
+    $("#product_closeup").on("change", function() {
+        if($("#product_closeup").files.length > 2) {
+            alert("คุณสามารถอัพโหลด Close Up ได้สูงสุด 2 ภาพ");
+            return false;
+        } 
+    });
+
+    $("#product_packshot").on("change", function() {
+        if($("#product_packshot").files.length > 2) {
+            alert("คุณสามารถอัพโหลด Pack Shot ได้สูงสุด 2 ภาพ");
+            return false;
+        } 
+    });
+    //end file upload
+
     $('#btn-finish').click(function(){
+        //get project type
+        var type = $('#project_type').val();
+       
+        switch (type) {
+            case '1':
+                alert('1');
+                break;
+            case '2':
+                //pop market
+                var pop_product = $.map($('input[name="pop_type"]:checked'), function(c){return c.value; })
+                $('#pop_product_type').val(pop_product);
+                var pop_food = $.map($('input[name="pop_food"]:checked'), function(c){return c.value; })
+                $('#pop_food_type').val(pop_food);
+                
+                break;
+            case '3':
+                // work talk
+                var work_talk_type = $.map($('input[name="work_talk_ty"]:checked'), function(c){return c.value; })
+                
+                $('#work_talk_type').val(work_talk_type);
+                var work_talk_type_at = $.map($('input[name="work_talk_ty_at"]:checked'), function(c){return c.value; })
+                $('#work_talk_type_at').val(work_talk_type_at);
+
+                break;
+            case '4':
+                  // event 
+                  var event_type = $.map($('input[name="event_ty"]:checked'), function(c){return c.value; })
+               
+                  $('#event_type').val(event_type);
+                  var event_address = $.map($('input[name="event_add"]:checked'), function(c){return c.value; })
+                  $('#event_address').val(event_address);
+                break;
+            default:
+                day = "Saturday";
+        }
+   
+      
 
       
         $('#form-event-profile').submit();

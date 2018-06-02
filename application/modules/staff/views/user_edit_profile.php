@@ -106,7 +106,7 @@
                                                           <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
                                                           <option  <?php echo (@$data->prename == 2) ? 'selected':'';?> value="2">นาง</option>
                                                           <option  <?php echo (@$data->prename == 3) ? 'selected':'';?> value="3">นางสาว</option>
-                                                          <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
+                                                          <option  <?php echo (@$data->prename == 4) ? 'selected':'';?> value="4">ไม่ระบุ</option>
                                                         </select>
 
                                                       </div>
@@ -369,7 +369,7 @@
                                                 <?php if ($this->session->userdata('sesUserType') == 3){ ?>
                                                   
                                                   <div class="form-group-attached" >
-                                                  <p>เกี่ยวกับองค์กร/บริษัท</p>
+                                                  <p>เกี่ยวกับองค์กร/บริษัท/หน่วยงาน</p>
                                                   
                                                   <div class="form-group-attached">
                                                     <div class="row clearfix">

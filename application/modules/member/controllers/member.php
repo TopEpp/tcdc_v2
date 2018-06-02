@@ -21,7 +21,8 @@ class member extends MY_Controller
 		$this->config->set_item('title','กิจกรรม');
 
 		$data['project'] = $this->staff_model->getProject();
-		$data['status'] = $this->member_model->getStatusRegis();
+		$data['status_regis'] = $this->member_model->getStatusRegis();
+
 		$data['news'] = $this->staff_model->getNews();
 		
 		//check user first login
@@ -35,7 +36,7 @@ class member extends MY_Controller
 	//form register profile
 	public function event_form($id = '')
 	{
-		$this->config->set_item('title','ลงทะเบียน');
+	
 
 		$user_id = $this->session->userdata('sesUserID');
 		if(!empty($id)){
@@ -49,9 +50,32 @@ class member extends MY_Controller
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
+
+			$data['regis']['join_start_date'] = $this->mydate->date_db2str(@$data['regis']['join_start_date']);
+			$data['regis']['join_finish_date'] = $this->mydate->date_db2str(@$data['regis']['join_finish_date']);
+	
+
 			$this->template->javascript->add('assets/modules/member/event_form.js');
-			$this->setView('event_form',$data);
-        		$this->publish();
+			
+			switch ($data['project'][0]->project_type) {
+				case 1:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_show',$data);break;
+				case 2:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_pop',$data);break;
+				case 3:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_work_talk',$data);break;
+				case 4:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_event',$data);break;
+				default:
+					$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+					$this->setView('event_form_international',$data);break;
+			}
+			
+        	$this->publish();
 		}
 
 				
@@ -60,6 +84,10 @@ class member extends MY_Controller
 	//save event register form
 	public function saveEventForm()
 	{
+		// get project type
+		//  print_r($this->input->post());die();
+		$project_type = $this->input->post('project_type');
+		
 		//validate form
 		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email');
 
@@ -70,11 +98,23 @@ class member extends MY_Controller
 			$this->form_validation->set_rules('coordinator_phone','เบอร์โทรประสานงาน', 'trim|required');
 		}
 
-		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+		switch ($project_type) {
+			case 1:
+				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+				break;
+			case 2:
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+		
 
 
 		if($this->form_validation->run() == false){
@@ -92,11 +132,14 @@ class member extends MY_Controller
 				'phone' => $this->input->post('phone'),
 				'email' => $this->input->post('email'),
 				'address' => $this->input->post('address'),
+				'village' => $this->input->post('village'),
+				'lane' => $this->input->post('lane'),
+				'road' => $this->input->post('road'),
 				'subdistrict' => $this->input->post('subdistrict'),
 				'district' => $this->input->post('district'),
 				'province' => $this->input->post('province'),
+				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
-				'user_active' => $this->input->post('user_active'),
 				'job' => $this->input->post('job'),
 				'job_detail' => $this->input->post('job_detail'),
 				'job_type' => $this->input->post('job_type'),
@@ -112,7 +155,12 @@ class member extends MY_Controller
 			$data_company = array(
 				'company_type' => $this->input->post('radio1'),
 				'company_name' => $this->input->post('company_name'),
+				'company_service' => $this->input->post('company_service'),
 				'company_address' => $this->input->post('company_address'),
+				'company_village' => $this->input->post('company_village'),
+				'company_lane' => $this->input->post('company_lane'),
+				'company_road' => $this->input->post('company_road'),
+				'company_country' => $this->input->post('company_country'),
 				'company_province' => $this->input->post('company_province'),
 				'company_district' => $this->input->post('company_district'),
 				'company_subdistrict' => $this->input->post('company_subdistrict'),
@@ -130,11 +178,11 @@ class member extends MY_Controller
 				'coordinator_lastname' => $this->input->post('coordinator_lastname'),
 				'coordinator_phone' => $this->input->post('coordinator_phone'),
 				'coordinator_email' => $this->input->post('coordinator_email'),
-				'coordinator_address' => $this->input->post('coordinator_address'),
-				'coordinator_province' => $this->input->post('coordinator_province'),
-				'coordinator_district' => $this->input->post('coordinator_district'),
-				'coordinator_subdistrict' => $this->input->post('coordinator_subdistrict'),
-				'coordinator_zipcode' => $this->input->post('coordinator_zipcode'),
+				// 'coordinator_address' => $this->input->post('coordinator_address'),
+				// 'coordinator_province' => $this->input->post('coordinator_province'),
+				// 'coordinator_district' => $this->input->post('coordinator_district'),
+				// 'coordinator_subdistrict' => $this->input->post('coordinator_subdistrict'),
+				// 'coordinator_zipcode' => $this->input->post('coordinator_zipcode'),
 				'coordinator_lineid' => $this->input->post('coordinator_lineid')
 
 			);
@@ -151,14 +199,84 @@ class member extends MY_Controller
 			$data_regis = array(
 				'project_id' => $this->input->post('project_id'),
 				'user_id' => $id,
-				'reg_date' => date('Y-m-d H:i:s'),
-				'reg_status' => '1',
-				'target_type' => $this->input->post('target_type'),
-				'target_type_detail' => $this->input->post('target_type_detail'),
-				'showarea_type' => $this->input->post('showarea_type'),
-				'show_type' => $this->input->post('show_type'),
-				'area_type' => $this->input->post('area_type')
+				'reg_status' => '1'
+				
 			);
+			switch ($project_type) {
+				case 1:
+					$data_regis['target_type'] = $this->input->post('target_type');
+					$data_regis['target_type_detail'] = $this->input->post('target_type_detail');
+					$data_regis['showarea_type'] = $this->input->post('showarea_type');
+					$data_regis['show_type'] = $this->input->post('show_type');
+					$data_regis['area_type'] = $this->input->post('area_type');
+					break;
+				case 2:
+					$data_regis['pop_shop_name'] = $this->input->post('pop_shop_name');
+					$data_regis['pop_story'] = $this->input->post('pop_story');
+					$data_regis['pop_product_type'] = $this->input->post('pop_product_type');
+					$data_regis['pop_food_type'] = $this->input->post('pop_food_type');
+					
+					// $data_regis['area_type'] = $this->input->post('area_type');
+					// pop_img flie upload
+					// pop_closeup
+					// pop_packshot
+					break;
+				case 3:
+					$start_date = $this->input->post('join_start_date');
+					if (!empty($start_date)){
+						$tmp = explode('/',$start_date);
+						$start_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					$finish_date = $this->input->post('join_finish_date');
+					if (!empty($finish_date)){
+						$tmp = explode('/',$finish_date);
+						$finish_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					$data_regis['work_talk_type'] = $this->input->post('work_talk_type');
+					$data_regis['work_talk_type_at'] = $this->input->post('work_talk_type_at');
+					$data_regis['work_talk_title_th'] = $this->input->post('work_talk_title_th');
+					$data_regis['work_talk_title_en'] = $this->input->post('work_talk_title_en');
+					$data_regis['work_talk_name_th'] = $this->input->post('work_talk_name_th');
+					$data_regis['work_talk_name_en'] = $this->input->post('work_talk_name_en');
+					$data_regis['work_talk_detail'] = $this->input->post('work_talk_detail');
+
+					$data_regis['join_number'] = $this->input->post('join_number');
+					$data_regis['join_property'] = $this->input->post('join_property');
+					$data_regis['join_start_date'] = $start_date;
+					$data_regis['join_finish_date'] =  $finish_date;
+					$data_regis['join_start_time'] = $this->input->post('join_start_time');
+					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
+				
+					break;
+				case 4:
+					$start_date = $this->input->post('join_start_date');
+					if (!empty($start_date)){
+						$tmp = explode('/',$start_date);
+						$start_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					$finish_date = $this->input->post('join_finish_date');
+					if (!empty($finish_date)){
+						$tmp = explode('/',$finish_date);
+						$finish_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					// echo $finish_date;die();
+					$data_regis['event_type'] = $this->input->post('event_type');
+					$data_regis['event_name_th'] = $this->input->post('event_name_th');
+					$data_regis['event_name_en'] = $this->input->post('event_name_en');
+					$data_regis['event_detail'] = $this->input->post('event_detail');
+					$data_regis['join_number'] = $this->input->post('join_number');
+					$data_regis['join_property'] = $this->input->post('join_property');
+					$data_regis['join_start_date'] = $start_date;
+					$data_regis['join_finish_date'] =  $finish_date;
+					$data_regis['join_start_time'] = $this->input->post('join_start_time');
+					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
+					$data_regis['event_address'] = $this->input->post('event_address');
+					$data_regis['event_address_detail'] = $this->input->post('event_address_detail');
+					break;
+				default:
+					# code...
+					break;
+			}
 			//end data register
 		
 			//save user detail
@@ -166,9 +284,9 @@ class member extends MY_Controller
 			//end save user detail
 
 			//all product save
-			$status = false;
+			$status = true;
 			$product_name = $this->input->post('product_name');
-		
+			
 			if(!empty($product_name)){
 				
 				foreach ($product_name as $key => $value) {
