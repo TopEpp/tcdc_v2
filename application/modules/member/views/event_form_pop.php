@@ -701,7 +701,19 @@
                               <div class="col-sm-12">
                                 <div class="form-group  ">
                                   <label>ภาพรวมของผลงาน</label>
+                                 
                                   <div class="fallback">
+                                    <?php
+                                        if (!empty($regis['pop_img'])){
+                                          
+                                          $pop_img = explode(',',$regis['pop_img']);
+                                      
+                                          foreach ($pop_img as $key => $val) {
+                                            echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          }
+                                        }
+                                      
+                                    ?>
                                     <input id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                   </div>
                                 </div>
@@ -714,6 +726,17 @@
                                 <div class="form-group ">
                                   <label>ภาพ Close Up</label>
                                   <div class="fallback">
+                                  <?php
+                                      if (!empty($regis['pop_closeup'])){
+                                        
+                                        $pop_closeup = explode(',',$regis['pop_closeup']);
+                                    
+                                        foreach ($pop_closeup as $key => $val) {
+                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                        }
+                                      }
+                                    
+                                  ?>
                                     <input id="product_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                   </div>
                                 </div>
@@ -726,6 +749,17 @@
                                 <div class="form-group ">
                                   <label>ภาพ Pack Shot</label>
                                   <div class="fallback">
+                                  <?php
+                                      if (!empty($regis['pop_packshot'])){
+                                        
+                                        $pop_packshot = explode(',',$regis['pop_packshot']);
+                                    
+                                        foreach ($pop_packshot as $key => $val) {
+                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                        }
+                                      }
+                                    
+                                  ?>
                                     <input id="product_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                   </div>
                                   

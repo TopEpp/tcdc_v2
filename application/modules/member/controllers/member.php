@@ -53,10 +53,16 @@ class member extends MY_Controller
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
-		
-			$data['regis']['join_start_date'] = $this->mydate->date_db2str(@$data['regis']['join_start_date']);
-			$data['regis']['join_finish_date'] = $this->mydate->date_db2str(@$data['regis']['join_finish_date']);
-	
+			
+			if (!empty($data['regis']['join_start_date'])){
+				$tmp = explode('-',$data['regis']['join_start_date']);
+				$data['regis']['join_start_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
+			}
+			if (!empty($data['regis']['join_finish_date'])){
+				$tmp = explode('-',$data['regis']['join_finish_date']);
+				$data['regis']['join_finish_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
+			}
+			
 
 			$this->template->javascript->add('assets/modules/member/event_form.js');
 			
@@ -360,10 +366,47 @@ class member extends MY_Controller
 					$data_regis['pop_product_type'] = $this->input->post('pop_product_type');
 					$data_regis['pop_food_type'] = $this->input->post('pop_food_type');
 					
-					// $data_regis['area_type'] = $this->input->post('area_type');
 					// pop_img flie upload
+					$pop_img = array();
+					foreach ($_FILES['pop_img']['tmp_name'] as $key => $value) {
+						if (strlen($value) > 0){
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'store'
+							));
+							array_push($pop_img,$imageupload['public_id']);
+							$data_regis['pop_img'] = implode(",",$pop_img);
+						}
+					}
+				
+					//end pop_img upload
+
 					// pop_closeup
+					$pop_closeup = array();
+					foreach ($_FILES['pop_closeup']['tmp_name'] as $key => $value) {
+						if (strlen($value) > 0){
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'store'
+							));
+							array_push($pop_closeup,$imageupload['public_id']);
+							$data_regis['pop_closeup'] = implode(",",$pop_closeup);
+						}
+					}
+					
+					//end pop_closeup upload
+
 					// pop_packshot
+					$pop_packshot = array();
+					foreach ($_FILES['pop_packshot']['tmp_name'] as $key => $value) {
+						if (strlen($value) > 0){
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'store'
+							));
+							array_push($pop_packshot,$imageupload['public_id']);
+							$data_regis['pop_packshot'] = implode(",",$pop_packshot);
+						}
+					}
+					
+					//end 
 					break;
 				case 3:
 					$start_date = $this->input->post('join_start_date');
@@ -390,6 +433,19 @@ class member extends MY_Controller
 					$data_regis['join_finish_date'] =  $finish_date;
 					$data_regis['join_start_time'] = $this->input->post('join_start_time');
 					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
+
+					// join_image
+					$join_image = array();
+					foreach (@$_FILES['join_image']['tmp_name'] as $key => $value) {
+						if (strlen($value) > 0){
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'document'
+							));
+							array_push($join_image,$imageupload['public_id']);
+							$data_regis['join_img'] = implode(",",$join_image);
+						}
+					}
+					
 				
 					break;
 				case 4:
@@ -416,6 +472,19 @@ class member extends MY_Controller
 					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
 					$data_regis['event_address'] = $this->input->post('event_address');
 					$data_regis['event_address_detail'] = $this->input->post('event_address_detail');
+
+					// join_image
+					$join_image = array();
+					foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
+						if (strlen($value) > 0){
+							$imageupload = \Cloudinary\Uploader::upload($value,array(
+								"folder"=>'document'
+							));
+							array_push($join_image,$imageupload['public_id']);
+							$data_regis['join_img'] = implode(",",$join_image);
+						}
+					}
+				
 					break;
 				default:
 					# code...
@@ -450,10 +519,11 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_img,$imageupload['public_id']);
+									$product_img = implode(",",$product_img);
 								}
 							
 							}
-							$product_img = implode(",",$product_img);
+							
 							
 						}
 
@@ -471,9 +541,10 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_closeup,$imageupload['public_id']);
+									$product_closeup = implode(",",$product_closeup);
 								}
 							}
-							$product_closeup = implode(",",$product_closeup);
+						
 						}
 
 						
@@ -490,9 +561,10 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_packshot,$imageupload['public_id']);
+									$product_packshot = implode(",",$product_packshot);
 								}
 							}
-							$product_packshot = implode(",",$product_packshot);
+							
 						}
 
 						

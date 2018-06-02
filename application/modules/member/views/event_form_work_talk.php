@@ -813,7 +813,7 @@
                         
                         <h5>เอกสารประกอบการสมัคร</h5>
                         <hr/>
-                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_img"> </p>
+                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpg,image/jpeg,image/png" > </p>
                         <p> 1. ภาพ Key Visual สำหรับสื่อประชาสัมพันธ์บนเว็บไซต์ และ สูจิบัตร (สัดส่วน 5:7 และความละเอียด 300 dpi)</p>
                         <p> 2. ตารางเวลากิจกรรม และกำหนดการกิจกรรม</p>
 

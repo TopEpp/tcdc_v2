@@ -1368,7 +1368,7 @@
                                                         $product_img = explode(',',$value['product_closeup']);
                                                     
                                                         foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($value, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                         }
                                                      }
                                                    
@@ -1392,7 +1392,7 @@
                                                         $product_img = explode(',',$value['product_packshot']);
                                                     
                                                         foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($value, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                         }
                                                      }
                                                    
