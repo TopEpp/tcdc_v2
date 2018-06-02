@@ -19,6 +19,8 @@
     $('.timepicker').timepicker();
     $('.wysiwyg').wysihtml5();
      $('.event_detail').wysihtml5();
+     $('.work_talk_detail').wysihtml5();
+     
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;
@@ -196,6 +198,12 @@
                 
                 break;
             case '3':
+                // work talk
+                var work_talk_type = $.map($('input[name="work_talk_ty"]:checked'), function(c){return c.value; })
+                
+                $('#work_talk_type').val(work_talk_type);
+                var work_talk_type_at = $.map($('input[name="work_talk_ty_at"]:checked'), function(c){return c.value; })
+                $('#work_talk_type_at').val(work_talk_type_at);
 
                 break;
             case '4':

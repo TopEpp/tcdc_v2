@@ -51,8 +51,8 @@ class member extends MY_Controller
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
 
-			$data['regis']['join_start_date'] = $this->mydate->date_db2str($data['regis']['join_start_date']);
-			$data['regis']['join_finish_date'] = $this->mydate->date_db2str($data['regis']['join_finish_date']);
+			$data['regis']['join_start_date'] = $this->mydate->date_db2str(@$data['regis']['join_start_date']);
+			$data['regis']['join_finish_date'] = $this->mydate->date_db2str(@$data['regis']['join_finish_date']);
 	
 
 			$this->template->javascript->add('assets/modules/member/event_form.js');
@@ -222,6 +222,31 @@ class member extends MY_Controller
 					// pop_packshot
 					break;
 				case 3:
+					$start_date = $this->input->post('join_start_date');
+					if (!empty($start_date)){
+						$tmp = explode('/',$start_date);
+						$start_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					$finish_date = $this->input->post('join_finish_date');
+					if (!empty($finish_date)){
+						$tmp = explode('/',$finish_date);
+						$finish_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
+					}
+					$data_regis['work_talk_type'] = $this->input->post('work_talk_type');
+					$data_regis['work_talk_type_at'] = $this->input->post('work_talk_type_at');
+					$data_regis['work_talk_title_th'] = $this->input->post('work_talk_title_th');
+					$data_regis['work_talk_title_en'] = $this->input->post('work_talk_title_en');
+					$data_regis['work_talk_name_th'] = $this->input->post('work_talk_name_th');
+					$data_regis['work_talk_name_en'] = $this->input->post('work_talk_name_en');
+					$data_regis['work_talk_detail'] = $this->input->post('work_talk_detail');
+
+					$data_regis['join_number'] = $this->input->post('join_number');
+					$data_regis['join_property'] = $this->input->post('join_property');
+					$data_regis['join_start_date'] = $start_date;
+					$data_regis['join_finish_date'] =  $finish_date;
+					$data_regis['join_start_time'] = $this->input->post('join_start_time');
+					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
+				
 					break;
 				case 4:
 					$start_date = $this->input->post('join_start_date');
