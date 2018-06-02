@@ -5,21 +5,17 @@
     $('.datepicker-range').datepicker({
         format: "yyyy",
          weekStart: 1,
-        // orientation: "bottom",
-        // language: "{{ app.request.locale }}",
-            // keyboardNavigation: false,
         viewMode: "years",
         minViewMode: "years"
     });
 
-    $('.datepicker-range_event').datepicker({
-    });
+    $('.datepicker-range_event').datepicker();
 
     
     $('.timepicker').timepicker();
     $('.wysiwyg').wysihtml5();
-     $('.event_detail').wysihtml5();
-     $('.work_talk_detail').wysihtml5();
+    $('.event_detail').wysihtml5();
+    $('.work_talk_detail').wysihtml5();
      
     // $('#form-event-profile').validate();
    
@@ -86,21 +82,137 @@
     //         document.getElementById("prename_detail").style.display = "none";
     //       }
     //   });
-  
-
-
-    //target_type checked
-    $("#check15").change(function() {
-   
+    
+    //clear checked form show case 
+    $("input[name='target_type']").change(function() {
+        $("input[name='target_type']").not(this).prop('checked', false);
+        document.getElementById("target_type_detail").style.display = "none";  
+        $('#target_type_detail').val('');
      
-        if ($('#check15').is(":checked"))
+    });
+
+    //target_type checked form show case 
+    if ($('#target_type4').is(":checked"))
+    {
+        document.getElementById("target_type_detail").style.display = "block";
+    }
+    $("#target_type4").change(function() {
+        if ($('#target_type4').is(":checked"))
         {
-            document.getElementById("target_type").style.display = "block";
+            document.getElementById("target_type_detail").style.display = "block";
         }
         else{
-            document.getElementById("target_type").style.display = "none";
+            document.getElementById("target_type_detail").style.display = "none";
         }
     });
+
+    // pop_product and food form clear checked
+    $("input[name='pop_type']").change(function() {
+        $("input[name='pop_type']").not(this).prop('checked', false);
+    });
+    $("input[name='pop_food']").change(function() {
+        $("input[name='pop_food']").not(this).prop('checked', false);
+    });
+
+    //event form clear checked 
+    $("input[name='event_ty']").change(function() {
+        $("input[name='event_ty']").not(this).prop('checked', false);
+    });
+    $("input[name='event_add']").change(function() {
+        $("input[name='event_add']").not(this).prop('checked', false);
+        document.getElementById("event_address_detail").style.display = "none";
+    });
+
+    //check event_address_detail event form
+    if ($('#event_add2').is(":checked"))
+    {
+        document.getElementById("event_address_detail").style.display = "block";
+    }
+    $("#event_add2").change(function() {
+        if ($('#event_add2').is(":checked"))
+        {
+            document.getElementById("event_address_detail").style.display = "block";
+        }
+        else{
+            document.getElementById("event_address_detail").style.display = "none";
+        }
+    });
+
+    //clear work talk checked 
+    $("input[name='work_talk_ty']").change(function() {
+        $("input[name='work_talk_ty']").not(this).prop('checked', false);
+    });
+    $("input[name='work_talk_ty_at']").change(function() {
+        $("input[name='work_talk_ty_at']").not(this).prop('checked', false);
+    });
+
+    if ($('#work_talk_ty1').is(":checked"))
+    {
+        document.getElementById("work_type_1").style.display = "block";
+    }
+    $("#work_talk_ty1").change(function() {
+        if ($('#work_talk_ty1').is(":checked"))
+        {
+            document.getElementById("work_type_1").style.display = "block";
+            document.getElementById("work_type_2").style.display = "none";
+        }
+        else{
+            document.getElementById("work_type_1").style.display = "none";
+        }
+    });
+
+    if ($('#work_talk_ty2').is(":checked"))
+    {
+        document.getElementById("work_type_2").style.display = "block";
+    }
+    $("#work_talk_ty2").change(function() {
+        if ($('#work_talk_ty2').is(":checked"))
+        {
+            document.getElementById("work_type_2").style.display = "block";
+            document.getElementById("work_type_1").style.display = "none";
+        }
+        else{
+            document.getElementById("work_type_2").style.display = "none";
+        }
+    });
+
+    // if ($('#work_talk_ty_at2').is(":checked"))
+    // {
+    //     document.getElementById("work_talk_type_at_detail1").style.display = "block";
+    //     $("#work_talk_det1").prop('disabled', false);
+    //     $("#work_talk_det2").prop('disabled', true);
+    // }
+    // $("#work_talk_ty_at2").change(function() {
+    //     if ($('#work_talk_ty_at2').is(":checked"))
+    //     {
+    //         document.getElementById("work_talk_type_at_detail1").style.display = "block";
+    //         $("#work_talk_det1").prop('disabled', false);
+    //         $("#work_talk_det2").prop('disabled', true);
+    //     }
+    //     else{
+    //         document.getElementById("work_talk_type_at_detail1").style.display = "none";
+    //     }
+    // });
+    // if ($('#work_talk_ty_at4').is(":checked"))
+    // {
+    //     document.getElementById("work_talk_type_at_detail2").style.display = "block";
+    //     $("#work_talk_det1").prop('disabled', true);
+    //     $("#work_talk_det2").prop('disabled', false);
+    // }
+    // $("#work_talk_ty_at4").change(function() {
+    //     if ($('#work_talk_ty_at4').is(":checked"))
+    //     {
+    //         document.getElementById("work_talk_type_at_detail2").style.display = "block";
+    //         $("#work_talk_det1").prop('disabled', true);
+    //         $("#work_talk_det2").prop('disabled', false);
+
+    //     }
+    //     else{
+    //         document.getElementById("work_talk_type_at_detail2").style.display = "none";
+    //     }
+    // });
+    
+
 
 // //get status company
 //     $company =   $("input[name=radio1]:checked").map(function() {
@@ -187,7 +299,10 @@
        
         switch (type) {
             case '1':
-                alert('1');
+                if(!$('#product_check').is(":checked")){
+                    alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
+                    return false;
+                }
                 break;
             case '2':
                 //pop market

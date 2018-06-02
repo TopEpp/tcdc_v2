@@ -755,8 +755,8 @@
                                     <label for="event_add2">other</label>
                                   </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input disabled name="event_address_detail" type="text" placeholder="ระบุที่อยู่" class="form-control" value="<?php echo @$regis['event_address'];?>" >
+                                <div class="col-sm-6" id="event_address_detail" style="display:none;">
+                                    <input  name="event_address_detail" type="text" placeholder="ระบุที่อยู่" class="form-control" value="<?php echo @$regis['event_address_detail'];?>" >
                                 </div>
                               </div>
                             </div>

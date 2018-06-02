@@ -10,7 +10,7 @@
                               echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
               ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
-           <input type="hidden"  name="project_type" value="<?php echo $project[0]->project_type;?>" />
+           <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
             <div id="rootwizard" class="m-t-50">
@@ -922,26 +922,26 @@
                           <div class="form-group-default required">
                             <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
                             <div class="checkbox check-success">
-                              <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="check1">
-                              <label for="check1">เพื่อเพิ่มมูลค่าของสินค้า</label>
+                              <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
+                              <label for="target_type1">เพื่อเพิ่มมูลค่าของสินค้า</label>
                             </div>
                             <div class="checkbox check-success">
-                              <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="check2">
-                              <label for="check2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
+                              <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="target_type2">
+                              <label for="target_type2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
                             </div>
                             <div class="checkbox check-success">
-                              <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="check3">
-                              <label for="check3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
+                              <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="target_type3">
+                              <label for="target_type3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
                             </div>
                             <div class="checkbox check-success">
-                              <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="check15">
-                              <label for="check15">อื่นๆ (โปรดระบุ)</label>
+                              <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="target_type4">
+                              <label for="target_type4">อื่นๆ (โปรดระบุ)</label>
                             </div>
 
-                            <div class="form-group-attached" id="target_type" style="display:none;">
+                            <div class="form-group-attached" id="target_type_detail" style="display:none;">
                               <div class="form-group form-group-default ">
 
-                                <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" name="target_type_detail">
+                                <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" value="<?php echo @$regis['target_type_detail']; ?>" name="target_type_detail">
                               </div>
                             </div>
                           </div>
@@ -959,7 +959,7 @@
                               <!-- <div class="col-md-5 b-r b-dashed b-grey ">
                                 <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                                   <h2>ข้อมูลผลงานออกแบบ</h2>
-                                  <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
+                                  <p>ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
 
@@ -1456,7 +1456,7 @@
                         <div class="col-md-12">
                           <div class="padding-10 sm-padding-5">
                             <div class="checkbox check-success  ">
-                                <input type="checkbox" value="1" id="product_check">
+                                <input type="checkbox" value="1" id="product_check" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
                                 <label for="product_check">ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
                             </div>
                   

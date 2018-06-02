@@ -645,33 +645,39 @@
                                     <label for="work_talk_ty1">Talk (การเสวนา / การบรรยาย)</label>
                                   </div>
                                 </div>
-                                <div class="col-sm-1">
-                                    <div class="checkbox check-success">
-                                    สถานที่
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                
-                                  <div class="checkbox check-success">
-                                    <input <?php echo (@$regis['work_talk_type_at'] == '1')? 'checked':''?> type="checkbox"  value="1" name="work_talk_ty_at" id="work_talk_ty_at1">
-                                    <label for="work_talk_ty_at1">TCDC</label>
-                                  </div>
+                                <div class="col-sm-7" id="work_type_1" style="display:none">
                                   <div class="row">
-                                    <div class="col-sm-6">
-                                      <div class="checkbox check-success">
-                                        <input <?php echo (@$regis['work_talk_type_at'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty_at" id="work_talk_ty_at2">
-                                        <label for="work_talk_ty_at2">นอกสถานที่</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group form-group-default ">
-                                          <input disabled  value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" name="work_talk_type_at_detail" >
+                                    <div class="col-sm-2">
+                                        <div class="checkbox check-success">
+                                        สถานที่
                                         </div>
                                     </div>
-                                   
+                                    <div class="col-sm-10">
+                                    
+                                      <div class="checkbox check-success">
+                                        <input <?php echo (@$regis['work_talk_type_at'] == '1')? 'checked':''?> type="checkbox"  value="1" name="work_talk_ty_at" id="work_talk_ty_at1">
+                                        <label for="work_talk_ty_at1">TCDC</label>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-6">
+                                          <div class="checkbox check-success">
+                                            <input <?php echo (@$regis['work_talk_type_at'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty_at" id="work_talk_ty_at2">
+                                            <label for="work_talk_ty_at2">นอกสถานที่</label>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6" id="work_talk_type_at_detail1" style="display:none;">
+                                            <div class="form-group form-group-default ">
+                                              <input   value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" id="work_talk_det1" name="work_talk_type_at_detail" >
+                                            </div>
+                                        </div>
+                                      
+                                      </div>
+                                    
+                                    </div>
                                   </div>
-                                 
+
                                 </div>
+                                
                               </div>
                              
                               <div class="row">
@@ -681,30 +687,35 @@
                                     <label for="work_talk_ty2">Workshop (การสัมมนาเชิงปฏิบัติการ)</label>
                                   </div>
                                 </div>
-                                <div class="col-sm-1">
-                                    <div class="checkbox check-success">
-                                    สถานที่
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                
-                                  <div class="checkbox check-success">
-                                    <input <?php echo (@$regis['work_talk_type_at'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="work_talk_ty_at" id="work_talk_ty_at3">
-                                    <label for="work_talk_ty_at3">TCDC</label>
-                                  </div>
+                                <div class="col-sm-7" id="work_type_2" style="display:none">
                                   <div class="row">
-                                    <div class="col-sm-6">
-                                      <div class="checkbox check-success">
-                                        <input <?php echo (@$regis['work_talk_type_at'] == '4')? 'checked':''?>  type="checkbox"  value="4" name="work_talk_ty_at" id="work_talk_ty_at4">
-                                        <label for="work_talk_ty_at4">สถานที่ตนเอง</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group form-group-default ">
-                                          <input disabled value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" name="work_talk_type_at_detail" >
+                                    <div class="col-sm-2">
+                                        <div class="checkbox check-success">
+                                        สถานที่
                                         </div>
                                     </div>
-                                   
+                                    <div class="col-sm-10">
+                                    
+                                      <div class="checkbox check-success">
+                                        <input <?php echo (@$regis['work_talk_type_at'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="work_talk_ty_at" id="work_talk_ty_at3">
+                                        <label for="work_talk_ty_at3">TCDC</label>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-6">
+                                          <div class="checkbox check-success">
+                                            <input <?php echo (@$regis['work_talk_type_at'] == '4')? 'checked':''?>  type="checkbox"  value="4" name="work_talk_ty_at" id="work_talk_ty_at4">
+                                            <label for="work_talk_ty_at4">สถานที่ตนเอง</label>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6" id="work_talk_type_at_detail2" style="display:none;">
+                                            <div class="form-group form-group-default ">
+                                              <input  value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" id="work_talk_det2" name="work_talk_type_at_detail" >
+                                            </div>
+                                        </div>
+                                      
+                                      </div>
+                                    
+                                    </div>
                                   </div>
                                  
                                 </div>
