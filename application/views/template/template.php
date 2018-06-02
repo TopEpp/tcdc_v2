@@ -51,6 +51,10 @@
     margin-top: 20px;
   }
 
+  .form-group label:not(.error){
+    text-transform: none;
+  }
+
   </style>
 
   <!-- <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker3.css'); ?>"> -->

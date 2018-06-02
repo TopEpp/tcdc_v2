@@ -10,6 +10,7 @@
                               echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
               ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
+           <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
             <div id="rootwizard" class="m-t-50">
@@ -623,7 +624,7 @@
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
                                 <label>ชื่อร้าน</label>
-                                <input name="pop_shop_name" type="text" placeholder="ระบุชื่อร้านค้า" class="form-control"  >
+                                <input name="pop_shop_name" type="text" placeholder="ระบุชื่อร้านค้า" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
                               </div>
                             </div>
                         </div>
@@ -631,10 +632,10 @@
                           <div class="col-sm-12">
                             <p>เกี่ยวกับแบรนด์(เล่าถึงที่มาของร้านและประเภทสินค้าที่ขาย)</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="pop_story" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea  name="pop_story" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
-                              }"></textarea>
+                              }"><?php echo @$regis['pop_story'];?></textarea>
                             </div>
                           </div>
                         </div>
@@ -644,25 +645,26 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                             <div class="form-group-default required">
+                              <input type="hidden" name="pop_product_type" id="pop_product_type">
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="1" name="pop_product_type" id="check1">
-                                <label for="check1">Lifstyle</label>
+                                <input <?php echo (@$regis['pop_product_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_type" id="pop_type1">
+                                <label for="pop_type1">Lifstyle</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="2" name="pop_product_type" id="check2">
-                                <label for="check2">Furniture</label>
+                                <input <?php echo (@$regis['pop_product_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_type" id="pop_type2">
+                                <label for="pop_type2">Furniture</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="3" name="pop_product_type" id="check3">
-                                <label for="check3">Textile / Fashion</label>
+                                <input <?php echo (@$regis['pop_product_type'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="pop_type" id="pop_type3">
+                                <label for="pop_type3">Textile / Fashion</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="4" name="pop_product_type" id="check4">
-                                <label for="check4">Accessories</label>
+                                <input <?php echo (@$regis['pop_product_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="pop_type" id="pop_type4">
+                                <label for="pop_type4">Accessories</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="5" name="pop_product_type" id="check5">
-                                <label for="check5">Home Decor</label>
+                                <input <?php echo (@$regis['pop_product_type'] == '5')? 'checked':''?> type="checkbox"  value="5" name="pop_type" id="pop_type5">
+                                <label for="pop_type5">Home Decor</label>
                               </div>
                             </div>
                             </div>
@@ -672,18 +674,19 @@
                         <p>ประเภทของที่ขาย</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <input type="hidden" name="pop_food_type" id="pop_food_type">
                             <div class="form-group-default required">
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="1" name="pop_food_type" id="check6">
-                                <label for="check6">อาหาร</label>
+                                <input <?php echo (@$regis['pop_food_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_food" id="pop_food1">
+                                <label for="pop_food1">อาหาร</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="2" name="pop_food_type" id="check7">
-                                <label for="check7">เครื่องดื่ม</label>
+                                <input <?php echo (@$regis['pop_food_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_food" id="pop_food2">
+                                <label for="pop_food2">เครื่องดื่ม</label>
                               </div>
                               <div class="checkbox check-success">
-                                <input  type="checkbox"  value="3" name="pop_food_type" id="check8">
-                                <label for="check8">เบเกอรี่ / ของหวาน</label>
+                                <input <?php echo (@$regis['pop_food_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="pop_food" id="pop_food3">
+                                <label for="pop_food3">เบเกอรี่ / ของหวาน</label>
                               </div>
 
                             </div>

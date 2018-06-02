@@ -82,10 +82,12 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($project as $key => $prj) { 
+                          <?php 
+                           foreach ($project as $key => $prj) { 
+         
                               $diff=date_diff(date_create($prj->register_finish_date),date_create(date('Y-m-d')));
-
-                               if(@$status[$key]['reg_status'] == 1){
+                      
+                               if (!empty($status_regis[$prj->project_id])){
                                   $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">สมัครแล้ว</span>';
                                }else{
                                   $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ไม่ได้สมัคร</span>';
