@@ -525,7 +525,6 @@ class member extends MY_Controller
 							
 						}
 
-					
 						//end upload product_img
 
 						//upload image  product_closeup

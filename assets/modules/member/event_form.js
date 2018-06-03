@@ -38,11 +38,17 @@
 
         $('#num', clone_data).text("1. ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
         $('input', clone_data).val('');
+        $('img', clone_data).remove();
         $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
         $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
         $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
         $('.select2', clone_data).remove();
-        $('.datepicker-range').datepicker(); 
+        $('.datepicker-range').datepicker({
+            format: "yyyy",
+             weekStart: 1,
+            viewMode: "years",
+            minViewMode: "years"
+        });
         $("select[name='product_type[]']").select2();
     }
     
