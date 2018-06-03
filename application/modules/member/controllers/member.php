@@ -348,9 +348,7 @@ class member extends MY_Controller
 			// data register 
 			$data_regis = array(
 				'project_id' => $this->input->post('project_id'),
-				'user_id' => $id,
-				'reg_status' => '1'
-				
+				'user_id' => $id,			
 			);
 			switch ($project_type) {
 				case 1:
