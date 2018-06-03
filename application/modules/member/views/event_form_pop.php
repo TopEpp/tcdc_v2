@@ -311,7 +311,7 @@
                               <div class="form-group-attached">
                                 <div class="row clearfix">
                                   <div class="col-sm-12">
-                                    <div class="form-group form-group-default  form-group-default-selectFx required">
+                                    <div class="form-group form-group-default  form-group-default-selectFx ">
                                       <label>สถานะ</label>
                                       <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                       
@@ -640,66 +640,88 @@
                           </div>
                         </div>
                         <br>
-                        <h5>Product</h5>
-                        <p >ประเภทของที่ขาย</p>
+                        <h5>ประเภทของที่ขาย</h5>
                         <div class="row clearfix">
                             <div class="col-sm-12">
-                            <div class="form-group-default required">
-                              <input type="hidden" name="pop_product_type" id="pop_product_type">
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_product_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_type" id="pop_type1">
-                                <label for="pop_type1">Lifstyle</label>
+                              <div class="form-group-default required">
+                        
+                                <div class="checkbox check-success">
+                                  <input <?php echo (!empty(@$regis['pop_product_type']))? 'checked':''?> type="checkbox"  value="1" name="pop_select" id="pop_select1">
+                                  <label for="pop_select1">Product</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (!empty(@$regis['pop_food_type']))? 'checked':''?> type="checkbox"  value="2" name="pop_select" id="pop_select2">
+                                  <label for="pop_select2">Food & Beverage</label>
+                                </div>
+                            
                               </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_product_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_type" id="pop_type2">
-                                <label for="pop_type2">Furniture</label>
-                              </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_product_type'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="pop_type" id="pop_type3">
-                                <label for="pop_type3">Textile / Fashion</label>
-                              </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_product_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="pop_type" id="pop_type4">
-                                <label for="pop_type4">Accessories</label>
-                              </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_product_type'] == '5')? 'checked':''?> type="checkbox"  value="5" name="pop_type" id="pop_type5">
-                                <label for="pop_type5">Home Decor</label>
-                              </div>
-                            </div>
                             </div>
                         </div>
                         <br>
-                        <h5>Food & Beverage</h5>
-                        <p>ประเภทของที่ขาย</p>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                            <input type="hidden" name="pop_food_type" id="pop_food_type">
-                            <div class="form-group-default required">
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_food_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_food" id="pop_food1">
-                                <label for="pop_food1">อาหาร</label>
+                        <div id="product" style="display:none;">
+                          <h5>Product</h5>
+                          <p >ประเภทของที่ขาย</p>
+                          <div class="row clearfix">
+                              <div class="col-sm-12">
+                              <div class="form-group-default ">
+                                <input type="hidden" name="pop_product_type" id="pop_product_type">
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_type" id="pop_type1">
+                                  <label for="pop_type1">Lifstyle</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_type" id="pop_type2">
+                                  <label for="pop_type2">Furniture</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="pop_type" id="pop_type3">
+                                  <label for="pop_type3">Textile / Fashion</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="pop_type" id="pop_type4">
+                                  <label for="pop_type4">Accessories</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == '5')? 'checked':''?> type="checkbox"  value="5" name="pop_type" id="pop_type5">
+                                  <label for="pop_type5">Home Decor</label>
+                                </div>
                               </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_food_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_food" id="pop_food2">
-                                <label for="pop_food2">เครื่องดื่ม</label>
                               </div>
-                              <div class="checkbox check-success">
-                                <input <?php echo (@$regis['pop_food_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="pop_food" id="pop_food3">
-                                <label for="pop_food3">เบเกอรี่ / ของหวาน</label>
-                              </div>
-
-                            </div>
-                            </div>
+                          </div>
                         </div>
+                        
+                          <br>
+                        <div id="food" style="display:none;">
+                          <h5>Food & Beverage</h5>
+                          <p>ประเภทของที่ขาย</p>
+                          <div class="row clearfix">
+                              <div class="col-sm-12">
+                              <input type="hidden" name="pop_food_type" id="pop_food_type">
+                              <div class="form-group-default ">
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_food_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="pop_food" id="pop_food1">
+                                  <label for="pop_food1">อาหาร</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_food_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="pop_food" id="pop_food2">
+                                  <label for="pop_food2">เครื่องดื่ม</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_food_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="pop_food" id="pop_food3">
+                                  <label for="pop_food3">เบเกอรี่ / ของหวาน</label>
+                                </div>
 
+                              </div>
+                              </div>
+                          </div>
+                        </div>
                          <br>
-                        <h5 >แนบรูปสินค้า</h5>
+                        <h5 >แนบรูปสินค้า<span style="color:red">*</span></h5>
 
                         <div class="col-sm-12">
                             <div class="row clearfix">
                               <div class="col-sm-12">
-                                <div class="form-group  ">
+                                <div class="form-group required ">
                                   <label>ภาพรวมของผลงาน</label>
                                   <div class="row">
                                   <?php

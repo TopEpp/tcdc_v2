@@ -113,11 +113,45 @@
     });
 
     // pop_product and food form clear checked
+    $("input[name='pop_select']").change(function() {
+        $("input[name='pop_select']").not(this).prop('checked', false);
+    });
     $("input[name='pop_type']").change(function() {
         $("input[name='pop_type']").not(this).prop('checked', false);
     });
     $("input[name='pop_food']").change(function() {
         $("input[name='pop_food']").not(this).prop('checked', false);
+    });
+
+    if ($('#pop_select1').is(":checked"))
+    {
+        document.getElementById("product").style.display = "block";
+        document.getElementById("food").style.display = "none";
+    }
+    $("#pop_select1").change(function() {
+        if ($('#pop_select1').is(":checked"))
+        {
+            document.getElementById("product").style.display = "block";
+            document.getElementById("food").style.display = "none";
+        }
+        else{
+            document.getElementById("product").style.display = "none";
+        }
+    });
+    if ($('#pop_select2').is(":checked"))
+    {
+        document.getElementById("food").style.display = "block";
+        document.getElementById("product").style.display = "none";
+    }
+    $("#pop_select2").change(function() {
+        if ($('#pop_select2').is(":checked"))
+        {
+            document.getElementById("food").style.display = "block";
+            document.getElementById("product").style.display = "none";
+        }
+        else{
+            document.getElementById("food").style.display = "none";
+        }
     });
 
     //event form clear checked 
