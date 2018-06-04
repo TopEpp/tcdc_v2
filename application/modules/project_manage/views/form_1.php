@@ -329,14 +329,7 @@
 
                                             <div class="col-sm-6">
                                               <p>ปีที่ออกแบบ</p>
-                                              <?php 
-                                                $date = '';
-                                                if (!empty(@$value['product_date']) && @$value['product_date'] != '0000-00-00'  ){
-                                                  $dates = explode('-',$value['product_date']);
-                                                  $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
-                                                  
-                                                   echo @$date[0];
-                                                }?>
+                                              <?php echo $value['product_date'];?>
                                             </div>
                                           </div>
                                         </div>
@@ -383,7 +376,16 @@
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                  <?php
+                                                     if (!empty($value['product_img'])){
+                                                        $product_img = explode(',',$value['product_img']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
                                                   </div>
                                                 </div>
                                               </div>
@@ -395,7 +397,16 @@
                                                 <div class="form-group ">
                                                   <label>ภาพ Close Up</label>
                                                   <div class="fallback">
-                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <?php
+                                                     if (!empty($value['product_closeup'])){
+                                                        $product_img = explode(',',$value['product_closeup']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
                                                   </div>
                                                 </div>
                                               </div>
@@ -407,7 +418,16 @@
                                                 <div class="form-group ">
                                                   <label>ภาพ Pack Shot</label>
                                                   <div class="fallback">
-                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <?php
+                                                     if (!empty($value['product_packshot'])){
+                                                        $product_img = explode(',',$value['product_packshot']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
                                                   </div>
                                                   
                                                 </div>

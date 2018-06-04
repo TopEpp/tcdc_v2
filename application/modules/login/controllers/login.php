@@ -53,9 +53,5 @@ class login extends  MY_Controller{
 		redirect(base_url());		
     }
 
-    function set_lang(){
-    	$lang = $this->input->post('lang');
-    	$this->session->set_userdata('site_lang',$lang);
-    }
 
 }

@@ -59,7 +59,7 @@
                     <td class="v-align-middle semi-bold"><?php echo $mem->member_name;?></td>
                     <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
                     <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
-                      <td class="v-align-middle semi-bold"><a href="#"><i class="fa fa-edit"></i> จัดการ</a>
+                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> จัดการ</a>
                     </td>
                   </tr>
                 <?php } ?>
