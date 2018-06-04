@@ -92,7 +92,9 @@
       </div>
       <div class="d-flex align-items-center">
         <!-- START User Info-->
-
+        <div class="pull-left p-r-10 fs-14">
+          <input id="toggle-lang" type="checkbox" checked data-toggle="toggle" data-size="large" data-onstyle="info" data-offstyle="info" data-on="Thai" data-off="English" data-true="th" data-false="en" >
+        </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
           <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName');?></span>
         </div>
@@ -282,7 +284,14 @@
         <script src="<?php echo base_url('assets/js/scripts.js'); ?>" type="text/javascript"></script>
         <!-- END PAGE LEVEL JS -->
 
-
+        <script type="text/javascript">
+          $(function() {
+            $('#toggle-lang').change(function() {
+               var lang = $(this).data($(this).prop("checked").toString());
+               
+            });   
+          });
+        </script>
         <?php echo $this->template->javascript; ?>
 
       </body>
