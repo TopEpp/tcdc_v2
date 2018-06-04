@@ -25,6 +25,7 @@
   <link href="<?php echo base_url('assets/plugins/switchery/css/switchery.min.css'); ?>" rel="stylesheet" type="text/css" media="screen" />
   <link href="<?php echo base_url('assets/css/pages-icons.css'); ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url('assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css'); ?>" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap-toggle.min.css'); ?>" rel="stylesheet" type="text/css" />
   <link class="main-stylesheet" href="<?php echo base_url('assets/css/themes/corporate.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
   <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/jquery-datatable/media/css/jquery.dataTables.css'); ?>">
@@ -93,7 +94,7 @@
       <div class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14">
-          <input id="toggle-lang" type="checkbox" checked data-toggle="toggle" data-size="large" data-onstyle="info" data-offstyle="info" data-on="Thai" data-off="English" data-true="th" data-false="en" >
+          TH <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > EN
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
           <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName');?></span>
@@ -270,6 +271,7 @@
         <script src="<?php echo base_url('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap-daterangepicker/daterangepicker.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap-toggle.min.js'); ?>"></script>
         
         <script src="<?php echo base_url('assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>
         <!-- <script src="<?php echo base_url('assets/plugins/selectize/js/selectize.js'); ?>"></script> -->
@@ -286,11 +288,36 @@
 
         <script type="text/javascript">
           $(function() {
-            $('#toggle-lang').change(function() {
-               var lang = $(this).data($(this).prop("checked").toString());
-               
-            });   
+
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            elems.forEach(function(html) {
+              var switchery = new Switchery(html, {color: '#10CFBD', size : 'small'});
+            });
           });
+
+          var changeCheckbox = document.querySelector('.switchery');
+
+          changeCheckbox.onchange = function() {
+            if(changeCheckbox.checked){
+              lang = 'en';
+            }else{
+              lang = 'th';
+            }
+
+            window.location.href='<?php  echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2)."/".$this->uri->segment(3)."/".$this->uri->segment(4)?>';
+
+            // var URL = '<?php  echo base_url(); ?>'+lang+'/login/set_lang/'+lang;
+            // var data = { 'lang' : lang}
+            // $.ajax({
+            //     url: URL,
+            //     type: "POST",
+            //     data: data,
+            //     success: function (res) {
+            //         // window.location.reload();
+            //     }
+            // });
+          };
+
         </script>
         <?php echo $this->template->javascript; ?>
 
