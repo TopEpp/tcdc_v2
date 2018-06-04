@@ -1,6 +1,6 @@
 
 <!-- START PAGE CONTENT -->
-      <div class="content ">
+<div class="content ">
         <div class=" container-fluid   container-fixed-lg">
           <!-- START CONTAINER FLUID -->
 
@@ -10,7 +10,7 @@
                               echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
               ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
-           <input type="hidden"  name="project_type" value="<?php echo $project[0]->project_type;?>" />
+           <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
             <div id="rootwizard" class="m-t-50">
@@ -39,9 +39,9 @@
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ผลงานออกแบบ</span></a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>วิธีการจัดแสดง</span></a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>เสร็จสิ้น</span></a>
                 </li> -->
@@ -915,35 +915,38 @@
                 <div class="tab-pane  slide-left padding-20 sm-no-padding " id="tab3">
 
                  
-                      <div class="row clearfix">
+                      <div class="row clearfix row-same-height ">
 
                         <div class="col-md-12">
-                        <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="check1">
-                            <label for="check1">เพื่อเพิ่มมูลค่าของสินค้า</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="check2">
-                            <label for="check2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="check3">
-                            <label for="check3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="check15">
-                            <label for="check15">อื่นๆ (โปรดระบุ)</label>
-                          </div>
+                        <div class="padding-30 sm-padding-5">
+                          <div class="form-group-default required">
+                            <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
+                              <label for="target_type1">เพื่อเพิ่มมูลค่าของสินค้า</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="target_type2">
+                              <label for="target_type2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="target_type3">
+                              <label for="target_type3">เพื่อเพิ่มโอกาสการจ้างงาน</label>
+                            </div>
+                            <div class="checkbox check-success">
+                              <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="target_type4">
+                              <label for="target_type4">อื่นๆ (โปรดระบุ)</label>
+                            </div>
 
-                          <div class="form-group-attached" id="target_type" style="display:none;">
-                            <div class="form-group form-group-default ">
+                            <div class="form-group-attached" id="target_type_detail" style="display:none;">
+                              <div class="form-group form-group-default ">
 
-                              <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" name="target_type_detail">
+                                <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" value="<?php echo @$regis['target_type_detail']; ?>" name="target_type_detail">
+                              </div>
                             </div>
                           </div>
                           
-
+                        </div>
 
                         </div>
                       </div>
@@ -956,7 +959,7 @@
                               <!-- <div class="col-md-5 b-r b-dashed b-grey ">
                                 <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                                   <h2>ข้อมูลผลงานออกแบบ</h2>
-                                  <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
+                                  <p>ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
 
@@ -1176,7 +1179,7 @@
                         </div>
                       
                       <?php }else{ ?>
-                      <?php foreach (@$regis['product'] as $key => $value) { ?>
+                      <?php foreach (@$regis['product'] as $key => $value) {?>
                       
                     
                         <div class="clonedInput" id="clonedInput<?php echo $key+1;?>">
@@ -1233,10 +1236,10 @@
                                               <div class="form-group form-group-default">
                                                 <p class="all-caps fs-12 bold">ปีที่ออกแบบ</p>
                                                 <?php 
-                                                $date = '';
+                                                $date = $value['product_date'];
                                                 if (!empty(@$value['product_date']) && @$value['product_date'] != '0000-00-00'  ){
-                                                  $dates = explode('-',$value['product_date']);
-                                                  $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
+                                                  // $dates = explode('-',@$value['product_date']);
+                                                  // $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
                                             
                                                 }?>
                                                 <div id="myDatepicker" class="input-group date">
@@ -1313,10 +1316,10 @@
                                             <div class="col-sm-12">
                                               <p>3. โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" value="<?php echo @$value['product_concept']?>" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
-                                                }"></textarea>
+                                                }"><?php echo @$value['product_concept']?></textarea>
                                               </div>
                                             </div>
 
@@ -1332,11 +1335,31 @@
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
-                                              <div class="col-sm-12">
+                                              <div class="col-sm-6">
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_img'])){
+                                                        $product_img = explode(',',$value['product_img']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <div class="form-group  ">
+                                                  <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <div class="fallback">
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1347,8 +1370,20 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
                                                   <label>ภาพ Close Up</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_closeup'])){
+                                                        $product_img = explode(',',$value['product_closeup']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
-                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1359,8 +1394,20 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
                                                   <label>ภาพ Pack Shot</label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_packshot'])){
+                                                        $product_img = explode(',',$value['product_packshot']);
+                                                    
+                                                        foreach ($product_img as $key => $val) {
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                        }
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
-                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                   
                                                 </div>
@@ -1383,13 +1430,13 @@
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default required">
                                             <label>ชื่อ</label>
-                                            <input type="text" class="form-control" name="product_firstname[] " value="<?php echo @$value['product_firstname']?>" >
+                                            <input type="text" class="form-control" name="product_firstname[] " value="<?php echo @$value['product_firstname'];?>" >
                                           </div>
                                         </div>
                                         <div class="col-sm-6">
                                         <div class="form-group form-group-default required">
                                           <label>นามสกุล</label>
-                                          <input type="text" class="form-control" name="product_lastname[]" value="<?php echo @$value['product_lastname']?>">
+                                          <input type="text" class="form-control" name="product_lastname[]" value="<?php echo @$value['product_lastname'];?>">
                                         </div>
                                       </div>
 
@@ -1417,7 +1464,7 @@
                         <div class="col-md-12">
                           <div class="padding-10 sm-padding-5">
                             <div class="checkbox check-success  ">
-                                <input type="checkbox" value="1" id="product_check">
+                                <input type="checkbox" value="1" id="product_check" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
                                 <label for="product_check">ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
                             </div>
                   
@@ -1436,147 +1483,7 @@
             </div>
                
 
-        <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
-         <div class="row row-same-height">
-            <div class="col-md-5 b-r b-dashed b-grey ">
-              <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-                <h2>การจัดแสดงผลงานออกแบบ</h2>
-                <p>รายละเอียดการจัดแสดงผลงานออกแบบ</p>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="padding-30 sm-padding-5">
-            
-                
-                    <!-- <p>1. เป้าหมายหลักของการจัดแสดงผลงาน</p>
-                    <div class="row clearfix">
-                      <div class="col-sm">
-
-                        <div class="checkbox check-success">
-                          <input type="checkbox"  value="1" name="target_type" id="check1">
-                          <label for="check1">ต้องการพบคู่ค้าทางธุรกิจและรับออเดอร์</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input type="checkbox"  value="2" name="target_type" id="check2">
-                          <label for="check2">ต้องการนำเสนอผลงานการออกแบบใหม่ และจับคู่ทางธุรกิจ</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input type="checkbox"  value="3" name="target_type" id="check3">
-                          <label for="check3">ต้องการจำหน่ายสินค้า</label>
-                        </div>
-
-
-                      </div>
-
-                    </div> -->
-
-                    <p>1. ลักษณะพื้นที่ในการจัดแสดง</p>
-                    <div class="form-group-attached">
-                      <div class="row clearfix">
-                        <div class="col-sm">
-
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['showarea_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="showarea_type" id="check7">
-                            <label for="check7">ภายในอาคาร</label>
-                          </div>
-                          <div class="checkbox check-success">
-                            <input <?php echo (@$regis['showarea_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="showarea_type" id="check8">
-                            <label for="check8">ภายนอกอาคาร</label>
-                          </div>
-            
-
-                        </div>
-
-                      </div>
-                    </div>
-
-                    <br>
-                    <p>2. ขนาดพื้นที่ใช้จัดแสดง</p>
-                    <div class="form-group-attached">
-                      <div class="row clearfix">
-
-
-                        <div class="col-sm">
-
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['area_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="area_type" id="check4">
-                          <label for="check4">2 x 1.5 เมตร</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['area_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="area_type" id="check5">
-                          <label for="check5">2 x 3 เมตร</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['area_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="area_type" id="check6">
-                          <label for="check6">2 x 6 เมตร</label>
-                        </div>
-
-
-
-                      </div>
-                    </div>
-
-                
-
-                    <br>
-                    <p>3. ลักษณะในการจัดแสดง</p>
-
-                    <div class="form-group-attached">
-                      <div class="row clearfix">
-
-
-                        <div class="col-sm">
-
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['show_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="show_type" id="check9">
-                          <label for="check9">จัดวางผลงานพร้อมคำอธิบาย</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['show_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="show_type" id="check11">
-                          <label for="check11">จัดวางผลงานพร้อมสื่อประกอบ แสงสีเสียง กลิ่น ภาพ วีดีโอ</label>
-                        </div>
-  
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['show_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="show_type" id="check13">
-                          <label for="check13">จัดแสดงพร้อมการสาธิต</label>
-                        </div>
-                        <div class="checkbox check-success">
-                          <input <?php echo (@$regis['show_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="show_type" id="check14">
-                          <label for="check14">จัดแสดงพร้อมจัดกิจกรรม</label>
-                        </div>
-
-
-
-                      </div>
-
-                    </div>
-
-                    <p>4. แผนผัง แบบการจัดแสดงและคำอธิบาย *หากมี</p>
-
-                    <div class="form-group-attached">
-                      <div class="row clearfix">
-
-
-                        <div class="col-sm">
-                          <input type="file">
-                        </div>
-
-                      </div>
-
-                    </div>
-    
-
-
-
-              </div>
-            </div>
-
-
-           </div>
-          </div>
-
-          </div>
-        </div>
+        
 
     
 

@@ -1335,7 +1335,7 @@
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
-                                              <div class="col-sm-12">
+                                              <div class="col-sm-6">
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
                                                   <div class="row">
@@ -1351,7 +1351,15 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <div class="form-group  ">
+                                                  <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <div class="fallback">
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1375,7 +1383,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1399,7 +1407,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                   
                                                 </div>

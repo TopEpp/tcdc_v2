@@ -122,7 +122,11 @@ class member extends MY_Controller
 				break;
 			
 			default:
-				# code...
+				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 				break;
 		}
 		
@@ -265,6 +269,26 @@ class member extends MY_Controller
 						$this->setView('event_form_event',$data);break;
 					default:
 						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
+						$data['regis']['target_type'] = $this->input->post('target_type');
+						$data['regis']['target_type_detail'] = $this->input->post('target_type_detail');
+						$data['regis']['showarea_type'] = $this->input->post('showarea_type');
+						$data['regis']['show_type'] = $this->input->post('show_type');
+						$data['regis']['area_type'] = $this->input->post('area_type');
+
+						foreach ($this->input->post('product_name') as $key => $value) {
+							$data['regis']['product'][$key]['product_type'] =  $this->input->post('product_type')[$key];
+							$data['regis']['product'][$key]['product_name'] =  $this->input->post('product_name')[$key];
+							$data['regis']['product'][$key]['material'] =  $this->input->post('material')[$key];
+							$data['regis']['product'][$key]['product_date'] =  $this->input->post('product_date')[$key];
+							$data['regis']['product'][$key]['product_width'] =  $this->input->post('product_width')[$key];
+							$data['regis']['product'][$key]['product_length'] =  $this->input->post('product_length')[$key];
+							$data['regis']['product'][$key]['product_height'] =  @$this->input->post('product_height')[$key];
+							$data['regis']['product'][$key]['product_amount'] =  $this->input->post('product_amount')[$key];
+							$data['regis']['product'][$key]['product_concept'] =  $this->input->post('product_concept')[$key];
+							$data['regis']['product'][$key]['product_firstname'] =  $this->input->post('product_firstname')[$key];
+							$data['regis']['product'][$key]['product_lastname'] =  $this->input->post('product_lastname')[$key];
+						}
+						
 						$this->setView('event_form_international',$data);break;
 				}
 				$this->template->javascript->add('assets/modules/member/event_form.js');
@@ -485,7 +509,11 @@ class member extends MY_Controller
 				
 					break;
 				default:
-					# code...
+					$data_regis['target_type'] = $this->input->post('target_type');
+					$data_regis['target_type_detail'] = $this->input->post('target_type_detail');
+					$data_regis['showarea_type'] = $this->input->post('showarea_type');
+					$data_regis['show_type'] = $this->input->post('show_type');
+					$data_regis['area_type'] = $this->input->post('area_type');
 					break;
 			}
 			//end data register

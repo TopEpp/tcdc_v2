@@ -739,7 +739,7 @@
                                   </div>
                                  
                                   <div class="fallback">
-                                    <input id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                    <input id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -765,7 +765,7 @@
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                    <input id="product_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -791,7 +791,7 @@
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                    <input id="product_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                   </div>
                                   
                                 </div>
