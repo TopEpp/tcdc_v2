@@ -16,6 +16,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta content="" name="description" />
   <meta content="" name="author" />
+  
   <link href="<?php echo base_url('assets/plugins/pace/pace-theme-flash.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" type="text/css" />
@@ -53,6 +54,12 @@
 
   .form-group label:not(.error){
     text-transform: none;
+  }
+  .datepicker-years{
+    cursor:pointer;
+  }
+  .datepicker table tr td span{
+    margin: 1px;
   }
 
   </style>

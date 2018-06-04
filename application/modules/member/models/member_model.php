@@ -15,7 +15,7 @@ class member_model extends MY_Model{
         $query = $this->db->get();
         $data =array();
         foreach ($query->result() as $key => $value) {
-            $data[$value->project_id] = $value->reg_status;
+            $data[$value->project_id] = 1;
         }
         return $data;
     }

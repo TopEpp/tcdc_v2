@@ -70,8 +70,24 @@ class staff extends MY_Controller {
 		$this->form_validation->set_rules('owner_id', 'owner_id', 'required');
 
 		if($this->form_validation->run() == false){
-			// $this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
-			redirect($this->input->post('redirect'), "location");
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
+			// redirect($this->input->post('redirect'), "location");
+			$data['project_id'] = $project_id;
+			$data['project_type'] = $this->staff_model->getProjectType();
+			$data['project_owner'] = $this->staff_model->getProjectManager();
+			// $data['prj']->project_id = $this->input->post('project_id');
+			@$data['prj']->project_name = $this->input->post('project_name');
+			@$data['prj']->project_type = $this->input->post('project_type');
+			@$data['prj']->project_detail = $this->input->post('project_detail');
+			@$data['prj']->project_provenance = $this->input->post('project_provenance');
+			@$data['prj']->project_start_date = $this->input->post('project_start_date');
+			@$data['prj']->project_finish_date = $this->input->post('project_finish_date');
+			@$data['prj']->register_start_date = $this->input->post('register_start_date');
+			@$data['prj']->register_finish_date = $this->input->post('register_finish_date');
+			$data['prj_owner'] = $this->input->post('owner_id');
+			$this->setView('project',$data);
+			$this->template->javascript->add('assets/modules/staff/project.js');
+        	$this->publish();
             
         }else{
 			//save data project
@@ -359,10 +375,15 @@ class staff extends MY_Controller {
 					'firstname' => $this->input->post('firstname'),
 					'lastname' => $this->input->post('lastname'),
 					'phone' => $this->input->post('phone'),
+					'email' => $this->input->post('email'),
 					'address' => $this->input->post('address'),
+					'village' => $this->input->post('village'),
+					'lane' => $this->input->post('lane'),
+					'road' => $this->input->post('road'),
 					'subdistrict' => $this->input->post('subdistrict'),
 					'district' => $this->input->post('district'),
 					'province' => $this->input->post('province'),
+					'country' => $this->input->post('country'),
 					'zipcode' => $this->input->post('zipcode'),
 					'user_active' => $this->input->post('user_active'),
 					'job' => $this->input->post('job'),
@@ -385,7 +406,12 @@ class staff extends MY_Controller {
 				$data_company = array(
 					
 					'company_name' => $this->input->post('company_name'),
+					'company_service' => $this->input->post('company_service'),
 					'company_address' => $this->input->post('company_address'),
+					'company_village' => $this->input->post('company_village'),
+					'company_lane' => $this->input->post('company_lane'),
+					'company_road' => $this->input->post('company_road'),
+					'company_country' => $this->input->post('company_country'),
 					'company_province' => $this->input->post('company_province'),
 					'company_district' => $this->input->post('company_district'),
 					'company_subdistrict' => $this->input->post('company_subdistrict'),
