@@ -8,7 +8,7 @@ $lang['next'] = 'Next';
 $lang['back'] = 'Back';
 
 #side menu
-$lang['bashboard'] = 'Bashboard';
+$lang['bashboard'] = 'Dashboard';
 $lang['manage'] = 'Manage';
 $lang['joiner'] = 'Joiner';
 $lang['user'] = 'User';
