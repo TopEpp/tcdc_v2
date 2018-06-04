@@ -517,11 +517,11 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_img,$imageupload['public_id']);
-									$product_img = implode(",",$product_img);
+									
 								}
 							
 							}
-							
+							$product_img = implode(",",$product_img);
 							
 						}
 
@@ -538,9 +538,10 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_closeup,$imageupload['public_id']);
-									$product_closeup = implode(",",$product_closeup);
+									
 								}
 							}
+							$product_closeup = implode(",",$product_closeup);
 						
 						}
 
@@ -558,9 +559,10 @@ class member extends MY_Controller
 										"folder"=>'product'
 									));
 									array_push($product_packshot,$imageupload['public_id']);
-									$product_packshot = implode(",",$product_packshot);
+									
 								}
 							}
+							$product_packshot = implode(",",$product_packshot);
 							
 						}
 
