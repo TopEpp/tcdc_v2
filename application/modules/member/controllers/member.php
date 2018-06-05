@@ -94,7 +94,7 @@ class member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
-		
+
 		$project_type = $this->input->post('project_type');
 		
 		//validate form
@@ -109,6 +109,8 @@ class member extends MY_Controller
 
 		switch ($project_type) {
 			case 1:
+			
+				$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการจัดแสดงผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
 				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
@@ -116,11 +118,23 @@ class member extends MY_Controller
 				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 				break;
 			case 2:
+			
 				$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
-			
-				# code...
+				$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
 				break;
+			case 3:
+				$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
+				break;
+			case 4:
+				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
+				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
+				break;
 			default:
 				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
@@ -259,8 +273,8 @@ class member extends MY_Controller
 						$data['regis']['event_detail'] = $this->input->post('event_detail');
 						$data['regis']['join_number'] = $this->input->post('join_number');
 						$data['regis']['join_property'] = $this->input->post('join_property');
-						$data['regis']['join_start_date'] = $start_date;
-						$data['regis']['join_finish_date'] =  $finish_date;
+						$data['regis']['join_start_date'] = $this->input->post('join_start_date');
+						$data['regis']['join_finish_date'] =  $this->input->post('join_finish_date');
 						$data['regis']['join_start_time'] = $this->input->post('join_start_time');
 						$data['regis']['join_finish_time'] = $this->input->post('join_finish_time');
 						$data['regis']['event_address'] = $this->input->post('event_address');
@@ -396,9 +410,12 @@ class member extends MY_Controller
 								"folder"=>'store'
 							));
 							array_push($pop_img,$imageupload['public_id']);
-							$data_regis['pop_img'] = implode(",",$pop_img);
+							
 						}
 					}
+					$data_regis['pop_img'] = '';
+					if (!empty($pop_img))
+						$data_regis['pop_img'] = implode(",",$pop_img);
 				
 					//end pop_img upload
 
@@ -410,9 +427,12 @@ class member extends MY_Controller
 								"folder"=>'store'
 							));
 							array_push($pop_closeup,$imageupload['public_id']);
-							$data_regis['pop_closeup'] = implode(",",$pop_closeup);
+							
 						}
 					}
+					$data_regis['pop_closeup'] = '';
+					if (!empty($pop_closeup))
+						$data_regis['pop_closeup'] = implode(",",$pop_closeup);
 					
 					//end pop_closeup upload
 
@@ -424,9 +444,12 @@ class member extends MY_Controller
 								"folder"=>'store'
 							));
 							array_push($pop_packshot,$imageupload['public_id']);
-							$data_regis['pop_packshot'] = implode(",",$pop_packshot);
+							
 						}
 					}
+					$data_regis['pop_packshot'] = '';
+					if (!empty($pop_packshot))
+						$data_regis['pop_packshot'] = implode(",",$pop_packshot);
 					
 					//end 
 					break;
@@ -464,9 +487,13 @@ class member extends MY_Controller
 								"folder"=>'document'
 							));
 							array_push($join_image,$imageupload['public_id']);
-							$data_regis['join_img'] = implode(",",$join_image);
+							
 						}
 					}
+					$data_regis['join_img'] = '';
+					if (!empty($join_image))
+						$data_regis['join_img'] = implode(",",$join_image);
+
 					
 				
 					break;
@@ -503,9 +530,12 @@ class member extends MY_Controller
 								"folder"=>'document'
 							));
 							array_push($join_image,$imageupload['public_id']);
-							$data_regis['join_img'] = implode(",",$join_image);
+							
 						}
 					}
+					$data_regis['join_img'] = '';
+					if (!empty($join_image))
+						$data_regis['join_img'] = implode(",",$join_image);
 				
 					break;
 				default:
@@ -517,7 +547,6 @@ class member extends MY_Controller
 					break;
 			}
 			//end data register
-		
 			//save user detail
 			$insert_id = $this->member_model->saveRegis($data_regis);
 			//end save user detail
@@ -593,9 +622,29 @@ class member extends MY_Controller
 							$product_packshot = implode(",",$product_packshot);
 							
 						}
+						//end upload product_packshot
 
 						
-						//end upload product_packshot
+						//upload pdf  product
+						$product_pdf = array();
+						if (!empty( $_FILES['product_pdf']['name'][$key+1])&& !is_null($_FILES['product_pdf']['name'][$key+1])  ){
+							//upload data
+							$image = $_FILES['product_pdf']['tmp_name'][$key+1];
+							foreach ($image as $keys => $value) {
+			
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'product_pdf'
+									));
+									array_push($product_pdf,$imageupload['public_id']);
+									
+								}
+							}
+							$product_pdf = implode(",",$product_pdf);
+							
+						}
+				
+						//end upload product pdf
 
 						// $product_date = '';
 						// if (!empty($this->input->post('product_date')[$key])){
@@ -626,6 +675,9 @@ class member extends MY_Controller
 							$data_product['product_closeup'] = $product_closeup;
 						if(!empty($product_packshot))
 							$data_product['product_packshot'] = $product_packshot;
+						if(!empty($product_pdf)){
+							$data_product['product_pdf'] = $product_pdf;
+						}
 						//save user detail
 
 						

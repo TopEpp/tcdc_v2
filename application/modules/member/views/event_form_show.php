@@ -1097,15 +1097,23 @@
                                         </div>
 
                                         <br>
-                                        <p>4. ภาพผลงาน</p>
+                                        <p>4. ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
-                                              <div class="col-sm-12">
+                                              <div class="col-sm-6">
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
                                                   <div class="fallback">
                                                     <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <div class="form-group  ">
+                                                  <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <div class="fallback">
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1331,7 +1339,7 @@
                                         </div>
 
                                         <br>
-                                        <p>4. ภาพผลงาน</p>
+                                        <p>4. ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
@@ -1344,7 +1352,8 @@
                                                         $product_img = explode(',',$value['product_img']);
                                                     
                                                         foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
+                                                          echo '&nbsp;';  
                                                         }
                                                      }
                                                    
@@ -1377,6 +1386,7 @@
                                                     
                                                         foreach ($product_img as $key => $val) {
                                                           echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;';
                                                         }
                                                      }
                                                    
@@ -1401,6 +1411,7 @@
                                                     
                                                         foreach ($product_img as $key => $val) {
                                                           echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;';
                                                         }
                                                      }
                                                    

@@ -633,7 +633,7 @@
                   <div class="row row-same-height">
                     <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
-                        <p >ประเภทกิจกรรม</p>
+                        <p >ประเภทกิจกรรม <span style="color:red;">*</span></p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <input type="hidden" name="work_talk_type" id="work_talk_type">
@@ -773,7 +773,7 @@
                         <br>
                         <div class="row clearfix">
                             <div class="col-sm-12">
-                              <div class="form-group form-group-default required">
+                              <div class="form-group form-group-default ">
                                 <label>จำนวนผู้เข้าร่วม</label>
                                 <input name="join_number"  value="<?php echo @$regis['join_number']; ?>" type="text" placeholder="โปรดระบุจำนวนผู้เข้าร่วมกิจกรรมได้สูงสุด" class="form-control"  >
                               </div>
@@ -824,7 +824,7 @@
                         
                         <h5>เอกสารประกอบการสมัคร</h5>
                         <hr/>
-                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpg,image/jpeg,image/png" > </p>
+                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
                         <p> 1. ภาพ Key Visual สำหรับสื่อประชาสัมพันธ์บนเว็บไซต์ และ สูจิบัตร (สัดส่วน 5:7 และความละเอียด 300 dpi)</p>
                         <p> 2. ตารางเวลากิจกรรม และกำหนดการกิจกรรม</p>
 
