@@ -59,8 +59,6 @@ class register_model extends MY_Model
             show_error($this->email->print_debugger());
             return false;
          }
-        
-    
     }
 
     //activate account

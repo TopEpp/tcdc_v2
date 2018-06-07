@@ -37,7 +37,7 @@ class project_manage extends MY_Controller {
 
 		$this->config->set_item('title','จัดการข้อมูลผู้สมัคร');
 		$this->template->javascript->add('assets/modules/project_manage/approve.js');
-        $this->setView('form_1',$data);
+        $this->setView('form_'.$data['project'][0]->project_type,$data);
         $this->publish();
 	}
 
@@ -56,14 +56,21 @@ class project_manage extends MY_Controller {
             $data = array(
             	'user_app' => $this->session->userdata('sesUserID'),
             	'reg_id' => $this->input->post('reg_id'),
+            	'email_receive' => $this->input->post('email_receive'),
+            	'prj_name' => $this->input->post('prj_name'),
                 'reg_status' => $this->input->post('reg_status'),
                 'reject_detail' => $this->input->post('reject_detail')
 			);    
 
 			$pid = $this->pm_model->saveAppv($data);
             if($pid){
-            	$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
-            	redirect(base_url('staff/show_user_register'));	
+            	if($this->pm_model->sendEmail($data)){
+            		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
+            		redirect(base_url('staff/show_user_register'));	
+            	}else{
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
+			 		redirect(base_url('staff/show_user_register'));
+            	}
             }else{
             	$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
 			 	redirect(base_url('staff/show_user_register'));
