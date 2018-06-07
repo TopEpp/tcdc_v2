@@ -178,7 +178,7 @@
                                 <tbody>
                                   <?php foreach ($project_owner as $key => $pm) { ?>
                                    <tr>
-                                    <td><input type="checkbox" class="switchery checkbox_owner"  name="owner" id="owner_<?php echo $pm->user_id?>" value="<?php echo $pm->user_id?>"></td>
+                                    <td><input type="checkbox" class="checkbox_owner"  name="owner" id="owner_<?php echo $pm->user_id?>" value="<?php echo $pm->user_id?>"></td>
                                     <td><?php echo $pm->firstname.' '.$pm->lastname;?></td>
                                     <td><?php echo $pm->email;?></td>
                                    </tr>
