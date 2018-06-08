@@ -4,7 +4,7 @@ ini_set('max_execution_time', 0);
 ini_set('memory_limit','2048M');
 
 
-class member extends MY_Controller 
+class Member extends MY_Controller 
 {
 	public function __construct()
 	{
