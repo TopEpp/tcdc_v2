@@ -1,4 +1,6 @@
-
+<div class="loader-wrap" id="loading" style="display:none;" >
+  <div class="loader"><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span></div>
+</div>
 <!-- START PAGE CONTENT -->
       <div class="content ">
         <div class=" container-fluid   container-fixed-lg">

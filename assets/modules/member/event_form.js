@@ -404,6 +404,8 @@
     //end file upload
 
     $('#btn-finish').click(function(){
+              //css loading
+        $('#loading').toggle(true);
         //get project type
         var type = $('#project_type').val();
        
@@ -443,7 +445,7 @@
                 day = "Saturday";
         }
    
-      
+
 
       
         $('#form-event-profile').submit();

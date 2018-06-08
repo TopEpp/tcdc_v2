@@ -44,10 +44,10 @@ class Member extends MY_Controller
 		$user_id = $this->session->userdata('sesUserID');
 		if(!empty($id)){
 			// get province
-			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+			$query = $this->db->query('SELECT * FROM std_area_province');
 			$data['province'] = $query->result();
 			//get country
-			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$query = $this->db->query('SELECT * FROM std_countries');
 			$data['countries'] = $query->result();
 			//get status_group
 			$query = $this->db->query('SELECT * FROM tcdc_status_group');
@@ -66,7 +66,7 @@ class Member extends MY_Controller
 				$data['regis']['join_finish_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
 			}
 			
-
+			$this->template->stylesheet->add('assets/css/loader.css');
 			$this->template->javascript->add('assets/modules/member/event_form.js');
 			
 			switch ($data['project'][0]->project_type) {
@@ -158,10 +158,10 @@ class Member extends MY_Controller
 			$data = array();
 			if(!empty($id)){
 				// get province
-				$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+				$query = $this->db->query('SELECT * FROM std_area_province');
 				$data['province'] = $query->result();
 				//get country
-				$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+				$query = $this->db->query('SELECT * FROM std_countries');
 				$data['countries'] = $query->result();
 				//get status_group
 				$query = $this->db->query('SELECT * FROM tcdc_status_group');
