@@ -41,10 +41,7 @@
                   <a class="active" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลส่วนบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ข้อมูลงาน/ผลงาน</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>การร่วมจัดแสดงและเอกสาร</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ข้อมูลการลงทะเบียน</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>การจัดการ</span></a>
@@ -283,218 +280,137 @@
 
 
                 <div class="tab-pane  slide-left padding-20 sm-no-padding " id="tab3">
-                      <div class="row clearfix">
-                        <div class="col-md-12">
-                        <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
-                           <?php echo (@$regis['target_type'] == 1)? 'เพื่อเพิ่มมูลค่าของสินค้า':'' ?>
-                           <?php echo (@$regis['target_type'] == 2)? 'เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก':'' ?>
-                           <?php echo (@$regis['target_type'] == 3)? 'เพื่อเพิ่มโอกาสการจ้างงาน':'' ?>
+                  <div class="row row-same-height">
+                    <div class="col-md-12">
+                      <div class="padding-30 sm-padding-5">
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                              <p>ชื่อร้าน</p>
+                              <?php echo @$regis['pop_shop_name'];?>
+                            </div>
                         </div>
-                      </div>
-                      
-                      <div class="clone-form">
-                      <?php if( empty(@$regis['product']) ) { ?>
-                      
-                      <?php }else{ ?>
-                      <?php foreach (@$regis['product'] as $key => $value) { ?>
-                        <div class="clonedInput" id="clonedInput<?php echo $key+1;?>">
-                          <div class="row row-same-height " id ="second">
-                                <div class="col-md-12 ">
-                                  <div class="padding-30 sm-padding-5">
-                                    <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ <?php echo $key+1; ?></p><br>
-                                    <div class="form-group-attached">
-                                        <div class="row clearfix">
-                                          <div class="col-sm-4">
-                                            <p>ประเภทผลงาน</p>
-                                            <?php echo (@$value['product_type'] == '1') ? 'เฟอร์นิเจอร์':''?>
-                                            <?php echo (@$value['product_type'] == '2') ? 'ไลฟ์สไตล์':''?>
-                                            <?php echo (@$value['product_type'] == '3') ? 'ของตกแต่งบ้าน':''?>
-                                            <?php echo (@$value['product_type'] == '4') ? 'เครื่องประดับ':''?>
-                                            <?php echo (@$value['product_type'] == '5') ? 'แฟชั่น':''?>
-                                            <?php echo (@$value['product_type'] == '6') ? 'ออกแบบสื่อ (Multimedia, Graphic, Interactive)':''?>
-                                          </div>
-
-                                          <div class="col-sm-8">
-                                            <p>ชื่อผลงาน</p>
-                                            <?php echo @$value['product_name']?>
-                                          </div>
-                                        </div>
-
-                                        <div class="form-group-attached">
-                                          <div class="row clearfix">
-                                            <div class="col-sm-6">
-                                              <p>วัสดุหลัก</p>
-                                              <?php echo @$value['material']?>
-                                            </div>
-
-                                            <div class="col-sm-6">
-                                              <p>ปีที่ออกแบบ</p>
-                                              <?php echo $value['product_date'];?>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <br>
-                                        <p>2. ขนาดและจำนวนของผลงาน</p>
-
-                                        <div class="form-group-attached">
-                                          <div class="row clearfix">
-                                            <div class="col-sm-4">
-                                              <p>กว้าง</p>
-                                              <?php echo @$value['product_width']?> ซ.ม.
-                                            </div>
-                                            <div class="col-sm-4">
-                                              <p>ยาว</p>
-                                              <?php echo @$value['product_length']?> ซ.ม.
-                                            </div>
-                                            <div class="col-sm-4">
-                                              <p>สูง</p>
-                                              <?php echo @$value['product_height']?> ซ.ม.
-                                            </div>
-                                            <br>
-                                            <div class="col-sm-12">
-                                              <p>จำนวนชิ้นงาน</p>
-                                              <?php echo @$value['product_amount']?>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <br>
-                                        <div class="form-group-attached">
-                                          <div class="row clearfix">
-                                            <div class="col-sm-12">
-                                              <p>3. แนวคิดในการออกแบบผลงาน </p>
-                                              <span><?php echo htmlspecialchars(@$value['product_concept']);?></span>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <br>
-                                        <p>4. ภาพผลงาน</p>
-                                        <div class="col-sm-12">
-                                            <div class="row clearfix">
-                                              <div class="col-sm-12">
-                                                <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน</label>
-                                                  <div class="fallback">
-                                                  <?php
-                                                     if (!empty($value['product_img'])){
-                                                        $product_img = explode(',',$value['product_img']);
-                                                    
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
-                                                     }
-                                                   
-                                                  ?>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            
-                                            </div>
-
-                                            <div class="row clearfix">
-                                              <div class="col-sm-12">
-                                                <div class="form-group ">
-                                                  <label>ภาพ Close Up</label>
-                                                  <div class="fallback">
-                                                    <?php
-                                                     if (!empty($value['product_closeup'])){
-                                                        $product_img = explode(',',$value['product_closeup']);
-                                                    
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
-                                                     }
-                                                   
-                                                  ?>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            
-                                            </div>
-
-                                            <div class="row clearfix">
-                                              <div class="col-sm-12">
-                                                <div class="form-group ">
-                                                  <label>ภาพ Pack Shot</label>
-                                                  <div class="fallback">
-                                                    <?php
-                                                     if (!empty($value['product_packshot'])){
-                                                        $product_img = explode(',',$value['product_packshot']);
-                                                    
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
-                                                     }
-                                                   
-                                                  ?>
-                                                  </div>
-                                                  
-                                                </div>
-                                              </div>
-                                            
-                                            </div>
-                                        
-                                        </div>
-
-                                      </div>
-
-
-                                    <br>
-                                    <p>5. ผู้ออกแบบ</p>
-
-                                    <div class="form-group-attached">
-                                      <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                          <?php echo @$value['product_firstname'].' '.@$value['product_lastname'];?>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <hr>
-                                </div>          
+                        <div class="row clearfix">
+                          <div class="col-sm-12">
+                            <p>เกี่ยวกับแบรนด์(เล่าถึงที่มาของร้านและประเภทสินค้าที่ขาย)</p>
+                            <?php echo htmlspecialchars(@$regis['pop_story']);?>
                           </div>
                         </div>
-                
-                      <?php }} ?>
+                        <br>
+                        <h5>ประเภทของที่ขาย</h5>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                              <?php echo (!empty(@$regis['pop_product_type']))? 'Product':''?>
+                              <?php echo (!empty(@$regis['pop_food_type']))? 'Food & Beverage':''?>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="product" <?php echo (!empty(@$regis['pop_product_type']))? '':'style="display:none;"'?> >
+                          <h5>Product</h5>
+                          <p >ประเภทของที่ขาย</p>
+                          <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <?php echo (@$regis['pop_product_type'] == '1')? 'Lifstyle':''?>
+                                <?php echo (@$regis['pop_product_type'] == '2')? 'Furniture':''?>
+                                <?php echo (@$regis['pop_product_type'] == '3')? 'Textile / Fashion':''?>
+                                <?php echo (@$regis['pop_product_type'] == '4')? 'Accessories':''?>
+                                <?php echo (@$regis['pop_product_type'] == '5')? 'Home Decor':''?>
+                              </div>
+                          </div>
+                        </div>
+                        
+                          <br>
+                        <div id="food" <?php echo (!empty(@$regis['pop_food_type']))? '':'style="display:none;"'?> >
+                          <h5>Food & Beverage</h5>
+                          <p>ประเภทของที่ขาย</p>
+                          <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <?php echo (@$regis['pop_food_type'] == '1')? 'อาหาร':''?>
+                                <?php echo (@$regis['pop_food_type'] == '2')? 'เครื่องดื่ม':''?>
+                                <?php echo (@$regis['pop_food_type'] == '3')? 'เบเกอรี่ / ของหวาน':''?>
+                              </div>
+                          </div>
+                        </div>
+                         <br>
+                        <h5 >แนบรูปสินค้า</h5>
+
+                        <div class="col-sm-12">
+                            <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <div class="form-group required ">
+                                  <label>ภาพรวมของผลงาน</label>
+                                  <div class="row">
+                                  <?php
+                                        if (!empty($regis['pop_img'])){
+                                          
+                                          $pop_img = explode(',',$regis['pop_img']);
+                                      
+                                          foreach ($pop_img as $key => $val) {
+                                            echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                            echo '&nbsp;';
+                                          }
+                                        }
+                                      
+                                    ?>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <div class="form-group ">
+                                  <label>ภาพ Close Up</label>
+                                  <div class="row">
+                                  <?php
+                                      if (!empty($regis['pop_closeup'])){
+                                        
+                                        $pop_closeup = explode(',',$regis['pop_closeup']);
+                                    
+                                        foreach ($pop_closeup as $key => $val) {
+                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          echo '&nbsp;';
+                                        }
+                                      }
+                                    
+                                  ?>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                            </div>
+
+                            <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <div class="form-group ">
+                                  <label>ภาพ Pack Shot</label>
+                                  <div class="row">
+                                  <?php
+                                      if (!empty($regis['pop_packshot'])){
+                                        
+                                        $pop_packshot = explode(',',$regis['pop_packshot']);
+                                    
+                                        foreach ($pop_packshot as $key => $val) {
+                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          echo '&nbsp;';
+                                        }
+                                      }
+                                    
+                                  ?>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                            </div>
+                        
+                        </div>
+
                       </div>
-            </div>
-            <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
-             <div class="row row-same-height">
-                <div class="col-md-5 b-r b-dashed b-grey ">
-                  <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-                    <h2>การจัดแสดงผลงานออกแบบ</h2>
-                    <p>รายละเอียดการจัดแสดงผลงานออกแบบ</p>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="padding-30 sm-padding-5">
-                      <p>1. ลักษณะพื้นที่ในการจัดแสดง</p>
-                      <?php echo (@$regis['showarea_type'] == 1)? 'ภายในอาคาร':'' ?>
-                      <?php echo (@$regis['showarea_type'] == 2)? 'ภายนอกอาคาร':'' ?>
-                      <br>
-                      <br>
-                      <p>2. ขนาดพื้นที่ใช้จัดแสดง</p>
-                      <?php echo (@$regis['area_type'] == 1)? '2 x 1.5 เมตร':'' ?>
-                      <?php echo (@$regis['area_type'] == 2)? '2 x 3 เมตร':'' ?>
-                      <?php echo (@$regis['area_type'] == 3)? '2 x 6 เมตร':'' ?>
-                      <br>
-                      <br>
-                      <p>3. ลักษณะในการจัดแสดง</p>
-                      <?php echo (@$regis['show_type'] == 1)? 'จัดวางผลงานพร้อมคำอธิบาย':'' ?>
-                      <?php echo (@$regis['show_type'] == 2)? 'จัดวางผลงานพร้อมสื่อประกอบ แสงสีเสียง กลิ่น ภาพ วีดีโอ':'' ?>
-                      <?php echo (@$regis['show_type'] == 3)? 'จัดแสดงพร้อมการสาธิต':'' ?>
-                      <?php echo (@$regis['show_type'] == 4)? 'จัดแสดงพร้อมจัดกิจกรรม':'' ?>
-                      <br>
-                      <br>
-                      <p>4. แผนผัง แบบการจัดแสดงและคำอธิบาย </p>
-                  </div>
-                </div>
+                        
                </div>
-              </div>
+            
 
             <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab5">
               <div class="row clearfix">
