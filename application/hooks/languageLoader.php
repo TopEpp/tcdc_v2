@@ -19,7 +19,7 @@ class LanguageLoader {
         
         $ci->load->helper('language');
         $url_lang = $ci->uri->segment(1);
-        
+   
         //Uncomment this if you want admin panel with one language
         //if($url_lang == 'admin'){
           //  return; //Don't use in admin

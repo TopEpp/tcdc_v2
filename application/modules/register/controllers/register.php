@@ -7,8 +7,9 @@ class register extends MY_Controller {
 		parent::__construct();
 
 		$this->load->helper('form');
-		$this->load->library('form_validation');
+		$this->load->library('form_validation');		
 		$this->load->model('register_model');
+		$this->load->model('staff/staff_model');
 		$this->session->keep_flashdata('msg');
 	
 	}
@@ -16,18 +17,23 @@ class register extends MY_Controller {
 	public function index()
 	{	
 		// get province
-		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+		$query = $this->db->query('SELECT * FROM std_area_province');
 		$data['province'] = $query->result();
 		//get country
-		$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+		$query = $this->db->query('SELECT * FROM std_countries');
 		$data['countries'] = $query->result();
-		
-		$this->load->view('register',$data);
+
+		//get status_group
+		$query = $this->db->query('SELECT * FROM tcdc_status_group');
+		$data['status'] = $query->result();
+		$this->load->view('index',$data);
 		
 	}
 
 	public function signup()
 	{
+		
+		
 		$data = array();	
 
 		// #tab1
@@ -50,16 +56,20 @@ class register extends MY_Controller {
 	
 
 
-		if($this->form_validation->run() == false){
+		if($this->form_validation->run() === false){
+			
 			// get province
-			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+			$query = $this->db->query('SELECT * FROM std_area_province');
 			$data['province'] = $query->result();
 			//get country
-			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$query = $this->db->query('SELECT * FROM std_countries');
 			$data['countries'] = $query->result();
+			$query = $this->db->query('SELECT * FROM tcdc_status_group');
+			$data['status'] = $query->result();
 
 			$data['prename'] = $this->input->post('prename_detail');
-			$this->load->view('register',$data);
+			
+			 $this->load->view('index',$data);
             
         }else{
 
@@ -90,14 +100,66 @@ class register extends MY_Controller {
 				'province' => $this->input->post('province'),
 				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
-				'rec_create_date' => date('Y-m-d')
+				'rec_create_date' => date('Y-m-d'),
+				'job' => $this->input->post('job'),
+				
+				
 			);     
 
 			if($imageupload){
 				$data['profile_img'] = $imageupload['public_id'];
 			}
 
-            if($this->register_model->insertMember($data)){
+			if (!empty($this->input->post('job_type_one'))){
+				$data['job_type'] = $this->input->post('job_type_one');
+			}
+			if (!empty($this->input->post('job_type_two'))){
+				$data['job_type'] = $this->input->post('job_type_two');
+			}
+
+			
+			//company
+
+			$data_company = [
+				// //group 1
+				
+				'company_custom_group' => $this->input->post('company_custom_group'),
+				'company_people' => $this->input->post('company_people'),
+				'company_num_regis' => $this->input->post('company_num_regis'),
+				//group 2
+				'company_work_look' => $this->input->post('company_work_look'),
+				'company_sell_way' => $this->input->post('company_sell_way'),
+				'company_product_build' => $this->input->post('company_product_build'),
+				//group 3
+				'company_group_product' => $this->input->post('company_group_product'),
+				'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+				'company_technic' => implode(',',$this->input->post('company_technic')),
+				'company_product_detail' => $this->input->post('company_product_detail'),
+				'company_num_product' => $this->input->post('company_num_product'),
+				//group 4
+				'company_department' => $this->input->post('company_department'),
+				'company_duty' => $this->input->post('company_duty'),
+				'company_join_work' => $this->input->post('company_join_work'),
+			];
+		
+			if (!empty($this->input->post('company_service_one'))){
+				$data_company['company_service'] = $this->input->post('company_service_one');
+			}
+			if (!empty($this->input->post('company_service_two'))){
+				$data_company['company_service'] = $this->input->post('company_service_two');
+			}
+			if (!empty($this->input->post('company_service_three'))){
+				$data_company['company_service'] = $this->input->post('company_service_three');
+			}
+
+			if (!empty($this->input->post('company_business_look_one'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+			}
+			if (!empty($this->input->post('company_business_look_two'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+			}
+
+            if($this->staff_model->saveCreateUser($data,$data_company)){
                 
                 //send confirm mail
                 if($this->register_model->sendEmail($this->input->post('email'))){
@@ -140,7 +202,7 @@ class register extends MY_Controller {
 	function email_check()
 	{
 		$email = $this->input->post('email');
-		$query = $this->db->query('SELECT * FROM tcdc.tcdc_member where email ='.'\''.$email.'\''  );
+		$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
 	
 		if($query->num_rows())
 		{

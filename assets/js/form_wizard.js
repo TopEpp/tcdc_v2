@@ -63,6 +63,7 @@
             },
             onNext: function(tab, navigation, index) {
                 console.log("Showing next tab");
+                window.scrollTo(0, 0);
             },
             onPrevious: function(tab, navigation, index) {
                 console.log("Showing previous tab");

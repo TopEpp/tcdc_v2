@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class staff extends MY_Controller {
+class Staff extends MY_Controller {
 
 	public function __construct()
     {
@@ -215,8 +215,15 @@ class staff extends MY_Controller {
 
 		$data = array();
 
-		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+		// get province
+		$query = $this->db->query('SELECT * FROM std_area_province');
 		$data['province'] = $query->result();
+		//get country
+		$query = $this->db->query('SELECT * FROM std_countries');
+		$data['countries'] = $query->result();
+		//get status_group
+		$query = $this->db->query('SELECT * FROM tcdc_status_group');
+		$data['status'] = $query->result();
 
 		$this->setView('user_create_profile',$data);
 		$this->template->javascript->add('assets/modules/staff/user_profile.js');
@@ -236,16 +243,19 @@ class staff extends MY_Controller {
 				redirect('member');
 			}
 			// get province
-			$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+			$query = $this->db->query('SELECT * FROM std_area_province');
 			$data['province'] = $query->result();
 			//get country
-			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+			$query = $this->db->query('SELECT * FROM std_countries');
 			$data['countries'] = $query->result();
+			//get status_group
+			$query = $this->db->query('SELECT * FROM tcdc_status_group');
+			$data['status'] = $query->result();
 
 			
 
 			// get province member
-			$query = $this->db->query('SELECT name_th FROM tcdc.std_area_province WHERE code = '.$data['data']->province);
+			$query = $this->db->query('SELECT name_th FROM std_area_province WHERE code = '.$data['data']->province);
 			$data['province_name'] = $query->row();
 			
 			$this->setView('user_edit_profile',$data);
@@ -282,6 +292,7 @@ class staff extends MY_Controller {
 			}
 				
 			$data = array(
+				'user_type' => 2,
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
 				'firstname' => $this->input->post('firstname'),
@@ -289,20 +300,29 @@ class staff extends MY_Controller {
 				'phone' => $this->input->post('phone'),
 				'email' => $this->input->post('email'),
 				'address' => $this->input->post('address'),
+				'village' => $this->input->post('village'),
+				'lane' => $this->input->post('lane'),
+				'road' => $this->input->post('road'),
 				'subdistrict' => $this->input->post('subdistrict'),
 				'district' => $this->input->post('district'),
 				'province' => $this->input->post('province'),
+				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
 				'user_active' => $this->input->post('user_active'),
 				'job' => $this->input->post('job'),
-				'job_detail' => $this->input->post('job_detail'),
-				'job_type' => $this->input->post('job_type'),
 				'brand' => $this->input->post('brand'),
 				'website' => $this->input->post('website'),
 				'facebook' => $this->input->post('facebook'),
 				'lineid' => $this->input->post('lineid'),
 				
 			);
+			if (!empty($this->input->post('job_type_one'))){
+				$data['job_type'] = $this->input->post('job_type_one');
+			}
+			if (!empty($this->input->post('job_type_two'))){
+				$data['job_type'] = $this->input->post('job_type_two');
+			}
+
 								
 			if (!empty($this->input->post('password'))){
 				$data['password'] = $this->encrypt->encode($this->input->post('password'));//new password
@@ -316,14 +336,56 @@ class staff extends MY_Controller {
 			$data_company = array(
 	
 				'company_name' => $this->input->post('company_name'),
+				
 				'company_address' => $this->input->post('company_address'),
+				'company_village' => $this->input->post('company_village'),
+				'company_lane' => $this->input->post('company_lane'),
+				'company_road' => $this->input->post('company_road'),
+				'company_country' => $this->input->post('company_country'),
 				'company_province' => $this->input->post('company_province'),
 				'company_district' => $this->input->post('company_district'),
 				'company_subdistrict' => $this->input->post('company_subdistrict'),
 				'company_zipcode' => $this->input->post('company_zipcode'),
-				'company_service' => $this->input->post('company_service')
+				
+				'company_custom_group' => $this->input->post('company_custom_group'),
+				'company_people' => $this->input->post('company_people'),
+				'company_num_regis' => $this->input->post('company_num_regis'),
+				//group 2
+				'company_work_look' => $this->input->post('company_work_look'),
+				'company_sell_way' => $this->input->post('company_sell_way'),
+				'company_product_build' => $this->input->post('company_product_build'),
+				//group 3
+				'company_group_product' => $this->input->post('company_group_product'),
+				'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+				'company_technic' => implode(',',$this->input->post('company_technic')),
+				'company_product_detail' => $this->input->post('company_product_detail'),
+				'company_num_product' => $this->input->post('company_num_product'),
+				//group 4
+				'company_department' => $this->input->post('company_department'),
+				'company_duty' => $this->input->post('company_duty'),
+				'company_join_work' => $this->input->post('company_join_work'),
+
 
 			);
+
+			
+			if (!empty($this->input->post('company_service_one'))){
+				$data_company['company_service'] = $this->input->post('company_service_one');
+			}
+			if (!empty($this->input->post('company_service_two'))){
+				$data_company['company_service'] = $this->input->post('company_service_two');
+			}
+			if (!empty($this->input->post('company_service_three'))){
+				$data_company['company_service'] = $this->input->post('company_service_three');
+			}
+
+			if (!empty($this->input->post('company_business_look_one'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+			}
+			if (!empty($this->input->post('company_business_look_two'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+			}
+
 			if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
 				$data_company['company_type'] = $this->input->post('radio1');
 			}else{
@@ -375,7 +437,7 @@ class staff extends MY_Controller {
 					'firstname' => $this->input->post('firstname'),
 					'lastname' => $this->input->post('lastname'),
 					'phone' => $this->input->post('phone'),
-					'email' => $this->input->post('email'),
+					// 'email' => $this->input->post('email'),
 					'address' => $this->input->post('address'),
 					'village' => $this->input->post('village'),
 					'lane' => $this->input->post('lane'),
@@ -387,14 +449,18 @@ class staff extends MY_Controller {
 					'zipcode' => $this->input->post('zipcode'),
 					'user_active' => $this->input->post('user_active'),
 					'job' => $this->input->post('job'),
-					'job_detail' => $this->input->post('job_detail'),
-					'job_type' => $this->input->post('job_type'),
 					'brand' => $this->input->post('brand'),
 					'website' => $this->input->post('website'),
 					'facebook' => $this->input->post('facebook'),
 					'lineid' => $this->input->post('lineid'),
 					
 				);
+				if (!empty($this->input->post('job_type_one'))){
+					$data['job_type'] = $this->input->post('job_type_one');
+				}
+				if (!empty($this->input->post('job_type_two'))){
+					$data['job_type'] = $this->input->post('job_type_two');
+				}
 
 			
 								
@@ -406,7 +472,7 @@ class staff extends MY_Controller {
 				$data_company = array(
 					
 					'company_name' => $this->input->post('company_name'),
-					'company_service' => $this->input->post('company_service'),
+					
 					'company_address' => $this->input->post('company_address'),
 					'company_village' => $this->input->post('company_village'),
 					'company_lane' => $this->input->post('company_lane'),
@@ -416,9 +482,44 @@ class staff extends MY_Controller {
 					'company_district' => $this->input->post('company_district'),
 					'company_subdistrict' => $this->input->post('company_subdistrict'),
 					'company_zipcode' => $this->input->post('company_zipcode'),
-					'company_service' => $this->input->post('company_service')
+					
+					'company_custom_group' => $this->input->post('company_custom_group'),
+					'company_people' => $this->input->post('company_people'),
+					'company_num_regis' => $this->input->post('company_num_regis'),
+					//group 2
+					'company_work_look' => $this->input->post('company_work_look'),
+					'company_sell_way' => $this->input->post('company_sell_way'),
+					'company_product_build' => $this->input->post('company_product_build'),
+					//group 3
+					'company_group_product' => $this->input->post('company_group_product'),
+					'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+					'company_technic' => implode(',',$this->input->post('company_technic')),
+					'company_product_detail' => $this->input->post('company_product_detail'),
+					'company_num_product' => $this->input->post('company_num_product'),
+					//group 4
+					'company_department' => $this->input->post('company_department'),
+					'company_duty' => $this->input->post('company_duty'),
+					'company_join_work' => $this->input->post('company_join_work'),
 
 				);
+
+				if (!empty($this->input->post('company_service_one'))){
+					$data_company['company_service'] = $this->input->post('company_service_one');
+				}
+				if (!empty($this->input->post('company_service_two'))){
+					$data_company['company_service'] = $this->input->post('company_service_two');
+				}
+				if (!empty($this->input->post('company_service_three'))){
+					$data_company['company_service'] = $this->input->post('company_service_three');
+				}
+	
+				if (!empty($this->input->post('company_business_look_one'))){
+					$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+				}
+				if (!empty($this->input->post('company_business_look_two'))){
+					$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+				}
+
 				if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
 					$data_company['company_type'] = $this->input->post('radio1');
 				}else{
@@ -455,7 +556,7 @@ class staff extends MY_Controller {
 		$pass_check = $this->input->post('password');
 		$id = $this->uri->segment(4);
 		   
-		$query = $this->db->query('SELECT password FROM tcdc.tcdc_member where user_id ='.$id  );
+		$query = $this->db->query('SELECT password FROM tcdc_member where user_id ='.$id  );
 		$result = $query->row();
 		$pass = $this->encrypt->decode($result->password);
 	
@@ -476,7 +577,7 @@ class staff extends MY_Controller {
 	function email_check()
 		{
 			$email = $this->input->post('email');
-			$query = $this->db->query('SELECT * FROM tcdc.tcdc_member where email ='.'\''.$email.'\''  );
+			$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
 		
 			if($query->num_rows())
 			{

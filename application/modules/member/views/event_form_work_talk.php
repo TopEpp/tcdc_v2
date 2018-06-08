@@ -312,87 +312,334 @@
 
 
                               <br>
-                              <!-- <p>เกี่ยวกับงาน</p> -->
-                              <div class="form-group-attached">
-                                <div class="row clearfix">
-                                  <div class="col-sm-12">
-                                    <div class="form-group form-group-default  form-group-default-selectFx">
-                                      <label>สถานะ</label>
-                                      <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                                      
-                                        <option  <?php echo (@$member->job == '') ? 'selected':'';?> value="" >เลือก</option>
-                                        <option  <?php echo (@$member->job == 1) ? 'selected':'';?> value="1">บริษัท</option>
-                                        <option  <?php echo (@$member->job == 2) ? 'selected':'';?> value="2">ผู้ประกอบการธุรกิจ</option>
-                                        <option  <?php echo (@$member->job == 3) ? 'selected':'';?> value="3">สตูดิโอออกแบบ</option>
-                                        <option  <?php echo (@$member->job == 4) ? 'selected':'';?> value="4">ช่างฝีมือ/เมคเกอร์</option>
-                                        <option  <?php echo (@$member->job == 5) ? 'selected':'';?> value="5">วิสาหกิจชุมชน</option>
-                                        <option  <?php echo (@$member->job == 6) ? 'selected':'';?> value="6">นักออกแบบ/ศิลปิน/สถาปนิก</option>
-                                        <option  <?php echo (@$member->job == 7) ? 'selected':'';?> value="7">นักเรียนนักศึกษา</option>
-                                        <option  <?php echo (@$member->job == 8) ? 'selected':'';?> value="8">องค์กร/สถาบัน</option>
-                                        <option  <?php echo (@$member->job == 9) ? 'selected':'';?> value="9">สถาบันการศึกษา</option>
-                                        <option  <?php echo (@$member->job == 10) ? 'selected':'';?> value="10">อาชีพอิสระ</option>
-                                        <option  <?php echo (@$member->job == 11) ? 'selected':'';?> value="11">อื่นๆ (โปรดระบุ)</option>
 
-                                      </select>
+                              <!--  status group -->
+                              <div id="commany">
+                            
+                                <p>เกี่ยวกับงาน</p>
+                                  <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                      <div class="form-group form-group-default  form-group-default-selectFx  required">
+                                        <label>สถานะ</label>
+                                        <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                          <option  <?php echo (@$member->job == '') ? 'selected':'';?> value="" >เลือก</option>
+                                          <?php foreach ($status as $key => $value) { ?>
+                                            <option data-group="<?php echo $value->status_group;?>" <?php echo (@$member->job == $value->status_id) ? 'selected':'';?> value="<?php echo $value->status_id;?>"><?php echo $value->status_name;?></option>
+                                          <?php } ?>
+                                        </select>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-
-
-                                
-                                  <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$member->job == 11) ?  "" : "style='display:none;'" ?>>
-                                  <div class="col-sm-12">
-                                    <div class="form-group form-group-default ">
-                                      <input type="text" name="job_detail" placeholder="ระบุอาชีพของคุณ" class="form-control" value="<?php echo @$member->job_detail; ?>">
-                                    </div>
-                                  </div>
+                                  <!-- <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$member->job == 11) ?  "" : "style='display:none;'" ?>>
+                                    <div class="col-sm-12">
+                                      <div class="form-group form-group-default ">
+                                        <input type="text" name="job_detail" placeholder="ระบุอาชีพของคุณ" class="form-control" value="<?php echo @$member->job_detail; ?>">
+                                      </div>
+                                    </div> 
+                                  </div> -->
                                   
-                                </div>
+                                  <!-- status group -->
+                                  <div id="group_one" style="display:none;">
+                                    
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด</label>
+                                          <select style="width:100%" name="job_type_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                          
+                                            <option  <?php echo (@$member->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
+                                            <option  <?php echo (@$member->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
+                                            <option  <?php echo (@$member->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
+                                            <option  <?php echo (@$member->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
+                                            <option  <?php echo (@$member->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
+                                            <option  <?php echo (@$member->job_type == 6) ? 'selected':'';?> value="6">การพิมพ์</option>
+                                            <option  <?php echo (@$member->job_type == 7) ? 'selected':'';?> value="7">การกระจายเสียง</option>
+                                            <option  <?php echo (@$member->job_type == 8) ? 'selected':'';?> value="8">ซอฟต์แวร์</option>
+                                            <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
+                                            <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
+                                            <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ประสบการณ์</label>
+                                          <select style="width:100%" name="company_service_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                          
+                                            <option  <?php echo (@$member->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                            <option  <?php echo (@$member->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
+                                            <option  <?php echo (@$member->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
+                                            <option  <?php echo (@$member->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
 
-                                <div class="row clearfix">
-                                  <div class="col-sm-12">
-                                    <div class="form-group form-group-default  form-group-default-selectFx">
-                                      <label>สาขาอุตสาหกรรมสร้างสรรค์</label>
-                                      <select style="width:100%" name="job_type" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                                      
-                                        <option  <?php echo (@$member->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
-                                        <option  <?php echo (@$member->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
-                                        <option  <?php echo (@$member->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
-                                        <option  <?php echo (@$member->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
-                                        <option  <?php echo (@$member->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
-                                        <option  <?php echo (@$member->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
-                                        <option  <?php echo (@$member->job_type == 6) ? 'selected':'';?> value="6">การพิมพ์</option>
-                                        <option  <?php echo (@$member->job_type == 7) ? 'selected':'';?> value="7">การกระจายเสียง</option>
-                                        <option  <?php echo (@$member->job_type == 8) ? 'selected':'';?> value="8">ซอฟต์แวร์</option>
-                                        <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
-                                        <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
-                                        <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
-                                        <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="11">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
-                                      </select>
+                              
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ลูกค้าของคุณคือกลุ่มใด</label>
+                                          <select style="width:100%" name="company_custom_group" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_custom_group == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_custom_group == 1) ? 'selected':'';?> value="1">ลูกค้าในประเทศ</option>
+                                            <option  <?php echo (@$member->company_custom_group == 2) ? 'selected':'';?> value="2">ลูกค้าต่างประเทศ </option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ลักษณะการทำงานของธุรกิจ </label>
+                                          <select style="width:100%" name="company_business_look_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_business_look == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_business_look == 1) ? 'selected':'';?> value="1">รับจ้างผลิต </option>
+                                            <option  <?php echo (@$member->company_business_look == 2) ? 'selected':'';?> value="2">รับจัดจำหน่าย</option>
+                                            <option  <?php echo (@$member->company_business_look == 3) ? 'selected':'';?> value="3">ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง </option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default  ">
+                                          <label>จำนวนพนักงาน (คน) </label>
+                                          <input type="text" name="company_people" class="form-control" placeholder="" value="<?php echo @$member->company_people; ?>">
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group form-group-default ">
+                                          <label>เลขทะเบียนนิติบุคคล </label>
+                                          <input type="text" name="company_num_regis" class="form-control" placeholder="" value="<?php echo @$member->company_num_regis; ?>">
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
+
+                                  <div id="group_two" style="display:none;">
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด </label>
+                                          <select style="width:100%" name="job_type_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                          
+                                            <option  <?php echo (@$member->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
+                                            <option  <?php echo (@$member->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
+                                            <option  <?php echo (@$member->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
+                                            <option  <?php echo (@$member->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
+                                            <option  <?php echo (@$member->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
+                                            <option  <?php echo (@$member->job_type == 6) ? 'selected':'';?> value="6">การพิมพ์</option>
+                                            <option  <?php echo (@$member->job_type == 7) ? 'selected':'';?> value="7">การกระจายเสียง</option>
+                                            <option  <?php echo (@$member->job_type == 8) ? 'selected':'';?> value="8">ซอฟต์แวร์</option>
+                                            <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
+                                            <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
+                                            <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label>ประสบการณ์</label>
+                                          <select style="width:100%" name="company_service_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                          
+                                            <option  <?php echo (@$member->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                            <option  <?php echo (@$member->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
+                                            <option  <?php echo (@$member->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
+                                            <option  <?php echo (@$member->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
+
+                              
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>ลักษณะการทำงาน</label>
+                                            <select style="width:100%" name="company_work_look" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                              <option  <?php echo (@$member->company_work_look == '') ? 'selected':'';?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_work_look == 1) ? 'selected':'';?> value="1">รับจ้างออกแบบอิสระ</option>
+                                              <option  <?php echo (@$member->company_work_look == 2) ? 'selected':'';?> value="2">ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์</option>
+                                              <option  <?php echo (@$member->company_work_look == 3) ? 'selected':'';?> value="3">ออกแบบ ผลิตและจำหน่ายเอง</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>ลักษณะการทำงานของธุรกิจ </label>
+                                            <select style="width:100%" name="company_business_look_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                              <option  <?php echo (@$member->company_business_look == '') ? 'selected':'';?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_business_look == 1) ? 'selected':'';?> value="1">รับจ้างผลิต </option>
+                                              <option  <?php echo (@$member->company_business_look == 2) ? 'selected':'';?> value="2">รับจัดจำหน่าย</option>
+                                              <option  <?php echo (@$member->company_business_look == 3) ? 'selected':'';?> value="3">ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง </option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default form-group-default-selectFx ">
+                                          <label>ช่องทางการจำหน่าย</label>
+                                          <select style="width:100%" name="company_sell_way" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_sell_way == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_sell_way == 1) ? 'selected':'';?> value="1">ออนไลน์ </option>
+                                            <option  <?php echo (@$member->company_sell_way == 2) ? 'selected':'';?> value="2">ออฟไลน์</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default form-group-default-selectFx ">
+                                          <label>ผลงานสามารถผลิตในจำนวนมากได้หรือไม่  </label>
+                                          <select style="width:100%" name="company_product_build" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_product_build == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_product_build == 1) ? 'selected':'';?> value="1">ได้ </option>
+                                            <option  <?php echo (@$member->company_product_build == 2) ? 'selected':'';?> value="2">ไม่ได้</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                  <div id="group_three" style="display:none;">
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>ผลงานของคุณอยู่ในกลุ่มใด</label>
+                                            <select style="width:100%" id="company_group_product" name="company_group_product" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                              <option  <?php echo (@$member->company_group_product == 1) ? 'selected':'';?> value="1">งานไม้</option>
+                                              <option  <?php echo (@$member->company_group_product == 2) ? 'selected':'';?> value="2">งานทอผ้า/ย้อม</option>
+                                              <option  <?php echo (@$member->company_group_product == 3) ? 'selected':'';?> value="3">งานปั้น</option>
+                                              <option  <?php echo (@$member->company_group_product == 4) ? 'selected':'';?> value="4">งานจักรสาน</option>
+                                              <option  <?php echo (@$member->company_group_product == 5) ? 'selected':'';?> value="5">งานเพ้นท์</option>
+                                              <option  <?php echo (@$member->company_group_product == 6) ? 'selected':'';?> value="6">งานเครื่องเงิน</option>
+                                              <option  <?php echo (@$member->company_group_product == 7) ? 'selected':'';?> value="7">อื่นๆ โปรดระบุ</option>
+                                          
+                                            </select>
+                                            
+                                          </div>
+                                          <div class="row" id="company_group_product_detail" style="display:none;">
+                                              <div class="form-group form-group-default ">
+                                                <input type="text" name="company_group_product_detail" class="form-control" placeholder="ระบุ" value="<?php echo @$member->company_group_product_detail; ?>">
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>ประสบการณ์</label>
+                                            <select style="width:100%" name="company_service_three" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            
+                                              <option  <?php echo (@$member->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                              <option  <?php echo (@$member->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
+                                              <option  <?php echo (@$member->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
+                                              <option  <?php echo (@$member->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
 
                                 
-                                <div class="row clearfix">
-                                  <div class="col-sm-12">
-                                    <div class="form-group form-group-default  form-group-default-selectFx">
-                                      <label>ประสบการณ์</label>
-                                      <select style="width:100%" name="company_service" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                                      
-                                        <option  <?php echo (@$member->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
-                                        <option  <?php echo (@$member->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
-                                        <option  <?php echo (@$member->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
-                                        <option  <?php echo (@$member->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
-                                        <option  <?php echo (@$member->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row ">
+                                      <div class="col-sm-12">
+                                        <div class="form-group ">
+                                          <label>โปรดระบุเทคนิคหรือความเชี่ยวชาญที่ใช้ทำงาน </label>
+                                          <input type="text" name="company_technic[]" class="form-control" placeholder="1." value="<?php echo '';  ?>">
+                                          <input type="text" name="company_technic[]" class="form-control" placeholder="2." value="<?php echo '';  ?>">
+                                          <input type="text" name="company_technic[]" class="form-control" placeholder="3." value="<?php echo '';  ?>">
+                                        </div>
+                                      </div>
 
-                          
-                                      </select>
+                                    </div>
+                                    <div class="row" >
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  form-group-default-selectFx">
+                                          <label> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</label>
+                                          <select style="width:100%" name="company_product_detail" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_product_detail == '') ? 'selected':'';?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_product_detail == 1) ? 'selected':'';?> value="1">แบบศิลปะวัฒนธรรมดั้งเดิม </option>
+                                            <option  <?php echo (@$member->company_product_detail == 2) ? 'selected':'';?> value="2">แบบตามไอเดียที่คิดขึ้นใหม่</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row" >
+                                      <div class="col-sm-12">
+                                        <div class="form-group form-group-default  ">
+                                          <label>คุณสามารถผลิตได้จำนวน (ชิ้น/ต่อเดือน) </label>
+                                          <input type="text" name="company_num_product" class="form-control" placeholder="" value="<?php echo @$member->company_num_product; ?>">
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
 
+                                  <div id="group_four" style="display:none;">
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>คุณคือหน่วยงานประเภทใด</label>
+                                            <select style="width:100%" name="company_department" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                            <option  <?php echo (@$member->company_department == '') ? 'selected':'';?> value="">เลือก</option>
+                                              <option  <?php echo (@$member->company_department == 1) ? 'selected':'';?> value="1">สถานบันการศึกษา</option>
+                                              <option  <?php echo (@$member->company_department == 2) ? 'selected':'';?> value="2">องค์กรระหว่างประเทศ </option>
+                                              <option  <?php echo (@$member->company_department == 3) ? 'selected':'';?> value="3">หน่วยงานภาครัฐ</option>
+                                              <option  <?php echo (@$member->company_department == 4) ? 'selected':'';?> value="4">สถาบันและพิพิธภัณฑ์</option>
+                                              <option  <?php echo (@$member->company_department == 5) ? 'selected':'';?> value="5">สื่อมวลชน</option>
+                                              <option  <?php echo (@$member->company_department == 6) ? 'selected':'';?> value="6">สมาคม</option>
+                                              <option  <?php echo (@$member->company_department == 7) ? 'selected':'';?> value="7">วัดและชุมชน</option>
+                                              <option  <?php echo (@$member->company_department == 8) ? 'selected':'';?> value="8">อื่นๆ</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default  form-group-default-selectFx">
+                                            <label>หน้าที่หลักขององค์กร</label>
+                                            <select style="width:100%" name="company_duty" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                                              <option  <?php echo (@$member->company_duty == '') ? 'selected':'';?> value="">เลือก</option>
+                                              <option  <?php echo (@$member->company_duty == 1) ? 'selected':'';?> value="1">ส่งเสริมความคิดสร้างสรรค์ และการออกแบบ </option>
+                                              <option  <?php echo (@$member->company_duty == 2) ? 'selected':'';?> value="2">ส่งเสริมศิลปะวัฒนธรรม </option>
+                                              <option  <?php echo (@$member->company_duty == 3) ? 'selected':'';?> value="3">ส่งเสริมความรับผิดชอบต่อสังคม</option>
+                                              <option  <?php echo (@$member->company_duty == 4) ? 'selected':'';?> value="4">ส่งเสริมการค้าและธุรกิจ</option>
+                                              <option  <?php echo (@$member->company_duty == 5) ? 'selected':'';?> value="5">ส่งเสริมวิชาชีพ</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                      <div class="col-sm-12">
+                                        <div class="form-group">
+                                          <label>คุณเคยร่วมงาน Design Week มาก่อนหรือไม่  </label><br>
+                                          <span class="checkbox check-success">
+                                              <input  <?php echo (@$member->company_join_work == 1) ? 'checked':'';?>  type="checkbox"  value="1" name="company_join_work" id="target_type3">
+                                              <label for="target_type3">เคย</label>
+                                            </span>
+                                            <span class="checkbox check-success">
+                                              <input  <?php echo (@$member->company_join_work == 0) ? 'checked':'';?>  type="checkbox"  value="0" name="company_join_work" id="target_type4">
+                                              <label for="target_type4">ไม่เคย</label>
+                                            </span>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
                               </div>
+                                  <!-- end status group -->
 
                               <br>
 

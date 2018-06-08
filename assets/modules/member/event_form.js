@@ -65,16 +65,67 @@
   $(document).ready(function() {
 
      //job change 
-     $("#job").change(function(){
-        if ($(this).val() ==  11){
+    //  $("#job").change(function(){
+    //     if ($(this).val() ==  11){
            
-           document.getElementById("job_detail").style.display = "block";
-        }else{
-          document.getElementById("job_detail").value = "";
-          document.getElementById("job_detail").style.display = "none";
-        }
-      });
+    //        document.getElementById("job_detail").style.display = "block";
+    //     }else{
+    //       document.getElementById("job_detail").value = "";
+    //       document.getElementById("job_detail").style.display = "none";
+    //     }
+    //   });
 
+            //status job
+        var group = $('#job').find(':selected').data('group');
+        switch (group) {
+            case 1:
+                $( "#group_one" ).toggle(true);
+                break;
+            case 2:
+                $( "#group_two" ).toggle(true);
+              break;
+            case 3:
+                $( "#group_three" ).toggle(true);
+              break;
+            case 4:
+                $( "#group_four" ).toggle(true);
+              break;
+          }
+    
+        
+        //status job change 
+        $('#job').change(function(){
+          // $( "#foot" ).toggle(true);
+          // $( "#group_four_bug" ).toggle(true);
+          var group = $(this).find(':selected').data('group');
+          switch (group) {
+            case 1:
+                $( "#group_one" ).toggle(true);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(false);
+                break;
+            case 2:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(true);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(false);
+              break;
+            case 3:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(true);
+                $( "#group_four" ).toggle(false);
+              break;
+            case 4:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(true);
+              break;
+          }
+            
+        });
           //prename
     // if (document.getElementById("prename").value == 4){
     //     document.getElementById("prename_detail").style.display = "block";
@@ -88,97 +139,103 @@
     //         document.getElementById("prename_detail").style.display = "none";
     //       }
     //   });
-    
-    //clear checked form show case 
-    $("input[name='target_type']").change(function() {
-        $("input[name='target_type']").not(this).prop('checked', false);
-        document.getElementById("target_type_detail").style.display = "none";  
-        $('#target_type_detail').val('');
-     
-    });
+    var type = $('#project_type').val();
+   console.log(type)
+    switch (type) {
+        case '1':
+                        //clear checked form show case 
+            $("input[name='target_type']").change(function() {
+                $("input[name='target_type']").not(this).prop('checked', false);
+                document.getElementById("target_type_detail").style.display = "none";  
+                $('#target_type_detail').val('');
+            
+            });
 
-    //target_type checked form show case 
-    if ($('#target_type4').is(":checked"))
-    {
-        document.getElementById("target_type_detail").style.display = "block";
-    }
-    $("#target_type4").change(function() {
-        if ($('#target_type4').is(":checked"))
-        {
-            document.getElementById("target_type_detail").style.display = "block";
-        }
-        else{
-            document.getElementById("target_type_detail").style.display = "none";
-        }
-    });
+            //target_type checked form show case 
+            if ($('#target_ty4').is(":checked"))
+            {
+                document.getElementById("target_type_detail").style.display = "block";
+            }
+            $("#target_ty4").change(function() {
+                if ($('#target_ty4').is(":checked"))
+                {
+                    document.getElementById("target_type_detail").style.display = "block";
+                }
+                else{
+                    document.getElementById("target_type_detail").style.display = "none";
+                }
+            });
+            
+            break;
+        case '2':
+               // pop_product and food form clear checked
+                $("input[name='pop_select']").change(function() {
+                    $("input[name='pop_select']").not(this).prop('checked', false);
+                });
+                $("input[name='pop_type']").change(function() {
+                    $("input[name='pop_type']").not(this).prop('checked', false);
+                });
+                $("input[name='pop_food']").change(function() {
+                    $("input[name='pop_food']").not(this).prop('checked', false);
+                });
 
-    // pop_product and food form clear checked
-    $("input[name='pop_select']").change(function() {
-        $("input[name='pop_select']").not(this).prop('checked', false);
-    });
-    $("input[name='pop_type']").change(function() {
-        $("input[name='pop_type']").not(this).prop('checked', false);
-    });
-    $("input[name='pop_food']").change(function() {
-        $("input[name='pop_food']").not(this).prop('checked', false);
-    });
+                if ($('#pop_select1').is(":checked"))
+                {
+                    document.getElementById("product").style.display = "block";
+                    document.getElementById("food").style.display = "none";
+                }
+                $("#pop_select1").change(function() {
+                    if ($('#pop_select1').is(":checked"))
+                    {
+                        document.getElementById("product").style.display = "block";
+                        document.getElementById("food").style.display = "none";
+                    }
+                    else{
+                        document.getElementById("product").style.display = "none";
+                    }
+                });
+                if ($('#pop_select2').is(":checked"))
+                {
+                    document.getElementById("food").style.display = "block";
+                    document.getElementById("product").style.display = "none";
+                }
+                $("#pop_select2").change(function() {
+                    if ($('#pop_select2').is(":checked"))
+                    {
+                        document.getElementById("food").style.display = "block";
+                        document.getElementById("product").style.display = "none";
+                    }
+                    else{
+                        document.getElementById("food").style.display = "none";
+                    }
+                });
+            break;
+        case '4':
+                  //event form clear checked 
+                $("input[name='event_ty']").change(function() {
+                    $("input[name='event_ty']").not(this).prop('checked', false);
+                });
+                $("input[name='event_add']").change(function() {
+                    $("input[name='event_add']").not(this).prop('checked', false);
+                    document.getElementById("event_address_detail").style.display = "none";
+                });
 
-    if ($('#pop_select1').is(":checked"))
-    {
-        document.getElementById("product").style.display = "block";
-        document.getElementById("food").style.display = "none";
-    }
-    $("#pop_select1").change(function() {
-        if ($('#pop_select1').is(":checked"))
-        {
-            document.getElementById("product").style.display = "block";
-            document.getElementById("food").style.display = "none";
-        }
-        else{
-            document.getElementById("product").style.display = "none";
-        }
-    });
-    if ($('#pop_select2').is(":checked"))
-    {
-        document.getElementById("food").style.display = "block";
-        document.getElementById("product").style.display = "none";
-    }
-    $("#pop_select2").change(function() {
-        if ($('#pop_select2').is(":checked"))
-        {
-            document.getElementById("food").style.display = "block";
-            document.getElementById("product").style.display = "none";
-        }
-        else{
-            document.getElementById("food").style.display = "none";
-        }
-    });
-
-    //event form clear checked 
-    $("input[name='event_ty']").change(function() {
-        $("input[name='event_ty']").not(this).prop('checked', false);
-    });
-    $("input[name='event_add']").change(function() {
-        $("input[name='event_add']").not(this).prop('checked', false);
-        document.getElementById("event_address_detail").style.display = "none";
-    });
-
-    //check event_address_detail event form
-    if ($('#event_add2').is(":checked"))
-    {
-        document.getElementById("event_address_detail").style.display = "block";
-    }
-    $("#event_add2").change(function() {
-        if ($('#event_add2').is(":checked"))
-        {
-            document.getElementById("event_address_detail").style.display = "block";
-        }
-        else{
-            document.getElementById("event_address_detail").style.display = "none";
-        }
-    });
-
-    //clear work talk checked 
+                //check event_address_detail event form
+                if ($('#event_add2').is(":checked"))
+                {
+                    document.getElementById("event_address_detail").style.display = "block";
+                }
+                $("#event_add2").change(function() {
+                    if ($('#event_add2').is(":checked"))
+                    {
+                        document.getElementById("event_address_detail").style.display = "block";
+                    }
+                    else{
+                        document.getElementById("event_address_detail").style.display = "none";
+                    }
+                });
+            case '3':
+              //clear work talk checked 
     $("input[name='work_talk_ty']").change(function() {
         $("input[name='work_talk_ty']").not(this).prop('checked', false);
     });
@@ -216,6 +273,19 @@
         }
     });
 
+                break;
+                
+    
+        default:
+            break;
+    }
+
+
+ 
+
+  
+
+  
     // if ($('#work_talk_ty_at2').is(":checked"))
     // {
     //     document.getElementById("work_talk_type_at_detail1").style.display = "block";

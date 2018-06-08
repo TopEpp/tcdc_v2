@@ -40,16 +40,68 @@
 
   $(document).ready(function() {
 
-    //job change 
-    $("#job").change(function(){
-      if ($(this).val() == 11){
+        //status job
+        var group = $('#job').find(':selected').data('group');
+        switch (group) {
+            case 1:
+                $( "#group_one" ).toggle(true);
+                break;
+            case 2:
+                $( "#group_two" ).toggle(true);
+              break;
+            case 3:
+                $( "#group_three" ).toggle(true);
+              break;
+            case 4:
+                $( "#group_four" ).toggle(true);
+              break;
+          }
+    
+        
+        //status job change 
+        $('#job').change(function(){
+          // $( "#foot" ).toggle(true);
+          // $( "#group_four_bug" ).toggle(true);
+          var group = $(this).find(':selected').data('group');
+          switch (group) {
+            case 1:
+                $( "#group_one" ).toggle(true);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(false);
+                break;
+            case 2:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(true);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(false);
+              break;
+            case 3:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(true);
+                $( "#group_four" ).toggle(false);
+              break;
+            case 4:
+                $( "#group_one" ).toggle(false);
+                $( "#group_two" ).toggle(false);
+                $( "#group_three" ).toggle(false);
+                $( "#group_four" ).toggle(true);
+              break;
+          }
+            
+        })
 
-         document.getElementById("job_detail").style.display = "block";
-      }else{
-        document.getElementById("job_detail").value = "";
-        document.getElementById("job_detail").style.display = "none";
-      }
-    });
+    //job change 
+    // $("#job").change(function(){
+    //   if ($(this).val() == 11){
+
+    //      document.getElementById("job_detail").style.display = "block";
+    //   }else{
+    //     document.getElementById("job_detail").value = "";
+    //     document.getElementById("job_detail").style.display = "none";
+    //   }
+    // });
 
     //prename
     // if (document.getElementById("prename").value == 4){

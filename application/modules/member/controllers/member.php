@@ -49,6 +49,9 @@ class member extends MY_Controller
 			//get country
 			$query = $this->db->query('SELECT * FROM tcdc.std_countries');
 			$data['countries'] = $query->result();
+			//get status_group
+			$query = $this->db->query('SELECT * FROM tcdc_status_group');
+			$data['status'] = $query->result();
 
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
@@ -160,6 +163,9 @@ class member extends MY_Controller
 				//get country
 				$query = $this->db->query('SELECT * FROM tcdc.std_countries');
 				$data['countries'] = $query->result();
+				//get status_group
+				$query = $this->db->query('SELECT * FROM tcdc_status_group');
+				$data['status'] = $query->result();
 	
 				$data['project'] = $this->staff_model->getProject($id);
 				$data['member'] = $this->staff_model->getUsers($user_id);
@@ -182,12 +188,17 @@ class member extends MY_Controller
 				$data['member']->country = $this->input->post('country');
 				$data['member']->zipcode = $this->input->post('zipcode');
 				$data['member']->job = $this->input->post('job');
-				$data['member']->job_detail = $this->input->post('job_detail');
-				$data['member']->job_type = $this->input->post('job_type');
 				$data['member']->brand = $this->input->post('brand');
 				$data['member']->website = $this->input->post('website');
 				$data['member']->facebook = $this->input->post('facebook');
 				$data['member']->lineid = $this->input->post('lineid');
+
+				if (!empty($this->input->post('job_type_one'))){
+					$data['member']->job_type = $this->input->post('job_type_one');
+				}
+				if (!empty($this->input->post('job_type_two'))){
+					$data['member']->job_type = $this->input->post('job_type_two');
+				}
 				
 				$data['member']->company_type = $this->input->post('radio1');
 				$data['member']->company_name = $this->input->post('company_name');
@@ -201,6 +212,42 @@ class member extends MY_Controller
 				$data['member']->company_district = $this->input->post('company_district');
 				$data['member']->company_subdistrict = $this->input->post('company_subdistrict');
 				$data['member']->company_zipcode = $this->input->post('company_zipcode');
+
+				//group 1
+				$data['member']->company_custom_group = $this->input->post('company_custom_group');
+				$data['member']->company_people = $this->input->post('company_people');
+				$data['member']->company_num_regis = $this->input->post('company_num_regis');
+				//group 2
+				$data['member']->company_work_look = $this->input->post('company_work_look');
+				$data['member']->company_sell_way = $this->input->post('company_sell_way');
+				$data['member']->company_product_build = $this->input->post('company_product_build');
+				//group 3
+				$data['member']->company_group_product = $this->input->post('company_group_product');
+				$data['member']->company_group_product_detail = $this->input->post('company_group_product_detail');
+				// $data['member']->company_technic = implode(',',$this->input->post('company_technic'));
+				$data['member']->company_product_detail = $this->input->post('company_product_detail');
+				$data['member']->company_num_product = $this->input->post('company_num_product');
+				//group 4
+				$data['member']->company_department = $this->input->post('company_department');
+				$data['member']->company_duty = $this->input->post('company_duty');
+				$data['member']->company_join_work = $this->input->post('company_join_work');
+
+				if (!empty($this->input->post('company_service_one'))){
+					$data['member']->company_service = $this->input->post('company_service_one');
+				}
+				if (!empty($this->input->post('company_service_two'))){
+					$data['member']->company_service = $this->input->post('company_service_two');
+				}
+				if (!empty($this->input->post('company_service_three'))){
+					$data['member']->company_service = $this->input->post('company_service_three');
+				}
+	
+				if (!empty($this->input->post('company_business_look_one'))){
+					$data['member']->company_business_look = $this->input->post('company_business_look_one');
+				}
+				if (!empty($this->input->post('company_business_look_two'))){
+					$data['member']->company_business_look = $this->input->post('company_business_look_two');
+				}
 
 				$data['member']->coordinator_type = $this->input->post('radio2');
 				$data['member']->coordinator_prename = $this->input->post('coordinator_prename');
@@ -318,7 +365,7 @@ class member extends MY_Controller
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
-				'email' => $this->input->post('email'),
+				// 'email' => $this->input->post('email'),
 				'address' => $this->input->post('address'),
 				'village' => $this->input->post('village'),
 				'lane' => $this->input->post('lane'),
@@ -329,15 +376,20 @@ class member extends MY_Controller
 				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
 				'job' => $this->input->post('job'),
-				'job_detail' => $this->input->post('job_detail'),
-				'job_type' => $this->input->post('job_type'),
 				'brand' => $this->input->post('brand'),
 				'website' => $this->input->post('website'),
 				'facebook' => $this->input->post('facebook'),
 				'lineid' => $this->input->post('lineid'),
 				
 			);
+			if (!empty($this->input->post('job_type_one'))){
+				$data['job_type'] = $this->input->post('job_type_one');
+			}
+			if (!empty($this->input->post('job_type_two'))){
+				$data['job_type'] = $this->input->post('job_type_two');
+			}
 			//end user
+			
 
 			//company 
 			$data_company = array(
@@ -352,9 +404,44 @@ class member extends MY_Controller
 				'company_province' => $this->input->post('company_province'),
 				'company_district' => $this->input->post('company_district'),
 				'company_subdistrict' => $this->input->post('company_subdistrict'),
-				'company_zipcode' => $this->input->post('company_zipcode')
+				'company_zipcode' => $this->input->post('company_zipcode'),
+
+				//group 1
+				'company_custom_group' => $this->input->post('company_custom_group'),
+				'company_people' => $this->input->post('company_people'),
+				'company_num_regis' => $this->input->post('company_num_regis'),
+				//group 2
+				'company_work_look' => $this->input->post('company_work_look'),
+				'company_sell_way' => $this->input->post('company_sell_way'),
+				'company_product_build' => $this->input->post('company_product_build'),
+				//group 3
+				'company_group_product' => $this->input->post('company_group_product'),
+				'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+				'company_technic' => implode(',',$this->input->post('company_technic')),
+				'company_product_detail' => $this->input->post('company_product_detail'),
+				'company_num_product' => $this->input->post('company_num_product'),
+				//group 4
+				'company_department' => $this->input->post('company_department'),
+				'company_duty' => $this->input->post('company_duty'),
+				'company_join_work' => $this->input->post('company_join_work'),
 
 			);
+			if (!empty($this->input->post('company_service_one'))){
+				$data_company['company_service'] = $this->input->post('company_service_one');
+			}
+			if (!empty($this->input->post('company_service_two'))){
+				$data_company['company_service'] = $this->input->post('company_service_two');
+			}
+			if (!empty($this->input->post('company_service_three'))){
+				$data_company['company_service'] = $this->input->post('company_service_three');
+			}
+
+			if (!empty($this->input->post('company_business_look_one'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+			}
+			if (!empty($this->input->post('company_business_look_two'))){
+				$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+			}
 			
 			//end company
 
