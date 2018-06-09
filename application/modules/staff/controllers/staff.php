@@ -57,17 +57,17 @@ class staff extends MY_Controller {
 		// get province
 
 		// #tab1
-		$this->form_validation->set_rules('project_name', 'project_name', 'required');
-		$this->form_validation->set_rules('project_type', 'project_type', 'required');
-		$this->form_validation->set_rules('project_start_date', 'project_start_date', 'required');
-		$this->form_validation->set_rules('project_finish_date', 'project_finish_date', 'required');
-		$this->form_validation->set_rules('register_start_date', 'register_start_date', 'required');
-		$this->form_validation->set_rules('register_finish_date', 'register_finish_date', 'required');
-		$this->form_validation->set_rules('project_detail', 'project_detail', 'required');
+		$this->form_validation->set_rules('project_name', 'ชื่อโครงการ', 'required');
+		$this->form_validation->set_rules('project_type', 'ประเภทโครงการ', 'required');
+		$this->form_validation->set_rules('project_start_date', 'ระยะเวลาของกิจกรรม', 'required');
+		$this->form_validation->set_rules('project_finish_date', 'ระยะเวลาของกิจกรรม', 'required');
+		$this->form_validation->set_rules('register_start_date', 'ตั้งค่าการ เปิด/ปิด การลงทะเบียน', 'required');
+		$this->form_validation->set_rules('register_finish_date', 'ตั้งค่าการ เปิด/ปิด การลงทะเบียน', 'required');
+		$this->form_validation->set_rules('project_detail', 'เงื่อนไขและข้อตกลง', 'required');
 		// $this->form_validation->set_rules('project_provenance', 'project_provenance', 'required');
 		
 		// #tab2
-		$this->form_validation->set_rules('owner_id', 'owner_id', 'required');
+		$this->form_validation->set_rules('owner_id', 'ผู้ประสานงานโครงการ', 'required');
 
 		if($this->form_validation->run() == false){
 			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
@@ -182,6 +182,7 @@ class staff extends MY_Controller {
 			$data['member_reg'][$prj->project_id] = $this->staff_model->getProjectRegist($prj->project_id);
 		}
 		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
+		$this->template->javascript->add('assets/modules/staff/show_user_register.js');
 		$this->setView('show_user_register',$data);
         $this->publish();
 	}
