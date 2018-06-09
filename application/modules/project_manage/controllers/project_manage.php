@@ -35,7 +35,7 @@ class project_manage extends MY_Controller {
 		$data['member'] = $this->staff_model->getUsers($user_id);	
 		$data['regis'] = $this->member_model->getUserRegis($project_id,$user_id);
 
-		$this->config->set_item('title','จัดการข้อมูลผู้สมัคร');
+		$this->config->set_item('title','จัดการข้อมูลผู้สมัคร : '.$data['project'][0]->project_name);
 		$this->template->javascript->add('assets/modules/project_manage/approve.js');
         $this->setView('form_'.$data['project'][0]->project_type,$data);
         $this->publish();
