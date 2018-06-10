@@ -30,6 +30,7 @@
   <link href="<?php echo base_url('assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css'); ?>" rel="stylesheet" type="text/css" media="screen">
   <link href="<?php echo base_url('assets/css/pages-icons.css'); ?>" rel="stylesheet" type="text/css">
   <link class="main-stylesheet" href="<?php echo base_url('assets/css/themes/corporate.css'); ?>" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url('assets/css/loader.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
 
     <!-- change style select2 -->
@@ -67,6 +68,11 @@
   </script>
 </head>
 <body class="fixed-header menu-pin menu-behind">
+<!-- loading -->
+<div class="loader-wrap" id="loading" style="display:none;" >
+  <div class="loader"><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span></div>
+</div>
+
   <div class="page-content-wrapper">
     <div class="register-container full-height sm-p-t-30">
       <div class=" justify-content-center flex-column  ">
@@ -956,6 +962,8 @@
         alert('กรุณาคลิก!! ยอมรับและได้อ่าน เงื่อนไขการให้บริการ และ การรักษาความปลอดภัย ')
           return false;
       }
+      //css loading
+      $('#loading').toggle(true);
     
       $('#form-register').submit();
     });
