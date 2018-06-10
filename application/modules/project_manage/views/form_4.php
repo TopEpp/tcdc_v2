@@ -494,140 +494,57 @@
                   <div class="row row-same-height">
                     <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
-                        <p >ประเภทกิจกรรม <span style="color:red;">*</span></p>
+                        <p >ประเภทกิจกรรม</p>
                         <div class="row clearfix">
+                          <input type="hidden" name="event_type" id="event_type">
+                          <div class="form-group-default required">
                             <div class="col-sm-12">
-                              <input type="hidden" name="work_talk_type" id="work_talk_type">
-                              <input type="hidden" name="work_talk_type_at" id="work_talk_type_at">
-                              <div class="row">
-                                <div class="col-sm-5">
-                                  <div class="checkbox check-success">
-                                    <input <?php echo (@$regis['work_talk_type'] == '1')? 'checked':''?>  type="checkbox"  value="1" name="work_talk_ty" id="work_talk_ty1">
-                                    <label for="work_talk_ty1">Talk (การเสวนา / การบรรยาย)</label>
-                                  </div>
-                                </div>
-                                <div class="col-sm-7" id="work_type_1" style="display:none">
-                                  <div class="row">
-                                    <div class="col-sm-2">
-                                        <div class="checkbox check-success">
-                                        สถานที่
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                    
-                                      <div class="checkbox check-success">
-                                        <input <?php echo (@$regis['work_talk_type_at'] == '1')? 'checked':''?> type="checkbox"  value="1" name="work_talk_ty_at" id="work_talk_ty_at1">
-                                        <label for="work_talk_ty_at1">TCDC</label>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-6">
-                                          <div class="checkbox check-success">
-                                            <input <?php echo (@$regis['work_talk_type_at'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty_at" id="work_talk_ty_at2">
-                                            <label for="work_talk_ty_at2">นอกสถานที่</label>
-                                          </div>
-                                        </div>
-                                        <div class="col-sm-6" id="work_talk_type_at_detail1" style="display:none;">
-                                            <div class="form-group form-group-default ">
-                                              <input   value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" id="work_talk_det1" name="work_talk_type_at_detail" >
-                                            </div>
-                                        </div>
-                                      
-                                      </div>
-                                    
-                                    </div>
-                                  </div>
-
-                                </div>
-                                
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_ty" id="event_ty1">
+                                <label for="event_ty1">Exhibition (นิทรรศการที่มีการเรียบเรียงเนื้อหา)</label>
                               </div>
-                             
-                              <div class="row">
-                                <div class="col-sm-5">
-                                  <div class="checkbox check-success">
-                                    <input <?php echo (@$regis['work_talk_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty" id="work_talk_ty2">
-                                    <label for="work_talk_ty2">Workshop (การสัมมนาเชิงปฏิบัติการ)</label>
-                                  </div>
-                                </div>
-                                <div class="col-sm-7" id="work_type_2" style="display:none">
-                                  <div class="row">
-                                    <div class="col-sm-2">
-                                        <div class="checkbox check-success">
-                                        สถานที่
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                    
-                                      <div class="checkbox check-success">
-                                        <input <?php echo (@$regis['work_talk_type_at'] == '3')? 'checked':''?>  type="checkbox"  value="3" name="work_talk_ty_at" id="work_talk_ty_at3">
-                                        <label for="work_talk_ty_at3">TCDC</label>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-sm-6">
-                                          <div class="checkbox check-success">
-                                            <input <?php echo (@$regis['work_talk_type_at'] == '4')? 'checked':''?>  type="checkbox"  value="4" name="work_talk_ty_at" id="work_talk_ty_at4">
-                                            <label for="work_talk_ty_at4">สถานที่ตนเอง</label>
-                                          </div>
-                                        </div>
-                                        <div class="col-sm-6" id="work_talk_type_at_detail2" style="display:none;">
-                                            <div class="form-group form-group-default ">
-                                              <input  value="<?php echo @$regis['work_talk_type_at_detail']; ?>" type="text" class="form-control" id="work_talk_det2" name="work_talk_type_at_detail" >
-                                            </div>
-                                        </div>
-                                      
-                                      </div>
-                                    
-                                    </div>
-                                  </div>
-                                 
-                                </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="event_ty" id="event_ty2">
+                                <label for="event_ty2">Tour (การเยี่ยมชม)/Exhibition tour/city tour</label>
                               </div>
-                      
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="event_ty" id="event_ty3">
+                                <label for="event_ty3">Event (กิจกรรมที่เกิดขึ้นเป็นช่วงเวลา)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="event_ty" id="event_ty4">
+                                <label for="event_ty4">Talk : Business presentation / International presentation</label>
+                              </div>
                             </div>
+                          </div>
                         </div>
                         <br>
 
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
-                                <label>หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)</label>
-                                <input name="work_talk_title_th" type="text" value="<?php echo @$regis['work_talk_title_th']; ?>"  placeholder="ระบุชื่อหัวข้อการเสวนา / เวริร์กช็อปภาษาไทย" class="form-control"  >
+                                <label>ชื่อกิจกรรม (ภาษาไทย)</label>
+                                <input name="event_name_th" type="text" placeholder="ระบุชื่อกิจกรรมภาษาไทย" class="form-control" value="<?php echo @$regis['event_name_th']; ?>">
                               </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
-                                <label>หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)</label>
-                                <input name="work_talk_title_en" type="text" value="<?php echo @$regis['work_talk_title_en']; ?>" placeholder="ระบุชื่อหัวข้อการเสวนา / เวริร์กช็อปภาษาอังกฤษ" class="form-control"  >
-                              </div>
-                            </div>
-                        </div>
-
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default required">
-                                <label>ชื่อวิทยากร (ภาษาไทย)</label>
-                                <input name="work_talk_name_th" type="text" value="<?php echo @$regis['work_talk_name_th']; ?>"  placeholder="ระบุชื่อชื่อวิทยากรภาษาไทย" class="form-control"  >
-                              </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                              <div class="form-group form-group-default required">
-                                <label>ชื่อวิทยากร (ภาษาอังกฤษ)</label>
-                                <input name="work_talk_name_en" type="text" value="<?php echo @$regis['work_talk_name_en']; ?>"  placeholder="ระบุชื่อชื่อวิทยากรภาษาอังกฤษ" class="form-control"  >
+                                <label>ชื่อกิจกรรม (ภาษาอังกฤษ)</label>
+                                <input name="event_name_en" type="text" placeholder="ระบุชื่อกิจกรรมภาษาอังกฤษ" class="form-control"  value="<?php echo @$regis['event_name_en']; ?>"  >
                               </div>
                             </div>
                         </div>
 
                         <div class="row clearfix">
                           <div class="col-sm-12">
-                            <p>เนื้อหาการเสวนา / เวิร์กช็อป</p>
+                            <p>รายละเอียดกิจกรรม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="work_talk_detail" id="wysiwyg5" class="work_talk_detail demo-form-wysiwyg"  placeholder="โปรดอธิบายรายละเอียดกิจกรรม รูปแบบ วิธีการ และความคิดพิเศษสำหรับเทศกาล (จำนวนไม่เกิน 600 ตัวอักษร)" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="event_detail" id="wysiwyg5" class="event_detail demo-form-wysiwyg"  placeholder="โปรดอธิบายรายละเอียดกิจกรรม รูปแบบ วิธีการ และความคิดพิเศษสำหรับเทศกาล (จำนวนไม่เกิน 600 ตัวอักษร)" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
-                              }"><?php echo @$regis['work_talk_detail']; ?></textarea>
+                              }">  <?php echo @$regis['event_detail']; ?> </textarea>
                             </div>
                           </div>
                         </div>
@@ -682,7 +599,30 @@
                        
                         </div>
                         <br/>
-                        
+
+                        <label>สถานที่จัดกิจกรรม</label>
+                        <p >โปรดระบุในรูปแบบ อาคาร เลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์</p>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                              <input type="hidden" name="event_address" id="event_address">
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_address'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_add" id="event_add1">
+                                <label for="event_add1">ที่อยู่ขององค์กร / สตูดิโอ</label>
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <div class="checkbox check-success">
+                                    <input  <?php echo (@$regis['event_address'] == '2')? 'checked':''?> type="checkbox"  value="2" name="event_add" id="event_add2">
+                                    <label for="event_add2">other</label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6" id="event_address_detail" style="display:none;">
+                                    <input  name="event_address_detail" type="text" placeholder="ระบุที่อยู่" class="form-control" value="<?php echo @$regis['event_address_detail'];?>" >
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <br>
                         <h5>เอกสารประกอบการสมัคร</h5>
                         <hr/>
                         <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
