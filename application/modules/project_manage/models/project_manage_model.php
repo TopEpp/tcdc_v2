@@ -22,6 +22,8 @@ class project_manage_model extends MY_Model
 
      public function sendEmail($data){
 
+        return true;
+
         $from = "TCDC.Chiangmai@gmail.com";    //senders email address
         $subject = 'ผลการสมัครเข้าร่วม '.$data['prj_name'];  //email subject
 

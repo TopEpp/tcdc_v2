@@ -24,10 +24,12 @@ class project_manage extends MY_Controller {
 			redirect(base_url($this->uri->segment(1).'/staff/show_user_register'));
 		}
 
-		$query = $this->db->query('SELECT * FROM tcdc.std_area_province');
+		$query = $this->db->query('SELECT * FROM std_area_province');
 		$data['province'] = $query->result();
-		$query = $this->db->query('SELECT * FROM tcdc.std_countries');
+		$query = $this->db->query('SELECT * FROM std_countries');
 		$data['countries'] = $query->result();
+		$query = $this->db->query('SELECT * FROM tcdc_status_group');
+		$data['status'] = $query->result();
 
 		$this->load->model('member/member_model');
 		$this->load->model('staff/staff_model');
