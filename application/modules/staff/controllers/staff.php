@@ -38,6 +38,7 @@ class staff extends MY_Controller {
 
 		if($project_id){
 			$data['prj'] = $this->staff_model->getProjectData($project_id);
+
 			$data['prj']->project_start_date = $this->mydate->date_db2str($data['prj']->project_start_date);
 			$data['prj']->project_finish_date = $this->mydate->date_db2str($data['prj']->project_finish_date);
 			$data['prj']->register_start_date = $this->mydate->date_db2str($data['prj']->register_start_date);
@@ -91,17 +92,27 @@ class staff extends MY_Controller {
             
         }else{
 			//save data project
+			$project_start_date = $this->mydate->date_thai2eng($this->input->post('project_start_date'));
+			$project_finish_date = $this->mydate->date_thai2eng($this->input->post('project_finish_date'));
+			$register_start_date = $this->mydate->date_thai2eng($this->input->post('register_start_date'));
+			$register_finish_date = $this->mydate->date_thai2eng($this->input->post('register_finish_date'));
+
             $data = array(
+            	
             	'project_create' => $this->session->userdata('sesUserID'),
                 'project_name' => $this->input->post('project_name'),
                 'project_type' => $this->input->post('project_type'),
                 'project_detail' => $this->input->post('project_detail'),
                 // 'project_provenance' => $this->input->post('project_provenance'),
-                'project_start_date' => $this->mydate->date_thai2eng($this->input->post('project_start_date')),
-                'project_finish_date' => $this->mydate->date_thai2eng($this->input->post('project_finish_date')),
-                'register_start_date' => $this->mydate->date_thai2eng($this->input->post('register_start_date')),
-                'register_finish_date' => $this->mydate->date_thai2eng($this->input->post('register_finish_date'))
+                'project_start_date' => $project_start_date,
+                'project_finish_date' => $project_finish_date,
+                'register_start_date' => $register_start_date,
+                'register_finish_date' => $register_finish_date
 			);    
+
+			// echo '<pre>';
+			// print_r($data);
+			// exit;
 
 			$data_owner = explode(',', $this->input->post('owner_id')); 
 
