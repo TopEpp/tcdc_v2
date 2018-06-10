@@ -62,4 +62,25 @@ class project_manage_model extends MY_Model
             return false;
         }
     }
+
+    function saveRegis($reg_id,$data_regis){
+        $this->db->where('reg_id',$reg_id);
+        $this->db->update('tcdc_prj_register',$data_regis);
+
+        return $reg_id;
+    }
+
+    public function saveProduct($data)
+    {
+       
+        $query = $this->db->query('SELECT * FROM tcdc_product WHERE reg_id = '.$data['reg_id'].' AND '.'product_num = '.$data['product_num']);
+        
+        if( $query->num_rows() > 0){
+            $this->db->where('reg_id',$data['reg_id']);
+            $this->db->where('product_num',$data['product_num']);
+            return $this->db->update('tcdc_product',$data);
+        }
+        
+        return $this->db->insert('tcdc_product',$data);
+    }
 }

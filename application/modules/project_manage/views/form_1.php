@@ -977,6 +977,9 @@
 
                       <h5>คุณได้ตรวจสอบข้อมูลข้างต้นแล้ว ข้อมูลครบถ้วนหรือไม่?</h5>
                       <br>
+                      <input type="hidden" name="project_id" value="<?php echo $project_id?>">
+                      <input type="hidden" name="user_id" value="<?php echo $user_id?>">
+
                       <input type="hidden" name="prj_name" value="<?php echo $project[0]->project_name;?>">
                       <input type="hidden" name="email_receive" value="<?php echo $member->email;?>">
                       <input type="hidden" name="reg_id" value="<?php echo $regis['reg_id']?>">
