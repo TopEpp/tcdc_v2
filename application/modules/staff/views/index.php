@@ -126,6 +126,9 @@
                               <div class="demo-card-scrollable">
                                   <h3><span class="semi-bold"><?php echo $value->news_name; ?></span></h3>
                                   <p><?php echo $value->news_detail; ?></p>
+                                  <p style="text-align: right;"><?php if($value->news_url){ ?>
+                                   <a target="_blank" href="<?php echo $value->news_url;?>"><span class=" label p-t-5 m-l-5 p-b-5 inline fs-12">อ่านต่อ</span></a>
+                                  <?php }?></p>
                               </div>
                             </div>
                           </div>
