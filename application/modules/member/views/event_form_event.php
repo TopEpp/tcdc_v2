@@ -929,7 +929,7 @@
                           <div class="col-sm-12">
                             <p>รายละเอียดกิจกรรม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="event_detail" id="wysiwyg5" class="event_detail demo-form-wysiwyg"  placeholder="โปรดอธิบายรายละเอียดกิจกรรม รูปแบบ วิธีการ และความคิดพิเศษสำหรับเทศกาล (จำนวนไม่เกิน 600 ตัวอักษร)" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="event_detail" id="" class="event_detail demo-form-wysiwyg"  placeholder="โปรดอธิบายรายละเอียดกิจกรรม รูปแบบ วิธีการ และความคิดพิเศษสำหรับเทศกาล (จำนวนไม่เกิน 600 ตัวอักษร)" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }">  <?php echo @$regis['event_detail']; ?> </textarea>
@@ -949,7 +949,7 @@
                           <div class="col-sm-12">
                             <p>คุณสมบัติผู้เข้าร่วม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="join_property" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="กรณีต้องการคัดเลือกผู้เข้าร่วมกิจกรรม โปรดระบุคุณสมบัติ เช่น อายุ 20 ปีขึ้นไป,มีประสบการณ์ออกแบบไม่น้อยกว่า 2 ปี,มีทักษะการใช้งาน Photoshop เป็นต้น" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="join_property" id="" class="join_property demo-form-wysiwyg"  placeholder="กรณีต้องการคัดเลือกผู้เข้าร่วมกิจกรรม โปรดระบุคุณสมบัติ เช่น อายุ 20 ปีขึ้นไป,มีประสบการณ์ออกแบบไม่น้อยกว่า 2 ปี,มีทักษะการใช้งาน Photoshop เป็นต้น" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }">  <?php echo @$regis['join_property']; ?></textarea>

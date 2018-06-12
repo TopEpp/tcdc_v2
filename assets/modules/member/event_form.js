@@ -13,9 +13,58 @@
 
     
     $('.timepicker').timepicker();
-    $('.wysiwyg').wysihtml5();
-    $('.event_detail').wysihtml5();
-    $('.work_talk_detail').wysihtml5();
+
+    // show
+    
+    $(".product_concept").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='product_concept[]']").val(html);
+            }
+        }
+    });
+
+    //pop
+    
+    $(".pop_story").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='pop_story']").val(html);
+            }
+        }
+    });
+
+    //event
+    $(".event_detail").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='event_detail']").val(html);
+            }
+        }
+    });
+    $(".join_property").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='join_property']").val(html);
+            }
+        }
+    });
+
+    //work talk
+    $('.work_talk_detail').wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='work_talk_detail']").val(html);
+            }
+        }
+    });
+
+   
      
     // $('#form-event-profile').validate();
    
@@ -174,8 +223,10 @@
                 });
                 $("input[name='pop_type']").change(function() {
                     $("input[name='pop_type']").not(this).prop('checked', false);
+                    $("input[name='pop_food']").prop('checked', false);
                 });
                 $("input[name='pop_food']").change(function() {
+                    $("input[name='pop_type']").prop('checked', false);
                     $("input[name='pop_food']").not(this).prop('checked', false);
                 });
 
@@ -280,6 +331,10 @@
             break;
     }
 
+
+    // $('.demo-form-wysiwyg').contents().find('body').on("change",function() {
+    //     alert('asd');
+    // });
 
  
 
@@ -411,6 +466,7 @@
        
         switch (type) {
             case '1':
+             
                 if(!$('#product_check').is(":checked")){
                     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
                     return false;

@@ -97,7 +97,7 @@ class Member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
-
+		// print_r($this->input->post());die();
 		$project_type = $this->input->post('project_type');
 		
 		//validate form

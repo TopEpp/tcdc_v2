@@ -881,7 +881,7 @@
                           <div class="col-sm-12">
                             <p>เกี่ยวกับแบรนด์(เล่าถึงที่มาของร้านและประเภทสินค้าที่ขาย)</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea  name="pop_story" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea  name="pop_story" id="" class="pop_story demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }"><?php echo @$regis['pop_story'];?></textarea>
