@@ -64,8 +64,8 @@ class staff extends MY_Controller {
 		$this->form_validation->set_rules('project_finish_date', 'ระยะเวลาของกิจกรรม', 'required');
 		$this->form_validation->set_rules('register_start_date', 'ตั้งค่าการ เปิด/ปิด การลงทะเบียน', 'required');
 		$this->form_validation->set_rules('register_finish_date', 'ตั้งค่าการ เปิด/ปิด การลงทะเบียน', 'required');
-		$this->form_validation->set_rules('project_detail', 'เงื่อนไขและข้อตกลง', 'required');
-		// $this->form_validation->set_rules('project_provenance', 'project_provenance', 'required');
+		// $this->form_validation->set_rules('project_detail', 'เงื่อนไขและข้อตกลง', 'required');
+		// $this->form_validation->set_rules('project_provenance', 'เงื่อนไขและข้อตกลง', 'required');
 		
 		// #tab2
 		$this->form_validation->set_rules('owner_id', 'ผู้ประสานงานโครงการ', 'required');
