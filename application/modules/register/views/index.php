@@ -190,7 +190,7 @@
 
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group form-group-default required form-group-default-selectFx ">
+                    <div class="form-group form-group-default  form-group-default-selectFx ">
                       <label>วันเกิด/Birthday</label><span class="text-danger"><?php  echo  form_error('birthday'); ?></span>
                       <select  style="width:100%" id="birthday" name="birthday" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">                
                         <option  value="" >เลือก</option>
@@ -207,7 +207,7 @@
                     </div>
                   </div>  
                   <div class="col-md-4">
-                    <div class="form-group form-group-default required form-group-default-selectFx">
+                    <div class="form-group form-group-default  form-group-default-selectFx">
                       <label>เดือนเกิด/Month Of Birth</label>
                       <span class="text-danger"><?php  echo  form_error('month_of_birth'); ?></span>
                       <?php $months = array(
@@ -240,7 +240,7 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="form-group form-group-default required form-group-default-selectFx">
+                    <div class="form-group form-group-default  form-group-default-selectFx">
                       <label>ปีเกิด/Year Of Birth</label><span class="text-danger"><?php echo form_error('year_of_birth'); ?></span>
                       <select style="width:100%" id="year_of_birth" name="year_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                           <option  value="" >เลือก</option>
@@ -336,7 +336,10 @@
 
                   <div class="col-sm-4" id="province" >
                     <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                      <label>จังหวัด,Province</label><span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
+                      <?php if (empty(form_error('province'))){ ?>
+                         <label>จังหวัด,Province</label>
+                      <?php }?>
+                      <span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
                       <select style="width:100%"  name="province" class=" form-control" data-init-plugin="select2"  >
                         <option value="">เลือก</option>
                         <?php foreach ($province as $key => $value) { ?>
@@ -367,7 +370,7 @@
                     <div class="row clearfix">
                       <div class="col-sm-12">
                         <div class="form-group form-group-default  form-group-default-selectFx  required">
-                          <label>สถานะ</label>
+                          <label>สถานะ</label><span class="text-danger text-center"><?php echo form_error('job'); ?></span>
                           <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             <option  <?php echo (@set_value('job')== '') ? 'selected':'';?> value="" >เลือก</option>
                             <?php foreach ($status as $key => $value) { ?>
@@ -384,7 +387,7 @@
                         </div>
                       </div> 
                     </div> -->
-                    
+                    <input type="hidden" name="job_group" id= "job_group">
                     <!-- status group -->
                     <div id="group_one" style="display:none;">
                       <div class="row clearfix">
@@ -456,8 +459,8 @@
                           </div>
                         </div>
                         <div class="col-sm-6">
-                          <div class="form-group form-group-default ">
-                            <label>เลขทะเบียนนิติบุคคล </label>
+                          <div class="form-group form-group-default required">
+                            <label>เลขทะเบียนนิติบุคคล </label><span class="text-danger"><?php echo form_error('company_num_regis'); ?></span>
                             <input type="text" name="company_num_regis" class="form-control" placeholder="" value="<?php echo set_value('company_num_regis'); ?>">
                           </div>
                         </div>
@@ -663,7 +666,7 @@
                                 <label for="target_type3">เคย</label>
                               </span>
                               <span class="checkbox check-success">
-                                <input  <?php echo (@set_value('company_join_work') == 0) ? 'checked':'';?>  type="checkbox"  value="0" name="company_join_work" id="target_type4">
+                                <input  <?php echo (empty(@set_value('company_join_work'))) ? 'checked':'';?>  type="checkbox"  value="0" name="company_join_work" id="target_type4">
                                 <label for="target_type4">ไม่เคย</label>
                               </span>
                           </div>
@@ -808,7 +811,7 @@
   $(document).ready(function() {
     $('#myFormWizard').bootstrapWizard({
       onTabClick : function () {
-        return true;
+        return false;
       },
       onNext: function(tab, navigation, index) {
         $( "#commany" ).toggle(true);
@@ -879,6 +882,7 @@
    
     //status job
     var group = $('#job').find(':selected').data('group');
+    $('#job_group').val(group);
     switch (group) {
         case 1:
             $( "#group_one" ).toggle(true);
@@ -893,13 +897,15 @@
             $( "#group_four" ).toggle(true);
           break;
       }
-
+      
     
     //status job change 
     $('#job').change(function(){
+  
       // $( "#foot" ).toggle(true);
       // $( "#group_four_bug" ).toggle(true);
       var group = $(this).find(':selected').data('group');
+      $('#job_group').val(group);
       switch (group) {
         case 1:
             $( "#group_one" ).toggle(true);
@@ -954,6 +960,11 @@
         }
     });
     //end country
+
+    //register 
+    $("input[name='company_join_work']").change(function() {
+        $("input[name='company_join_work']").not(this).prop('checked', false);
+    });
 
     $('#btn-finish').click(function(){
         

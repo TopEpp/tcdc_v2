@@ -43,6 +43,12 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('password','รหัสผ่าน', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('password_again', 'ยืนยันรหัสผ่าน', 'trim|required|min_length[8]|matches[password]');
 		// #tab2
+
+		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
+		if ($this->input->post('job_group') == 1){
+			$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+		}
+
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
@@ -51,6 +57,7 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
 		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
 		$this->form_validation->set_rules('country','ประเทศ', 'required');
+		$this->form_validation->set_rules('province','จังหวัด', 'trim|required');
 		$this->form_validation->set_rules('zipcode','รหัสไปรณีย์', 'trim|required|min_length[5]|max_length[5]|callback_numeric_dash');
 
 	
@@ -160,7 +167,7 @@ class Register extends MY_Controller {
 			}
 
             if($this->staff_model->saveCreateUser($data,$data_company)){
-                
+                die('asd');
                 //send confirm mail
                 if($this->register_model->sendEmail($this->input->post('email'))){
                     $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่<br/> Email: ".$this->input->post('email');
@@ -203,6 +210,26 @@ class Register extends MY_Controller {
 	{
 		$email = $this->input->post('email');
 		$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
+	
+		if($query->num_rows())
+		{
+			// echo $pass_check .' '. $pass;die();
+			// $this->form_validation->set_message('email_check', 'Try agin, Email is already used.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;	 
+		}	
+
+	}
+
+	//call_back check email uniqe
+	function num_regis()
+	{
+
+		$num = $this->input->post('company_num_regis');
+		$query = $this->db->query('SELECT * FROM tcdc_member_company where company_num_regis ='.'\''.$num.'\''  );
 	
 		if($query->num_rows())
 		{
