@@ -8,41 +8,42 @@
 
 @font-face {
   font-family: 'dbbl';
-  src: url('assets/font/DBBunjerdXBdv3_2.eot'); /* IE9 Compat Modes */
-  src: url('assets/font/DBBunjerdXBdv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/font/DBBunjerdXBdv3_2.woff2') format('woff2'), /* Super Modern Browsers */
-       url('assets/font/DBBunjerdXBdv3_2.woff') format('woff'), /* Pretty Modern Browsers */
-       url('assets/font/DBBunjerdXBdv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('assets/font/DBBunjerdXBdv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
+  src: url('../font/DBBunjerdXBdv3_2.eot'); /* IE9 Compat Modes */
+  src: url('../font/DBBunjerdXBdv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/DBBunjerdXBdv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../font/DBBunjerdXBdv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/DBBunjerdXBdv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/DBBunjerdXBdv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
   font-family: 'dbbn';
-  src: url('assets/font/DBBunjerdXv3_2.eot'); /* IE9 Compat Modes */
-  src: url('assets/font/DBBunjerdXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/font/DBBunjerdXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
-       url('assets/font/DBBunjerdXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
-       url('assets/font/DBBunjerdXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('assets/font/DBBunjerdXv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
+  src: url('../font/DBBunjerdXv3_2.eot'); /* IE9 Compat Modes */
+  src: url('../font/DBBunjerdXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/DBBunjerdXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../font/DBBunjerdXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/DBBunjerdXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/DBBunjerdXv3_2.svg#DBBunjerd') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
   font-family: 'dbch';
-  src: url('assets/font/DBChuanPimXv3_2.eot'); /* IE9 Compat Modes */
-  src: url('assets/font/DBChuanPimXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/font/DBChuanPimXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
-       url('assets/font/DBChuanPimXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
-       url('assets/font/DBChuanPimXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('assets/font/DBChuanPimXv3_2.svg#DBChuanPimXv') format('svg'); /* Legacy iOS */
+  src: url('../font/DBChuanPimXv3_2.eot'); /* IE9 Compat Modes */
+  src: url('../font/DBChuanPimXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../font/DBChuanPimXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../font/DBChuanPimXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../font/DBChuanPimXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../font/DBChuanPimXv3_2.svg#DBChuanPimXv') format('svg'); /* Legacy iOS */
 }
 
 
 body ,h2,h3,h5,h4,h1{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'dbbn', sans-serif;
+  /* font-size: 18px; */
 }
 
 .fn_from{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'dbbl', sans-serif;
 }
 
 .btn-primary{
@@ -55,9 +56,9 @@ body ,h2,h3,h5,h4,h1{
 }
 
 .page-sidebar .sidebar-menu .menu-items > li > a {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'dbbl', sans-serif;
   line-height: 40px;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .card{

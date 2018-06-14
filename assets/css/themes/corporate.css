@@ -3216,25 +3216,25 @@ hr.dotted {
 ------------------------------------
 */
 .fs-10 {
-  font-size: 10px !important;
-}
-.fs-11 {
-  font-size: 10.5px !important;
-}
-.fs-12 {
   font-size: 12px !important;
 }
+.fs-11 {
+  font-size: 12.5px !important;
+}
+.fs-12 {
+  font-size: 16px !important;
+}
 .fs-13 {
-  font-size: 13px !important;
+  font-size: 18px !important;
 }
 .fs-14 {
-  font-size: 14px !important;
+  font-size: 20px !important;
 }
 .fs-15 {
-  font-size: 15px !important;
+  font-size: 22px !important;
 }
 .fs-16 {
-  font-size: 16px !important;
+  font-size: 22px !important;
 }
 /* Line-heights
 ------------------------------------
@@ -3276,7 +3276,7 @@ hr.dotted {
   font-family: Georgia !important;
 }
 .font-heading {
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "dbbl", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* Wells
 ------------------------------------
@@ -3329,7 +3329,7 @@ hr.dotted {
 @media (max-width: 1400px) {
   body,
   p {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 20px;
   }
   h1 {
@@ -3364,19 +3364,19 @@ hr.dotted {
 */
 .windows body,
 .windows p {
-  font-size: 13px;
+  font-size: 20px;
   letter-spacing: normal;
 }
 .windows h3 {
-  font-size: 29px;
+  font-size: 33px;
   line-height: 33px;
 }
 .windows h4 {
-  font-size: 23px;
+  font-size: 27px;
   line-height: 32px;
 }
 .windows h5 {
-  font-size: 19px;
+  font-size: 25px;
   line-height: 28px;
   font-weight: normal;
 }
@@ -3396,7 +3396,7 @@ hr.dotted {
 }
 .windows small,
 .windows .small {
-  font-size: 89%;
+  font-size: 100%;
 }
 .alert > p,
 .alert > ul {
@@ -3421,8 +3421,8 @@ hr.dotted {
 [Buttons Base Styles]
 */
 .btn {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-family: 'dbbl', sans-serif;
+  font-size: 16px;
   font-weight: normal;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -4070,7 +4070,7 @@ Rounded buttons
   box-shadow: 0px 0px 5px rgba(87, 87, 87, 0.2);
   border: none;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 18px;
   margin: 0;
   background: #f0f0f0;
   min-width: 50px;
@@ -5553,11 +5553,11 @@ body > .pgn-wrapper {
   border-radius: 0;
   padding: 13px 20px;
   margin-right: 0;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'dbbn', sans-serif;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: rgba(87, 87, 87, 0.7);
-  font-size: 10.5px;
+  font-size: 16px;
   min-width: 70px;
   text-transform: uppercase;
   border-color: transparent;
@@ -6705,7 +6705,7 @@ fieldset[disabled] .form-control {
   margin-right: 15px;
   min-width: 17px;
   min-height: 17px;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 20px;
   margin-bottom: 0;
 }
@@ -7049,8 +7049,8 @@ body.rtl .checkbox label::after {
   margin-bottom: 10px;
 }
 .form-group label:not(.error) {
-  font-family: 'Montserrat';
-  font-size: 10.5px;
+  font-family: 'dbbn';
+  font-size: 16px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 500;
@@ -7059,7 +7059,7 @@ body.rtl .checkbox label::after {
   margin-left: 8px;
 }
 .form-group .help {
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(87, 87, 87, 0.55);
 }
 .form-group-default {
@@ -7468,14 +7468,14 @@ https://github.com/eternicode/bootstrap-datepicker
 .datepicker {
   padding: 16px 25px;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 16px;
 }
 .datepicker:after {
   border-bottom-color: #f0f0f0;
 }
 .datepicker thead tr .datepicker-switch {
   color: #6f7b8a;
-  font-size: 13px;
+  font-size: 16px;
 }
 .datepicker thead tr .next,
 .datepicker thead tr .prev {
@@ -8701,7 +8701,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
   border-bottom: 1px solid rgba(225, 225, 225, 0.7);
   border-top: 0px;
   padding: 20px;
-  font-size: 13.5px;
+  font-size: 18px;
 }
 .table tbody tr td .btn-tag {
   background: rgba(44, 44, 44, 0.07);

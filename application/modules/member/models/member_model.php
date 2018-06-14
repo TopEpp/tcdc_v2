@@ -92,6 +92,54 @@ class member_model extends MY_Model{
         return $query->num_rows();
     }
 
+        //send confirm mail
+    public function sendEmail($receiver){
+
+            $from = "TCDC.Chiangmai@gmail.com";    //senders email address
+            $subject = 'ท่านได้สมัครเข้าร่วมงาน Chiang Mai Design Week 2018';  //email subject
+    
+            $encode_rec = $this->encrypt->encode($receiver);
+            //sending confirmEmail($receiver) function calling link to the user, inside message body
+            $message = 'ถึง ผู้ใช้งาน,<br><br> 
+                        เราได้รับข้อมูลเข้าร่วม กิจกรรม โครงการเชียงใหม่วิถีไทย ประจำปี 2561  	Showcase/Exhibitions เรียบร้อยแล้ว
+                    <br><br>ขอบคุณ';
+            
+            //config email settings
+            $config['useragent'] = '\''.base_url().'\'';
+            $config['protocol'] = 'smtp';
+            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+            $config['smtp_port'] = '465';
+            $config['smtp_user'] = $from;
+            $config['smtp_pass'] = 'TCDC@CMDW';  //sender's password uupsqwbvahhjdhdu
+            $config['mailtype'] = 'html';
+            //  $config['charset'] = 'UTF-8';
+            $config['smtp_crypto'] = 'security'; //can be 'ssl' or 'tls' for example
+            $config['wordwrap'] = 'TRUE';
+            $config['newline'] = "\r\n"; 
+            
+            $this->load->library('email');
+            $this->email->initialize($config);
+            //send email
+            $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+          //  $this->email->set_header('Content-type', 'text/html');
+            $this->email->from($from);
+            $this->email->to($receiver);
+            $this->email->subject($subject);
+            $this->email->message($message);
+            
+             if($this->email->send()){
+            //     //for testing
+            //     echo "sent to: ".$receiver."<br>";
+            //     echo "from: ".$from. "<br>";
+            //     echo "protocol: ". $config['protocol']."<br>";
+            //     echo "message: ".$message;
+                 return true;
+             }else{
+                show_error($this->email->print_debugger());
+                return false;
+             }
+        }
+
   
 
 }

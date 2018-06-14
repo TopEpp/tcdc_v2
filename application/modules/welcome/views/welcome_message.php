@@ -49,7 +49,7 @@
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="<?php echo base_url('assets/img/login_bg.jpg')?>" data-src="<?php echo base_url('assets/img/login_bg.jpg')?>" data-src-retina="<?php echo base_url('assets/img/login_bg.jpg')?>" alt="" class="lazy">
+        <img src="<?php echo base_url('assets/img/img_login.png')?>" data-src="<?php echo base_url('assets/img/img_login.png')?>" data-src-retina="<?php echo base_url('assets/img/img_login.png')?>" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">

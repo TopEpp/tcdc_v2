@@ -88,7 +88,7 @@
       <!-- END MOBILE SIDEBAR TOGGLE -->
       <div class="">
         <div class="brand inline  m-l-10 ">
-          <img src="<?php echo base_url('assets/img/cmdw_logo.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/cmdw_logo.png');?> " data-src-retina="<?php echo base_url('assets/img/cmdw_logo.png');?> " width="78">
+          <a href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/cmdw_logo.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/cmdw_logo.png');?> " data-src-retina="<?php echo base_url('assets/img/cmdw_logo.png');?> " width="78"></a>
         </div>
       </div>
       <div class="d-flex align-items-center">
@@ -228,7 +228,7 @@
               <div class="copyright sm-text-center">
                 <p class="small no-margin pull-left sm-pull-reset">
                   <span class="hint-text">Copyright &copy; 2018 </span>
-                  <span class="font-montserrat">TCDC Chiang Mai</span>.
+                  <span class="">TCDC Chiang Mai</span>.
                   <span class="hint-text">All rights reserved. </span>
                   <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> <span class="muted">|</span> <a href="#" class="m-l-10">Privacy Policy</a></span>
                 </p>

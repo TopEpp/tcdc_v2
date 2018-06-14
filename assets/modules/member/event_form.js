@@ -2,7 +2,7 @@
   $(function()
   {
       
-    $('.datepicker-range').datepicker({
+    $('.datepicker-year').datepicker({
         format: "yyyy",
          weekStart: 1,
         viewMode: "years",
@@ -85,14 +85,16 @@
                
         cloneIndex++;
 
-        $('#num', clone_data).text("1. ข้อมูลชิ้นงานชิ้นที่ " + cloneIndex);
+        $('#num', clone_data).text("Collection " + cloneIndex);
         $('input', clone_data).val('');
         $('img', clone_data).remove();
         $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
         $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
         $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
+        $(".check_product", clone_data).attr("id",'check_product'+cloneIndex);
+        $("label .check_product_for", clone_data).attr("for",'check_product'+cloneIndex);
         $('.select2', clone_data).remove();
-        $('.datepicker-range').datepicker({
+        $('.datepicker-year').datepicker({
             format: "yyyy",
              weekStart: 1,
             viewMode: "years",
@@ -460,14 +462,14 @@
 
     $('#btn-finish').click(function(){
               //css loading
-        $('#loading').toggle(true);
+       
         //get project type
         var type = $('#project_type').val();
        
         switch (type) {
             case '1':
              
-                if(!$('#product_check').is(":checked")){
+                if(!$('.check_product').is(":checked")){
                     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
                     return false;
                 }
@@ -500,6 +502,7 @@
             default:
                 day = "Saturday";
         }
+        $('#loading').toggle(true);
    
 
 

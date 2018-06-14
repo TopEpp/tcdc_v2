@@ -35,6 +35,9 @@
 
     <!-- change style select2 -->
   <style>
+     body{
+      font-family: sans-serif;
+     }
     .select2-container{
     box-sizing: border-box;
     display: inline-block;
@@ -56,7 +59,15 @@
   .form-group label:not(.error){
     text-transform: none;
   }
-
+  .cs-select .cs-placeholder{
+    width: 108%;
+  }
+  .select2-container .select2-selection .select2-selection__arrow{
+    right: 6px !important;
+  }
+  .form-group label:not(.error){
+    font-weight: bold;
+  }
   </style>
   <script type="text/javascript">
     window.onload = function()
@@ -73,17 +84,24 @@
   <div class="loader"><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span></div>
 </div>
 
+
   <div class="page-content-wrapper">
     <div class="register-container full-height sm-p-t-30">
       <div class=" justify-content-center flex-column  ">
         <div id="title_head">
-        <img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78">
-        <h3>สร้างบัญชี</h3>
-        <p>
+        <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"></a>
+        <h3 >สร้างบัญชี</h3>
+        <p >
           เมื่อคุณมีชื่อผู้ใช้งานแล้วคุณสามารถสมัครเข้าร่วมโครงการต่างๆ ที่เราจัดขึ้นได้โดยกรอกข้อมูลที่เราต้องการด้านล่างนี้
         </p>
         </div>
+       
 
+        <?php  if($this->session->flashdata('msg')){?>
+              <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg');?>">
+           <?php  $this->session->unset_userdata('msg');}else{ ?>
+            <input type="hidden" id="msg" value ="">
+         <?php  }?>
         <!-- เริ่มฟอร์มแบบขั้นตอน -->
         <!-- start_frome_w -->
         <div id="myFormWizard">
@@ -91,10 +109,10 @@
 
           <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
             <li class="nav-item">
-              <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span>สร้างบัญชี</span></a>
+              <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span >สร้างบัญชี</span></a>
             </li>
             <li class="nav-item">
-              <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span>ข้อมูลส่วนตัว</span></a>
+              <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span  >ข้อมูลส่วนตัว</span></a>
             </li>
             <!-- <li class="nav-item">
               <a data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-check tab-icon"></i> <span>ยืนยันข้อมูล</span></a>
@@ -152,13 +170,20 @@
             <div class="tab-pane slide " id="tab2">
 
               <!-- <form id="form-regis-user" class="p-t-15" role="form" action="#"> -->
-            
+              <div class="row clearfix">
+                  <div class="col-sm-12">
+                    <div class="form-group form-group-default required">
+                      <label>เลขบัตรประชาชน</label><span class="text-danger"><?php echo form_error('id_number'); ?></span>
+                      <input type="text" name="id_number" class="form-control" placeholder="ระบุเลขบัตรประชาชน" value="<?php echo set_value('id_number'); ?>">
+                    </div>
+                  </div>
+                </div>
             
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group form-group-default required ">
-                      <label>คำนำหน้า,Pre Name</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
-                      <select id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                      <label>คำนำหน้า,Prename</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                      <select style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
                                                 
                         <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
                         <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -263,11 +288,23 @@
                   </div>
                 </div>
 
+ 
 
+                
+                <p style="font-family: initial;">ที่อยู่สำหรับการติดต่อ</p>
+                <div class="row clearfix">
+                  <div class="col-sm-12">
+                    <div class="form-group form-group-default ">
+                      <label>ชื่อบริษัท/อาคารที่ตั้ง</label><span class="text-danger"><?php echo form_error('company_name'); ?></span>
+                      <input type="text" name="company_name" class="form-control" placeholder="ระบุชื่อบริษัท" value="<?php echo set_value('company_name'); ?>">
+                    </div>
+                  </div>
+
+                </div>
                 <div class="row clearfix">
                   <div class="col-sm-3">
                     <div class="form-group form-group-default required">
-                      <label>บ้านเลขที่,Number</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                      <label>เลขที่,Number</label><span class="text-danger"><?php echo form_error('address'); ?></span>
                       <input type="text" name="address" class="form-control" placeholder="ระบุบ้านเลขที่" value="<?php echo set_value('address'); ?>">
                     </div>
                   </div>
@@ -366,11 +403,11 @@
                 <!--  status group -->
                 <div id="commany">
               
-                  <p>เกี่ยวกับงาน</p>
+                  <p style="font-family: initial;">สถานภาพของคุณ</p>
                     <div class="row clearfix">
                       <div class="col-sm-12">
                         <div class="form-group form-group-default  form-group-default-selectFx  required">
-                          <label>สถานะ</label><span class="text-danger text-center"><?php echo form_error('job'); ?></span>
+                          <label>สถานภาพ</label><span class="text-danger text-center"><?php echo form_error('job'); ?></span>
                           <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             <option  <?php echo (@set_value('job')== '') ? 'selected':'';?> value="" >เลือก</option>
                             <?php foreach ($status as $key => $value) { ?>
@@ -391,7 +428,7 @@
                     <!-- status group -->
                     <div id="group_one" style="display:none;">
                       <div class="row clearfix">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <div class="form-group form-group-default  form-group-default-selectFx">
                             <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด</label>
                             <select style="width:100%" name="job_type_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
@@ -412,9 +449,12 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-sm-6">
+                        
+                      </div>
+                      <div class="row cloearfix">
+                        <div class="col-sm-12">
                           <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ประสบการณ์</label>
+                            <label>ประสบการณ์ทำงานหรือทำธุรกิจ</label>
                             <select style="width:100%" name="company_service_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             
                               <option  <?php echo (@set_value('company_service_one') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -465,11 +505,12 @@
                           </div>
                         </div>
                       </div>
+                     
                     </div>
 
                     <div id="group_two" style="display:none;">
                       <div class="row clearfix">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <div class="form-group form-group-default  form-group-default-selectFx">
                             <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด </label>
                             <select style="width:100%" name="job_type_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
@@ -490,9 +531,38 @@
                             </select>
                           </div>
                         </div>
+                       
+                      </div>
+                      <div class="row clearfix">
                         <div class="col-sm-6">
                           <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ประสบการณ์</label>
+                            <label>ลักษณะการทำงาน</label>
+                            <select style="width:100%" name="company_work_look" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                              <option  <?php echo (@set_value('company_work_look') == '') ? 'selected':'';?> value="" >เลือก</option>
+                              <option  <?php echo (@set_value('company_work_look') == 1) ? 'selected':'';?> value="1">รับจ้างออกแบบอิสระ</option>
+                              <option  <?php echo (@set_value('company_work_look') == 2) ? 'selected':'';?> value="2">ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์</option>
+                              <option  <?php echo (@set_value('company_work_look') == 3) ? 'selected':'';?> value="3">ออกแบบ ผลิตและจำหน่ายเอง</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group form-group-default form-group-default-selectFx ">
+                            <label>ช่องทางการจำหน่าย</label>
+                            <select style="width:100%" name="company_sell_way" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                              <option  <?php echo (@set_value('company_sell_way') == '') ? 'selected':'';?> value="" >เลือก</option>
+                              <option  <?php echo (@set_value('company_sell_way') == 1) ? 'selected':'';?> value="1">ออนไลน์ </option>
+                              <option  <?php echo (@set_value('company_sell_way') == 2) ? 'selected':'';?> value="2">ร้านค้าหรือออกบู๊ท</option>
+                            </select>
+                          </div>
+                        </div>
+
+
+                      </div>
+                      <div class="row clearfix">
+                        <div class="col-sm-12">
+                          <div class="form-group form-group-default  form-group-default-selectFx">
+                            <label>ประสบการณ์ที่ทำงานหรือทำธุรกิจ</label>
                             <select style="width:100%" name="company_service_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             
                               <option  <?php echo (@set_value('company_service_two') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -507,43 +577,10 @@
                         </div>
                       </div>
                       <div class="row clearfix">
-                        <div class="col-sm-6">
-                          <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ลักษณะการทำงาน</label>
-                            <select style="width:100%" name="company_work_look" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                              <option  <?php echo (@set_value('company_work_look') == '') ? 'selected':'';?> value="" >เลือก</option>
-                              <option  <?php echo (@set_value('company_work_look') == 1) ? 'selected':'';?> value="1">รับจ้างออกแบบอิสระ</option>
-                              <option  <?php echo (@set_value('company_work_look') == 2) ? 'selected':'';?> value="2">ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์</option>
-                              <option  <?php echo (@set_value('company_work_look') == 3) ? 'selected':'';?> value="3">ออกแบบ ผลิตและจำหน่ายเอง</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ลักษณะการทำงานของธุรกิจ </label>
-                            <select style="width:100%" name="company_business_look_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                              <option  <?php echo (@set_value('company_business_look_two') == '') ? 'selected':'';?> value="" >เลือก</option>
-                              <option  <?php echo (@set_value('company_business_look_two') == 1) ? 'selected':'';?> value="1">รับจ้างผลิต </option>
-                              <option  <?php echo (@set_value('company_business_look_two') == 2) ? 'selected':'';?> value="2">รับจัดจำหน่าย</option>
-                              <option  <?php echo (@set_value('company_business_look_two') == 3) ? 'selected':'';?> value="3">ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง </option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row clearfix">
-                        <div class="col-sm-6">
+
+                        <div class="col-sm-12">
                           <div class="form-group form-group-default form-group-default-selectFx ">
-                            <label>ช่องทางการจำหน่าย</label>
-                            <select style="width:100%" name="company_sell_way" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
-                              <option  <?php echo (@set_value('company_sell_way') == '') ? 'selected':'';?> value="" >เลือก</option>
-                              <option  <?php echo (@set_value('company_sell_way') == 1) ? 'selected':'';?> value="1">ออนไลน์ </option>
-                              <option  <?php echo (@set_value('company_sell_way') == 2) ? 'selected':'';?> value="2">ออฟไลน์</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group form-group-default form-group-default-selectFx ">
-                            <label>ผลงานสามารถผลิตในจำนวนมากได้หรือไม่  </label>
+                            <label>คุณสามารถรับจ้างผลิตสินค้าตามจำนวนได้หรือไม่  </label>
                             <select style="width:100%" name="company_product_build" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                               <option  <?php echo (@set_value('company_product_build') == '') ? 'selected':'';?> value="" >เลือก</option>
                               <option  <?php echo (@set_value('company_product_build') == 1) ? 'selected':'';?> value="1">ได้ </option>
@@ -551,21 +588,23 @@
                             </select>
                           </div>
                         </div>
+                        
                       </div>
+                      
                     </div>
                   
                     <div id="group_three" style="display:none;">
                       <div class="row clearfix">
                         <div class="col-sm-6">
                           <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ผลงานของคุณอยู่ในกลุ่มใด</label>
+                            <label>การทำงานของคุณอยู่ในกลุ่มใด</label>
                             <select style="width:100%" id="company_group_product" name="company_group_product" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                               <option  <?php echo (@set_value('company_group_product') == '') ? 'selected':'';?> value="">เลือก</option>
                               <option  <?php echo (@set_value('company_group_product') == 1) ? 'selected':'';?> value="1">งานไม้</option>
                               <option  <?php echo (@set_value('company_group_product') == 2) ? 'selected':'';?> value="2">งานทอผ้า/ย้อม</option>
                               <option  <?php echo (@set_value('company_group_product') == 3) ? 'selected':'';?> value="3">งานปั้น</option>
                               <option  <?php echo (@set_value('company_group_product') == 4) ? 'selected':'';?> value="4">งานจักรสาน</option>
-                              <option  <?php echo (@set_value('company_group_product') == 5) ? 'selected':'';?> value="5">งานเพ้นท์</option>
+                              <option  <?php echo (@set_value('company_group_product') == 5) ? 'selected':'';?> value="5">งานเขียนสีแต่งลาย</option>
                               <option  <?php echo (@set_value('company_group_product') == 6) ? 'selected':'';?> value="6">งานเครื่องเงิน</option>
                               <option  <?php echo (@set_value('company_group_product') == 7) ? 'selected':'';?> value="7">อื่นๆ โปรดระบุ</option>
                           
@@ -580,7 +619,7 @@
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>ประสบการณ์</label>
+                            <label>ประสบการณ์ทำงานหรือทำธุรกิจ</label>
                             <select style="width:100%" name="company_service_three" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             
                               <option  <?php echo (@set_value('company_service_three') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -611,14 +650,14 @@
                             <label> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</label>
                             <select style="width:100%" name="company_product_detail" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                               <option  <?php echo (@set_value('company_product_detail') == '') ? 'selected':'';?> value="" >เลือก</option>
-                              <option  <?php echo (@set_value('company_product_detail') == 1) ? 'selected':'';?> value="1">แบบศิลปะวัฒนธรรมดั้งเดิม </option>
+                              <option  <?php echo (@set_value('company_product_detail') == 1) ? 'selected':'';?> value="1">แบบศิลปวัฒนธรรมดั้งเดิม </option>
                               <option  <?php echo (@set_value('company_product_detail') == 2) ? 'selected':'';?> value="2">แบบตามไอเดียที่คิดขึ้นใหม่</option>
                             </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group form-group-default  ">
-                            <label>คุณสามารถผลิตได้จำนวน (ชิ้น/ต่อเดือน) </label>
+                            <label>คุณสามารถผลิตได้จำนวน ชิ้น/ต่อเดือน </label>
                             <input type="text" name="company_num_product" class="form-control" placeholder="" value="<?php echo set_value('company_num_product'); ?>">
                           </div>
                         </div>
@@ -629,10 +668,9 @@
                       <div class="row clearfix">
                         <div class="col-sm-6">
                           <div class="form-group form-group-default  form-group-default-selectFx">
-                            <label>คุณคือหน่วยงานประเภทใด</label>
+                            <label>องค์กรของคุณคือหน่วยงานประเภทใด</label>
                             <select style="width:100%" name="company_department" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                             <option  <?php echo (@set_value('company_department') == '') ? 'selected':'';?> value="">เลือก</option>
-                              <option  <?php echo (@set_value('company_department') == 1) ? 'selected':'';?> value="1">สถานบันการศึกษา</option>
                               <option  <?php echo (@set_value('company_department') == 2) ? 'selected':'';?> value="2">องค์กรระหว่างประเทศ </option>
                               <option  <?php echo (@set_value('company_department') == 3) ? 'selected':'';?> value="3">หน่วยงานภาครัฐ</option>
                               <option  <?php echo (@set_value('company_department') == 4) ? 'selected':'';?> value="4">สถาบันและพิพิธภัณฑ์</option>
@@ -660,7 +698,7 @@
                       <div class="row clearfix">
                         <div class="col-sm-12">
                           <div class="form-group">
-                            <label>คุณเคยร่วมงาน Design Week มาก่อนหรือไม่  </label><br>
+                            <label>คุณเคยร่วมงาน Design Week ใดๆ หรือไม่  </label><br>
                             <span class="checkbox check-success">
                                 <input  <?php echo (@set_value('company_join_work') == 1) ? 'checked':'';?>  type="checkbox"  value="1" name="company_join_work" id="target_type3">
                                 <label for="target_type3">เคย</label>
@@ -681,7 +719,7 @@
                   <br>
                
                 <div class="row clearfix">
-                    <p>รูปโปรไฟล์</p>
+                    <p style="font-family: initial;">รูปโปรไฟล์</p>
                     <div class="col-sm-12">
                       <!-- <form  class="dropzone" id="form-regis-upload"> -->
                         <div class="fallback">
@@ -696,7 +734,7 @@
                     <div class="checkbox check-success  ">
 
                       <input type="checkbox" value="1" id="checkbox2" >
-                      <label for="checkbox2"> <p><small>ฉันยอมรับและได้อ่าน <a href="#" class="text-info">เงื่อนไขการให้บริการ</a> และ <a href="#" class="text-info">การรักษาความปลอดภัย</a></small></p> </label>
+                      <label for="checkbox2" style="font-family: initial;"> ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
                     </div>
                   
                   </div>
@@ -759,6 +797,26 @@
   </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="Success" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content  bg-success-dark">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body " style="color: white;">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 <!-- BEGIN VENDOR JS -->
 <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>" type="text/javascript"></script>
@@ -806,7 +864,9 @@
     
   })
 </script>
-
+<script type="text/javascript">
+    var domain='<?php  echo base_url().$this->uri->segment(1); ?>/';
+</script>
 <script>
   $(document).ready(function() {
     $('#myFormWizard').bootstrapWizard({
@@ -879,6 +939,13 @@
 <script>
 
   $(document).ready(function() {
+
+    //check verifive email
+    if ($('#msg').val() != ''){
+      $('.modal-body').text($('#msg').val());
+      $('#Success').modal('show');
+    }
+   
    
     //status job
     var group = $('#job').find(':selected').data('group');
@@ -974,9 +1041,11 @@
           return false;
       }
       //css loading
+
       $('#loading').toggle(true);
-    
       $('#form-register').submit();
+      
+     
     });
  
 

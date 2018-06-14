@@ -37,7 +37,7 @@ class Register extends MY_Controller {
 		$data = array();	
 
 		// #tab1
-	
+		
 		$this->form_validation->set_rules('email','อีเมล', 'trim|required|valid_email|callback_email_check');
         $this->form_validation->set_rules('email_again', 'ยืนยันอีเมล', 'trim|required|valid_email|matches[email]');
 		$this->form_validation->set_rules('password','รหัสผ่าน', 'trim|required|min_length[8]');
@@ -48,7 +48,7 @@ class Register extends MY_Controller {
 		if ($this->input->post('job_group') == 1){
 			$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 		}
-
+		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
@@ -89,6 +89,7 @@ class Register extends MY_Controller {
 			}
 			//insert data  
             $data = array(
+				'id_number' => $this->input->post('id_number'),
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
                 'firstname' => $this->input->post('firstname'),
@@ -129,7 +130,9 @@ class Register extends MY_Controller {
 
 			$data_company = [
 				// //group 1
-				
+				'company_name' => $this->input->post('company_name'),
+				'company_location' => $this->input->post('company_location'),
+
 				'company_custom_group' => $this->input->post('company_custom_group'),
 				'company_people' => $this->input->post('company_people'),
 				'company_num_regis' => $this->input->post('company_num_regis'),
@@ -167,16 +170,16 @@ class Register extends MY_Controller {
 			}
 
             if($this->staff_model->saveCreateUser($data,$data_company)){
-                die('asd');
+				
                 //send confirm mail
                 if($this->register_model->sendEmail($this->input->post('email'))){
-                    $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่<br/> Email: ".$this->input->post('email');
-                     $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">'.$msg.'. </div>');
-					 redirect(base_url());
+					$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
+					$this->session->set_flashdata('msg', $msg);
+					redirect('register/index');
 
                 }else{
 					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
-					redirect(base_url());
+					redirect('register/index');
             
                 }
                 

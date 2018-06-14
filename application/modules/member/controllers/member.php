@@ -68,6 +68,7 @@ class Member extends MY_Controller
 			
 			$this->template->stylesheet->add('assets/css/loader.css');
 			$this->template->javascript->add('assets/modules/member/event_form.js');
+			$this->template->javascript->add('assets/modules/member/form_tab.js');
 			
 			switch ($data['project'][0]->project_type) {
 				case 1:
@@ -353,6 +354,7 @@ class Member extends MY_Controller
 						$this->setView('event_form_international',$data);break;
 				}
 				$this->template->javascript->add('assets/modules/member/event_form.js');
+				$this->template->javascript->add('assets/modules/member/form_tab.js');
 				$this->publish();
 			}
 		}
@@ -777,12 +779,12 @@ class Member extends MY_Controller
 				}
 			}
 
-			if($status){
-				$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">ลงทะเบียน สำเร็จ </div>');
+			if($this->member_model->sendEmail($this->input->post('email'))){
+				$this->session->set_flashdata('msg', 'true');
 				redirect(base_url('member'));
 				
 			}else{
-				$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียน ไม่สำเร็จ</div>');
+				$this->session->set_flashdata('msg', 'false');
 				redirect(base_url('member'));
 			}
 		}

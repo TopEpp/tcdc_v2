@@ -59,12 +59,12 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <!-- status product -->
-                    <?php             
-                      if($this->session->flashdata('msg')){
-                          echo $this->session->flashdata('msg');
-                          $this->session->unset_userdata('msg');
-                        } 
-                      ?>
+                    <?php  if($this->session->flashdata('msg')){?>
+                          <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg');?>">
+                      <?php  $this->session->unset_userdata('msg');}else{ ?>
+                        <input type="hidden" id="msg" value ="">
+                    <?php  }?>
+                   
                     <div class="card-title">
                       <h3>กิจกรรมที่เปิดรับสมัคร</h3>
                       
@@ -270,3 +270,48 @@
           <!-- END CONTAINER FLUID -->
         </div>
         <!-- END PAGE CONTENT -->
+
+
+
+
+<div class="modal fade fill-in" id="Success" tabindex="-1" role="dialog" aria-labelledby="modalFillInLabel" aria-hidden="true">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    <i class="pg-close"></i>
+</button>
+<div class="modal-dialog ">
+    <div class="modal-content">
+        
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="row">
+                    <h1 class="text-right hinted-text p-t-10 p-r-10">เราได้รับ ข้อมูลการสมัคร เรียบร้อยแล้ว
+                    </h1>
+            </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<script>
+  setTimeout(function(){ 
+    $(document).ready(function() {
+          //check success form
+       
+        if ($('#msg').val() != ''){
+            if ($('#msg').val() == 'true'){
+              $('#Success').modal('show');
+            }
+          
+          
+        } 
+    });
+  },1000);
+</script>
