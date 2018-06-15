@@ -29,12 +29,12 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>แอพที่เปิดให้บริการ</h3>
-                      <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p>
+                      <h3>กิจกรรมที่เปิดรับสมัคร</h3>
+                      <!-- <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p> -->
                       <?php if($this->session->userdata('sesUserType')==1){?>
                       <div class="pull-right">
                         <div class="col-xs-12">
-                          <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างโครงการ</a>
+                          <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างกิจกรรม</a>
                         </div>
                       </div>
                       <?php }?>
@@ -45,7 +45,7 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
-                            <th style="width:35%">โครงการ</th>
+                            <th style="width:35%">กิจกรรม</th>
                             <th style="width:25%">ประเภท</th>
                             <th style="width:20%">สถานะ</th>
                             <th style="width:20%">อัพเดทเมื่อ</th>

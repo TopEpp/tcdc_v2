@@ -33,7 +33,7 @@
                   <div class="row row-same-height">
                     <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
                       <div class="padding-10 sm-padding-5 sm-m-t-15 m-t-20">
-                        <h2>สร้างโครงการและกิจกรรม</h2>
+                        <h2>สร้างกิจกรรม</h2>
                           <br>
                           <?php $attributes = array('name' => 'frmProject', 'id' => 'form-project');
                                   $lang = $this->uri->segment(1);
@@ -41,26 +41,26 @@
                             ?>
                             <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />   
                             <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />   
-                          <p>ตั้งชื่อโครงการหรือกิจกรรม</p>
+                          <p>ชื่อกิจกรรม</p>
                           <div class="form-group-attached">
                             <div class="row clearfix">
                               <div class="col-sm">
                                 <div class="form-group form-group-default required">
-                                  <label>ชื่อโครงการ</label>
+                                  <label><!-- ชื่อโครงการ --></label>
                                   <input type="text" class="form-control" name="project_name" id="project_name" value="<?php if(!empty($prj)){ echo $prj->project_name; }?>" required>
                                 </div>
                               </div>
 
                             </div>
                             <br>
-                            <p>ตั้งค่าประเภทโครงการ</p>
+                            <p>เลือกประเภทกิจกรรม</p>
                              
                             <div class="form-group-attached">
                               <div class="row clearfix">
 
                                 <div class="col-sm">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
-                                    <label>เลือกประเภทโครงการหรือกิจกรรม</label>
+                                    <label><!-- เลือกประเภทโครงการหรือกิจกรรม --></label>
                                     <select class="cs-select cs-skin-slide cs-transparent form-control" name="project_type" id="project_type" data-init-plugin="cs-select">
                                     <?php foreach ($project_type as $key => $p_type) { 
                                         $sel = '';
@@ -134,7 +134,7 @@
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบเงื่อนไขและข้อตกลง ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg project_detail" placeholder="โปรดระบุบเงื่อนไขและข้อตกลง ..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                             }"><?php if(!empty($prj)){ echo $prj->project_detail;}?></textarea>
@@ -151,11 +151,10 @@
                   <div class="col-md-5 b-r b-dashed b-grey ">
                     <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                       <h2>สร้างผู้ประสานงาน</h2>
-                      <p>เนื่องด้วยโครงการจะต้องมีผู้ที่คอยทำหน้าที่ประสานงานกับผู้ใช้งานในกรณีที่มีปัญหาหรือต้องการข้อมูลเพิ่มเติมข้อมูลตรงส่วนนี้จะทำให้ผู้ใช้งานสามารถติดต่อกับผู้ประสานงานได้ <span> <a href="#">คลิกที่นี่เพื่อศึกษาเพิ่มเติม</span></a> ระบบจะสร้างชื่อผู้ใช้ให้ในกรณีที่ยังไม่เคยมีข้อมูลอยู่ในระบบมาก่อน</p>
+                      <p>เนื่องจากกิจกรรมจะต้องมีผู้ทำหน้าที่ประสานงาน กับผู้ใช้งานในกรณีที่ต้องการข้อมูลเพิ่มเติม ข้อมูลส่วนนี้ เพื่อให้ผู้ใช้งานสามารถติดต่อกับผู้ประสานงานได้  <span><a>คลิกที่นี่เพื่อศึกษาเพิ่มเติม</a></span></p>
                       <br>
 
                       </div>
-
                     </div>
                     <div class="col-md-7">
                       <div class="padding-30 sm-padding-5">

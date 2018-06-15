@@ -73,11 +73,11 @@
 
                             <br>
 
-                            <p>ที่อยู่</p>
+                            <p>ที่อยู่ในการจัดส่งเอกสาร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                 <div class="col-sm-12">
-                                  บ้านเลขที่ <?php echo @$member->address; ?> หมู่ <?php echo @$member->village; ?> ซอย <?php echo @$member->lane; ?>  ถนน <?php echo @$member->road; ?> <br>
+                                  <?php echo @$member->company_name; ?> เลขที่ <?php echo @$member->address; ?> หมู่ <?php echo @$member->village; ?> ซอย <?php echo @$member->lane; ?>  ถนน <?php echo @$member->road; ?> <br>
                                   ตำบล/แขวง <?php echo $member->subdistrict;?>  เขต/อำเภอ <?php echo $member->district;?>  จังหวัด
                                   <?php 
                                     foreach ($province as $key => $value) { ?>
@@ -137,13 +137,6 @@
                                         <?php } ?>
                                     </div>
                                   </div>
-                                  <!-- <div class="row clearfix" id="job_detail" <?php echo (@$member->job_detail && @$member->job == 11) ?  "" : "style='display:none;'" ?>>
-                                    <div class="col-sm-12">
-                                      <div class="form-group form-group-default ">
-                                        <input type="text" name="job_detail" placeholder="ระบุอาชีพของคุณ" class="form-control" value="<?php echo @$member->job_detail; ?>">
-                                      </div>
-                                    </div> 
-                                  </div> -->
                                   
                                   <!-- status group -->
                                   <div id="group_one"  <?php echo (@$status_group != 1) ? 'style="display:none;"':'';?> ">
@@ -242,20 +235,12 @@
                                     </div>
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>ลักษณะการทำงาน</p>
                                             <?php echo (@$member->company_work_look == 1) ? 'รับจ้างออกแบบอิสระ':'';?> 
                                             <?php echo (@$member->company_work_look == 2) ? 'ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์':'';?> 
                                             <?php echo (@$member->company_work_look == 3) ? 'ออกแบบ ผลิตและจำหน่ายเอง':'';?> 
-                                          </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                          <div class="form-group form-group-default  form-group-default-selectFx">
-                                            <p>ลักษณะการทำงานของธุรกิจ </p>
-                                            <?php echo (@$member->company_business_look == 1) ? 'รับจ้างผลิต':'';?>
-                                            <?php echo (@$member->company_business_look == 2) ? 'รับจัดจำหน่าย':'';?>
-                                            <?php echo (@$member->company_business_look == 3) ? 'ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง':'';?>
                                           </div>
                                         </div>
                                       </div>
@@ -329,7 +314,7 @@
                                     <div class="row" >
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  ">
-                                          <p>คุณสามารถผลิตได้จำนวน (ชิ้น/ต่อเดือน) </p>
+                                          <p>คุณสามารถผลิตได้จำนวน ชิ้น/ต่อเดือน </p>
                                           <?php echo @$member->company_num_product; ?>
                                         </div>
                                       </div>
@@ -341,7 +326,7 @@
                                       <div class="row clearfix">
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
-                                            <p>คุณคือหน่วยงานประเภทใด</p>
+                                            <p>องค์กรของคุณคือหน่วยงานประเภทใด</p>
                                             <?php echo (@$member->company_department == 1) ? 'สถานบันการศึกษา':'';?>
                                             <?php echo (@$member->company_department == 2) ? 'องค์กรระหว่างประเทศ':'';?>
                                             <?php echo (@$member->company_department == 3) ? 'หน่วยงานภาครัฐ':'';?>
@@ -380,7 +365,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p>เกี่ยวกับองค์กร/บริษัท</p>
+                              <p>ข้อมูลเพิ่มเติมสำหรับการสมัครเข้าร่วม</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">
@@ -389,23 +374,33 @@
                                     <?php echo @$member->brand; ?>
                                   </div>  
                                   <div class="col-sm-6">
-                                    <p>เว็บไซต์</p>
+                                    <p>บริษัท</p>
                                     <?php echo @$member->website; ?>
                                   </div>
                                 </div>
                                 <br>
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
-                                    <p>ชื่อบริษัท/องค์กร</p>
-                                    <?php echo @$member->company_name; ?>
-                                  </div>
-                                  <div class="col-sm-6">
                                     <p>เฟสบุ๊ค แฟนเพจ</p>
                                     <?php echo @$member->facebook; ?>
                                   </div>
+                                  <div class="col-sm-6">
+                                    <p>อินสตาแกรม</p>
+                                    <?php echo @$member->instragram; ?>
+                                  </div>
+                                </div>
+                                <div class="row clearfix">
+                                  <div class="col-sm-6">
+                                    <p>ไลน์ @</p>
+                                    <?php echo @$member->coordinator_lineid; ?>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <p>เว็บไซต์</p>
+                                    <?php echo @$member->website; ?>
+                                  </div>
                                 </div>
                                 <br>
-                                <p>ที่อยู่</p>
+                                <!-- <p>ที่อยู่</p>
                                 <div class="form-group-attached">
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
@@ -434,8 +429,8 @@
                                           <?php } ?>
 
                                     </div>
-                                  </div> 
-                              </div>
+                                  </div>  -->
+                              <!-- </div> -->
                             </div>
                           </div>
                           <?php if(@$member->coordinator_type != 0){?>
@@ -458,18 +453,18 @@
                                 <br>
                                 <div class="form-group-attached">
                                   <div class="row clearfix">
-                                     <div class="col-sm-4">
+                                     <div class="col-sm-6">
                                         <p>อีเมล</p>
                                         <?php echo @$member->coordinator_email; ?>
                                       </div>
-                                      <div class="col-sm-4">
+                                      <div class="col-sm-6">
                                         <p>เบอร์โทรศัพท์</p>
                                         <?php echo @$member->coordinator_phone; ?>
                                       </div>
-                                      <div class="col-sm-4">
+                                      <!-- <div class="col-sm-4">
                                         <p>ไลนไอดี</p>
                                         <?php echo @$member->coordinator_lineid; ?>
-                                      </div>
+                                      </div> -->
 
                                     </div>
 

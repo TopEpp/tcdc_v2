@@ -157,10 +157,10 @@
               <a href="<?php echo base_url('staff/user_manage');?>" ><span class="title"><?php echo lang('user');?></span></a>
               <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
             </li>
-            <li class="">
+            <!-- <li class="">
               <a href="<?php echo base_url('staff/faq');?>"><span class="title"><?php echo lang('help');?></span></a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
-            </li>
+            </li> -->
 
 
             <?php }else if($this->session->userdata('sesUserType')==2){ ?>
@@ -181,12 +181,12 @@
               <a href="<?php echo base_url('staff/show_user_register');?>" ><span class="title"><?php echo lang('joiner');?></span></a>
               <span class="icon-thumbnail"><i class="fa fa-history"></i></span>
             </li>
-            <li class="">
+            <!-- <li class="">
               <a href="<?php echo base_url('faq');?>" class="detailed">
                 <span class="title"><?php echo lang('help');?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
-            </li>
+            </li> -->
 
 
             <?php }else if($this->session->userdata('sesUserType')==3){ ?>
@@ -208,12 +208,12 @@
               </a>
               <span class="icon-thumbnail"><i class="fa fa-history"></i></span>
             </li>
-            <li class="">
+            <!-- <li class="">
               <a href="<?php echo base_url('faq');?>" class="detailed">
                 <span class="title"><?php echo lang('help');?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
-            </li>
+            </li> -->
             <?php }?>
           </ul>
           <div class="clearfix"></div>

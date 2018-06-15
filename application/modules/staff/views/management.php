@@ -37,11 +37,11 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>การจัดการแอพที่เปิดให้บริการ</h3>
-                      <p>คุณสามารถแก้ไขสถาณะโครงการ ปิด หรือ เปิด ให้ผู้ใช้ดำเนินการได้โดยการกำหนดจากหน้านี้</p>
+                      <h3>การจัดการกิจกรรม</h3>
+                      <!-- <p>คุณสามารถแก้ไขสถาณะโครงการ ปิด หรือ เปิด ให้ผู้ใช้ดำเนินการได้โดยการกำหนดจากหน้านี้</p> -->
                       <div class="pull-right">
                         <div class="col-xs-12">
-                          <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างโครงการ</a>
+                          <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างกิจกรรม</a>
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                     <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
                       <thead>
                         <tr>
-                          <th>โครงการ</th>
+                          <th>กิจกรรม</th>
                           <th style="width:10%">ประเภท</th>
                           <th style="width:10%">สถาณะ</th>
                           <!-- <th>อัปเดทเมื่อ</th> -->

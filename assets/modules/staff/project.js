@@ -3,7 +3,17 @@
   {
 
     $('.datepicker-range').datepicker();
-    $('.wysiwyg').wysihtml5();
+    // $('.wysiwyg').wysihtml5();
+
+    $(".project_detail").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='project_detail[]']").val(html);
+            }
+        }
+    });
+    
     // $('#form-project').validate();
     
     // var validator = $('#form-project').validate({

@@ -28,6 +28,14 @@ $(function(){
     
   });
 
+  $(".reject_detail").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='reject_detail[]']").val(html);
+            }
+        }
+    });
 
 }); 
 
