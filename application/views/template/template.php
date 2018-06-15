@@ -127,7 +127,7 @@
     <!-- END HEADER -->
     <!-- START PAGE CONTENT WRAPPER -->
     <div class="page-content-wrapper ">
-      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px;">
+      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px; <?php if($this->session->userdata('sesUserType')!=3){ echo 'background-color:#d61a67; color:#fff;';}?>">
         <!-- START SIDEBAR MENU -->
         <div class="sidebar-menu fn_from">
           <!-- BEGIN SIDEBAR MENU ITEMS-->
@@ -136,26 +136,28 @@
 
             <?php if($this->session->userdata('sesUserType')==1){ ?>
             <li class="m-t-30 ">
-              <a href="<?php echo base_url('staff');?>" class="detailed">
+              <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('bashboard');?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('staff/management');?>" class="detailed">
+              <a href="<?php echo base_url('staff/management');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('manage');?></span>
                 <!-- <span class="details">มี 10 การแจ้งเตือน</span> -->
               </a>
-              <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+              <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('staff/show_user_register');?>" ><span class="title"><?php echo lang('joiner');?></span></a>
-              <span class="icon-thumbnail"><i class="fa fa-history"></i></span>
+              <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('joiner');?></span></a>
+              <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('staff/user_manage');?>" ><span class="title"><?php echo lang('user');?></span></a>
-              <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
+              <a href="<?php echo base_url('staff/user_manage');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('user');?></span></a>
+              <span class="bg-success icon-thumbnail"><i class="fa fa-user"></i></span>
             </li>
             <!-- <li class="">
               <a href="<?php echo base_url('staff/faq');?>"><span class="title"><?php echo lang('help');?></span></a>
@@ -165,21 +167,22 @@
 
             <?php }else if($this->session->userdata('sesUserType')==2){ ?>
             <li class="m-t-30 ">
-              <a href="<?php echo base_url('staff');?>" class="detailed">
+              <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('bashboard');?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('news');?>" class="detailed">
+              <a href="<?php echo base_url('news');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('news');?></span>
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
             </li>
             <li class="">
-              <a href="<?php echo base_url('staff/show_user_register');?>" ><span class="title"><?php echo lang('joiner');?></span></a>
-              <span class="icon-thumbnail"><i class="fa fa-history"></i></span>
+              <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('joiner');?></span></a>
+              <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span>
             </li>
             <!-- <li class="">
               <a href="<?php echo base_url('faq');?>" class="detailed">
