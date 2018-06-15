@@ -134,10 +134,11 @@
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <p>สถานะ</p>
-                                        <?php foreach ($status as $key => $value) { ?>
+                                        <?php 
+                                          if(!empty($status)){foreach ($status as $key => $value) { ?>
                                           <?php echo (@$member->job == $value->status_id) ? $value->status_name:'';?> 
                                           <?php $status_group = (@$member->job == $value->status_id) ? $value->status_group:'';?> 
-                                        <?php } ?>
+                                        <?php } }?>
                                     </div>
                                   </div>
                                   
