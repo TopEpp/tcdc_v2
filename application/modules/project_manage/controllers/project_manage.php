@@ -422,27 +422,29 @@ class project_manage extends MY_Controller {
 	        ## SET PARAM SEND MAIL ##
 	        $data_mail['mail_to'] = 'natchapol.prms@gmail.com';//$data['email_receive'];
         	$data_mail['mail_to_name'] = $this->input->post('regis_name');
-        	$data_mail['message'] = '12312';//$message;
-        	$data_mail['subject'] = '12321';//$subject;
+        	$data_mail['message'] = $message;
+        	$data_mail['subject'] = $subject;
 
         	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail';
-			$postString = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
+			// $postString = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
 
-			$ch = curl_init( $url );
-			curl_setopt( $ch, CURLOPT_POST, 1);
-			curl_setopt( $ch, CURLOPT_POSTFIELDS, $postString);
-			curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-			curl_setopt( $ch, CURLOPT_HEADER, 0);
-			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+		    $post = curl_init();
+		    $postString = http_build_query($data_mail, '', '&');
 
-			$response = curl_exec( $ch );
-			
+		    curl_setopt($post, CURLOPT_URL, $url);
+		    curl_setopt($post, CURLOPT_POST, count($data_mail));
+		    curl_setopt($post, CURLOPT_POSTFIELDS, $postString);
+		    curl_setopt($post, CURLOPT_RETURNTRANSFER, true);
+
+		    $result = curl_exec($post);
+
+		    curl_close($post);
 
         	// $this->load->library('cmdw_mail');
         	// if($this->cmdw_mail->sendMail($data_mail)){
         	// if($this->pm_model->sendMail($data)){
 
-			if($response){
+			if($result){
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{
