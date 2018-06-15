@@ -113,31 +113,31 @@
                     </div>
                     <div class="col-md-7">
                       <div class="padding-30 sm-padding-5">
-                        <!-- <h5>ที่มาของโครงการ</h5>
-                        <p>ที่มาของโครงการนี้จะใช้ในหน้าที่แจ้งให้ผู้เข้าร่วมรับทราบถึงที่มาของโครงการ</p>
+                        <h5>รายละเอียดกิจกรรม</h5>
+                        <!-- <p>ที่มาของโครงการนี้จะใช้ในหน้าที่แจ้งให้ผู้เข้าร่วมรับทราบถึงที่มาของโครงการ</p> -->
                         <div class="row">
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_provenance" name="project_provenance" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบที่มาของโครงการ ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg project_detail" placeholder="โปรดระบุบที่มาของโครงการ ..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
-                            }"><?php if(!empty($prj)){ echo $prj->project_provenance;}?></textarea>
+                            }"><?php if(!empty($prj)){ echo $prj->project_detail;}?></textarea>
                             </div>
                           </div>
                         </div>
                       
-                       <br> -->
+                       <br>
                         <h5>เงื่อนไขและข้อตกลง</h5>
                         <p>เงือนไขและข้อกำหนดนนี้จะใช้ในหน้าที่แจ้งให้ผู้เข้าร่วมรับทราบถึงข้อตกลงโปรดระบุบเงื่อนไขของโครงการ</p>
                         <div class="row">
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg project_detail" placeholder="โปรดระบุบเงื่อนไขและข้อตกลง ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_provenance" name="project_provenance" class="wysiwyg demo-form-wysiwyg project_provenance" placeholder="โปรดระบุบเงื่อนไขและข้อตกลง ..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
-                            }"><?php if(!empty($prj)){ echo $prj->project_detail;}?></textarea>
+                            }"><?php if(!empty($prj)){ echo $prj->project_provenance;}?></textarea>
                             </div>
                           </div>
                         </div>

@@ -13,6 +13,15 @@
             }
         }
     });
+
+    $(".project_provenance").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='project_provenance[]']").val(html);
+            }
+        }
+    });
     
     // $('#form-project').validate();
     
