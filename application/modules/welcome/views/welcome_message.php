@@ -79,12 +79,18 @@
               $this->session->unset_userdata('verify');
             }
 
-            if($this->session->flashdata('msg')){
-              echo $this->session->flashdata('msg');
-              $this->session->unset_userdata('msg');
-            }
+            // if($this->session->flashdata('msg')){
+            //   echo $this->session->flashdata('msg');
+            //   $this->session->unset_userdata('msg');
+            // }
 
           ?>
+          
+        <?php  if($this->session->flashdata('msg')){?>
+              <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg');?>">
+           <?php  $this->session->unset_userdata('msg');}else{ ?>
+            <input type="hidden" id="msg" value ="">
+         <?php  }?>
   
           <?php $attributes = array('name' => 'frmLogin', 'id' => 'form-login');
               $lang = $this->uri->segment(1);
@@ -141,6 +147,26 @@
       <!-- END Login Right Container-->
     </div>
     
+    <!-- Modal -->
+<div class="modal fade" id="Success" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content  bg-success-dark">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body " style="color: white;">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets/plugins/pace/pace.min.js');?>" type="text/javascript"></script>
@@ -175,6 +201,12 @@
 
           }
       });
+
+       //check verifive email
+    if ($('#msg').val() != ''){
+      $('.modal-body').text($('#msg').val());
+      $('#Success').modal('show');
+    }
 
       
   

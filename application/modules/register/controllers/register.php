@@ -175,7 +175,7 @@ class Register extends MY_Controller {
 				
 					$msg = "ลงทะเบียนสำเร็จแล้ว.. สามารถเข้าใช้งานที่ทางหน้าเว็บไซต์";
 					$this->session->set_flashdata('msg', $msg);
-					redirect('register/index');
+					redirect('welcome/index');
                 // //send confirm mail
                 // if($this->register_model->sendEmail($this->input->post('email'))){
 				// 	$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
@@ -191,7 +191,7 @@ class Register extends MY_Controller {
                 
             }else{
 				$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
-					redirect('register/index');
+					redirect('welcome/index');
 			}
 			
 		

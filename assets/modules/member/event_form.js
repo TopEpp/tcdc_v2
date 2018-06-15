@@ -63,6 +63,7 @@
         }
     });
 
+    $('.textarea').wysihtml5();
    
      
     // $('#form-event-profile').validate();
@@ -70,7 +71,7 @@
     var cloneIndex = $(".clonedInput").length;
   
     function clone(){
-         console.log(cloneIndex)
+        //  console.log(cloneIndex)
         var clone_data = $("#second").parents(".clonedInput").clone()
             .appendTo(".clone-form")
             .attr("id", "clonedInput" +  cloneIndex)
@@ -92,10 +93,12 @@
         $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
         $(".check_product", clone_data).attr("id",'check_product'+cloneIndex);
         $('.check_product_for',clone_data).attr('for','check_product'+cloneIndex);
-
-        $(".product_concept", clone_data).attr("id",'product_concept'+cloneIndex);
-       
         $('.select2', clone_data).remove();
+        
+        
+
+        // $('.product_concept', clone_data).remove();
+        // $(".product_concept", clone_data).attr("id",'product_concept'+cloneIndex);
         $('.datepicker-year').datepicker({
             format: "yyyy",
              weekStart: 1,
@@ -103,8 +106,20 @@
             minViewMode: "years"
         });
         $("select[name='product_type[]']").select2();
+        // $('.product_concept').wysihtml5();
+        // 
 
-        $('#product_concept'+cloneIndex).wysihtml5();
+        var num = $('.product_concept').length + 1; //num is the total count of the cloned textareas
+        clone_data.find('.wysiwyg5-wrapper').html('');
+        clone_data.find('.wysiwyg5-wrapper').html(' <textarea name="product_concept[]" id="textarea-'+num+'" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{ html: true,stylesheets: ["pages/css/editor.css"]}"></textarea>');
+        $('#textarea-'+num).wysihtml5({
+            events: {
+                change: function() {
+                    var html = this.textarea.getValue();
+                    $("input[name='product_concept[]']").val(html);
+                }
+            }
+        }); 
     }
     
     function remove(){
@@ -221,7 +236,7 @@
     //       }
     //   });
     var type = $('#project_type').val();
-   console.log(type)
+//    console.log(type)
     switch (type) {
         case '1':
                         //clear checked form show case 
@@ -469,21 +484,21 @@
 
       // max select file upload
       $("#product_img").on("change", function() {
-        if($("#product_img").files.length > 2) {
+        if($("#product_img").get(0).files.length > 2) {
             alert("คุณสามารถอัพโหลด ภาพรวมของผลงาน ได้สูงสุด 2 ภาพ");
             return false;
         } 
     });
 
     $("#product_closeup").on("change", function() {
-        if($("#product_closeup").files.length > 2) {
+        if($("#product_closeup").get(0).files.length > 2) {
             alert("คุณสามารถอัพโหลด Close Up ได้สูงสุด 2 ภาพ");
             return false;
         } 
     });
 
     $("#product_packshot").on("change", function() {
-        if($("#product_packshot").files.length > 2) {
+        if($("#product_packshot").get(0).files.length > 2) {
             alert("คุณสามารถอัพโหลด Pack Shot ได้สูงสุด 2 ภาพ");
             return false;
         } 
@@ -508,6 +523,45 @@
                 });
                 if (loops){
                     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
+                    return false;
+                }
+                var loops = false;
+                $('.product_img').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
+                       
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                    return false;
+                }
+                var loops = false;
+                $('.product_closeup').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
+                       
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพ Close Up');
+                    return false;
+                }
+                var loops = false;
+                $('.product_packshot').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
+                       
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพPack Shot');
                     return false;
                 }
                     
@@ -542,12 +596,12 @@
             default:
                 day = "Saturday";
         }
-        $('#loading').toggle(true);
+        // $('#loading').toggle(true);
    
 
 
       
-        $('#form-event-profile').submit();
+        // $('#form-event-profile').submit();
     });
  
   });

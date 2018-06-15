@@ -88,13 +88,13 @@
                           <h5>Showcases / Exhibitions <br/>เงื่อนไขและข้อตกลง</h5>
                           <div class="row">
                             <div class="card-block">
-                              <div class="scrollable">
+                              <div class="">
                                 <div class="">
-                                <p>1. ผู้สนใจสามารถกรอกแบบฟอร์มออนไลน์ได้ตั้งแต่วันที่ 16 มิ.ย. – 15 ก.ค. 61</p>
+                                <!-- <p>1. ผู้สนใจสามารถกรอกแบบฟอร์มออนไลน์ได้ตั้งแต่วันที่ 16 มิ.ย. – 15 ก.ค. 61</p>
                                  <p> 2. ผลงานที่ส่งเข้าร่วมจัดแสดง ต้องไม่เป็นการคัดลอกหรือทำซ้ำกับผลงานของบุคคลอื่น และหากมีกรณีที่บุคคลภายนอกกล่าวอ้างหรือใช้สิทธิ์เรียกร้องใดๆว่ามีการละเมิดลิขสิทธิ์ หรือทรัพย์สินทางปัญญาอื่นใดเกี่ยวกับผลงานที่ส่งเข้าร่วมจัดแสดง ผู้แสดงผลงานต้องรับผิดชอบ ชดใช้ค่าเสียหายต่อบุคคลภายนอก เนื่องจากผลแห่งการละเมิดลิขสิทธิ์ หรือสิทธิ์อื่นใดดังกล่าวเองทั้งสิ้น</p>
                                  <p> 3. ผู้จัดแสดงผลงานต้องศึกษารายละเอียดหลักเกณฑ์การเข้าร่วมกิจกรรม และต้องดำเนินการตามหลักเกณฑ์การเข้าร่วมกิจกรรมทุกประการ และยอมรับข้อสงวนสิทธิ์ของ CMDW18 ในการยกเลิก แก้ไข ปรับเปลี่ยน หรือเปลี่ยนแปลงข้อกำหนดและเงื่อนไขต่างๆของเทศกาลที่ CMDW18 เห็นว่าจำเป็นโดยไม่ต้องแจ้งให้ทราบล่วงหน้า ทั้งนี้ การตัดสินใจของ CMDW18 ถือเป็นที่สิ้นสุด</p>
-                                 <p> 4. ข้อมูลต่างๆและเอกสารประกอบการสมัครเป็นข้อมูลที่ถูกต้องและเป็นจริงทุกประการ หากปรากฏภายหลังว่าข้อมูลต่างๆและเอกสารประกอบการสมัครไม่ถูกต้องและไม่เป็นจริงเมื่อใด ให้ถือว่าผู้แสดงผลงานขาดคุณสมบัติทันที และหากว่าในกรณีการให้ข้อมูลที่ไม่ถูกต้องหรือไม่เป็นจริงของผู้แสดงผลงานก่อให้เกิดความเสียหายแก่เทศกาล ผู้แสดงผลงานยินยอมที่จะรับผิดชอบโดยไม่มีเงื่อนไข</p>
-
+                                 <p> 4. ข้อมูลต่างๆและเอกสารประกอบการสมัครเป็นข้อมูลที่ถูกต้องและเป็นจริงทุกประการ หากปรากฏภายหลังว่าข้อมูลต่างๆและเอกสารประกอบการสมัครไม่ถูกต้องและไม่เป็นจริงเมื่อใด ให้ถือว่าผู้แสดงผลงานขาดคุณสมบัติทันที และหากว่าในกรณีการให้ข้อมูลที่ไม่ถูกต้องหรือไม่เป็นจริงของผู้แสดงผลงานก่อให้เกิดความเสียหายแก่เทศกาล ผู้แสดงผลงานยินยอมที่จะรับผิดชอบโดยไม่มีเงื่อนไข</p> -->
+                                 <?php echo @$project[0]->project_provenance; ?>
                                 </div>
                               </div>
                               <br>
@@ -208,7 +208,7 @@
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
-                                  <div class="form-group form-group-default required">
+                                  <div class="form-group form-group-default ">
                                     <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
                                     <input type="text" name="village" class="form-control" placeholder="" value="<?php echo @$member->village; ?>">
                                   </div>
@@ -807,20 +807,20 @@
                            
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
-                              <label for="target_type1">เพื่อเพิ่มมูลค่าของสินค้า</label>
+                              <label for="target_type1">นำเสนอผลงานออกแบบและแบรนด์ให้เป็นที่รู้จัก</label>
                             </div>
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="target_type" id="target_type2">
-                              <label for="target_type2">เพื่อสร้างชื่อแบนด์ให้เป็นที่รู้จัก</label>
+                              <label for="target_type2">พบคู่ค้าทางธุรกิจและรับออเดอร์</label>
                             </div>
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="target_type" id="ttttt">
-                              <label for="ttttt">เพื่อเพิ่มโอกาสการจ้างงาน</label>
+                              <label for="ttttt">จำหน่ายสินค้า</label>
                             </div>
-                            <div class="checkbox check-success">
+                            <!-- <div class="checkbox check-success">
                               <input  <?php echo (@$regis['target_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="target_type" id="target_ty4">
                               <label for="target_ty4">อื่นๆ (โปรดระบุ)</label>
-                            </div>
+                            </div> -->
 
                             <div class="form-group-attached" id="target_type_detail" style="display:none;">
                               <div class="form-group form-group-default ">
@@ -974,7 +974,7 @@
                                             <div class="col-sm-12">
                                               <p>โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="product_concept" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
+                                                <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
                                                 }"></textarea>
@@ -997,7 +997,7 @@
                                                 <div class="form-group  ">
                                                   <label>ภาพรวมของผลงาน</label>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_img" class="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1017,7 +1017,7 @@
                                                 <div class="form-group ">
                                                   <label>ภาพ Close Up</label>
                                                   <div class="fallback">
-                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_closeup" class="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1029,7 +1029,7 @@
                                                 <div class="form-group ">
                                                   <label>ภาพ Pack Shot</label>
                                                   <div class="fallback">
-                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                    <input id="product_packshot"  class="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
                                                   
                                                 </div>
@@ -1105,7 +1105,7 @@
                               </div> -->
                               <div class="col-md-12 ">
                                   <div class="padding-1 sm-padding-5">
-                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-center" >Collection <?php echo $key+1; ?></p></span>
+                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-center" >Collection <?php echo $keys+1; ?></p></span>
                                   </div>
                               </div>
                                 <div class="col-md-12 ">
@@ -1272,7 +1272,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                                    <input id="product_img"  name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                                   </div>
                                                 </div>
                                               </div>

@@ -98,7 +98,7 @@ class Member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
-		print_r($this->input->post());die();
+		// print_r($this->input->post());die();
 		$project_type = $this->input->post('project_type');
 		
 		//validate form
@@ -114,9 +114,10 @@ class Member extends MY_Controller
 		switch ($project_type) {
 			case 1:
 			
-				$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการจัดแสดงผลงาน', 'trim|required');
+				$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการสมัครเข้าร่วม', 'trim|required');
 				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
 				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
 				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
 				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
@@ -778,15 +779,16 @@ class Member extends MY_Controller
 
 				}
 			}
-
-			if($this->member_model->sendEmail($this->input->post('email'))){
-				$this->session->set_flashdata('msg', 'true');
-				redirect(base_url('member'));
+			$this->session->set_flashdata('msg', 'true');
+			redirect(base_url('member'));
+			// if($this->member_model->sendEmail($this->input->post('email'))){
+			// 	$this->session->set_flashdata('msg', 'true');
+			// 	redirect(base_url('member'));
 				
-			}else{
-				$this->session->set_flashdata('msg', 'false');
-				redirect(base_url('member'));
-			}
+			// }else{
+			// 	$this->session->set_flashdata('msg', 'false');
+			// 	redirect(base_url('member'));
+			// }
 		}
 		
 	}
