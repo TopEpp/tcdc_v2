@@ -63,6 +63,43 @@ class project_manage_model extends MY_Model
         }
     }
 
+    function sendMail($data){
+        $this->load->library('mail');
+
+        $subject = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"';  //email subject
+
+        if($data['reg_status']){
+            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:green"> ผ่านการคัดเลือก </span><br>ขอบคุณ';
+        }else{
+            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
+        }
+
+        $conf=array(
+            'Host'=>"ssl://smtp.gmail.com"//ชื่อโดเมน ควรใส่ไว้ใน config
+            ,'Username'=>"TCDC.Chiangmai@gmail.com"//ชื่อโดเมน ควรใส่ไว้ใน config class
+            ,'Password'=>"TCDC@CMDW"//ชื่อโดเมน ควรใส่ไว้ใน config class
+            ,'from'=>"TCDC.Chiangmai@gmail.com"
+            ,'fromename'=>"chiangmaidesignweek"
+            ,'subject'=>$subject
+            ,'message'=>""//ข้อความกรณีไม่ใช้ไฟล์ template
+            ,'to'=>'natchapol.prms@gmail.com'
+            ,'toname'=>'Top'
+            ,'template'=>array(// กรณใช้ template ถ้าไม่ใช้ให้เอาออก
+                'name'=>"/assets/mailtemplate/tempplate.html",
+                'param'=>array(
+                    '{Header}'=>"jigsawinnovation",
+                    '{Title}'=>"สวัสดีครับเรามีข่าวดีๆมาแนะนำ",
+                    '{Content}'=>'<h1>Free pack of iPhone 5S in-hand mockups</h1><h4 style="color:#666">Mock up your app designs in real world settings.</h4><p style="color:#999">This free presentation pack contains 5 mockups of the silver/white iPhone 5S in real-world settings. Included are images of the phone being held in both portrait and landscape orientations for different types of apps and screenshots. To use, simply double click the Smart Object in Photoshop, paste in your portrait or landscape screenshot and hit save.</p>',
+                    '{Footer}'=>"<a href='www.jigsawinnovation.com'>www.jigsawinnovation.com</a>",
+                )
+            )
+
+        );
+        $this->mail->Setup($conf);
+        $result=$this->mail->Send();
+        print_r($result);
+    }
+
     function saveRegis($reg_id,$data_regis){
         $this->db->where('reg_id',$reg_id);
         $this->db->update('tcdc_prj_register',$data_regis);
