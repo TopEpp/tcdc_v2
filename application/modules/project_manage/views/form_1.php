@@ -496,8 +496,8 @@
 
                         <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
+                          <p style="font-weight: bold">เป้าหมายหลัก ในการสมัครเข้าร่วม</p>
                           <div class="form-group-default required">
-                            <p>เป้าหมายหลัก ในการจัดแสดงผลงาน</p>
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
                               <label for="target_type1">เพื่อเพิ่มมูลค่าของสินค้า</label>
@@ -542,10 +542,14 @@
                                   <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
-
+                                <div class="col-md-12 ">
+                                  <div class="padding-1 sm-padding-5">
+                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-center" >Collection <?php echo $key+1; ?></p></span>
+                                  </div>
+                                </div>
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
-                                    <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ <?php echo $key+1; ?></p>
+                                    <!-- <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ <?php echo $key+1; ?></p> -->
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
 
@@ -608,7 +612,7 @@
 
 
                                         <br>
-                                        <p>2. ขนาดและจำนวนของผลงาน</p>
+                                        <p> ขนาดและจำนวนของผลงาน</p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -666,7 +670,7 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p>3. โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p>
+                                              <p> โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -683,7 +687,7 @@
                                         </div>
 
                                         <br>
-                                        <p>4. ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p> ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
@@ -776,7 +780,7 @@
 
 
                                     <br>
-                                    <p>5. ผู้ออกแบบ</p>
+                                    <p> ผู้ออกแบบ</p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
