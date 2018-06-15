@@ -103,7 +103,7 @@ class staff extends MY_Controller {
                 'project_name' => $this->input->post('project_name'),
                 'project_type' => $this->input->post('project_type'),
                 'project_detail' => $this->input->post('project_detail'),
-                // 'project_provenance' => $this->input->post('project_provenance'),
+                'project_provenance' => $this->input->post('project_provenance'),
                 'project_start_date' => $project_start_date,
                 'project_finish_date' => $project_finish_date,
                 'register_start_date' => $register_start_date,
