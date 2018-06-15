@@ -127,7 +127,7 @@
     <!-- END HEADER -->
     <!-- START PAGE CONTENT WRAPPER -->
     <div class="page-content-wrapper ">
-      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px; <?php if($this->session->userdata('sesUserType')!=3){ echo 'background-color:#d61a67; color:#fff;';}?>">
+      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px; <?php if($this->session->userdata('sesUserType')!=3){ echo 'background-color:#A2144F; color:#fff;';}?>">
         <!-- START SIDEBAR MENU -->
         <div class="sidebar-menu fn_from">
           <!-- BEGIN SIDEBAR MENU ITEMS-->

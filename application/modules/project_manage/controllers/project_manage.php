@@ -425,13 +425,13 @@ class project_manage extends MY_Controller {
         	$data_mail['message'] = $message;
         	$data_mail['subject'] = $subject;
 
-        	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail';
+        	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail/';
 			// $postString = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
 
 		    $post = curl_init();
-		    $postString = http_build_query($data_mail, '', '&');
+		    $postString = http_build_query($data_mail, '', '/');
 
-		    curl_setopt($post, CURLOPT_URL, $url);
+		    curl_setopt($post, CURLOPT_URL, $url.$postString);
 		    curl_setopt($post, CURLOPT_POST, count($data_mail));
 		    curl_setopt($post, CURLOPT_POSTFIELDS, $postString);
 		    curl_setopt($post, CURLOPT_RETURNTRANSFER, true);
