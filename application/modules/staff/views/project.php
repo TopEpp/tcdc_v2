@@ -119,7 +119,7 @@
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg project_detail" placeholder="โปรดระบุบที่มาของโครงการ ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_detail" name="project_detail" class="wysiwyg demo-form-wysiwyg project_detail" placeholder="โปรดระบุบ เกี่ยวกับกิจกรรม..." ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                             }"><?php if(!empty($prj)){ echo $prj->project_detail;}?></textarea>
