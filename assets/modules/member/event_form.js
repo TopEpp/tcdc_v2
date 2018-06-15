@@ -596,12 +596,12 @@
             default:
                 day = "Saturday";
         }
-        // $('#loading').toggle(true);
+        $('#loading').toggle(true);
    
 
 
       
-        // $('#form-event-profile').submit();
+        $('#form-event-profile').submit();
     });
  
   });

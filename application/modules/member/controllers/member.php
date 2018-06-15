@@ -179,6 +179,7 @@ class Member extends MY_Controller
 				$data['member']->firstname = $this->input->post('firstname');
 				$data['member']->lastname = $this->input->post('lastname');
 				$data['member']->phone = $this->input->post('phone');
+				$data['id_number']->phone = $this->input->post('id_number');
 				$data['member']->email = $this->input->post('email');
 				$data['member']->address = $this->input->post('address');
 				$data['member']->village = $this->input->post('village');
@@ -368,7 +369,7 @@ class Member extends MY_Controller
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
-				// 'email' => $this->input->post('email'),
+				'id_number' => $this->input->post('id_number'),
 				'address' => $this->input->post('address'),
 				'village' => $this->input->post('village'),
 				'lane' => $this->input->post('lane'),
