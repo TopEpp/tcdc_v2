@@ -162,6 +162,7 @@ class staff_model extends MY_Model{
     }
 
     function getProjectType(){
+        $this->db->order_by('type_order');
         $query = $this->db->get('tcdc_prj_type');
         return $query->result();
     }
