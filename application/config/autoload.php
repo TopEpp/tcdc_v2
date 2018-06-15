@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('Template','Packets','database','session','encrypt','mydate','cloudinarylib');
+$autoload['libraries'] = array('Template','Packets','database','session','encrypt','mydate','cloudinarylib','mail');
 
 
 /*

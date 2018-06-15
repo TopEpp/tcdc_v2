@@ -85,7 +85,7 @@ class project_manage_model extends MY_Model
             ,'to'=>'natchapol.prms@gmail.com'
             ,'toname'=>'Top'
             ,'template'=>array(// กรณใช้ template ถ้าไม่ใช้ให้เอาออก
-                'name'=>"/assets/mailtemplate/tempplate.html",
+                'name'=>"/tcdc_cmdw/tcdc_v2/assets/mailtemplate/tempplate.html",
                 'param'=>array(
                     '{Header}'=>"jigsawinnovation",
                     '{Title}'=>"สวัสดีครับเรามีข่าวดีๆมาแนะนำ",
@@ -97,7 +97,8 @@ class project_manage_model extends MY_Model
         );
         $this->mail->Setup($conf);
         $result=$this->mail->Send();
-        print_r($result);
+        // print_r($result);
+        return true;
     }
 
     function saveRegis($reg_id,$data_regis){

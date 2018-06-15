@@ -410,7 +410,24 @@ class project_manage extends MY_Controller {
 
 		$pid = $this->pm_model->saveAppv($data);
         if($pid){
-        	if($this->pm_model->sendMail($data)){
+        	
+
+        	$subject = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"';  //email subject
+
+	        if($data['reg_status']){
+	            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:green"> ผ่านการคัดเลือก </span><br>ขอบคุณ';
+	        }else{
+	            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
+	        }
+
+	        $data_mail['mail_to'] = 'natchapol.prms@gmail.com';
+        	$data_mail['mail_to_name'] = 'ณัชพล พรหมเสน';
+        	$data_mail['message'] = $message;
+        	$data_mail['subject'] = $subject;
+
+        	$this->load->library('cmdw_mail');
+        	if($this->cmdw_mail->sendMail($data_mail)){
+        	// if($this->pm_model->sendMail($data)){
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{
