@@ -32,8 +32,7 @@ class Register extends MY_Controller {
 
 	public function signup()
 	{
-		
-		
+
 		$data = array();	
 
 		// #tab1
@@ -45,9 +44,9 @@ class Register extends MY_Controller {
 		// #tab2
 
 		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
-		if ($this->input->post('job_group') == 1){
-			$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
-		}
+		// if ($this->input->post('job_group') == 1){
+		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+		// }
 		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
@@ -110,6 +109,9 @@ class Register extends MY_Controller {
 				'zipcode' => $this->input->post('zipcode'),
 				'rec_create_date' => date('Y-m-d'),
 				'job' => $this->input->post('job'),
+
+				//ชั่วคราว
+				'user_active' => '1'
 				
 				
 			);     
@@ -171,20 +173,26 @@ class Register extends MY_Controller {
 
             if($this->staff_model->saveCreateUser($data,$data_company)){
 				
-                //send confirm mail
-                if($this->register_model->sendEmail($this->input->post('email'))){
-					$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
+					$msg = "ลงทะเบียนสำเร็จแล้ว.. สามารถเข้าใช้งานที่ทางหน้าเว็บไซต์";
 					$this->session->set_flashdata('msg', $msg);
 					redirect('register/index');
+                // //send confirm mail
+                // if($this->register_model->sendEmail($this->input->post('email'))){
+				// 	$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
+				// 	$this->session->set_flashdata('msg', $msg);
+				// 	redirect('register/index');
 
-                }else{
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
-					redirect('register/index');
+                // }else{
+				// 	$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
+				// 	redirect('register/index');
             
-                }
+                // }
                 
                 
-            }
+            }else{
+				$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
+					redirect('register/index');
+			}
 			
 		
 		

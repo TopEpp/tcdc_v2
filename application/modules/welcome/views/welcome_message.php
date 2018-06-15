@@ -52,13 +52,13 @@
         <img src="<?php echo base_url('assets/img/img_login.png')?>" data-src="<?php echo base_url('assets/img/img_login.png')?>" data-src-retina="<?php echo base_url('assets/img/img_login.png')?>" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
-        <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
+        <!-- <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
           <h2 class="semi-bold text-white">
 					นำเสนอตัวตนและต่อยอดจากงานหัตถกรรมท้องถิ่นให้โลกได้เห็น</h2>
           <p class="small">
             ลงทะเบียนเพื่อเข้าร่วมโครงการที่คุณต้องการ โดยก่อนอื่นโปรดเข้าสู่ระบบเพื่อดำเนินการในขั้นตอนต่อไป
           </p>
-        </div>
+        </div> -->
         <!-- END Background Caption-->
       </div>
       <!-- END Login Background Pic Wrapper-->
@@ -95,7 +95,7 @@
             <div class="form-group form-group-default fn_from">
               <label class="fn_from">อีเมล/Email</label>
               <div class="controls">
-                <input type="text" name="username" id="username" placeholder="ระบุอีเมล์" class="form-control" required >
+                <input type="text" name="username" id="username" placeholder="" class="form-control" required >
               </div>
             </div>
             <!-- END Form Control-->
@@ -103,7 +103,7 @@
             <div class="form-group form-group-default fn_from">
               <label>ป้อนรหัสผ่าน/Password</label>
               <div class="controls">
-                <input type="password" class="form-control" name="password" id="password" placeholder="ป้อนรหัสผ่าน" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="" required>
               </div>
             </div>
             <!-- START Form Control-->

@@ -1682,7 +1682,7 @@ body.menu-pin .overlay .overlay-brand {
 ------------------------------------
 */
 .breadcrumb {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'dbbn', sans-serif;
   font-weight: 300;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -1714,7 +1714,7 @@ body.menu-pin .overlay .overlay-brand {
 .breadcrumb a {
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 10.5px !important;
+  font-size: 15.5px !important;
   letter-spacing: 0.06em;
   font-weight: 500;
   color: #7b7d82;
@@ -1736,7 +1736,7 @@ body.menu-pin .overlay .overlay-brand {
   color: #0090d9;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 10.5px !important;
+  font-size: 15.5px !important;
   letter-spacing: 0.06em;
 }
 .breadcrumb > .breadcrumb-item.active:before {
@@ -3329,7 +3329,7 @@ hr.dotted {
 @media (max-width: 1400px) {
   body,
   p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 20px;
   }
   h1 {
@@ -3422,7 +3422,7 @@ hr.dotted {
 */
 .btn {
   font-family: 'dbbl', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: normal;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -4318,7 +4318,7 @@ Misc buttons
   text-shadow: none;
   padding: 9px 19px 9px 15px;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 16px;
   border-width: 0;
   -webkit-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
@@ -5557,7 +5557,7 @@ body > .pgn-wrapper {
   font-weight: 500;
   letter-spacing: 0.06em;
   color: rgba(87, 87, 87, 0.7);
-  font-size: 16px;
+  font-size: 20px;
   min-width: 70px;
   text-transform: uppercase;
   border-color: transparent;
@@ -5773,7 +5773,7 @@ body > .pgn-wrapper {
   margin-left: -11px;
 }
 .nav-tabs-linetriangle > li > a span {
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -6599,15 +6599,15 @@ form legend {
   background-color: #fff;
   background-image: none;
   border: 1px solid rgba(0, 0, 0, 0.07);
-  font-family: Arial, sans-serif;
+  font-family: 'dbch', sans-serif;
   -webkit-appearance: none;
   color: #2c2c2c;
   outline: 0;
   height: 35px;
   padding: 9px 12px;
   line-height: normal;
-  font-size: 14px;
-  font-weight: normal;
+  font-size: 22px;
+  font-weight: bold;
   vertical-align: middle;
   min-height: 35px;
   -webkit-transition: all 0.12s ease;
@@ -7051,7 +7051,7 @@ body.rtl .checkbox label::after {
 .form-group label:not(.error) {
   font-family: 'dbbn';
   font-size: 16px;
-  letter-spacing: 0.06em;
+  /* letter-spacing: 0.06em; */
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -7379,7 +7379,7 @@ body.rtl .checkbox label::after {
   color: #f35958;
 }
 .error {
-  font-size: 12px;
+  font-size: 16px;
   color: #f35958;
   display: block;
 }
@@ -8459,8 +8459,8 @@ div.cs-skin-slide::before {
 }
 div.cs-skin-slide {
   width: auto;
-  font-family: Arial, sans-serif;
-  color: #5e5e5e;
+  font-family: 'dbch', sans-serif;
+  color: #b9b9b9;
 }
 div.cs-skin-slide:before {
   background-color: transparent;
@@ -8497,7 +8497,7 @@ div.cs-skin-slide > span:after,
 div.cs-skin-slide.cs-active > span:after {
   content: "\f0d7";
   font-family: FontAwesome;
-  color: #5e5e5e;
+  color: #b9b9b9;
 }
 div.cs-skin-slide .cs-options {
   height: auto;
@@ -8518,7 +8518,7 @@ div.cs-skin-slide .cs-options ul li {
 }
 div.cs-skin-slide .cs-options ul li span {
   display: table-cell;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: normal;
   letter-spacing: normal;
   padding: 5px 0;
@@ -8676,8 +8676,8 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 }
 .table thead tr th {
   text-transform: uppercase;
-  font-family: 'Kanit', sans-serif;
-  font-size: 12.5px;
+  font-family: 'dbbl', sans-serif;
+  font-size: 16.5px;
   letter-spacing: 0.06em;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -8701,7 +8701,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
   border-bottom: 1px solid rgba(225, 225, 225, 0.7);
   border-top: 0px;
   padding: 20px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .table tbody tr td .btn-tag {
   background: rgba(44, 44, 44, 0.07);

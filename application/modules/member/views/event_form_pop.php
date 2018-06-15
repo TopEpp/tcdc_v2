@@ -85,7 +85,7 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5>แบบฟอร์มลงทะเบียนร่วมออกร้านในงาน Pop Market</h5>
+                          <h5> Pop Market <br/>เงื่อนไขและข้อตกลง</h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="scrollable">
@@ -105,7 +105,7 @@
                             <div class="checkbox check-success  ">
 
                              <input type="checkbox" value="1" id="checkbox2" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?> >
-                             <label for="checkbox2">ฉันเข้าใจและยอมรับในเงื่อนไข และ ข้อตกลง </label>
+                             <label for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไข ข้อตกลงแล้ว</label>
                            </div>
 
 

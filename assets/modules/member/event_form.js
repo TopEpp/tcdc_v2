@@ -15,7 +15,6 @@
     $('.timepicker').timepicker();
 
     // show
-    
     $(".product_concept").wysihtml5({
         events: {
             change: function() {
@@ -92,7 +91,10 @@
         $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
         $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
         $(".check_product", clone_data).attr("id",'check_product'+cloneIndex);
-        $("label .check_product_for", clone_data).attr("for",'check_product'+cloneIndex);
+        $('.check_product_for',clone_data).attr('for','check_product'+cloneIndex);
+
+        $(".product_concept", clone_data).attr("id",'product_concept'+cloneIndex);
+       
         $('.select2', clone_data).remove();
         $('.datepicker-year').datepicker({
             format: "yyyy",
@@ -101,6 +103,8 @@
             minViewMode: "years"
         });
         $("select[name='product_type[]']").select2();
+
+        $('#product_concept'+cloneIndex).wysihtml5();
     }
     
     function remove(){
@@ -128,6 +132,8 @@
 
             //status job
         var group = $('#job').find(':selected').data('group');
+        var group_id = $('#job').find(':selected').val();
+        $('#job_group').val(group);
         switch (group) {
             case 1:
                 $( "#group_one" ).toggle(true);
@@ -139,6 +145,17 @@
                 $( "#group_three" ).toggle(true);
               break;
             case 4:
+                if (group_id == 8){
+                    $('#four_nine_detail').prop('disabled', 'disabled');
+                    $('#four_eig_detail').prop('disabled', false);
+                    $( "#four_eig" ).toggle(true);
+                    $( "#four_nine" ).toggle(false);
+                }else{
+                    $('#four_nine_detail').prop('disabled', false);
+                    $('#four_eig_detail').prop('disabled', 'disabled');
+                    $( "#four_nine" ).toggle(true);
+                    $( "#four_eig" ).toggle(false);
+                }
                 $( "#group_four" ).toggle(true);
               break;
           }
@@ -149,6 +166,8 @@
           // $( "#foot" ).toggle(true);
           // $( "#group_four_bug" ).toggle(true);
           var group = $(this).find(':selected').data('group');
+          var group_id = $('#job').find(':selected').val();
+          $('#job_group').val(group);
           switch (group) {
             case 1:
                 $( "#group_one" ).toggle(true);
@@ -169,6 +188,17 @@
                 $( "#group_four" ).toggle(false);
               break;
             case 4:
+                if (group_id == 8){
+                    $('#four_nine_detail').prop('disabled', 'disabled');
+                    $('#four_eig_detail').prop('disabled', false);
+                    $( "#four_eig" ).toggle(true);
+                    $( "#four_nine" ).toggle(false);
+                }else{
+                    $('#four_nine_detail').prop('disabled', false);
+                    $('#four_eig_detail').prop('disabled', 'disabled');
+                    $( "#four_nine" ).toggle(true);
+                    $( "#four_eig" ).toggle(false);
+                }
                 $( "#group_one" ).toggle(false);
                 $( "#group_two" ).toggle(false);
                 $( "#group_three" ).toggle(false);
@@ -468,11 +498,21 @@
        
         switch (type) {
             case '1':
-             
-                if(!$('.check_product').is(":checked")){
+                var loops = false;
+                $('.check_product').each(function() {
+                    if(!$(this).is(":checked")){
+                       loops = true;
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
                     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
                     return false;
                 }
+                    
+                
+               
                 break;
             case '2':
                 //pop market
