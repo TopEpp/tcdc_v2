@@ -68,7 +68,7 @@ class staff extends MY_Controller {
 		// $this->form_validation->set_rules('project_provenance', 'เงื่อนไขและข้อตกลง', 'required');
 		
 		// #tab2
-		$this->form_validation->set_rules('owner_id', 'ผู้ประสานงานโครงการ', 'required');
+		// $this->form_validation->set_rules('owner_id', 'ผู้ประสานงานโครงการ', 'required');
 
 		if($this->form_validation->run() == false){
 			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
