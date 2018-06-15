@@ -405,13 +405,12 @@ class project_manage extends MY_Controller {
         	'email_receive' => $this->input->post('email_receive'),
         	'prj_name' => $this->input->post('prj_name'),
             'reg_status' => $this->input->post('reg_status'),
-            'reject_detail' => $this->input->post('reject_detail')
+            'reject_detail' => $this->input->post('reject_detail'),
+
 		);    
 
 		$pid = $this->pm_model->saveAppv($data);
         if($pid){
-        	
-
         	$subject = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"';  //email subject
 
 	        if($data['reg_status']){
@@ -420,14 +419,28 @@ class project_manage extends MY_Controller {
 	            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
 	        }
 
-	        $data_mail['mail_to'] = 'natchapol.prms@gmail.com';
-        	$data_mail['mail_to_name'] = 'ณัชพล พรหมเสน';
+	        ## SET PARAM SEND MAIL ##
+	        $data_mail['mail_to'] = $data['email_receive'];
+        	$data_mail['mail_to_name'] = $this->input->post('regis_name');
         	$data_mail['message'] = $message;
         	$data_mail['subject'] = $subject;
 
-        	$this->load->library('cmdw_mail');
-        	if($this->cmdw_mail->sendMail($data_mail)){
+        	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail';
+			$myvars = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
+
+			$ch = curl_init( $url );
+			curl_setopt( $ch, CURLOPT_POST, 1);
+			curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
+			curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt( $ch, CURLOPT_HEADER, 0);
+			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+			$response = curl_exec( $ch );
+
+        	// $this->load->library('cmdw_mail');
+        	// if($this->cmdw_mail->sendMail($data_mail)){
         	// if($this->pm_model->sendMail($data)){
+			if($response)
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{

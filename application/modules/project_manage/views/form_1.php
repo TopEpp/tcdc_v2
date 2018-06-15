@@ -981,6 +981,7 @@
                       <input type="hidden" name="prj_name" value="<?php echo $project[0]->project_name;?>">
                       <input type="hidden" name="email_receive" value="<?php echo $member->email;?>">
                       <input type="hidden" name="reg_id" value="<?php echo $regis['reg_id']?>">
+                      <input type="hidden" name="regis_name" value="<?php echo $prename.$member->firstname.' '.$member->lastname;?>">
                       <input type="hidden" name="reg_status" id="reg_status" value="<?php echo $regis['reg_status']?>">
                       <div class="radio radio-default">
                         <input value="1" name="radio_app" id="radio5Yes" type="radio" <?php echo ($regis['reg_status']==1) ? 'checked="checked"':''; ?> >
