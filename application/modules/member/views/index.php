@@ -223,7 +223,7 @@
                       </div>
                     </div> -->
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="display:none;">
                       <div id="card-error" class="card card-default bg-danger-light">
                         <div class="card-header ">
                           <div class="card-title">ประกาศ

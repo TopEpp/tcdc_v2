@@ -81,7 +81,7 @@
 
                                     </div>
                                     <div class="col-md-7">
-                                      <div class="padding-30 sm-padding-5">
+                                      <div class="padding-10 sm-padding-5">
 
                                         
                                         <div class="row">
@@ -100,7 +100,7 @@
                                                     <div class="col-sm-3">
                                                       <div class="form-group form-group-default required form-group-default-selectFx">
                                                         <label>คำนำหน้า</label>
-                                                        <select name="prename" id="prename"  class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                                                        <select style="width:100%" name="prename" id="prename"  class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                         
                                                           <option  <?php echo (@$data->prename == '') ? 'selected':'';?> value="" >เลือก</option>
                                                           <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -149,21 +149,21 @@
                                                         </div>
                                                       </div>
                                                       <div class="col-sm-3">
-                                                        <div class="form-group form-group-default required">
+                                                        <div class="form-group form-group-default ">
                                                           <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
-                                                          <input type="text" name="village" class="form-control" placeholder="ระบุหมู่" value="<?php echo @$data->village; ?>">
+                                                          <input type="text" name="village" class="form-control" placeholder="" value="<?php echo @$data->village; ?>">
                                                         </div>
                                                       </div>
                                                       <div class="col-sm-3">
                                                         <div class="form-group form-group-default ">
                                                           <label>ซอย</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
-                                                          <input type="text" name="lane" class="form-control" placeholder="ระบุซอย" value="<?php echo @$data->lane; ?>">
+                                                          <input type="text" name="lane" class="form-control" placeholder="" value="<?php echo @$data->lane; ?>">
                                                         </div>
                                                       </div>
                                                       <div class="col-sm-3">
                                                         <div class="form-group form-group-default ">
                                                           <label>ถนน</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
-                                                          <input type="text" name="road" class="form-control" placeholder="ระบุถนน" value="<?php echo @$data->road; ?>">
+                                                          <input type="text" name="road" class="form-control" placeholder="" value="<?php echo @$data->road; ?>">
                                                         </div>
                                                       </div>
                                                     </div>
@@ -171,7 +171,7 @@
                                                   <div class="col-sm-6">
                                                       <div class="form-group form-group-default required">
                                                         <label>ตำบล/แขวง</label>
-                                                        <input  name="subdistrict" type="text" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo @$data->subdistrict; ?>">
+                                                        <input  name="subdistrict" type="text" class="form-control" placeholder="" value="<?php echo @$data->subdistrict; ?>">
                                                       </div>
                                                     </div>
                                                     
@@ -314,7 +314,7 @@
                                                               
                                                                 <option  <?php echo (@$data->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
                                                                 <option  <?php echo (@$data->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
-                                                                <option  <?php echo (@$data->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
+                                                                <option  <?php echo (@$data->job_type == 2) ? 'selected':'';?> value="2">ศิลปการแสดง</option>
                                                                 <option  <?php echo (@$data->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
                                                                 <option  <?php echo (@$data->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
                                                                 <option  <?php echo (@$data->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
@@ -336,7 +336,7 @@
                                                               <select style="width:100%" name="company_service_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                               
                                                                 <option  <?php echo (@$data->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                                <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                                                <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
                                                                 <option  <?php echo (@$data->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
                                                                 <option  <?php echo (@$data->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
                                                                 <option  <?php echo (@$data->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
@@ -394,7 +394,7 @@
                                                               
                                                                 <option  <?php echo (@$data->job_type == '') ? 'selected':'';?> value="" >เลือก</option>
                                                                 <option  <?php echo (@$data->job_type == 1) ? 'selected':'';?> value="1">งานฝีมือและหัตถกรรม</option>
-                                                                <option  <?php echo (@$data->job_type == 2) ? 'selected':'';?> value="2">ศิลปะการแสดง</option>
+                                                                <option  <?php echo (@$data->job_type == 2) ? 'selected':'';?> value="2">ศิลปการแสดง</option>
                                                                 <option  <?php echo (@$data->job_type == 3) ? 'selected':'';?> value="3">ทัศนศิลป์</option>
                                                                 <option  <?php echo (@$data->job_type == 4) ? 'selected':'';?> value="4">ดนตรี</option>
                                                                 <option  <?php echo (@$data->job_type == 5) ? 'selected':'';?> value="5">ภาพยนตร์และวิดีทัศน์</option>
@@ -416,7 +416,7 @@
                                                               <select style="width:100%" name="company_service_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                               
                                                                 <option  <?php echo (@$data->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                                <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                                                <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
                                                                 <option  <?php echo (@$data->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
                                                                 <option  <?php echo (@$data->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
                                                                 <option  <?php echo (@$data->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
@@ -508,7 +508,7 @@
                                                                 <select style="width:100%" name="company_service_three" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                                 
                                                                   <option  <?php echo (@$data->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                                  <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบ</option>
+                                                                  <option  <?php echo (@$data->company_service == 1) ? 'selected':'';?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
                                                                   <option  <?php echo (@$data->company_service == 2) ? 'selected':'';?> value="2">0 - 3 ปี</option>
                                                                   <option  <?php echo (@$data->company_service == 3) ? 'selected':'';?> value="3">3 - 10 ปี</option>
                                                                   <option  <?php echo (@$data->company_service == 4) ? 'selected':'';?> value="4">มากกว่า 10 ปี</option>
@@ -536,7 +536,7 @@
                                                               <label> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</label>
                                                               <select style="width:100%" name="company_product_detail" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                                 <option  <?php echo (@$data->company_product_detail == '') ? 'selected':'';?> value="" >เลือก</option>
-                                                                <option  <?php echo (@$data->company_product_detail == 1) ? 'selected':'';?> value="1">แบบศิลปะวัฒนธรรมดั้งเดิม </option>
+                                                                <option  <?php echo (@$data->company_product_detail == 1) ? 'selected':'';?> value="1">แบบศิลปวัฒนธรรมดั้งเดิม </option>
                                                                 <option  <?php echo (@$data->company_product_detail == 2) ? 'selected':'';?> value="2">แบบตามไอเดียที่คิดขึ้นใหม่</option>
                                                               </select>
                                                             </div>
@@ -577,7 +577,7 @@
                                                                 <select style="width:100%" name="company_duty" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                                   <option  <?php echo (@$data->company_duty == '') ? 'selected':'';?> value="">เลือก</option>
                                                                   <option  <?php echo (@$data->company_duty == 1) ? 'selected':'';?> value="1">ส่งเสริมความคิดสร้างสรรค์ และการออกแบบ </option>
-                                                                  <option  <?php echo (@$data->company_duty == 2) ? 'selected':'';?> value="2">ส่งเสริมศิลปะวัฒนธรรม </option>
+                                                                  <option  <?php echo (@$data->company_duty == 2) ? 'selected':'';?> value="2">ส่งเสริมศิลปวัฒนธรรม </option>
                                                                   <option  <?php echo (@$data->company_duty == 3) ? 'selected':'';?> value="3">ส่งเสริมความรับผิดชอบต่อสังคม</option>
                                                                   <option  <?php echo (@$data->company_duty == 4) ? 'selected':'';?> value="4">ส่งเสริมการค้าและธุรกิจ</option>
                                                                   <option  <?php echo (@$data->company_duty == 5) ? 'selected':'';?> value="5">ส่งเสริมวิชาชีพ</option>
@@ -658,25 +658,25 @@
                                                         <div class="col-sm-3">
                                                           <div class="form-group form-group-default required">
                                                             <label>เลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                                                            <input type="text" name="company_address" class="form-control" placeholder="ระบุบ้านเลขที่" value="<?php echo @$data->company_address; ?>">
+                                                            <input type="text" name="company_address" class="form-control" placeholder="" value="<?php echo @$data->company_address; ?>">
                                                           </div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                           <div class="form-group form-group-default required">
                                                             <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
-                                                            <input type="text" name="company_village" class="form-control" placeholder="ระบุหมู่" value="<?php echo @$data->company_village; ?>">
+                                                            <input type="text" name="company_village" class="form-control" placeholder="" value="<?php echo @$data->company_village; ?>">
                                                           </div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                           <div class="form-group form-group-default ">
                                                             <label>ซอย</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
-                                                            <input type="text" name="company_lane" class="form-control" placeholder="ระบุซอย" value="<?php echo @$data->company_lane; ?>">
+                                                            <input type="text" name="company_lane" class="form-control" placeholder="" value="<?php echo @$data->company_lane; ?>">
                                                           </div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                           <div class="form-group form-group-default ">
                                                             <label>ถนน</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
-                                                            <input type="text" name="company_road" class="form-control" placeholder="ระบุถนน" value="<?php echo @$data->company_road; ?>">
+                                                            <input type="text" name="company_road" class="form-control" placeholder="" value="<?php echo @$data->company_road; ?>">
                                                           </div>
                                                         </div>
                                                       </div>
@@ -685,14 +685,14 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group form-group-default required">
                                                           <label>ตำบล/แขวง</label>
-                                                          <input type="text" name="company_subdistrict" id="company_subdistrict" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo @$data->company_subdistrict;?>" >
+                                                          <input type="text" name="company_subdistrict" id="company_subdistrict" class="form-control" placeholder="" value="<?php echo @$data->company_subdistrict;?>" >
                                                         </div>
                                                       </div>
 
                                                       <div class="col-sm-6">
                                                         <div class="form-group form-group-default required">
                                                           <label>เขต/อำเภอ</label>
-                                                          <input type="text" name="company_district" id="company_district" placeholder="ระบุอำเภอของคุณ" class="form-control" value="<?php echo @$data->company_district;?>">
+                                                          <input type="text" name="company_district" id="company_district" placeholder="" class="form-control" value="<?php echo @$data->company_district;?>">
 
                                                         </div>
                                                       </div>

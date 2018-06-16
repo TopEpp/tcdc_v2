@@ -195,6 +195,9 @@ class Member extends MY_Controller
 				$data['member']->website = $this->input->post('website');
 				$data['member']->facebook = $this->input->post('facebook');
 				$data['member']->lineid = $this->input->post('lineid');
+				$data['company']->lineid = $this->input->post('company');
+				$data['instragram']->lineid = $this->input->post('instragram');
+			
 
 				if (!empty($this->input->post('job_type_one'))){
 					$data['member']->job_type = $this->input->post('job_type_one');
@@ -384,6 +387,8 @@ class Member extends MY_Controller
 				'website' => $this->input->post('website'),
 				'facebook' => $this->input->post('facebook'),
 				'lineid' => $this->input->post('lineid'),
+				'company' => $this->input->post('company'),
+				'instragram' => $this->input->post('instragram')
 				
 			);
 			if (!empty($this->input->post('job_type_one'))){
