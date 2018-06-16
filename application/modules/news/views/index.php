@@ -34,8 +34,8 @@
                   </div>
                 </div>
 
-                <div class="card-block">
-                  <div class="row">
+                <div class="card-block" >
+                  <div class="row" style="display:none;">
                     <?php foreach ($news as $key => $value) { ?>
                       <div class="col-lg-4">
                         <div id="card-linear-color" class="card card-default card2">
@@ -60,6 +60,7 @@
           </div>
         </div>
       </div>
+    </div>
 
             
         <!-- END PAGE CONTAINER -->

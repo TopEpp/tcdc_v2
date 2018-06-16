@@ -43,21 +43,21 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('password_again', 'ยืนยันรหัสผ่าน', 'trim|required|min_length[8]|matches[password]');
 		// #tab2
 
-		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
-		// if ($this->input->post('job_group') == 1){
-		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
-		// }
-		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
-		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
-		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
-		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
-		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
-		$this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
-		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
-		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
-		$this->form_validation->set_rules('country','ประเทศ', 'required');
-		$this->form_validation->set_rules('province','จังหวัด', 'trim|required');
-		$this->form_validation->set_rules('zipcode','รหัสไปรณีย์', 'trim|required|min_length[5]|max_length[5]|callback_numeric_dash');
+		// $this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
+		// // if ($this->input->post('job_group') == 1){
+		// // 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+		// // }
+		// $this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
+		// $this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
+		// $this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
+		// $this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
+		// $this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
+		// $this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
+		// $this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
+		// $this->form_validation->set_rules('district','อำเภอ', 'trim|required');
+		// $this->form_validation->set_rules('country','ประเทศ', 'required');
+		// $this->form_validation->set_rules('province','จังหวัด', 'trim|required');
+		// $this->form_validation->set_rules('zipcode','รหัสไปรณีย์', 'trim|required|min_length[5]|max_length[5]|callback_numeric_dash');
 
 	
 

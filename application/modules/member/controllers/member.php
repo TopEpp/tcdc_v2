@@ -104,50 +104,50 @@ class Member extends MY_Controller
 		//validate form
 		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email');
 
-		//company
-		if ( $this->input->post('radio2') == 1){
-			$this->form_validation->set_rules('coordinator_firstname','ชื่อผู้ประสานงาน', 'trim|required');
-			$this->form_validation->set_rules('coordinator_lastname','นามสกุลประสานงาน', 'trim|required');
-			$this->form_validation->set_rules('coordinator_phone','เบอร์โทรประสานงาน', 'trim|required');
-		}
+		// //company
+		// if ( $this->input->post('radio2') == 1){
+		// 	$this->form_validation->set_rules('coordinator_firstname','ชื่อผู้ประสานงาน', 'trim|required');
+		// 	$this->form_validation->set_rules('coordinator_lastname','นามสกุลประสานงาน', 'trim|required');
+		// 	$this->form_validation->set_rules('coordinator_phone','เบอร์โทรประสานงาน', 'trim|required');
+		// }
 
-		switch ($project_type) {
-			case 1:
+		// switch ($project_type) {
+		// 	case 1:
 			
-				$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการสมัครเข้าร่วม', 'trim|required');
-				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
-				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-				break;
-			case 2:
+		// 		$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการสมัครเข้าร่วม', 'trim|required');
+		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+		// 		break;
+		// 	case 2:
 			
-				$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
-				$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
-				break;
-			case 3:
-				$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
-				break;
-			case 4:
-				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
-				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
+		// 		$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
+		// 		$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
+		// 		break;
+		// 	case 3:
+		// 		$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
+		// 		break;
+		// 	case 4:
+		// 		$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
+		// 		$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
-				break;
-			default:
-				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-				break;
-		}
+		// 		break;
+		// 	default:
+		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+		// 		break;
+		// }
 		
 
 
@@ -179,7 +179,7 @@ class Member extends MY_Controller
 				$data['member']->firstname = $this->input->post('firstname');
 				$data['member']->lastname = $this->input->post('lastname');
 				$data['member']->phone = $this->input->post('phone');
-				$data['id_number']->phone = $this->input->post('id_number');
+				$data['member']->id_number = $this->input->post('id_number');
 				$data['member']->email = $this->input->post('email');
 				$data['member']->address = $this->input->post('address');
 				$data['member']->village = $this->input->post('village');
@@ -195,8 +195,8 @@ class Member extends MY_Controller
 				$data['member']->website = $this->input->post('website');
 				$data['member']->facebook = $this->input->post('facebook');
 				$data['member']->lineid = $this->input->post('lineid');
-				$data['company']->lineid = $this->input->post('company');
-				$data['instragram']->lineid = $this->input->post('instragram');
+				$data['member']->company = $this->input->post('company');
+				$data['member']->instragram = $this->input->post('instragram');
 			
 
 				if (!empty($this->input->post('job_type_one'))){

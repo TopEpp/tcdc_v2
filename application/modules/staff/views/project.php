@@ -196,7 +196,7 @@
                 <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab5">
                   <h1>ขอบคุณ</h1>
                   <br>
-                  <h5>เราได้สร้างชื่อผู้ใช้งานโดยระบบได้ส่งอีเมล์ยืนยันการสร้างไปยังอีเมล์ผู้ประสานงาน </h5>
+                  <h5>สร้างกิจกรรมเรียบร้อยแล้ว ระบบจะส่งอีเมลให้ผู้ประสานงานอัตโนมัติ</h5>
                 </div>
                 <div class="padding-20 sm-padding-5 sm-m-b-20 sm-m-t-20 bg-white clearfix">
                   <ul class="pager wizard no-style">
