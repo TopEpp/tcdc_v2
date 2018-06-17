@@ -9,7 +9,7 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
                 <li class="breadcrumb-item active">แดชบอร์ด</li>
               </ol>
               <!-- END BREADCRUMB -->
@@ -29,7 +29,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>กิจกรรมที่เปิดรับสมัคร</h3>
+                      <h3>กิจกรรมเปิดรับสมัคร</h3>
                       <!-- <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p> -->
                       <?php if($this->session->userdata('sesUserType')==1){?>
                       <div class="pull-right">
@@ -45,10 +45,10 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
-                            <th style="width:35%">กิจกรรม</th>
+                            <th style="width:35%">ชื่อกิจกรรม</th>
                             <th style="width:25%">ประเภท</th>
                             <th style="width:20%">สถานะ</th>
-                            <th style="width:20%">อัพเดทเมื่อ</th>
+                            <th style="width:20%">อัพเดทล่าสุด</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -56,9 +56,9 @@
                               $diff=date_diff(date_create($prj->project_finish_date),date_create(date('Y-m-d')));
 
                                if($diff->format("%R%a")<0){
-                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เปิดให้บริการ</span>';
+                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">เปิดรับสมัคร</span>';
                                }else{
-                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ปิดให้บริการ</span>';
+                                  $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ปิดรับสมัคร</span>';
                                }
 
                           ?>
@@ -66,7 +66,7 @@
                               <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
                               <td class="v-align-middle"><?php echo $status;?></td>
-                              <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td>
+                              <td class="v-align-middle"><?php echo $this->mydate->date_2dot($prj->project_update);?></td>
                             </tr>
                           <?php } ?>
                         </tbody>
@@ -79,8 +79,8 @@
                               <tr>
                                 <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
                                 <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg?> ราย</td>
-                                <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
-                                                                           วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
+                                <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $this->mydate->date_2dot($prj->register_start_date).' - '.$this->mydate->date_2dot($prj->register_finish_date);?></p> <br>
+                                                                           วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date).' - '.$this->mydate->date_2dot($prj->project_finish_date);?></p></td>
                                 <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/staff/show_user/'.$prj->project_id)?>">เรียกดู</a></td>
                               </tr>
                             </tbody>

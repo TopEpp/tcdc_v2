@@ -12,6 +12,19 @@ class mydate
     private $shortmonth = array( "","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.", "ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
     private $arabic_digit=array('0','1','2','3','4','5','6','7','8','9');
     private $th_digit=array('๐','๑','๒','๓','๔','๕','๖','๗','๘','๙');
+    function date_2dot($date,$add=0){
+        global  $monthname ,$shortmonth;
+        if($date!=""){
+            $date=substr($date,0,10);
+            $date=str_replace(array('-','.'),'-',$date);
+            list($year,$month,$day) = explode('-', $date);
+
+            return   sprintf("%02d", $day)."." .sprintf("%02d", $month)."." .($year+$add);
+        }else{
+            return "";
+        }
+    }
+
     function date_eng2thai($date,$add=0,$dismonth="L"/*รูปแบบเดือน */,$disyear="L",$flag=' '){
         if($date!="" && $date != '0000-00-00'){
             $date=substr($date,0,10);
