@@ -5557,7 +5557,7 @@ body > .pgn-wrapper {
   font-weight: 500;
   letter-spacing: 0.06em;
   color: rgba(87, 87, 87, 0.7);
-  font-size: 20px;
+  font-size: 18px;
   min-width: 70px;
   text-transform: uppercase;
   border-color: transparent;
@@ -6705,9 +6705,10 @@ fieldset[disabled] .form-control {
   margin-right: 15px;
   min-width: 17px;
   min-height: 17px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 20px;
   margin-bottom: 0;
+  font-family: 'dbch';
 }
 .radio label:before,
 .checkbox label:before {
@@ -7049,8 +7050,8 @@ body.rtl .checkbox label::after {
   margin-bottom: 10px;
 }
 .form-group label:not(.error) {
-  font-family: 'dbbn';
-  font-size: 16px;
+  font-family: 'dbch';
+  font-size: 18px;
   /* letter-spacing: 0.06em; */
   text-transform: uppercase;
   font-weight: 500;
@@ -7059,6 +7060,7 @@ body.rtl .checkbox label::after {
   margin-left: 8px;
 }
 .form-group .help {
+  font-family: 'dbch';
   font-size: 14px;
   color: rgba(87, 87, 87, 0.55);
 }
@@ -7210,6 +7212,7 @@ body.rtl .checkbox label::after {
 }
 .form-group-default.form-group-default-select2 {
   padding: 0;
+
 }
 .form-group-default.form-group-default-select2 > label {
   position: absolute;
@@ -7634,6 +7637,8 @@ select.full-width + .select2-container {
   padding: 0;
   padding-left: 3px;
   padding-top: 1px;
+  font-family: 'dbch';
+  font-weight: bold;
 }
 .select2-container .select2-selection .select2-selection__arrow {
   top: auto;
@@ -7713,6 +7718,7 @@ select.full-width + .select2-container {
 }
 .select2-results {
   margin: 3px 8px 10px 8px;
+  font-family: 'dbch';
 }
 .select2-results li {
   color: #575757;

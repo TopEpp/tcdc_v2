@@ -64,10 +64,14 @@
       <!-- END Login Background Pic Wrapper-->
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
-
+        <div class="d-flex align-items-right" style="float: right;">
+          <div class="pull-left p-r-10 fs-14">
+            ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
+          </div>
+        </div>
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-          <img src="<?php echo base_url('assets/img/logo_b.png');?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png');?>" width="78">
-          <p class="p-t-35 fs-16">เข้าสู่ระบบ</p>
+          <!-- <img src="<?php echo base_url('assets/img/logo_b.png');?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png');?>" width="78"> -->
+          <p class="p-t-35 fs-16">ระบบเทศกาลงานออกแบบเชียงใหม่</p>
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
           <?php $attributes = array('name' => 'frmLogin', 'id' => 'form-login');
               $lang = $this->uri->segment(1);
@@ -86,10 +90,13 @@
 
           ?>
           
-        <?php  if($this->session->flashdata('msg')){?>
-              <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg');?>">
+        <?php  $msg = $this->session->flashdata('msg');
+            if($msg['msg']){?>
+              <input type="hidden" id="msg" value="<?php echo $msg['msg'];?>">
+              <input type="hidden" id="msg2" value="<?php echo $msg['msg2'];?>">
            <?php  $this->session->unset_userdata('msg');}else{ ?>
             <input type="hidden" id="msg" value ="">
+            <input type="hidden" id="msg2" value ="">
          <?php  }?>
   
           <?php $attributes = array('name' => 'frmLogin', 'id' => 'form-login');
@@ -99,7 +106,7 @@
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label class="fn_from">อีเมล/Email</label>
+              <label class="fn_from" style="font-family: 'dbch', sans-serif;">อีเมล</label>
               <div class="controls">
                 <input type="text" name="username" id="username" placeholder="" class="form-control" required >
               </div>
@@ -107,7 +114,7 @@
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label>ป้อนรหัสผ่าน/Password</label>
+              <label style="font-family: 'dbch', sans-serif;">รหัสผ่าน</label>
               <div class="controls">
                 <input type="password" class="form-control" name="password" id="password" placeholder="" required>
               </div>
@@ -117,12 +124,12 @@
               <div class="col-md-6 no-padding sm-p-l-10">
                 <div class="checkbox ">
                   <input type="checkbox" value="1" id="checkbox1">
-                  <label for="checkbox1">จำรหัสผ่าน</label>
+                  <label for="checkbox1" style="font-family: 'dbch', sans-serif;">จำรหัสผ่าน</label>
                 </div>
               </div>
-              <div class="col-md-6 d-flex align-items-center justify-content-end">
+              <!-- <div class="col-md-6 d-flex align-items-center justify-content-end">
                 <a href="#" class="text-info small">ลืมรหัสผ่าน</a>
-              </div>
+              </div> -->
             </div>
             <!-- END Form Control-->
             <a class="btn btn-primary btn-cons m-t-10 fn_from" href="#" id="btn-login" ><?php echo lang('login');?></a>
@@ -131,11 +138,19 @@
             <br/>
             <br/>
             <br/>
+            <div class="row">
+              <div class="col-md-6 d-flex">
+                  <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">ลืมรหัสผ่าน</a>
+                </div>
+            </div>
+            <br/>
+            <br/>
 
             <div class="row">
-              <div class="col-md-6 no-padding sm-p-l-10">
-                <div class="col-md-6 d-flex ">
-                  <a href="#" class="text-info small">ติดต่อเรา</a>
+              <div class="col-md-12 no-padding sm-p-l-10">
+
+                <div class="col-md-12 d-flex ">
+                  <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p>
                 </div>
               </div>
             </div>
@@ -158,7 +173,8 @@
           <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body " style="color: white;">
-
+            <div id="flash_1"></div>
+            <div id="flash_2"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
@@ -204,17 +220,44 @@
 
        //check verifive email
     if ($('#msg').val() != ''){
-      $('.modal-body').text($('#msg').val());
+      $('#flash_1').text($('#msg').val());
+      $('#flash_2').text($('#msg2').val());
       $('#Success').modal('show');
     }
 
-      
+       var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            elems.forEach(function(html) {
+              var switchery = new Switchery(html, {color: '#10CFBD', size : 'small'});
+            });
   
 
       $('#btn-login').click(function(){
         $('#form-login').submit();
       });
-    })
+    });
+
+    var changeCheckbox = document.querySelector('.switchery');
+
+    changeCheckbox.onchange = function() {
+      if(changeCheckbox.checked){
+        lang = 'en';
+      }else{
+        lang = 'th';
+      }
+
+      window.location.href='<?php  echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2)."/".$this->uri->segment(3)."/".$this->uri->segment(4)?>';
+
+      // var URL = '<?php  echo base_url(); ?>'+lang+'/login/set_lang/'+lang;
+      // var data = { 'lang' : lang}
+      // $.ajax({
+      //     url: URL,
+      //     type: "POST",
+      //     data: data,
+      //     success: function (res) {
+      //         // window.location.reload();
+      //     }
+      // });
+    };
     </script>
   </body>
 </html>

@@ -853,13 +853,16 @@
                                                   <br>
                                                   <div class="form-group form-group-default has-error">
                                                     <label class="">รหัสผ่านใหม่</label>
-                                                    <input name="pass_new" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
+                                                    <input name="pass_new" id="pass_new" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
+                                                    <p style="color: red;font-size: 14px;  font-family: 'dbch';" id="errors"></p>
                                                   </div>
                                                   <br>
                                                   <div class="form-group form-group-default has-error">
                                                     <label class="">ยืนยันรหัสผ่านใหม่</label>
                                                     <input name="pass_new_confirm" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                                   </div>
+                                                  <br>
+                                                  <label style="color:red;font-size:16px"> ตั้งรหัสผ่านไม่น้อยกว่า 8 ตัวอักษร ประกอบด้วยตัวอักษร ตัวเลข และเครื่องหมาย </label>
                                                 </div>
                                                 <br>
 
