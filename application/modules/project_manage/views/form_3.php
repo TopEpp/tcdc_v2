@@ -751,28 +751,29 @@
                     <div class="col-sm-12">
                       <br>
 
-                      <h5>คุณได้ตรวจสอบข้อมูลข้างต้นแล้ว ข้อมูลครบถ้วนหรือไม่?</h5>
+                      <h5>ผู้สมัครส่งข้อมูลครบถ้วนหรือไม่</h5>
                       <br>
                       <input type="hidden" name="project_id" value="<?php echo $project_id?>">
                       <input type="hidden" name="user_id" value="<?php echo $user_id?>">
-                      
+
                       <input type="hidden" name="prj_name" value="<?php echo $project[0]->project_name;?>">
                       <input type="hidden" name="email_receive" value="<?php echo $member->email;?>">
                       <input type="hidden" name="reg_id" value="<?php echo $regis['reg_id']?>">
+                      <input type="hidden" name="regis_name" value="<?php echo $prename.$member->firstname.' '.$member->lastname;?>">
                       <input type="hidden" name="reg_status" id="reg_status" value="<?php echo $regis['reg_status']?>">
                       <div class="radio radio-default">
                         <input value="1" name="radio_app" id="radio5Yes" type="radio" <?php echo ($regis['reg_status']==1) ? 'checked="checked"':''; ?> >
-                        <label for="radio5Yes">ผ่านการตรวจสอบ</label>
+                        <label for="radio5Yes">ครบ</label>
                         <input value="0" name="radio_app" id="radio5No" type="radio" <?php echo ($regis['reg_status']==0) ? 'checked="checked"':''; ?> >
-                        <label for="radio5No">ไม่ผ่าน</label>
+                        <label for="radio5No">ไม่ครบ</label>
                       </div>
                       <br>
                       <div id='div_reject' style="display: none;">
-                      <h5>สิ่งที่ต้องแก้ไข</h5>
-                      <p class="all-caps fs-12 bold">โปรดระบุส่งที่ต้องแก้ไข : </p>
+                      <h5>แจ้งสิ่งที่ต้องแก้ไข</h5>
+                      <!-- <p class="all-caps fs-12 bold">โปรดระบุส่งที่ต้องแก้ไข : </p> -->
                       <div class="card-block">
                         <div class="wysiwyg5-wrapper b-a b-grey">
-                          <textarea required id="reject_detail" name="reject_detail" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุส่งที่ต้องแก้ไข ..." ui-jq="wysihtml5" ui-options="{
+                          <textarea required id="reject_detail" name="reject_detail" class="wysiwyg demo-form-wysiwyg reject_detail" placeholder="" ui-jq="wysihtml5" ui-options="{
                           html: true,
                           stylesheets: ['pages/css/editor.css']
                         }"><?php if(!empty($regis)){ echo $regis['reject_detail'];}?></textarea>
