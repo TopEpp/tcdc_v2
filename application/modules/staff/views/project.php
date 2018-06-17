@@ -216,7 +216,7 @@
                         <span>หน้าสุด</span>
                       </button>
                     </li>
-                    <li class="previous">
+                    <li class="previous" id="btn_back">
                       <button class="btn btn-default btn-cons pull-right" type="button">
                         <span>ย้อนกลับ</span>
                       </button>

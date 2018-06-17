@@ -64,9 +64,16 @@
             onNext: function(tab, navigation, index) {
                 console.log("Showing next tab");
                 window.scrollTo(0, 0);
+                $('.previous').show();
             },
             onPrevious: function(tab, navigation, index) {
                 console.log("Showing previous tab");
+
+                var $total = navigation.find('li').length;
+                var $current = index + 1;
+                if ($current == 1) {
+                  $('#btn_back').hide();
+                }
             },
             onInit: function() {
                 $('#rootwizard ul').removeClass('nav-pills');
