@@ -73,6 +73,28 @@
       $('#form-project').submit();
     });
 
+    $('#form-project').bootstrapWizard({
+      onTabClick : function () {
+        return false;
+      },
+      onTabChange : function(){
+        console.log("onTabChange");
+        alert('onTabChange');
+      },
+      onNext : function(){
+
+        console.log("onNext");
+        alert('onNext');
+      },
+      onTabShow: function(tab, navigation, index) {
+        var $total = navigation.find('li').length;
+        var $current = index + 1;
+
+        if ($current == 0) {
+          $('#btn_back').hide();
+        }
+      }
+    });
 
   });
 
