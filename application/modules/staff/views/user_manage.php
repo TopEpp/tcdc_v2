@@ -7,7 +7,7 @@
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
-                  <li class="breadcrumb-item active">การจัดการผู้ใช้</li>
+                  <li class="breadcrumb-item active">ผู้ใช้งาน</li>
                 </ol>
                 <!-- END BREADCRUMB -->
               </div>
@@ -37,13 +37,13 @@
                 
                 <div class="pull-right">
                   <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="ค้นหา">
                   </div>
                 </div>
 
                 <div class="pull-right">
                   <div class="col-xs-12">
-                      <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างผู้ใช้</a>
+                      <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างบัญชีผู้ใช้</a>
                   </div>
                 </div>
                 
@@ -53,12 +53,12 @@
                 <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
                   <thead>
                     <tr>
-                      <th>ชื่อ - สกุล</th>
-                      <th>E-Mail</th>
+                      <th>ชื่อ-นามสกุล</th>
+                      <th>อีเมล</th>
                       <th>กิจกรรมล่าสุด</th>
-                      <th>สถานะบัญชี</th>
-                      <th>สถานะล่าสุด</th>
-                      <th></th>
+                      <th>สถานะ</th>
+                      <th>อัพเดทล่าสุด</th>
+                      <th>จัดการ</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -81,7 +81,7 @@
                             <p><?php echo $value->rec_edit_timestamp;?></p>
                           </td>
                           <td class="v-align-middle">
-                            <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>">เรียกดู</a></p>
+                            <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>">แก้ไข</a></p>
                           </td>
                         </tr>
                     <?php } ?>

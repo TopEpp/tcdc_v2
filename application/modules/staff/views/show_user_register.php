@@ -42,7 +42,7 @@
                         <div class="card card-transparent">
                           <div class="card-header ">
                             <div class="card-title">
-                              <h3>ผู้ขอเข้าร่วม <?php echo $prj->project_name;?></h3>
+                              <h3>ผู้สมัคร <?php echo $prj->project_name;?></h3>
                               <p></p>
                             </div>
                             <div class="card-block">
@@ -51,10 +51,10 @@
                                 <table class="table table-hover table-condensed" id="condensedTable">
                                   <thead>
                                     <tr>
-                                      <th style="width:40%">ชื่อ - สกุล</th>
-                                      <th style="width:20%">เวลาที่ลงทะเบียน</th>
-                                      <th style="width:20%">สถาณะ</th>
-                                      <th style="width:20%">การดำเนินการ</th>
+                                      <th style="width:40%">ชื่อ-นามสกุล</th>
+                                      <th style="width:20%">วันที่สมัคร</th>
+                                      <th style="width:20%">สถานะ</th>
+                                      <th style="width:20%">การจัดการ</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -68,7 +68,7 @@
                                     <td class="v-align-middle semi-bold"><?php echo $mem->member_name;?></td>
                                     <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
                                     <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
-                                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> จัดการ</a>
+                                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a>
                                     </td>
                                   </tr>
                                 <?php } ?>

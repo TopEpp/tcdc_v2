@@ -18,13 +18,13 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>สร้างโครงการ</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa">1</i> <span>สร้างกิจกรรม</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>สร้างผู้ประสานงาน</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa tab-icon">2</i> <span>สร้างผู้ประสานงาน</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>เสร็จสิ้น</span></a>
+                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa tab-icon">3</i> <span>เสร็จสิ้น</span></a>
                 </li>
               </ul>
               <!-- Tab panes -->
@@ -119,7 +119,7 @@
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_detail" name="project_detail" class=" demo-form-wysiwyg project_detail" placeholder="โปรดระบุบ เกี่ยวกับกิจกรรม..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_detail" name="project_detail" class=" demo-form-wysiwyg project_detail" placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                             }"><?php if(!empty($prj)){ echo $prj->project_detail;}?></textarea>
@@ -129,12 +129,12 @@
                       
                        <br>
                         <h5>เงื่อนไขและข้อตกลง</h5>
-                        <p>เงือนไขและข้อกำหนดนนี้จะใช้ในหน้าที่แจ้งให้ผู้เข้าร่วมรับทราบถึงข้อตกลงโปรดระบุบเงื่อนไขของโครงการ</p>
+                        <!-- <p>เงือนไขและข้อกำหนดนนี้จะใช้ในหน้าที่แจ้งให้ผู้เข้าร่วมรับทราบถึงข้อตกลงโปรดระบุบเงื่อนไขของโครงการ</p> -->
                         <div class="row">
                           <div class="card-block">
 
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea required id="project_provenance" name="project_provenance" class=" demo-form-wysiwyg project_provenance" placeholder="โปรดระบุบเงื่อนไขและข้อตกลง ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea required id="project_provenance" name="project_provenance" class=" demo-form-wysiwyg project_provenance" placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                             }"><?php if(!empty($prj)){ echo $prj->project_provenance;}?></textarea>
@@ -171,7 +171,7 @@
                                   <tr>
                                     <td width="5%">#</td>
                                     <td width="50%">ชื่อ - นามสกุล</td>
-                                    <td width="45%">email</td>
+                                    <td width="45%">อีเมล</td>
                                   </tr>
                                 </thead>
                                 <tbody>

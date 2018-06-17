@@ -7,7 +7,7 @@
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
-                <li class="breadcrumb-item active">แก้ไขโปรไฟล์</li>
+                <li class="breadcrumb-item active"><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</li>
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -38,7 +38,7 @@
               <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                   <li class="nav-item">
-                    <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>แก้ไขโปรไฟล์</span></a>
+                    <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>แก้ไขข้อมูลผู้ใช้งาน</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>แก้ไขบัญชี</span></a>
@@ -62,8 +62,8 @@
                                   <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
                                     <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                                     
-                                      <h2>แก้ไขโปรไฟล์</h2>
-                                      <p>โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p>
+                                      <h2><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</h2>
+                                      <!-- <p style="font-family: 'dbch'">โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p> -->
                                       <br>
                                       <div class="profile-img-wrapper2 m-t-5 inline">
                                         <?php echo  cl_image_tag(@$data->profile_img, array( "alt" => "","width" => 70 ,"height"=>70  )); ?>

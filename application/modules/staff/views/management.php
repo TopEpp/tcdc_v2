@@ -17,7 +17,7 @@
             <div class="inner" style="transform: translateY(0px); opacity: 1;">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
                 <li class="breadcrumb-item active">การจัดการ</li>
               </ol>
               <!-- END BREADCRUMB -->
@@ -51,11 +51,11 @@
                     <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
                       <thead>
                         <tr>
-                          <th>กิจกรรม</th>
+                          <th>ชื่อกิจกรรม</th>
                           <th style="width:10%">ประเภท</th>
-                          <th style="width:10%">สถาณะ</th>
+                          <th style="width:10%">สถานะ</th>
                           <!-- <th>อัปเดทเมื่อ</th> -->
-                          <th>ดำเนินการล่าสุดโดย</th>
+                          <th>อัพเดทล่าสุด</th>
                           <th></th>
                           <th></th>
                         </tr>
@@ -239,8 +239,8 @@
               <div class="modal-header clearfix text-left">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h5><span id="form_type">สร้าง</span> <span class="semi-bold">ข่าวสาร</span></h5>
-                <p class="p-b-10">ข่าวสารจะไปปรากฏยังหน้าแดชบอร์ดขอผู้ใช้งาน</p>
+                <h5><span id="form_type" style="font-size: 1.2em;">สร้างข่าวสาร</span></h5>
+                <!-- <p class="p-b-10">ข่าวสารจะไปปรากฏยังหน้าแดชบอร์ดขอผู้ใช้งาน</p> -->
               </div>
               <div class="modal-body">
                 <?php $attributes = array('name' => 'form-news', 'id' => 'form-news');
@@ -294,7 +294,7 @@
                 </form>
                 <div class="row">
                   <div class="col-md-4 m-t-10 sm-m-t-10">
-                    <button type="button" class="btn btn-primary btn-block m-t-5" id="btnSubmitNews"><span id="form_btn_type">สร้าง</span>ข่าวสาร</button>
+                    <button type="button" class="btn btn-primary btn-block m-t-5" id="btnSubmitNews"><span>ยืนยัน</span></button>
                   </div>
                 </div>
               </div>
