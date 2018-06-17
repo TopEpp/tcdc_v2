@@ -101,7 +101,7 @@
                 <div class="card-header ">
                   <div class="card-title">
                     <h3>ข่าวสาร</h3>
-                    <p>คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
+                    <p style="font-family: 'dbch'" >คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
                     <div class="pull-right">
                       <div class="col-xs-12">
                         <button id="show-modal-news" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
@@ -239,7 +239,7 @@
               <div class="modal-header clearfix text-left">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h5><span id="form_type" style="font-size: 1.2em;">สร้างข่าวสาร</span></h5>
+                <h5><span style="font-size: 1.2em;">สร้างข่าวสาร</span></h5>
                 <!-- <p class="p-b-10">ข่าวสารจะไปปรากฏยังหน้าแดชบอร์ดขอผู้ใช้งาน</p> -->
               </div>
               <div class="modal-body">
