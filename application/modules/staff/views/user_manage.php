@@ -65,7 +65,7 @@
                     <?php foreach ($data as $key => $value) { ?>
                         <tr>
                           <td class="v-align-middle semi-bold">
-                            <p><?php echo $value->firstname .' '.$value->lastname; ?></p>
+                            <p style="font-family: 'dbch'"><?php echo $value->firstname .' '.$value->lastname; ?></p>
                           </td>
                           <td class="v-align-middle">
                             <p><?php echo $value->email; ?></p>

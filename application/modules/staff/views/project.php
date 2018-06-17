@@ -148,17 +148,18 @@
                </div>
                <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab2">
                 <div class="row row-same-height">
-                  <div class="col-md-5 b-r b-dashed b-grey ">
+                  <!-- <div class="col-md-5 b-r b-dashed b-grey ">
                     <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                       <h2>สร้างผู้ประสานงาน</h2>
                       <p>เนื่องจากกิจกรรมจะต้องมีผู้ทำหน้าที่ประสานงาน กับผู้ใช้งานในกรณีที่ต้องการข้อมูลเพิ่มเติม ข้อมูลส่วนนี้ เพื่อให้ผู้ใช้งานสามารถติดต่อกับผู้ประสานงานได้  <span><a>คลิกที่นี่เพื่อศึกษาเพิ่มเติม</a></span></p>
                       <br>
 
                       </div>
-                    </div>
-                    <div class="col-md-7">
+                    </div> -->
+                    <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
                         <!-- <form role="form"> -->
+                          <h2>สร้างผู้ประสานงาน</h2>
                           <div class="form-group-attached">
 
                             <!-- ข้อมูลผู้ประสานงาน เริ่ม -->
