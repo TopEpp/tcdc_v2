@@ -38,7 +38,7 @@
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลส่วนบุคคล/องค์กร</span></a>
+                  <a class="active" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ข้อมูลการลงทะเบียน</span></a>
@@ -62,7 +62,7 @@
                             <p>ข้อมูลบุคคล</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12" style="font-family: 'dbch'">
                                     <?php echo $prename.$member->firstname.' '.$member->lastname;?>
                                 </div>
                               </div>
@@ -73,7 +73,7 @@
                             <p>ที่อยู่ในการจัดส่งเอกสาร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12" style="font-family: 'dbch'">
                                   <?php echo @$member->company_name; ?> เลขที่ <?php echo @$member->address; ?> หมู่ <?php echo @$member->village; ?> ซอย <?php echo @$member->lane; ?>  ถนน <?php echo @$member->road; ?> <br>
                                   ตำบล/แขวง <?php echo $member->subdistrict;?>  เขต/อำเภอ <?php echo $member->district;?>  จังหวัด
                                   <?php 
@@ -104,15 +104,15 @@
                               <br>
                               <div class="form-group-attached">
                                 <div class="row clearfix">
-                                  <div class="col-sm-4">
+                                  <div class="col-sm-4" style="font-family: 'dbch'">
                                     <p>อีเมล</p>
                                     <?php echo $member->email;?>
                                   </div>
-                                  <div class="col-sm-4">
+                                  <div class="col-sm-4" style="font-family: 'dbch'">
                                     <p>เบอร์โทรศัพท์</p>
                                     <?php echo (@$member->phone != 0)? @$member->phone : '';?>
                                   </div>
-                                  <div class="col-sm-4">
+                                  <div class="col-sm-4" style="font-family: 'dbch'">
                                     <p>ไลน์ไอดี</p>
                                     <?php echo @$member->lineid; ?>
                                   </div>
@@ -126,12 +126,13 @@
                               <div id="commany">
                                 <p>เกี่ยวกับงาน</p>
                                   <div class="row clearfix">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12" style="font-family: 'dbch'">
                                         <p>สถานะ</p>
-                                        <?php foreach ($status as $key => $value) { ?>
+                                        <?php 
+                                          if(!empty($status)){foreach ($status as $key => $value) { ?>
                                           <?php echo (@$member->job == $value->status_id) ? $value->status_name:'';?> 
                                           <?php $status_group = (@$member->job == $value->status_id) ? $value->status_group:'';?> 
-                                        <?php } ?>
+                                        <?php } }?>
                                     </div>
                                   </div>
                                   
@@ -142,6 +143,7 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด</p>
+                                          <span style="font-family: 'dbch'">
                                           <?php echo (@$member->job_type == 1) ? 'งานฝีมือและหัตถกรรม':'';?>
                                           <?php echo (@$member->job_type == 2) ? 'ศิลปะการแสดง':'';?>
                                           <?php echo (@$member->job_type == 3) ? 'ทัศนศิลป์':'';?>
@@ -154,6 +156,7 @@
                                           <?php echo (@$member->job_type == 10) ? 'การออกแบบ (รวมถึงแฟชั่น)':'';?>
                                           <?php echo (@$member->job_type == 11) ? 'สถาปัตยกรรม':'';?>
                                           <?php echo (@$member->job_type == 12) ? 'แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)':'';?>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
@@ -161,10 +164,12 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ประสบการณ์</p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_service == 1) ? 'กำลังพัฒนาและทดลองต้นแบ':'';?>
                                           <?php echo (@$member->company_service == 2) ? '0 - 3 ปี':'';?>
                                           <?php echo (@$member->company_service == 3) ? '3 - 10 ปี':'';?>
                                           <?php echo (@$member->company_service == 4) ? 'มากกว่า 10 ปี':'';?>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
@@ -172,16 +177,20 @@
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ลูกค้าของคุณคือกลุ่มใด</p>
+                                          <span style="font-family: 'dbch'">
                                           <?php echo (@$member->company_custom_group == 1) ? 'ลูกค้าในประเทศ':'';?> 
                                           <?php echo (@$member->company_custom_group == 2) ? 'ลูกค้าต่างประเทศ':'';?> 
+                                          </span>
                                         </div>
                                       </div>
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ลักษณะการทำงานของธุรกิจ </p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_business_look == 1) ? 'รับจ้างผลิต':'';?>
                                           <?php echo (@$member->company_business_look == 2) ? 'รับจัดจำหน่าย':'';?>
                                           <?php echo (@$member->company_business_look == 3) ? 'ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง':'';?>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
@@ -204,6 +213,7 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด</p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->job_type == 1) ? 'งานฝีมือและหัตถกรรม':'';?>
                                           <?php echo (@$member->job_type == 2) ? 'ศิลปะการแสดง':'';?>
                                           <?php echo (@$member->job_type == 3) ? 'ทัศนศิลป์':'';?>
@@ -216,6 +226,7 @@
                                           <?php echo (@$member->job_type == 10) ? 'การออกแบบ (รวมถึงแฟชั่น)':'';?>
                                           <?php echo (@$member->job_type == 11) ? 'สถาปัตยกรรม':'';?>
                                           <?php echo (@$member->job_type == 12) ? 'แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)':'';?>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
@@ -223,10 +234,12 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p>ประสบการณ์</p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_service == 1) ? 'กำลังพัฒนาและทดลองต้นแบ':'';?>
                                           <?php echo (@$member->company_service == 2) ? '0 - 3 ปี':'';?>
                                           <?php echo (@$member->company_service == 3) ? '3 - 10 ปี':'';?>
                                           <?php echo (@$member->company_service == 4) ? 'มากกว่า 10 ปี':'';?>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
@@ -235,9 +248,11 @@
                                         <div class="col-sm-12">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>ลักษณะการทำงาน</p>
+                                            <span  style="font-family: 'dbch'">
                                             <?php echo (@$member->company_work_look == 1) ? 'รับจ้างออกแบบอิสระ':'';?> 
                                             <?php echo (@$member->company_work_look == 2) ? 'ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์':'';?> 
                                             <?php echo (@$member->company_work_look == 3) ? 'ออกแบบ ผลิตและจำหน่ายเอง':'';?> 
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -246,8 +261,10 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default form-group-default-selectFx ">
                                           <p>ช่องทางการจำหน่าย</p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_sell_way == 1) ? 'ออนไลน์':'';?> 
                                           <?php echo (@$member->company_sell_way == 2) ? 'ออฟไลน์':'';?> 
+                                        </span>
                                         </div>
                                       </div>
                                     </div>
@@ -255,8 +272,10 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default form-group-default-selectFx ">
                                           <p>ผลงานสามารถผลิตในจำนวนมากได้หรือไม่  </p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_product_build == 1) ? 'ได้':'';?>
                                           <?php echo (@$member->company_product_build == 2) ? 'ไม่ได้':'';?>
+                                        </span>
                                         </div>
                                       </div>
                                     </div>
@@ -268,6 +287,7 @@
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>ผลงานของคุณอยู่ในกลุ่มใด</p>
+                                            <span  style="font-family: 'dbch'">
                                             <?php echo (@$member->company_group_product == 1) ? 'งานไม้':'';?>
                                             <?php echo (@$member->company_group_product == 2) ? 'งานทอผ้า/ย้อม':'';?>
                                             <?php echo (@$member->company_group_product == 3) ? 'งานปั้น':'';?>
@@ -275,15 +295,18 @@
                                             <?php echo (@$member->company_group_product == 5) ? 'งานเพ้นท์':'';?>
                                             <?php echo (@$member->company_group_product == 6) ? 'งานเครื่องเงิน':'';?>
                                             <?php echo (@$member->company_group_product == 7) ? @$member->company_group_product_detail:'';?>
+                                          </span>
                                           </div>
                                         </div>
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>ประสบการณ์</p>
+                                            <span  style="font-family: 'dbch'">
                                             <?php echo (@$member->company_service == 1) ? 'กำลังพัฒนาและทดลองต้นแบ':'';?>
                                             <?php echo (@$member->company_service == 2) ? '0 - 3 ปี':'';?>
                                             <?php echo (@$member->company_service == 3) ? '3 - 10 ปี':'';?>
                                             <?php echo (@$member->company_service == 4) ? 'มากกว่า 10 ปี':'';?>
+                                          </span>
                                           </div>
                                         </div>
                                       </div>
@@ -303,8 +326,10 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
                                           <p> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_product_detail == 1) ? 'แบบศิลปะวัฒนธรรมดั้งเดิม':'';?>
                                           <?php echo (@$member->company_product_detail == 2) ? 'แบบตามไอเดียที่คิดขึ้นใหม่':'';?>
+                                        </span>
                                         </div>
                                       </div>
                                     </div>
@@ -312,7 +337,9 @@
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  ">
                                           <p>คุณสามารถผลิตได้จำนวน ชิ้น/ต่อเดือน </p>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo @$member->company_num_product; ?>
+                                        </span>
                                         </div>
                                       </div>
                                     </div>
@@ -324,6 +351,7 @@
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>องค์กรของคุณคือหน่วยงานประเภทใด</p>
+                                            <span  style="font-family: 'dbch'">
                                             <?php echo (@$member->company_department == 1) ? 'สถานบันการศึกษา':'';?>
                                             <?php echo (@$member->company_department == 2) ? 'องค์กรระหว่างประเทศ':'';?>
                                             <?php echo (@$member->company_department == 3) ? 'หน่วยงานภาครัฐ':'';?>
@@ -332,16 +360,19 @@
                                             <?php echo (@$member->company_department == 6) ? 'สมาคม':'';?>
                                             <?php echo (@$member->company_department == 7) ? 'วัดและชุมชน':'';?>
                                             <?php echo (@$member->company_department == 8) ? 'อื่นๆ':'';?>
+                                          </span>
                                           </div>
                                         </div>
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx">
                                             <p>หน้าที่หลักขององค์กร</p>
+                                            <span  style="font-family: 'dbch'">
                                             <?php echo (@$member->company_duty == 1) ? 'ส่งเสริมความคิดสร้างสรรค์ และการออกแบบ':'';?>
                                             <?php echo (@$member->company_duty == 2) ? 'ส่งเสริมศิลปะวัฒนธรรม':'';?>
                                             <?php echo (@$member->company_duty == 3) ? 'ส่งเสริมความรับผิดชอบต่อสังคม':'';?>
                                             <?php echo (@$member->company_duty == 4) ? 'ส่งเสริมการค้าและธุรกิจ':'';?>
                                             <?php echo (@$member->company_duty == 5) ? 'ส่งเสริมวิชาชีพ':'';?>
+                                          </span>
                                           </div>
                                         </div>
                                       </div>
@@ -350,8 +381,10 @@
                                       <div class="col-sm-12">
                                         <div class="form-group">
                                           <p>คุณเคยร่วมงาน Design Week มาก่อนหรือไม่  </p><br>
+                                          <span  style="font-family: 'dbch'">
                                           <?php echo (@$member->company_join_work == 1) ? 'เคย':'';?>
                                           <?php echo (@$member->company_join_work == 0) ? 'ไม่เคย':'';?>
+                                        </span>
                                         </div>
                                       </div>
 
@@ -368,32 +401,44 @@
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
                                     <p>ชื่อแบรนด์</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->brand; ?>
+                                  </span>
                                   </div>  
                                   <div class="col-sm-6">
                                     <p>บริษัท</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->website; ?>
+                                  </span>
                                   </div>
                                 </div>
                                 <br>
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
                                     <p>เฟสบุ๊ค แฟนเพจ</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->facebook; ?>
+                                  </span>
                                   </div>
                                   <div class="col-sm-6">
                                     <p>อินสตาแกรม</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->instragram; ?>
+                                  </span>
                                   </div>
                                 </div>
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
                                     <p>ไลน์ @</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->coordinator_lineid; ?>
+                                  </span>
                                   </div>
                                   <div class="col-sm-6">
                                     <p>เว็บไซต์</p>
+                                    <span  style="font-family: 'dbch'">
                                     <?php echo @$member->website; ?>
+                                  </span>
                                   </div>
                                 </div>
                                 <br>
@@ -440,9 +485,11 @@
                                 <div class="form-group-attached">
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
+                                      <span  style="font-family: 'dbch'">
                                       <?php echo (@$member->coordinator_prename == '1')? 'นาย':''?>
                                       <?php echo (@$member->coordinator_prename == '2')? 'นาง':''?>
                                       <?php echo (@$member->coordinator_prename == '3')? 'นางสาว':''?><?php echo @$member->coordinator_firstname.' '.@$member->coordinator_lastname; ?>
+                                    </span>
                                     </div>  
                                   </div>
                                 </div>
@@ -452,11 +499,15 @@
                                   <div class="row clearfix">
                                      <div class="col-sm-6">
                                         <p>อีเมล</p>
+                                        <span  style="font-family: 'dbch'">
                                         <?php echo @$member->coordinator_email; ?>
+                                      </span>
                                       </div>
                                       <div class="col-sm-6">
                                         <p>เบอร์โทรศัพท์</p>
+                                        <span  style="font-family: 'dbch'">
                                         <?php echo @$member->coordinator_phone; ?>
+                                      </span>
                                       </div>
                                       <!-- <div class="col-sm-4">
                                         <p>ไลนไอดี</p>
@@ -468,11 +519,6 @@
                                   </div>
                               </div>
                           <?php } ?>
-                              
-
-
-
-
                               <!-- ข้อมูลผู้ประสานงาน จบ -->                              
                             </div>
                          
