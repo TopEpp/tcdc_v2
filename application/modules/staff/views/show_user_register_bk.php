@@ -50,7 +50,7 @@
                             } 
                          ?>
                           <tr>
-                            <td class="v-align-middle semi-bold"><?php echo $mem->member_name;?></td>
+                            <td class="v-align-middle semi-bold" style="font-family: 'dbch'"><?php echo $mem->member_name;?></td>
                             <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
                             <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
                               <td class="v-align-middle semi-bold"><a href="#"><i class="fa fa-edit"></i> จัดการ</a>
