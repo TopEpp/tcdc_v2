@@ -8,9 +8,9 @@ $lang['next'] = 'ถัดไป';
 $lang['back'] = 'ย้อนกลับ';
 
 #side menu
-$lang['bashboard'] = 'กิจกรรม';
-$lang['manage'] = 'การจัดการ';
-$lang['joiner'] = 'ผู้เข้าร่วม';
+$lang['bashboard'] = 'หน้าแรก';
+$lang['manage'] = 'กิจกรรม';
+$lang['joiner'] = 'ผู้สมัคร';
 $lang['user'] = 'ผู้ใช้งาน';
 $lang['help'] = 'ช่วยเหลือ';
 $lang['news'] = 'ข่าวสาร';

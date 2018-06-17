@@ -94,7 +94,7 @@
       <div class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14">
-          TH <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > EN
+          ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
           <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName');?></span>
