@@ -17,10 +17,10 @@ class Register extends MY_Controller {
 	public function index()
 	{	
 		// get province
-		$query = $this->db->query('SELECT * FROM std_area_province');
+		$query = $this->db->query('SELECT * FROM std_area_province GROUP BY name_th ASC');
 		$data['province'] = $query->result();
 		//get country
-		$query = $this->db->query('SELECT * FROM std_countries');
+		$query = $this->db->query('SELECT * FROM std_countries GROUP BY name ASC ');
 		$data['countries'] = $query->result();
 
 		//get status_group
@@ -32,6 +32,7 @@ class Register extends MY_Controller {
 
 	public function signup()
 	{
+		$this->load->library('mailgun');
 
 		$data = array();	
 
@@ -173,11 +174,25 @@ class Register extends MY_Controller {
 
             if($this->staff_model->saveCreateUser($data,$data_company)){
 				
-					$msg = "ลงทะเบียนสำเร็จแล้ว.. สามารถเข้าใช้งานที่ทางหน้าเว็บไซต์";
-					$this->session->set_flashdata('msg', $msg);
+					$msg['msg'] = "คุณสร้างบัญชีผู้ใช้งานสำเร็จแล้ว";
+					$msg['msg2'] = "ยินดีต้อนรับสู่งานเทศกาลงานออกแบบเชียงใหม่";
+					$this->session->set_flashdata('msg',$msg);
 					redirect('welcome/index');
+
+				//send mail to api
+				// $data['to'] = $this->input->post('email');
+				// $name = $this->input->post('firstname').' '.$this->input->post('lastname');
+				// $encode_rec = $this->encrypt->encode($data['to']);
+				// $link = base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec;
+				// $content = array(
+				// 	'name' => 'Art',
+				// 	'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการลงทะเบียน <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์ <br/>',
+				// 	'link' => $link
+				// );
+	
+				
                 // //send confirm mail
-                // if($this->register_model->sendEmail($this->input->post('email'))){
+                // if($this->mailgun->send($data,$content)){
 				// 	$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
 				// 	$this->session->set_flashdata('msg', $msg);
 				// 	redirect('register/index');
@@ -259,9 +274,8 @@ class Register extends MY_Controller {
 	function numeric_dash ($num) {
 		return ( ! preg_match("/^([0-9-\s])+$/D", $num)) ? FALSE : TRUE;
 	  }
-    
-        
-
 	
-    
+	
+        
+   
 }

@@ -33,10 +33,10 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>ข้อตกลง</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>เงื่อนไขและข้อตกลง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลผู้สมัคร</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ผลงานออกแบบ</span></a>
@@ -45,7 +45,7 @@
                   <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>วิธีการจัดแสดง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>แบบประเมิน</span></a>
+                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>แบบประเมินผล</span></a>
                 </li>
               </ul>
               <!-- Tab panes -->
@@ -85,7 +85,7 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5>Showcases / Exhibitions <br/>เงื่อนไขและข้อตกลง</h5>
+                          <h5>เงื่อนไขและข้อตกลงสำหรับการจัดแสดงหรือนิทรรศกาล</h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="">
@@ -102,7 +102,7 @@
                             <div class="checkbox check-success  ">
 
                              <input type="checkbox" value="1" id="checkbox2" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?> >
-                             <label  for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไข ข้อตกลงแล้ว</label>
+                             <label  for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
                            </div>
 
 
@@ -113,8 +113,8 @@
                      </div>
                    </div>
                  </div>
-                 <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab2">
-                  <div class="row row-same-height">
+                  <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab2">
+                    <div class="row row-same-height">
                     <!-- <div class="col-md-5 b-r b-dashed b-grey "> -->
                       <!-- <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                         <h2>แบบฟอร์มขอเข้าร่วมการจัดแสดงผลงานออกแบบ</h2>
@@ -319,7 +319,7 @@
                               <!--  status group -->
                               <div id="commany">
                             
-                                <p style="font-weight: bold">สถานภาพของคุณ</p>
+                                <p style="font-weight: bold">คุณสมัครในสถานภาพใด</p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
                                       <div class="form-group form-group-default  form-group-default-selectFx  required">
@@ -647,7 +647,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับการสมัคร</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">
@@ -802,7 +802,7 @@
 
                         <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
-                        <p style="font-weight: bold">เป้าหมายหลัก ในการสมัครเข้าร่วม</p>
+                        <p style="font-weight: bold">เป้าหมายในการสมัคร</p>
                           <div class="form-group-default required">
                            
                             <div class="checkbox check-success">
@@ -846,14 +846,11 @@
                                   <p>ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
-                              <div class="col-md-12 ">
-                                  <div class="padding-1 sm-padding-5">
-                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-center" >Collection 1</p></span>
-                                  </div>
-                              </div>
+
                               
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
+                                  <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น 1</p></span>
                                     <p id="num" class="num"> ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
@@ -905,7 +902,7 @@
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default">
-                                                <p class="all-caps fs-12 bold">ปีที่ออกแบบ</p>
+                                                <label >ปีที่ออกแบบ</label>
                                             
                                                 <div id="myDatepicker" class="input-group date">
                                                   <input name="product_date[]" type="text" class="form-control datepicker-year" >
@@ -1071,7 +1068,7 @@
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
                                             <input type="checkbox" value="1" class="check_product" id="product_check1" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
-                                            <label  class="check_product_for" for="product_check1">ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                            <label  class="check_product_for" for="product_check1">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
                                         </div>
                               
                                         <hr >
@@ -1103,13 +1100,14 @@
                                   <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
-                              <div class="col-md-12 ">
-                                  <div class="padding-1 sm-padding-5">
-                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-center" >Collection <?php echo $keys+1; ?></p></span>
+                              <!-- <div class="col-md-12 ">
+                                  <div class="padding-30 sm-padding-5">
+                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></p></span>
                                   </div>
-                              </div>
+                              </div> -->
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
+                                  <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></p></span>
                                     <p >ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
@@ -1161,7 +1159,7 @@
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default">
-                                                <p class="all-caps fs-12 bold">ปีที่ออกแบบ</p>
+                                              <label >ปีที่ออกแบบ</label>
                                                 <?php 
                                                 $date = $value['product_date'];
                                                 if (!empty(@$value['product_date']) && @$value['product_date'] != '0000-00-00'  ){
@@ -1373,7 +1371,7 @@
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
                                             <input type="checkbox" value="1" class="check_product" id="product_check<?php echo $keys+1;?>" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
-                                            <label clss="check_product_for" for="product_check<?php echo $keys+1;?>">ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                            <label clss="check_product_for" for="product_check<?php echo $keys+1;?>">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
                                         </div>
                               
                                         <hr >

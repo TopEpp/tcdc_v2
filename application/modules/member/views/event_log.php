@@ -6,7 +6,7 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('member');?>">หน้าแรก</a></li>
                   <li class="breadcrumb-item active">ประวัติ</li>
                 </ol>
                 <!-- END BREADCRUMB -->
@@ -36,10 +36,10 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                           <thead>
                             <tr>
-                              <th style="width:35%">โครงการ</th>
+                              <th style="width:35%">ชื่อกิจกรรม</th>
                               <th style="width:25%">ประเภท</th>
                               <th style="width:20%">สถานะ</th>
-                              <th style="width:20%">อัพเดทเมื่อ</th>
+                              <th style="width:20%">อัพเดทล่าสุด</th>
                             </tr>
                           </thead>
                           <tbody>

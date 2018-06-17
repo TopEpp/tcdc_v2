@@ -147,9 +147,35 @@
     //end check company
 
 
-    
-    $('#btn-finish').click(function(){
+    $('#pass_new').on('blur ', function(e){
+      document.getElementById("errors").innerHTML = '';
+      var str = $('#pass_new').val();
+      var err = false ;
 
+      if (str.search(/[a-z]/) < 0) {
+        err = true ;
+      
+      }
+      if (str.search(/[0-9]/) < 0) {
+        err = true ;
+      }
+      if(str.search(/[\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:\-]/) < 0) {
+        err = true ;
+      }
+      if (str.length < 8){
+        err = true ;
+      }
+      if (err) {
+        document.getElementById("errors").innerHTML = "ตั้งรหัสผ่านไม่น้อยกว่า 8 ตัวอักษร ประกอบด้วยตัวอักษร ตัวเลข และเครื่องหมาย ."
+        $('#pass_new').focus();
+        return false;
+      }
+      
+    });
+
+    $('#btn-finish').click(function(){
+     
+      return false;
       //check user active
       if ($('#user-active').val() != ''){
         $('#user_active').val($('#user-active').val()) ;

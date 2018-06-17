@@ -6,7 +6,7 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="<?php echo base_url('member');?>">หน้าหลัก</a></li>
+                  <li class="breadcrumb-item"><a href="<?php echo base_url('member');?>">หน้าแรก</a></li>
                   <li class="breadcrumb-item active">กิจกรรม</li>
                 </ol>
                 <!-- END BREADCRUMB -->
@@ -66,7 +66,7 @@
                     <?php  }?>
                    
                     <div class="card-title">
-                      <h3>กิจกรรมที่เปิดรับสมัคร</h3>
+                      <h3>กิจกรรมเปิดรับสมัคร</h3>
                       
                     </div>
                   </div>
@@ -75,10 +75,10 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
-                            <th style="width:35%">ประเภทกิจกรรม</th>
-                            <th style="width:25%"></th>
+                            <th style="width:35%">ชื่อกิจกรรม</th>
+                            <th style="width:25%">ประเภท</th>
                             <th style="width:20%">สถานะ</th>
-                            <th style="width:20%"></th>
+                            <th style="width:20%">อัพเดตล่าสุด</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -118,11 +118,16 @@
                             <tbody>
                               <tr>
                                 <td width="60%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail;?></p></td>
-                                <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
+                                <?php if ($this->session->userdata('sesUserType') == 1){ ?>
+                                  <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
+
+                                <?php }else{?>
+                                  <td width="10%" style="vertical-align:top"></td> 
+                                <?php } ?>
                                 <?php $start_reg = explode('-',$prj->register_start_date);
-                                      $end_reg = explode('-',$prj->register_finish_date);
-                                 ?>
-                                <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $start_reg[2].'/'.$start_reg[1].'/'.$start_reg[0].' - '.$end_reg[2].'/'.$end_reg[1].'/'.$end_reg[0]?></p> <br>
+                                        $end_reg = explode('-',$prj->register_finish_date);
+                                  ?>
+                                <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> <br>
                                                                         
                                 <?php if ($status) {?>
                                   <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">สมัคร</a></td>
@@ -285,7 +290,9 @@
             <div class="row">
                 <div class="col-md-12">
                 <div class="row">
-                    <h1 class="text-right hinted-text p-t-10 p-r-10">เราได้รับ ข้อมูลการสมัคร เรียบร้อยแล้ว
+                    <h1 class="text-left hinted-text p-t-10 p-r-10">
+                      คุณได้สมัครเข้าร่วมกิจกรรมสำเร็จแล้ว<br>
+                      เทศกาลงานออกแบบจะเแจ้งผลการพิจารณา <br>ให้ทราบทางอีเมลต่อไป
                     </h1>
             </div>
                 </div>
@@ -293,7 +300,7 @@
             
         </div>
         <div class="modal-footer">
-
+        <button type="button" class="btn btn-default"  data-dismiss="modal">กลับสู่กิจกรรม</button>
         </div>
     </div>
     <!-- /.modal-content -->
@@ -304,7 +311,6 @@
   setTimeout(function(){ 
     $(document).ready(function() {
           //check success form
-       
         if ($('#msg').val() != ''){
             if ($('#msg').val() == 'true'){
               $('#Success').modal('show');

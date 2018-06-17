@@ -88,13 +88,13 @@
       <!-- END MOBILE SIDEBAR TOGGLE -->
       <div class="">
         <div class="brand inline  m-l-10 ">
-          <a href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/cmdw_logo.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/cmdw_logo.png');?> " data-src-retina="<?php echo base_url('assets/img/cmdw_logo.png');?> " width="78"></a>
+          <a style="font-family: 'dbbl', sans-serif; font-size: 14px;" href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/logo_b.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?> " data-src-retina="<?php echo base_url('assets/img/logo_b.png');?> " width="40">Chiang Mai  Design Week</a>
         </div>
       </div>
       <div class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14">
-          TH <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > EN
+          ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
           <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName');?></span>
@@ -113,9 +113,9 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-            <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
+            <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"><i class="pg-settings_small"></i> ตั้งค่า</a>
             <a href="<?php echo base_url('logout');?>" class="clearfix bg-master-lighter dropdown-item">
-              <span class="pull-left">Logout</span>
+              <span class="pull-left">ออกจากระบบ</span>
               <span class="pull-right"><i class="pg-power"></i></span>
             </a>
           </div>

@@ -85,7 +85,7 @@
                
         cloneIndex++;
 
-        $('#num', clone_data).text("Collection " + cloneIndex);
+        $('#num', clone_data).text("คอลเลกชั่น " + cloneIndex);
         $('input', clone_data).val('');
         $('img', clone_data).remove();
         $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');

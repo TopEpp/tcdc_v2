@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8" />
-  <title>สร้างบัญชี : CMDW</title>
+  <title>สร้างบัญชีผู้ใช้งาน</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
   <link rel="apple-touch-icon" href="pages/ico/60.png">
   <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -87,7 +87,7 @@
       <div class=" justify-content-center flex-column  ">
         <div id="title_head">
         <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"></a>
-        <h3 >สร้างบัญชี</h3>
+        <h3 >สร้างบัญชีผู้ใช้งาน</h3>
 
         </div>
        
@@ -104,10 +104,10 @@
 
           <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
             <li class="nav-item">
-              <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span >สร้างบัญชี</span></a>
+              <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span >สร้างบัญชีผู้ใช้งาน</span></a>
             </li>
             <li class="nav-item">
-              <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span  >ข้อมูลส่วนตัว</span></a>
+              <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span  >ข้อมูลผู้ใช้งาน</span></a>
             </li>
             <!-- <li class="nav-item">
               <a data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-check tab-icon"></i> <span>ยืนยันข้อมูล</span></a>
@@ -124,9 +124,9 @@
             
 
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-12" >
                     <div class="form-group form-group-default required">
-                      <label>อีเมล,Email</label><span class="text-danger"><?php echo form_error('email'); ?></span>
+                      <label style="font-family: 'dbch', sans-serif;">อีเมล</label><span class="text-danger"><?php echo form_error('email'); ?></span>
                       <input type="text" id="email" name="email" placeholder="" class="form-control"  value="<?php echo set_value('email'); ?>"  >
                       
                     </div>
@@ -135,7 +135,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group form-group-default required">
-                      <label>ยืนยันอีเมล,Confirm Email</label>
+                      <label style="font-family: 'dbch', sans-serif;">ยืนยันอีเมล</label>
                       <span class="text-danger"><?php echo form_error('email_again'); ?></span>
                       <input type="text" id="email_again" name="email_again" placeholder="" class="form-control" value="<?php echo set_value('email_again'); ?>" >
                     
@@ -145,7 +145,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group form-group-default required">
-                      <label>รหัสผ่าน,Password</label>
+                      <label>รหัสผ่าน</label>
                     <span class="text-danger"><?php echo form_error('password'); ?></span>
                       <input type="password" id="password" name="password" placeholder="" class="form-control"  minlength="8"  pattern=".{8,}" value="<?php echo set_value('password'); ?>" >
                     </div>
@@ -154,7 +154,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group form-group-default required">
-                      <label>ยืนยันรหัสผ่าน,Confirm Password</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
+                      <label>ยืนยันรหัสผ่าน</label><span class="text-danger"><?php echo form_error('password_again'); ?></span>
                       <input type="password" id="password_again" name="password_again" placeholder="" class="form-control"  minlength="8" value="<?php echo set_value('password_again'); ?>">
                     </div>
                   </div>
@@ -168,7 +168,7 @@
               <div class="row clearfix">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default required">
-                      <label>เลขบัตรประชาชน</label><span class="text-danger"><?php echo form_error('id_number'); ?></span>
+                      <label>เลขที่บัตรประชาชน</label><span class="text-danger"><?php echo form_error('id_number'); ?></span>
                       <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo set_value('id_number'); ?>">
                     </div>
                   </div>
@@ -177,7 +177,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group form-group-default  form-group-default-selectFx required ">
-                      <label>คำนำหน้า,Prename</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
+                      <label>คำนำหน้า</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
                       <select  style="width:100%" style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                 
                         <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -193,7 +193,7 @@
                   </div>  
                   <div class="col-md-4">
                     <div class="form-group form-group-default required">
-                      <label>ชื่อ,First Name</label>
+                      <label>ชื่อ</label>
                       <span class="text-danger"><?php  echo  form_error('firstname'); ?></span>
                       <input type="text"  id="firstname" name="firstname" placeholder="" class="form-control" value="<?php echo set_value('firstname'); ?>" >
 
@@ -201,7 +201,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-group form-group-default required">
-                      <label>นามสกุล,Last Name</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
+                      <label>นามสกุล</label><span class="text-danger"><?php echo form_error('lastname'); ?></span>
                       <input type="text" id="lastname" name="lastname" placeholder="" class="form-control" value="<?php echo set_value('lastname'); ?>">
         
                     </div>
@@ -211,7 +211,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group form-group-default  form-group-default-selectFx ">
-                      <label>วันเกิด/Birthday</label><span class="text-danger"><?php  echo  form_error('birthday'); ?></span>
+                      <label>วันเกิด</label><span class="text-danger"><?php  echo  form_error('birthday'); ?></span>
                       <select  style="width:100%" id="birthday" name="birthday" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">                
                         <option  value="" >เลือก</option>
                         <?php for ($i = 1;$i<=31;$i++) {
@@ -228,25 +228,12 @@
                   </div>  
                   <div class="col-md-4">
                     <div class="form-group form-group-default  form-group-default-selectFx">
-                      <label>เดือนเกิด/Month Birth</label>
+                      <label>เดือนเกิด</label>
                       <span class="text-danger"><?php  echo  form_error('month_of_birth'); ?></span>
-                      <?php $months = array(
-                                'January',
-                                'February',
-                                'March',
-                                'April',
-                                'May',
-                                'June',
-                                'July ',
-                                'August',
-                                'September',
-                                'October',
-                                'November',
-                                'December',
-                            );  ?>
+                      <?php $thaimonth=array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");   ?>
                       <select  style="width:100%" id="month_of_birth" name="month_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                           <option  value="" >เลือก</option>
-                          <?php foreach ($months as $key => $value) { 
+                          <?php foreach ($thaimonth as $key => $value) { 
                             $select = '';
                             
                             if(set_value('month_of_birth') == $value ){
@@ -261,11 +248,11 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-group form-group-default  form-group-default-selectFx">
-                      <label>ปีเกิด/Year Birth</label><span class="text-danger"><?php echo form_error('year_of_birth'); ?></span>
+                      <label>ปีเกิด</label><span class="text-danger"><?php echo form_error('year_of_birth'); ?></span>
                       <select style="width:100%" id="year_of_birth" name="year_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                           <option  value="" >เลือก</option>
         
-                          <?php for ($i = 1950;$i<=2018;$i++) { 
+                          <?php for ($i = 2501;$i<=2561;$i++) { 
                             $select = '';
                             
                               if(set_value('year_of_birth') == $i ){
@@ -290,7 +277,7 @@
                 <div class="row clearfix">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default ">
-                      <label>ชื่อบริษัท/อาคารที่ตั้ง</label><span class="text-danger"><?php echo form_error('company_name'); ?></span>
+                      <label>ชื่อบริษัท/อาคาร</label><span class="text-danger"><?php echo form_error('company_name'); ?></span>
                       <input type="text" name="company_name" class="form-control" placeholder="" value="<?php echo set_value('company_name'); ?>">
                     </div>
                   </div>
@@ -299,25 +286,25 @@
                 <div class="row clearfix">
                   <div class="col-sm-3">
                     <div class="form-group form-group-default required">
-                      <label>เลขที่,Number</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                      <label>เลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
                       <input type="text" name="address" class="form-control" placeholder="" value="<?php echo set_value('address'); ?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
-                    <div class="form-group form-group-default required">
-                      <label>หมู่,Village No</label><span class="text-danger"><?php echo form_error('village'); ?></span>
+                    <div class="form-group form-group-default">
+                      <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
                       <input type="text" name="village" class="form-control" placeholder="" value="<?php echo set_value('village'); ?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group form-group-default ">
-                      <label>ซอย,Lane</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
+                      <label>ซอย</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
                       <input type="text" name="lane" class="form-control" placeholder="" value="<?php echo set_value('lane'); ?>">
                     </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group form-group-default ">
-                      <label>ถนน,Road</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
+                      <label>ถนน</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
                       <input type="text" name="road" class="form-control" placeholder="" value="<?php echo set_value('Road'); ?>">
                     </div>
                   </div>
@@ -326,13 +313,13 @@
                 <div class="row clearfix">
                   <div class="col-sm-6">
                     <div class="form-group form-group-default required">
-                      <label>ตำบล/แขวง,Subdistrict</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
+                      <label>ตำบล</label><span class="text-danger"><?php echo form_error('subdistrict'); ?></span>
                       <input type="text" name="subdistrict" class="form-control" placeholder="" value="<?php echo set_value('subdistrict'); ?>">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group form-group-default required">
-                      <label>เขต/อำเภอ,District</label><span class="text-danger"><?php echo form_error('district'); ?></span>
+                      <label>อำเภอ/เขต</label><span class="text-danger"><?php echo form_error('district'); ?></span>
                       <input type="text" name="district" class="form-control" placeholder="" value="<?php echo set_value('district'); ?>">
                     </div>
                   </div>
@@ -342,7 +329,7 @@
                 <div class="row clearfix">
                   <div class="col-sm-4">
                       <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                        <label>ประเทศ,Countries</label><span class="text-danger" style="text-align:center;"><?php echo form_error('country'); ?></span>
+                        <label>ประเทศ</label><span class="text-danger" style="text-align:center;"><?php echo form_error('country'); ?></span>
                         <select style="width:100%" name="country" id="country" class=" form-control" data-init-plugin="select2"  >
                           <option value="">เลือก</option>
                           <?php foreach ($countries as $key => $value) { ?>
@@ -353,7 +340,7 @@
                                   $select =  'selected="selected"';
                                 }
                               }else{
-                                if( 'Thailand' == $value->name ){
+                                if( 'ไทย' == $value->name ){
                                   $select =  'selected="selected"';
                                 }
                               }
@@ -369,7 +356,7 @@
                   <div class="col-sm-4" id="province" >
                     <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
                       <?php if (empty(form_error('province'))){ ?>
-                         <label>จังหวัด,Province</label>
+                         <label>จังหวัด</label>
                       <?php }?>
                       <span class="text-danger" style="text-align:center;"><?php echo form_error('province'); ?></span>
                       <select style="width:100%"  name="province" class=" form-control" data-init-plugin="select2"  >
@@ -389,7 +376,7 @@
 
                   <div class="col-sm-4">
                     <div class="form-group form-group-default required">
-                      <label>รหัสไปรษณีย์,Zipcode</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
+                      <label>รหัสไปรษณีย์</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
                       <input type="text" name="zipcode" class="form-control" placeholder=""  pattern="[0-9]*"  value="<?php echo set_value('zipcode'); ?>">
                     </div>
                   </div>
@@ -398,7 +385,7 @@
                 <!--  status group -->
                 <div id="commany">
               
-                  <p style="">สถานภาพของคุณ</p>
+                  <!-- <p style="">สถานภาพของคุณ</p>
                     <div class="row clearfix">
                       <div class="col-sm-12">
                         <div class="form-group form-group-default  form-group-default-selectFx  required">
@@ -411,7 +398,7 @@
                           </select>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="row clearfix" id="job_detail" <?php echo (@set_value('job_detail') && @set_value('job') == 11) ?  "" : "style='display:none;'" ?>>
                       <div class="col-sm-12">
                         <div class="form-group form-group-default ">
@@ -746,7 +733,7 @@
                     <div class="checkbox check-success  ">
 
                       <input type="checkbox" value="1" id="checkbox2" >
-                      <label for="checkbox2" style="font-weight: bold;"> ฉันยอมรับและได้อ่านเงื่อนไข ข้อตกลงแล้ว</label>
+                      <label for="checkbox2" style="font-weight: bold;"> ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
                     </div>
                   
                   </div>
@@ -1062,12 +1049,12 @@
 
     //countries
     $( "#province" ).toggle(false);
-    if (document.getElementById("country").value == 217){
+    if (document.getElementById("country").value == 80){
       $( "#province" ).toggle(true);
     }
 
     $('#country').on('change', function() {
-        if(this.value != 217){
+        if(this.value != 80){
           $( "#province" ).toggle(false);
         }else{
           $( "#province" ).toggle(true);
