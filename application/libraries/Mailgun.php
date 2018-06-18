@@ -11,10 +11,7 @@ class Mailgun {
 
     // assign CI super object
    
-   
-    // config
-    self::$api_key = "de6077eda46f789cf38982c2f96d285f-47317c98-18dc0d11";
-    self::$api_base_url = "https://api.mailgun.net/v3/sandbox21f3d82c161b47b7aba452daa6ebb97a.mailgun.org";
+  
   }
 
   /**
