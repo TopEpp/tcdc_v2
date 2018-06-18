@@ -66,7 +66,6 @@ class Register extends MY_Controller {
 
 
 		if($this->form_validation->run() === false){
-			echo 'asd';
 			// get province
 			$query = $this->db->query('SELECT * FROM std_area_province');
 			$data['province'] = $query->result();
