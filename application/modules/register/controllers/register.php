@@ -11,6 +11,8 @@ class Register extends MY_Controller {
 		$this->load->model('register_model');
 		$this->load->model('staff/staff_model');
 		$this->session->keep_flashdata('msg');
+		$this->session->keep_flashdata('confirm');
+		
 	
 	}
 
@@ -32,7 +34,7 @@ class Register extends MY_Controller {
 
 	public function signup()
 	{
-		$this->load->library('mailgun');
+
 
 		$data = array();	
 
@@ -44,7 +46,7 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('password_again', 'ยืนยันรหัสผ่าน', 'trim|required|min_length[8]|matches[password]');
 		// #tab2
 
-		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
+		// $this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
 		// if ($this->input->post('job_group') == 1){
 		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 		// }
@@ -53,7 +55,7 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
 		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
-		$this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
+		// $this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
 		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
 		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
 		$this->form_validation->set_rules('country','ประเทศ', 'required');
@@ -64,7 +66,6 @@ class Register extends MY_Controller {
 
 
 		if($this->form_validation->run() === false){
-			
 			// get province
 			$query = $this->db->query('SELECT * FROM std_area_province');
 			$data['province'] = $query->result();
@@ -176,11 +177,12 @@ class Register extends MY_Controller {
 				
 					$msg['msg'] = "คุณสร้างบัญชีผู้ใช้งานสำเร็จแล้ว";
 					$msg['msg2'] = "ยินดีต้อนรับสู่งานเทศกาลงานออกแบบเชียงใหม่";
-					$this->session->set_flashdata('msg',$msg);
+					$this->session->set_flashdata('confirm',$msg);
 					redirect('welcome/index');
 
-				//send mail to api
+				// send mail to api
 				// $data['to'] = $this->input->post('email');
+				// $data['subject'] = 'test';
 				// $name = $this->input->post('firstname').' '.$this->input->post('lastname');
 				// $encode_rec = $this->encrypt->encode($data['to']);
 				// $link = base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec;
@@ -191,11 +193,15 @@ class Register extends MY_Controller {
 				// );
 	
 				
-                // //send confirm mail
+				//send confirm mail
+			
                 // if($this->mailgun->send($data,$content)){
-				// 	$msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
-				// 	$this->session->set_flashdata('msg', $msg);
-				// 	redirect('register/index');
+				// 	$msg['msg'] = "คุณสร้างบัญชีผู้ใช้งานสำเร็จแล้ว";
+				// 	$msg['msg2'] = "ยินดีต้อนรับสู่งานเทศกาลงานออกแบบเชียงใหม่";
+				// 	$this->session->set_flashdata('confirm',$msg);
+				// 	// $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
+				// 	// $this->session->set_flashdata('msg', $msg);
+				// 	redirect('welcome/index');
 
                 // }else{
 				// 	$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
@@ -275,6 +281,11 @@ class Register extends MY_Controller {
 		return ( ! preg_match("/^([0-9-\s])+$/D", $num)) ? FALSE : TRUE;
 	  }
 	
+
+	  function test_mail(){
+		$this->load->library('mailgun');
+		$this->mailgun->send('','');
+	  }
 	
         
    

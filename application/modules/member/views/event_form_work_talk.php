@@ -934,7 +934,7 @@
                         <br>
                         <div class="row clearfix">
                             <div class="col-sm-12">
-                              <div class="form-group form-group-default  form-group-default-selectFx">
+                              <div class="form-group form-group-default required form-group-default-selectFx">
                                 <label>ขอบเขตเนื้อหาเหมาะสมกับ</label>
                                 <select style="width:100%;"  id="work_talk_scope" name="work_talk_scope" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
   
@@ -1020,25 +1020,32 @@
                         
                         <h5>เอกสารประกอบการสมัคร</h5>
                         <hr/>
-                        <div class="row clearfix form-group">
+                        <div class=" form-group">
                           <!-- <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ </p> -->
                           <div class="row">
-                          <label> 1. โปรไฟล์ของวิทยากร <input type="file" name="join_profile[]" multiple="multiple" > </p>
+                              <div class="col-sm-12">
+                            <label> 1. โปรไฟล์ของวิทยากร <input type="file" class="join_profile" name="join_profile[]" multiple="multiple" > </p>
+                          
                             <?php
-                                if (!empty($regis['join_profile'])){
-                                  $product_img = explode(',',$regis['join_profile']);
+                                if (!empty($regis['join_profile'])){ ?>
+                                  <input  type="hidden" id="have_img" value="true">
+                                <?php  $product_img = explode(',',$regis['join_profile']);
                               
                                   foreach ($product_img as $key => $val) {
                                     echo  cl_image_tag($val, array( "alt" => "join_profile","width"=>100, "height"=>100 ));  
                                     echo '&nbsp;';
                                   }
-                                }
+                                }else{ ?>
+                                  <input  type="hidden" id="have_img" value="false">
+                               <?php }
                               
                             ?>
-                             
                             </div>
+                             
+                          </div>
+                          
                           <div class="row">
-                          <label> 2. ภาพวิทยากร <input type="file" name="join_img_profile[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
+                            <label> 2. ภาพวิทยากร <input type="file" class="join_img_profile" name="join_img_profile[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
                             <?php
                                 if (!empty($regis['join_img_profile'])){
                                   $product_img = explode(',',$regis['join_img_profile']);
@@ -1054,7 +1061,7 @@
                        
                           
                           <div class="row">
-                          <label> 3. ภาพ Key Visual หรือ กิจกรรมที่เคยจัด <input type="file" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
+                            <label> 3. ภาพ Key Visual หรือ กิจกรรมที่เคยจัด <input type="file" class="join_img" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
                             <?php
                                 if (!empty($regis['join_img'])){
                                   $product_img = explode(',',$regis['join_img']);
@@ -1068,7 +1075,7 @@
                             ?>
                           </div>
                           <div class="row">
-                          <label> 4. กำหนดการณ์กิจกรรม <input type="file" name="join_event[]" multiple="multiple" > </p>
+                            <label> 4. กำหนดการณ์กิจกรรม <input type="file" class="join_event" name="join_event[]" multiple="multiple" > </p>
                               <?php
                                   if (!empty($regis['join_event'])){
                                     $product_img = explode(',',$regis['join_event']);
@@ -1080,7 +1087,7 @@
                                   }
                                 
                               ?>
-                            </div>
+                          </div>
                          
                          
                          
