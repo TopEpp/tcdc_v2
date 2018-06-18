@@ -6,7 +6,7 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                  <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
                   <li class="breadcrumb-item active">ผู้ใช้งาน</li>
                 </ol>
                 <!-- END BREADCRUMB -->
