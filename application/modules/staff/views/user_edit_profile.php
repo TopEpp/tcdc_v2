@@ -6,7 +6,7 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
                 <li class="breadcrumb-item active"><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</li>
               </ol>
               <!-- END BREADCRUMB -->
@@ -96,6 +96,15 @@
                                                 
                                                 <p>ข้อมูลบุคคล</p>
                                                 <div class="form-group-attached">
+                                                  <div class="row clearfix">
+                                                    <div class="col-sm-12">
+                                                      <div class="form-group form-group-default required">
+                                                        <label>เลขบัตรประชาชน</label>
+                                                        <input type="text" name="id_number" class="form-control" value="<?php echo @$data->id_number;?>">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
                                                   <div class="row clearfix">
                                                     <div class="col-sm-3">
                                                       <div class="form-group form-group-default required form-group-default-selectFx">
