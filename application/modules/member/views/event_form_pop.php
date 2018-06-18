@@ -31,22 +31,17 @@
                   
               ?>
               <!-- Nav tabs -->
-              <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
+                           <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>ข้อตกลง</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png');?>" width="10px"> <span>เงื่อนไขและข้อตกลง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลผู้สมัคร</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png');?>" width="10px"> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>แบบฟอร์มลงทะเบียน</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>ข้อมูลกิจกรรม</span></a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>วิธีการจัดแสดง</span></a>
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>เสร็จสิ้น</span></a>
-                </li> -->
+
               </ul>
               <!-- Tab panes -->
 
@@ -85,7 +80,7 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5> Pop-Up Market<br/>เงื่อนไขและข้อตกลง</h5>
+                          <h5> เงื่อนไขและข้อตกลง</h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="">
@@ -98,7 +93,7 @@
                             <div class="checkbox check-success  ">
 
                              <input type="checkbox" value="1" id="checkbox2" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?> >
-                             <label for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไข ข้อตกลงแล้ว</label>
+                             <label for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
                            </div>
 
 
@@ -135,12 +130,12 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                            <p style="font-weight: bold">ข้อมูลของคุณ</p>
+                            <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
-                                    <label>เลขบัตรประชาชน</label>
+                                    <label>เลขที่บัตรประชาชน</label>
                                     <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo $member->id_number;?>">
                                   </div>
                                 </div>
@@ -359,7 +354,7 @@
                                             <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
                                             <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
                                             <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเรภาพ)</option>
                                           </select>
                                         </div>
                                       </div>
@@ -439,7 +434,7 @@
                                             <option  <?php echo (@$member->job_type == 9) ? 'selected':'';?> value="9">การโฆษณา</option>
                                             <option  <?php echo (@$member->job_type == 10) ? 'selected':'';?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
                                             <option  <?php echo (@$member->job_type == 11) ? 'selected':'';?> value="11">สถาปัตยกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected':'';?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเรภาพ)</option>
                                           </select>
                                         </div>
                                       </div>
@@ -556,7 +551,7 @@
                                     <div class="row" >
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx">
-                                          <label> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</label>
+                                          <label> การผลิตสินค้าหรือผลงานของคุณเปภาพแบบใด</label>
                                           <select style="width:100%" name="company_product_detail" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                             <option  <?php echo (@$member->company_product_detail == '') ? 'selected':'';?> value="" >เลือก</option>
                                             <option  <?php echo (@$member->company_product_detail == 1) ? 'selected':'';?> value="1">แบบศิลปวัฒนธรรมดั้งเดิม </option>
@@ -644,7 +639,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับผู้สมัคร</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">
@@ -711,7 +706,7 @@
                                     $status1 = 'checked';
                                     $status2 = '';
                               }?>
-                              <p style="font-weight: bold">ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
                                 <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
@@ -798,17 +793,18 @@
                       <div class="padding-30 sm-padding-5">
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>ชื่อร้าน/ข้อมูล</p>
                               <div class="form-group form-group-default required">
-                                <label>ชื่อร้าน</label>
-                                <input name="pop_shop_name" type="text" placeholder="ระบุชื่อร้านค้า" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
+                                <label>&nbsp;</label>
+                                <input name="pop_shop_name" type="text" placeholder="" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
                               </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                           <div class="col-sm-12">
-                            <p>เกี่ยวกับแบรนด์(เล่าถึงที่มาของร้านและประเภทสินค้าที่ขาย)</p>
+                            <p>เกี่ยวกับแบรนด์</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea  name="pop_story" id="" class="pop_story demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea  name="pop_story" id="" class="pop_story demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }"><?php echo @$regis['pop_story'];?></textarea>
@@ -816,26 +812,51 @@
                           </div>
                         </div>
                         <br>
-                        <h5>ประเภทของที่ขาย</h5>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                            <p>ช่วงราคาสินค้า</p>
+                              <div class="form-group form-group-default required form-group-default-selectFx">
+                                <label>&nbsp;</label>
+                                <select style="width:100%;"  id="pop_range" name="pop_range" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+  
+                                  <option  <?php echo (@$regis['pop_range'] == '') ? 'selected':'';?> value="" >เลือก</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 1) ? 'selected':'';?> value="1">0 - 100 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 2) ? 'selected':'';?> value="2">101 - 1000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 3) ? 'selected':'';?> value="3">1,001 - 5,000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 4) ? 'selected':'';?> value="4">5,001 - 10,000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 5) ? 'selected':'';?> value="5">10,000 บาท ขึ้นไป</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+                        <p>ประเภทสินค้า</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group-default required">
                         
                                 <div class="checkbox check-success">
-                                  <input <?php echo (!empty(@$regis['pop_product_type']))? 'checked':''?> type="checkbox"  value="1" name="pop_select" id="pop_select1">
-                                  <label for="pop_select1">Product</label>
+                                  <input <?php echo (@$regis['pop_product_type']  == 1)? 'checked':''?> type="checkbox"  value="1" name="pop_product_type" id="pop_select1">
+                                  <label for="pop_select1">เสื้อผ้าและสินค้าไลฟ์สไตล์</label>
                                 </div>
                                 <div class="checkbox check-success">
-                                  <input <?php echo (!empty(@$regis['pop_food_type']))? 'checked':''?> type="checkbox"  value="2" name="pop_select" id="pop_select2">
-                                  <label for="pop_select2">Food & Beverage</label>
+                                  <input <?php echo (@$regis['pop_product_type'] == 2)? 'checked':''?> type="checkbox"  value="2" name="pop_product_type" id="pop_select2">
+                                  <label for="pop_select2">ของตกแต่งบ้าน</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == 3)? 'checked':''?> type="checkbox"  value="3" name="pop_product_type" id="pop_select3">
+                                  <label for="pop_select3">เฟอร์นิเจอร์</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == 4)? 'checked':''?> type="checkbox"  value="4" name="pop_product_type" id="pop_select4">
+                                  <label for="pop_select4">อาหารและเครื่องดื่ม</label>
                                 </div>
                             
                               </div>
                             </div>
                         </div>
                         <br>
-                        <div id="product" style="display:none;">
-                          <h5>Product</h5>
+                        <!-- <div id="product" style="display:none;">
+                          <p>Product</p>
                           <p >ประเภทของที่ขาย</p>
                           <div class="row clearfix">
                               <div class="col-sm-12">
@@ -890,32 +911,34 @@
                               </div>
                               </div>
                           </div>
-                        </div>
+                        </div> -->
                          <br>
-                        <h5 >แนบรูปสินค้า<span style="color:red">*</span></h5>
+                        <p >แนบภาพสินค้า<span style="color:red">*</span></p>
 
                         <div class="col-sm-12">
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group required ">
                                   <label>ภาพรวมของผลงาน</label>
+                                  
                                   <div class="row">
                                   <?php
-                                        if (!empty($regis['pop_img'])){
-                                          
-                                          $pop_img = explode(',',$regis['pop_img']);
+                                        if (!empty($regis['pop_img'])){ ?>
+                                          <input  type="hidden" id="have_img" value="true">
+                                        <?php  $pop_img = explode(',',$regis['pop_img']);
                                       
                                           foreach ($pop_img as $key => $val) {
                                             echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                             echo '&nbsp;';
                                           }
-                                        }
-                                      
-                                    ?>
+                                        }else{ ?>
+                                           <input  type="hidden" id="have_img" value="false">
+                                      <?php  }
+                                   ?>
                                   </div>
                                  
                                   <div class="fallback">
-                                    <input id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                    <input class="pop_img" id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -941,7 +964,7 @@
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                    <input id="product_closeup" class="pop_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -967,7 +990,7 @@
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                    <input id="product_packshot" class="pop_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                   </div>
                                   
                                 </div>
@@ -1005,7 +1028,7 @@
           <span>หน้าสุด</span>
         </button>
       </li>
-      <li class="previous">
+      <li class="previous" id="hide_back" style="display:none;">
         <button class="btn btn-default btn-cons pull-right" type="button">
           <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
         </button>

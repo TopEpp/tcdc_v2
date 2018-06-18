@@ -33,20 +33,15 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>ข้อตกลง</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png');?>" width="10px"> <span>เงื่อนไขและข้อตกลง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลผู้สมัคร</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png');?>" width="10px"> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ข้อมูลกิจกรรม</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>ข้อมูลกิจกรรม</span></a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>วิธีการจัดแสดง</span></a>
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>เสร็จสิ้น</span></a>
-                </li> -->
+
               </ul>
               <!-- Tab panes -->
 
@@ -85,7 +80,7 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5> Events <br/>เงื่อนไขและข้อตกลง</h5>
+                          <h5>เงื่อนไขและข้อตกลง</h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="">
@@ -100,7 +95,7 @@
                             <div class="checkbox check-success  ">
 
                              <input type="checkbox" value="1" id="checkbox2" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?> >
-                             <label for="checkbox2">ฉันเข้าใจและยอมรับในเงื่อนไข และ ข้อตกลง </label>
+                             <label for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
                            </div>
 
 
@@ -136,12 +131,12 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                            <p style="font-weight: bold">ข้อมูลของคุณ</p>
+                            <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
-                                    <label>เลขบัตรประชาชน</label>
+                                    <label>เลขที่บัตรประชาชน</label>
                                     <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo $member->id_number;?>">
                                   </div>
                                 </div>
@@ -645,7 +640,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับผู้สมัคร</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">
@@ -712,7 +707,7 @@
                                     $status1 = 'checked';
                                     $status2 = '';
                               }?>
-                              <p style="font-weight: bold">ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
                                 <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
@@ -797,26 +792,33 @@
                   <div class="row row-same-height">
                     <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
-                        <p >ประเภทกิจกรรม</p>
+                        <p >ข้อมูลอีเว้นท์</p>
                         <div class="row clearfix">
                           <input type="hidden" name="event_type" id="event_type">
                           <div class="form-group-default required">
                             <div class="col-sm-12">
                               <div class="checkbox check-success">
                                 <input  <?php echo (@$regis['event_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_ty" id="event_ty1">
-                                <label for="event_ty1">Exhibition (นิทรรศการที่มีการเรียบเรียงเนื้อหา)</label>
+                                <label for="event_ty1">เยี่ยมชม (Tour)</label>
                               </div>
                               <div class="checkbox check-success">
                                 <input  <?php echo (@$regis['event_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="event_ty" id="event_ty2">
-                                <label for="event_ty2">Tour (การเยี่ยมชม)/Exhibition tour/city tour</label>
+                                <label for="event_ty2">เปิดบ้าน (Open House)</label>
                               </div>
                               <div class="checkbox check-success">
                                 <input  <?php echo (@$regis['event_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="event_ty" id="event_ty3">
-                                <label for="event_ty3">Event (กิจกรรมที่เกิดขึ้นเป็นช่วงเวลา)</label>
+                                <label for="event_ty3">การแสดง (Performance)</label>
                               </div>
                               <div class="checkbox check-success">
                                 <input  <?php echo (@$regis['event_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="event_ty" id="event_ty4">
-                                <label for="event_ty4">Talk : Business presentation / International presentation</label>
+                                <label for="event_ty4">ปาร์ตี้ (Party)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '5')? 'checked':''?> type="checkbox"  value="5" name="event_ty" id="event_ty5">
+                                <label for="event_ty5">อื่นๆ (โปรดระบุ)</label>
+                                <div class="form-group form-group-default " id="event_type_other" style="display:none;">
+                                  <input type="text" name="event_type_other"  class="form-control" value="<?php echo @$regis['event_type_other']; ?>">
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -826,8 +828,8 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
-                                <label>ชื่อกิจกรรม (ภาษาไทย)</label>
-                                <input name="event_name_th" type="text" placeholder="ระบุชื่อกิจกรรมภาษาไทย" class="form-control" value="<?php echo @$regis['event_name_th']; ?>">
+                                <label>ชื่อกิจกรรม</label>
+                                <input name="event_name_th" type="text" placeholder="" class="form-control" value="<?php echo @$regis['event_name_th']; ?>">
                               </div>
                             </div>
                         </div>
@@ -835,16 +837,16 @@
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
                                 <label>ชื่อกิจกรรม (ภาษาอังกฤษ)</label>
-                                <input name="event_name_en" type="text" placeholder="ระบุชื่อกิจกรรมภาษาอังกฤษ" class="form-control"  value="<?php echo @$regis['event_name_en']; ?>"  >
+                                <input name="event_name_en" type="text" placeholder="" class="form-control"  value="<?php echo @$regis['event_name_en']; ?>"  >
                               </div>
                             </div>
                         </div>
 
                         <div class="row clearfix">
                           <div class="col-sm-12">
-                            <p>รายละเอียดกิจกรรม</p>
+                            <p>รายละเอียดและรูปแบบกิจกรรม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="event_detail" id="" class="event_detail demo-form-wysiwyg"  placeholder="โปรดอธิบายรายละเอียดกิจกรรม รูปแบบ วิธีการ และความคิดพิเศษสำหรับเทศกาล (จำนวนไม่เกิน 600 ตัวอักษร)" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="event_detail" id="" class="event_detail demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }">  <?php echo @$regis['event_detail']; ?> </textarea>
@@ -856,7 +858,7 @@
                             <div class="col-sm-12">
                               <div class="form-group form-group-default ">
                                 <label>จำนวนผู้เข้าร่วม</label>
-                                <input name="join_number"  value="<?php echo @$regis['join_number']; ?>" type="text" placeholder="โปรดระบุจำนวนผู้เข้าร่วมกิจกรรมได้สูงสุด" class="form-control"  >
+                                <input name="join_number"  value="<?php echo @$regis['join_number']; ?>" type="text" placeholder="" class="form-control"  >
                               </div>
                             </div>
                         </div>
@@ -864,7 +866,7 @@
                           <div class="col-sm-12">
                             <p>คุณสมบัติผู้เข้าร่วม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="join_property" id="" class="join_property demo-form-wysiwyg"  placeholder="กรณีต้องการคัดเลือกผู้เข้าร่วมกิจกรรม โปรดระบุคุณสมบัติ เช่น อายุ 20 ปีขึ้นไป,มีประสบการณ์ออกแบบไม่น้อยกว่า 2 ปี,มีทักษะการใช้งาน Photoshop เป็นต้น" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="join_property" id="" class="join_property demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }">  <?php echo @$regis['join_property']; ?></textarea>
@@ -872,10 +874,22 @@
                           </div>
                         </div>
                         <br>
-                        <label>วันที่เริ่มต้นกิจกรรม และ สิ้นสุดกิจกรรม</label>
-                        <p>กิจกรรมเกิดขึ้นในช่วงจัดเทศกาล</p>
+                        <p>วันที่และเวลา เริ่มต้นและสิ้นสุดกิจกรรม</p>
                       
                         <div class="row clearfix">
+                        <div class="col-sm-12">
+                              <div class="row form-group">
+                                <div class="col-sm-6">
+                                  <label>วันที่เริ่มต้น</label>
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>&nbsp;&nbsp;&nbsp;&nbsp;วันที่สิ้นสุด</label>
+                                </div>
+                              </div>
+                                <!-- <div class="col-sm-6">
+                                  <label>วันที่สิ้นสุด</label>
+                                </div> -->
+                            </div>
                           <div class="input-daterange input-group" id="datepicker-range2">
                             <input required class="input-sm form-control datepicker-range_event" name="join_start_date" id="event_start_date" value="<?php echo @$regis['join_start_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
                             </span>
@@ -887,15 +901,17 @@
                         </div>
                         <br/>
                        
-                        <label>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</label>
-                        <p>กิจกรรมเกิดขึ้นในช่วงจัดเทศกาล</p>
-                        <div class="row clearfix">
+                        <!-- <p>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</p>
+        -->
+                        <div class="row clearfix form-group">
                           <div class="col-sm-5" >
+                          <label>เวลาเริ่มต้น</label>
                             <input required class="input-sm form-control timepicker" name="join_start_time" id="event_start_time" value="<?php echo @$regis['join_start_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
                             </div>
-                            <div class="col-sm-2 text-center">ถึงเวลา</div>
+                            <div class="col-sm-2 text-center"></div>
                             <div class="col-sm-5" >
+                            <label>เวลาสิ้นสุด</label>
                             <input required class="input-sm form-control timepicker" name="join_finish_time" id="event_finish_time" value="<?php echo @$regis['join_finish_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
                           </div>
@@ -903,35 +919,81 @@
                         </div>
                         <br/>
 
-                        <label>สถานที่จัดกิจกรรม</label>
-                        <p >โปรดระบุในรูปแบบ อาคาร เลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์</p>
+                        <p>สถานที่จัดกิจกรรม</p>
+                        <label>โปรดระบุในรูปแบบ อาคาร เลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์</label>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <input type="hidden" name="event_address" id="event_address">
-                              <div class="checkbox check-success">
-                                <input  <?php echo (@$regis['event_address'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_add" id="event_add1">
-                                <label for="event_add1">ที่อยู่ขององค์กร / สตูดิโอ</label>
-                              </div>
                               <div class="row">
                                 <div class="col-sm-3">
                                   <div class="checkbox check-success">
                                     <input  <?php echo (@$regis['event_address'] == '2')? 'checked':''?> type="checkbox"  value="2" name="event_add" id="event_add2">
-                                    <label for="event_add2">other</label>
+                                    <label for="event_add2">พื้นที่ตนเอง</label>
                                   </div>
                                 </div>
-                                <div class="col-sm-6" id="event_address_detail" style="display:none;">
-                                    <input  name="event_address_detail" type="text" placeholder="ระบุที่อยู่" class="form-control" value="<?php echo @$regis['event_address_detail'];?>" >
+                                <div class="col-sm-9" id="event_address_detail" style="display:none;">
+                                    <input  name="event_address_detail" type="text" placeholder="" class="form-control" value="<?php echo @$regis['event_address_detail'];?>" >
                                 </div>
+                              </div> 
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_address'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_add" id="event_add1">
+                                <label for="event_add1">พื้นที่เทศกาล</label>
                               </div>
+
                             </div>
                         </div>
                         <br>
-                        <h5>เอกสารประกอบการสมัคร</h5>
+                        <p>เอกสารประกอบการสมัคร <span style="color:red">*</span></p>
                         <hr/>
-                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
-                        <p> 1. ภาพ Key Visual สำหรับสื่อประชาสัมพันธ์บนเว็บไซต์ และ สูจิบัตร (สัดส่วน 5:7 และความละเอียด 300 dpi)</p>
-                        <p> 2. ตารางเวลากิจกรรม และกำหนดการกิจกรรม</p>
-
+                        <div class="row clearfix form-group">
+                          <div class="row">
+                          <label> 1. โปรไฟล์ของผู้จัด  <input type="file" name="join_profile[]" class="join_profile" multiple="multiple" > </p>
+                            <?php
+                                if (!empty($regis['join_profile'])){ ?>
+                                  <input  type="hidden" id="have_img" value="true">
+                                <?php  $product_img = explode(',',$regis['join_profile']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_profile","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }else{ ?>
+                                  <input  type="hidden" id="have_img" value="false">
+                          <?php  }?>
+                             
+                            </div>
+                        
+                          <div class="row">
+                            <label> 2. ภาพกิจกรรมที่เคยจัดหรือภาพร่าง  <input type="file" name="join_image[]" class="join_image" multiple="multiple" accept="image/jpeg,image/png" > </p>
+                            <?php
+                                if (!empty($regis['join_img'])){
+                                  $product_img = explode(',',$regis['join_img']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_img","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }
+                              
+                            ?>
+                          </div>
+                          
+                          <div class="row">
+                          <label> 3. กำหนดการณ์กิจกรรม <input type="file" name="join_event[]"  class="join_event" multiple="multiple"  > </p>
+                            <?php
+                                if (!empty($regis['join_event'])){
+                                  $product_img = explode(',',$regis['join_event']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_event","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }
+                              
+                            ?>
+                          </div>
+                         
+                        </div>
                       </div>
                     </div>
                   </div> 
@@ -959,7 +1021,7 @@
           <span>หน้าสุด</span>
         </button>
       </li>
-      <li class="previous">
+      <li class="previous" id="hide_back" style="display:none;">
         <button class="btn btn-default btn-cons pull-right" type="button">
           <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
         </button>

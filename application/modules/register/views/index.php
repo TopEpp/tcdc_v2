@@ -86,7 +86,7 @@
     <div class="register-container full-height sm-p-t-30">
       <div class=" justify-content-center flex-column  ">
         <div id="title_head">
-        <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"></a>
+        <!-- <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"></a> -->
         <h3 >สร้างบัญชีผู้ใช้งาน</h3>
 
         </div>
@@ -104,10 +104,10 @@
 
           <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
             <li class="nav-item">
-              <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="fa fa-shopping-cart tab-icon"></i> <span >สร้างบัญชีผู้ใช้งาน</span></a>
+              <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/Create.png');?>" width="25px">  <span >สร้างบัญชีผู้ใช้งาน</span></a>
             </li>
             <li class="nav-item">
-              <a data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-truck tab-icon"></i> <span  >ข้อมูลผู้ใช้งาน</span></a>
+              <a data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/Form.png');?>" width="20px"> <span  >ข้อมูลผู้ใช้งาน</span></a>
             </li>
             <!-- <li class="nav-item">
               <a data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-check tab-icon"></i> <span>ยืนยันข้อมูล</span></a>

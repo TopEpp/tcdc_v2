@@ -64,9 +64,9 @@
       <!-- END Login Background Pic Wrapper-->
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
-        <div class="d-flex align-items-right" style="float: right;">
-          <div class="pull-left p-r-10 fs-14">
-            ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
+        <div class="d-flex align-items-right" style="float: right; padding: 10px; ">
+          <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important;">
+            ไทย <input type="checkbox" id="toggle_lang"   class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
           </div>
         </div>
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
@@ -150,7 +150,8 @@
               <div class="col-md-12 no-padding sm-p-l-10">
 
                 <div class="col-md-12 d-flex ">
-                  <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p>
+                  <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</a>
+                  <!-- <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p> -->
                 </div>
               </div>
             </div>

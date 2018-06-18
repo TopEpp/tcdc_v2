@@ -88,12 +88,12 @@
       <!-- END MOBILE SIDEBAR TOGGLE -->
       <div class="">
         <div class="brand inline  m-l-10 ">
-          <a style="font-family: 'dbbl', sans-serif; font-size: 14px;" href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/logo_b.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?> " data-src-retina="<?php echo base_url('assets/img/logo_b.png');?> " width="40">Chiang Mai  Design Week</a>
+          <a  href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/logo_b.png');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png');?> " data-src-retina="<?php echo base_url('assets/img/logo_dashboard.png');?> " width="150px"></a>
         </div>
       </div>
       <div class="d-flex align-items-center">
         <!-- START User Info-->
-        <div class="pull-left p-r-10 fs-14">
+        <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important;">
           ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">

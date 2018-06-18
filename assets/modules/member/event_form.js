@@ -134,6 +134,11 @@
 
   $(document).ready(function() {
 
+    //register 
+    $("input[name='company_join_work']").change(function() {
+        $("input[name='company_join_work']").not(this).prop('checked', false);
+    });
+
      //job change 
     //  $("#job").change(function(){
     //     if ($(this).val() ==  11){
@@ -268,55 +273,67 @@
                 $("input[name='pop_select']").change(function() {
                     $("input[name='pop_select']").not(this).prop('checked', false);
                 });
-                $("input[name='pop_type']").change(function() {
-                    $("input[name='pop_type']").not(this).prop('checked', false);
-                    $("input[name='pop_food']").prop('checked', false);
-                });
-                $("input[name='pop_food']").change(function() {
-                    $("input[name='pop_type']").prop('checked', false);
-                    $("input[name='pop_food']").not(this).prop('checked', false);
-                });
+            //     $("input[name='pop_type']").change(function() {
+            //         $("input[name='pop_type']").not(this).prop('checked', false);
+            //         $("input[name='pop_food']").prop('checked', false);
+            //     });
+            //     $("input[name='pop_food']").change(function() {
+            //         $("input[name='pop_type']").prop('checked', false);
+            //         $("input[name='pop_food']").not(this).prop('checked', false);
+            //     });
 
-                if ($('#pop_select1').is(":checked"))
-                {
-                    document.getElementById("product").style.display = "block";
-                    document.getElementById("food").style.display = "none";
-                }
-                $("#pop_select1").change(function() {
-                    if ($('#pop_select1').is(":checked"))
-                    {
-                        document.getElementById("product").style.display = "block";
-                        document.getElementById("food").style.display = "none";
-                    }
-                    else{
-                        document.getElementById("product").style.display = "none";
-                    }
-                });
-                if ($('#pop_select2').is(":checked"))
-                {
-                    document.getElementById("food").style.display = "block";
-                    document.getElementById("product").style.display = "none";
-                }
-                $("#pop_select2").change(function() {
-                    if ($('#pop_select2').is(":checked"))
-                    {
-                        document.getElementById("food").style.display = "block";
-                        document.getElementById("product").style.display = "none";
-                    }
-                    else{
-                        document.getElementById("food").style.display = "none";
-                    }
-                });
+            //     if ($('#pop_select1').is(":checked"))
+            //     {
+            //         document.getElementById("product").style.display = "block";
+            //         document.getElementById("food").style.display = "none";
+            //     }
+            //     $("#pop_select1").change(function() {
+            //         if ($('#pop_select1').is(":checked"))
+            //         {
+            //             document.getElementById("product").style.display = "block";
+            //             document.getElementById("food").style.display = "none";
+            //         }
+            //         else{
+            //             document.getElementById("product").style.display = "none";
+            //         }
+            //     });
+            //     if ($('#pop_select2').is(":checked"))
+            //     {
+            //         document.getElementById("food").style.display = "block";
+            //         document.getElementById("product").style.display = "none";
+            //     }
+            //     $("#pop_select2").change(function() {
+            //         if ($('#pop_select2').is(":checked"))
+            //         {
+            //             document.getElementById("food").style.display = "block";
+            //             document.getElementById("product").style.display = "none";
+            //         }
+            //         else{
+            //             document.getElementById("food").style.display = "none";
+            //         }
+            //     });
             break;
         case '4':
                   //event form clear checked 
                 $("input[name='event_ty']").change(function() {
+                    if ($(this).val() == 5){
+                        $("#event_type_other").toggle(true);
+                        $("input[name='event_type_other']").focus();
+                    }else{
+                        $("#event_type_other").toggle(false);
+                    }
                     $("input[name='event_ty']").not(this).prop('checked', false);
                 });
+
                 $("input[name='event_add']").change(function() {
                     $("input[name='event_add']").not(this).prop('checked', false);
                     document.getElementById("event_address_detail").style.display = "none";
                 });
+
+                if ($('#event_ty5').is(":checked"))
+                {
+                    $("#event_type_other").toggle(true);
+                }
 
                 //check event_address_detail event form
                 if ($('#event_add2').is(":checked"))
@@ -570,11 +587,54 @@
                 break;
             case '2':
                 //pop market
-                var pop_product = $.map($('input[name="pop_type"]:checked'), function(c){return c.value; })
-                $('#pop_product_type').val(pop_product);
-                var pop_food = $.map($('input[name="pop_food"]:checked'), function(c){return c.value; })
-                $('#pop_food_type').val(pop_food);
-                
+                // var pop_product = $.map($('input[name="pop_select"]:checked'), function(c){return c.value; })
+                // $('#pop_product_type').val(pop_product);
+                // var pop_food = $.map($('input[name="pop_food"]:checked'), function(c){return c.value; })
+                // $('#pop_food_type').val(pop_food);
+
+                if ($('#have_img').val() == 'false')
+                {
+                    var loops = false;
+                    $('.pop_img').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                        return false;
+                    }
+                    var loops = false;
+                    $('.pop_closeup').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพ Close Up');
+                        return false;
+                    }
+                    var loops = false;
+                    $('.pop_packshot').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพPack Shot');
+                        return false;
+                    }
+                }
+                    
                 break;
             case '3':
                 // work talk
@@ -587,6 +647,49 @@
                 break;
             case '4':
                   // event 
+                  
+                if ($('#have_img').val() == 'false')
+                {
+                    var loops = false;
+                    $('.pop_img').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                        return false;
+                    }
+                    var loops = false;
+                    $('.pop_closeup').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพ Close Up');
+                        return false;
+                    }
+                    var loops = false;
+                    $('.pop_packshot').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพPack Shot');
+                        return false;
+                    }
+                }
                   var event_type = $.map($('input[name="event_ty"]:checked'), function(c){return c.value; })
                
                   $('#event_type').val(event_type);

@@ -9,7 +9,7 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าหลัก</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url();?>">หน้าแรก</a></li>
                 <li class="breadcrumb-item active">ข่าวสาร</li>
               </ol>
               <!-- END BREADCRUMB -->

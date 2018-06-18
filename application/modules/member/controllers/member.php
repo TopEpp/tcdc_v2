@@ -98,61 +98,86 @@ class Member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
-		// print_r($this->input->post());die();
+		//  print_r($this->input->post());die();
 		$project_type = $this->input->post('project_type');
 		
 		//validate form
 		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email');
+		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
+		// if ($this->input->post('job_group') == 1){
+		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+		// }
+		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
+		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
+		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
+		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
+		$this->form_validation->set_rules('phone', 'เบอร์โทรศัพท์', 'trim|required');
+		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
+		// $this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
+		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
+		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
+		$this->form_validation->set_rules('country','ประเทศ', 'required');
+		$this->form_validation->set_rules('province','จังหวัด', 'trim|required');
+		$this->form_validation->set_rules('zipcode','รหัสไปรณีย์', 'trim|required|min_length[5]|max_length[5]|callback_numeric_dash');
+
 
 		// //company
-		// if ( $this->input->post('radio2') == 1){
-		// 	$this->form_validation->set_rules('coordinator_firstname','ชื่อผู้ประสานงาน', 'trim|required');
-		// 	$this->form_validation->set_rules('coordinator_lastname','นามสกุลประสานงาน', 'trim|required');
-		// 	$this->form_validation->set_rules('coordinator_phone','เบอร์โทรประสานงาน', 'trim|required');
-		// }
+		if ( $this->input->post('radio2') == 1){
+			
+			$this->form_validation->set_rules('coordinator_prename','คำนำหน้าผู้ประสานงาน', 'trim|required');
+			$this->form_validation->set_rules('coordinator_firstname','ชื่อผู้ประสานงาน', 'trim|required');
+			$this->form_validation->set_rules('coordinator_lastname','นามสกุลผู้ประสานงาน', 'trim|required');
+			$this->form_validation->set_rules('coordinator_phone','เบอร์โทรผู้ประสานงาน', 'trim|required');
+			$this->form_validation->set_rules('coordinator_email','อีเมลผู้ประสานงาน', 'trim|required');
+			
+		}
 
-		// switch ($project_type) {
-		// 	case 1:
+		switch ($project_type) {
+			case 1:
 			
-		// 		$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการสมัครเข้าร่วม', 'trim|required');
-		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-		// 		$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
-		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-		// 		break;
-		// 	case 2:
+				$this->form_validation->set_rules('product_amount[]','โปรดระบุจำนวนชิ้นงานที่ต้องการจัดแสดง', 'trim|required');
+				$this->form_validation->set_rules('target_type[]','เป้าหมายในการสมัคร', 'trim|required');
+				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
+				$this->form_validation->set_rules('material[]','วัสดุหลัก', 'trim|required');
+				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+				break;
+			case 2:
 			
-		// 		$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
-		// 		$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
-		// 		break;
-		// 	case 3:
-		// 		$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
-		// 		$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
-		// 		$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
-		// 		$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
-		// 		$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
-		// 		break;
-		// 	case 4:
-		// 		$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
-		// 		$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
-		// 		$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
+				$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
+				$this->form_validation->set_rules('pop_range','ช่วงราคาสินค้า', 'trim|required');
+				$this->form_validation->set_rules('pop_product_type','ประเภทของที่ขาย', 'trim|required');
+				break;
+			case 3:
+				$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
+				break;
+			case 4:
+				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
+				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
+				$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
-		// 		break;
-		// 	default:
-		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-		// 		break;
-		// }
+				break;
+			default:
+				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+				break;
+		}
 		
 
 
 		if($this->form_validation->run() == false){
-			
+			$this->template->javascript->add('assets/modules/member/event_form.js');
+			$this->template->javascript->add('assets/modules/member/form_tab.js');
+
 			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.validation_errors().'. </div>' );
 			
 			$user_id = $this->session->userdata('sesUserID');
@@ -294,6 +319,7 @@ class Member extends MY_Controller
 
 						$data['regis']['pop_shop_name'] = $this->input->post('pop_shop_name');
 						$data['regis']['pop_story'] = $this->input->post('pop_story');
+						$data['regis']['pop_range'] = $this->input->post('pop_range');
 						$data['regis']['pop_product_type'] = $this->input->post('pop_product_type');
 						$data['regis']['pop_food_type'] = $this->input->post('pop_food_type');
 
@@ -321,6 +347,7 @@ class Member extends MY_Controller
 						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
 
 						$data['regis']['event_type'] = $this->input->post('event_type');
+						$data['regis']['event_type_other'] = $this->input->post('event_type_other');
 						$data['regis']['event_name_th'] = $this->input->post('event_name_th');
 						$data['regis']['event_name_en'] = $this->input->post('event_name_en');
 						$data['regis']['event_detail'] = $this->input->post('event_detail');
@@ -358,9 +385,8 @@ class Member extends MY_Controller
 						
 						$this->setView('event_form_international',$data);break;
 				}
-				$this->template->javascript->add('assets/modules/member/event_form.js');
-				$this->template->javascript->add('assets/modules/member/form_tab.js');
 				$this->publish();
+				
 			}
 		}
 		else{
@@ -495,58 +521,62 @@ class Member extends MY_Controller
 				case 2:
 					$data_regis['pop_shop_name'] = $this->input->post('pop_shop_name');
 					$data_regis['pop_story'] = $this->input->post('pop_story');
+					$data_regis['pop_range'] = $this->input->post('pop_range');
 					$data_regis['pop_product_type'] = $this->input->post('pop_product_type');
-					$data_regis['pop_food_type'] = $this->input->post('pop_food_type');
+					// $data_regis['pop_food_type'] = $this->input->post('pop_food_type');
 					
 					// pop_img flie upload
-					$pop_img = array();
-					foreach ($_FILES['pop_img']['tmp_name'] as $key => $value) {
-						if (strlen($value) > 0){
-							$imageupload = \Cloudinary\Uploader::upload($value,array(
-								"folder"=>'store'
-							));
-							array_push($pop_img,$imageupload['public_id']);
-							
-						}
-					}
-					$data_regis['pop_img'] = '';
-					if (!empty($pop_img))
-						$data_regis['pop_img'] = implode(",",$pop_img);
-				
-					//end pop_img upload
+					if (!empty($_FILES['pop_img']['tmp_name'][0])){
 
-					// pop_closeup
-					$pop_closeup = array();
-					foreach ($_FILES['pop_closeup']['tmp_name'] as $key => $value) {
-						if (strlen($value) > 0){
-							$imageupload = \Cloudinary\Uploader::upload($value,array(
-								"folder"=>'store'
-							));
-							array_push($pop_closeup,$imageupload['public_id']);
-							
+						$pop_img = array();
+						foreach ($_FILES['pop_img']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'store'
+								));
+								array_push($pop_img,$imageupload['public_id']);
+								
+							}
 						}
-					}
-					$data_regis['pop_closeup'] = '';
-					if (!empty($pop_closeup))
-						$data_regis['pop_closeup'] = implode(",",$pop_closeup);
+						$data_regis['pop_img'] = '';
+						if (!empty($pop_img))
+							$data_regis['pop_img'] = implode(",",$pop_img);
 					
-					//end pop_closeup upload
+						//end pop_img upload
 
-					// pop_packshot
-					$pop_packshot = array();
-					foreach ($_FILES['pop_packshot']['tmp_name'] as $key => $value) {
-						if (strlen($value) > 0){
-							$imageupload = \Cloudinary\Uploader::upload($value,array(
-								"folder"=>'store'
-							));
-							array_push($pop_packshot,$imageupload['public_id']);
-							
+						// pop_closeup
+						$pop_closeup = array();
+						foreach ($_FILES['pop_closeup']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'store'
+								));
+								array_push($pop_closeup,$imageupload['public_id']);
+								
+							}
 						}
+						$data_regis['pop_closeup'] = '';
+						if (!empty($pop_closeup))
+							$data_regis['pop_closeup'] = implode(",",$pop_closeup);
+						
+						//end pop_closeup upload
+
+						// pop_packshot
+						$pop_packshot = array();
+						foreach ($_FILES['pop_packshot']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'store'
+								));
+								array_push($pop_packshot,$imageupload['public_id']);
+								
+							}
+						}
+						$data_regis['pop_packshot'] = '';
+						if (!empty($pop_packshot))
+							$data_regis['pop_packshot'] = implode(",",$pop_packshot);
 					}
-					$data_regis['pop_packshot'] = '';
-					if (!empty($pop_packshot))
-						$data_regis['pop_packshot'] = implode(",",$pop_packshot);
-					
+
 					//end 
 					break;
 				case 3:
@@ -606,6 +636,7 @@ class Member extends MY_Controller
 					}
 					// echo $finish_date;die();
 					$data_regis['event_type'] = $this->input->post('event_type');
+					$data_regis['event_type_other'] = $this->input->post('event_type_other');
 					$data_regis['event_name_th'] = $this->input->post('event_name_th');
 					$data_regis['event_name_en'] = $this->input->post('event_name_en');
 					$data_regis['event_detail'] = $this->input->post('event_detail');
@@ -618,20 +649,60 @@ class Member extends MY_Controller
 					$data_regis['event_address'] = $this->input->post('event_address');
 					$data_regis['event_address_detail'] = $this->input->post('event_address_detail');
 
-					// join_image
-					$join_image = array();
-					foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
-						if (strlen($value) > 0){
-							$imageupload = \Cloudinary\Uploader::upload($value,array(
-								"folder"=>'document'
-							));
-							array_push($join_image,$imageupload['public_id']);
-							
+
+
+						// event  flie upload
+						if (!empty($_FILES['join_profile']['tmp_name'][0])){
+
+							$join_profile = array();
+							foreach ($_FILES['join_profile']['tmp_name'] as $key => $value) {
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'document'
+									));
+									array_push($join_profile,$imageupload['public_id']);
+									
+								}
+							}
+							$data_regis['join_profile'] = '';
+							if (!empty($join_profile))
+								$data_regis['join_profile'] = implode(",",$join_profile);
+						
+							//end event upload
+					
+							// join_image
+							$join_image = array();
+							foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'document'
+									));
+									array_push($join_image,$imageupload['public_id']);
+									
+								}
+							}
+							$data_regis['join_img'] = '';
+							if (!empty($join_image))
+								$data_regis['join_img'] = implode(",",$join_image);
+													//end pop_closeup upload
+	
+							// join_event
+							$join_event = array();
+							foreach ($_FILES['join_event']['tmp_name'] as $key => $value) {
+								if (strlen($value) > 0){
+									$imageupload = \Cloudinary\Uploader::upload($value,array(
+										"folder"=>'document'
+									));
+									array_push($join_event,$imageupload['public_id']);
+									
+								}
+							}
+							$data_regis['join_event'] = '';
+							if (!empty($join_event))
+								$data_regis['join_event'] = implode(",",$join_event);
 						}
-					}
-					$data_regis['join_img'] = '';
-					if (!empty($join_image))
-						$data_regis['join_img'] = implode(",",$join_image);
+					
+
 				
 					break;
 				default:
@@ -797,6 +868,12 @@ class Member extends MY_Controller
 			// }
 		}
 		
+	}
+
+	
+	// call back Allow dashes to numbers 
+	function numeric_dash ($num) {
+		return ( ! preg_match("/^([0-9-\s])+$/D", $num)) ? FALSE : TRUE;
 	}
 
 	//history regis members

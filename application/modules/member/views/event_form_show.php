@@ -33,19 +33,19 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><i class="pg-outdent tab-icon"></i> <span>เงื่อนไขและข้อตกลง</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png');?>" width="10px"> <span>เงื่อนไขและข้อตกลง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png');?>" width="10px"> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ผลงานออกแบบ</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>ผลงานออกแบบ</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>วิธีการจัดแสดง</span></a>
+                  <a class="" data-toggle="tab" href="#tab4" role="tab"><img src="<?php echo base_url('assets/img/icons/4.png');?>" width="10px"> <span>วิธีการจัดแสดง</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><i class="fa fa-check tab-icon"></i> <span>แบบประเมินผล</span></a>
+                  <a class="" data-toggle="tab" href="#tab5" role="tab"><img src="<?php echo base_url('assets/img/icons/5.png');?>" width="10px"> <span>แบบประเมินผล</span></a>
                 </li>
               </ul>
               <!-- Tab panes -->
@@ -138,13 +138,13 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                            <p style="font-weight: bold">ข้อมูลของคุณ</p>
+                            <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
-                                    <label>เลขบัตรประชาชน</label>
-                                    <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo $member->id_number;?>">
+                                    <label>เลขที่บัตรประชาชน</label>
+                                    <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo @$member->id_number;?>">
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
@@ -647,7 +647,7 @@
                               <br>
 
                               <div class="form-group-attached" >
-                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับการสมัคร</p>
+                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับผู้สมัคร</p>
                               
                               <div class="form-group-attached">
                                 <div class="row clearfix">
@@ -714,7 +714,7 @@
                                     $status1 = 'checked';
                                     $status2 = '';
                               }?>
-                              <p style="font-weight: bold">ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p>
+                              <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
                                 <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
@@ -1427,7 +1427,7 @@
           <span>หน้าสุด</span>
         </button>
       </li>
-      <li class="previous">
+      <li class="previous" id="hide_back" style="display:none;">
         <button class="btn btn-default btn-cons pull-right" type="button">
           <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
         </button>

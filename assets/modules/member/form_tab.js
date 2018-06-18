@@ -38,7 +38,7 @@
                         return (css.match(/(^|\s)fa-\S+/g) || []).join(' ');
                     });
                 }
-
+                $('#hide_back').toggle(true);
                 if ($current > 1 && $current < 3) {
 
                     var nextIcon = li.next().find('.fa');
@@ -52,11 +52,14 @@
 
                     removeIcons(btnPrev);
                     btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
+                    
                 } else if ($current == 1) {
+                    $('#hide_back').toggle(false);
                     // remove classes needed for button animations from previous button
                     btnPrev.removeClass('btn-animated from-left fa');
                     removeIcons(btnPrev);
                 } else {
+                    $('#hide_back').toggle(true);
                     // remove classes needed for button animations from next button
                     btnNext.removeClass('btn-animated from-left fa');
                     removeIcons(btnNext);
