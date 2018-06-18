@@ -34,7 +34,7 @@ class Register extends MY_Controller {
 
 	public function signup()
 	{
-		$this->load->library('mailgun');
+
 
 		$data = array();	
 
@@ -281,6 +281,11 @@ class Register extends MY_Controller {
 		return ( ! preg_match("/^([0-9-\s])+$/D", $num)) ? FALSE : TRUE;
 	  }
 	
+
+	  function test_mail(){
+		$this->load->library('mailgun');
+		$this->mailgun->send('','');
+	  }
 	
         
    
