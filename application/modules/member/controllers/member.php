@@ -152,10 +152,10 @@ class Member extends MY_Controller
 				break;
 			case 3:
 				$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_th','หัวข้อ', 'trim|required');
+				$this->form_validation->set_rules('work_talk_title_en','หัวข้อ (ภาษาอังกฤษ)', 'trim|required');
 				$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
+				$this->form_validation->set_rules('work_talk_scope','ขอบเขตเนื้อหาเหมาะสมกับ', 'trim|required');
 				break;
 			case 4:
 				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
@@ -332,7 +332,7 @@ class Member extends MY_Controller
 						$data['regis']['work_talk_title_th'] = $this->input->post('work_talk_title_th');
 						$data['regis']['work_talk_title_en'] = $this->input->post('work_talk_title_en');
 						$data['regis']['work_talk_name_th'] = $this->input->post('work_talk_name_th');
-						$data['regis']['work_talk_name_en'] = $this->input->post('work_talk_name_en');
+						$data['regis']['work_talk_scope'] = $this->input->post('work_talk_scope');
 						$data['regis']['work_talk_detail'] = $this->input->post('work_talk_detail');
 
 						$data['regis']['join_number'] = $this->input->post('join_number');
@@ -595,7 +595,7 @@ class Member extends MY_Controller
 					$data_regis['work_talk_title_th'] = $this->input->post('work_talk_title_th');
 					$data_regis['work_talk_title_en'] = $this->input->post('work_talk_title_en');
 					$data_regis['work_talk_name_th'] = $this->input->post('work_talk_name_th');
-					$data_regis['work_talk_name_en'] = $this->input->post('work_talk_name_en');
+					$data_regis['work_talk_scope'] = $this->input->post('work_talk_scope');
 					$data_regis['work_talk_detail'] = $this->input->post('work_talk_detail');
 
 					$data_regis['join_number'] = $this->input->post('join_number');
@@ -605,21 +605,74 @@ class Member extends MY_Controller
 					$data_regis['join_start_time'] = $this->input->post('join_start_time');
 					$data_regis['join_finish_time'] = $this->input->post('join_finish_time');
 
-					// join_image
-					$join_image = array();
-					foreach (@$_FILES['join_image']['tmp_name'] as $key => $value) {
-						if (strlen($value) > 0){
-							$imageupload = \Cloudinary\Uploader::upload($value,array(
-								"folder"=>'document'
-							));
-							array_push($join_image,$imageupload['public_id']);
-							
-						}
-					}
-					$data_regis['join_img'] = '';
-					if (!empty($join_image))
-						$data_regis['join_img'] = implode(",",$join_image);
+					
+					// work/talk  flie upload
+					if (!empty($_FILES['join_profile']['tmp_name'][0])){
 
+						$join_profile = array();
+						foreach ($_FILES['join_profile']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'document'
+								));
+								array_push($join_profile,$imageupload['public_id']);
+								
+							}
+						}
+						$data_regis['join_profile'] = '';
+						if (!empty($join_profile))
+							$data_regis['join_profile'] = implode(",",$join_profile);
+					
+						//end event upload
+
+						// join_image
+						$join_img_profile = array();
+						foreach ($_FILES['join_img_profile']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'document'
+								));
+								array_push($join_img_profile,$imageupload['public_id']);
+								
+							}
+						}
+						$data_regis['join_img_profile'] = '';
+						if (!empty($join_img_profile))
+							$data_regis['join_img_profile'] = implode(",",$join_img_profile);
+												//end pop_closeup upload
+				
+						// join_image
+						$join_image = array();
+						foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'document'
+								));
+								array_push($join_image,$imageupload['public_id']);
+								
+							}
+						}
+						$data_regis['join_img'] = '';
+						if (!empty($join_image))
+							$data_regis['join_img'] = implode(",",$join_image);
+												//end pop_closeup upload
+
+						// join_event
+						$join_event = array();
+						foreach ($_FILES['join_event']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$imageupload = \Cloudinary\Uploader::upload($value,array(
+									"folder"=>'document'
+								));
+								array_push($join_event,$imageupload['public_id']);
+								
+							}
+						}
+						$data_regis['join_event'] = '';
+						if (!empty($join_event))
+							$data_regis['join_event'] = implode(",",$join_event);
+					}
+					
 					
 				
 					break;

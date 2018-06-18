@@ -24,6 +24,7 @@ class Welcome extends MY_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->session->keep_flashdata('msg');
+		$this->session->keep_flashdata('confirm');
 		$this->session->keep_flashdata('verify');
 	}
 	

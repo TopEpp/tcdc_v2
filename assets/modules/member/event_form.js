@@ -638,6 +638,64 @@
                 break;
             case '3':
                 // work talk
+                                  
+                if ($('#have_img').val() == 'false')
+                {
+                    var loops = false;
+                    $('.join_profile').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดโปรไฟล์ของวิทยากร');
+                        return false;
+                    }
+
+                    var loops = false;
+                    $('.join_img_profile').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพวิทยากร');
+                        return false;
+                    }
+
+                    var loops = false;
+                    $('.join_img').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดภาพ Key Visual หรือ กิจกรรมที่เคยจัด');
+                        return false;
+                    }
+                    var loops = false;
+                    $('.join_event').each(function() {
+                        if ($(this).get(0).files.length === 0) {
+                            loops = true;
+                        
+                        }else{
+                            loops = false;
+                        }
+                    });
+                    if (loops){
+                        alert('กรุณาอัพโหลดกำหนดการณ์กิจกรรม');
+                        return false;
+                    }
+                }
                 var work_talk_type = $.map($('input[name="work_talk_ty"]:checked'), function(c){return c.value; })
                 
                 $('#work_talk_type').val(work_talk_type);
@@ -651,7 +709,7 @@
                 if ($('#have_img').val() == 'false')
                 {
                     var loops = false;
-                    $('.pop_img').each(function() {
+                    $('.join_profile').each(function() {
                         if ($(this).get(0).files.length === 0) {
                             loops = true;
                         
@@ -660,11 +718,11 @@
                         }
                     });
                     if (loops){
-                        alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                        alert('กรุณาอัพโหลดโปรไฟล์ของผู้จัด');
                         return false;
                     }
                     var loops = false;
-                    $('.pop_closeup').each(function() {
+                    $('.join_img').each(function() {
                         if ($(this).get(0).files.length === 0) {
                             loops = true;
                         
@@ -673,11 +731,11 @@
                         }
                     });
                     if (loops){
-                        alert('กรุณาอัพโหลดภาพ Close Up');
+                        alert('กรุณาอัพโหลดภาพกิจกรรมที่เคยจัดหรือภาพร่าง');
                         return false;
                     }
                     var loops = false;
-                    $('.pop_packshot').each(function() {
+                    $('.join_event').each(function() {
                         if ($(this).get(0).files.length === 0) {
                             loops = true;
                         
@@ -686,7 +744,7 @@
                         }
                     });
                     if (loops){
-                        alert('กรุณาอัพโหลดภาพPack Shot');
+                        alert('กรุณาอัพโหลดกำหนดการณ์กิจกรรม');
                         return false;
                     }
                 }

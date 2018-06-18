@@ -13,8 +13,8 @@ class Mailgun {
    
    
     // config
-    self::$api_key = "de6077eda46f789cf38982c2f96d285f-47317c98-18dc0d11";
-    self::$api_base_url = "https://api.mailgun.net/v3/sandbox21f3d82c161b47b7aba452daa6ebb97a.mailgun.org";
+    self::$api_key = "6324af13519a0cfbd30cfe1ebe9f5350-0470a1f7-d3054851";
+    self::$api_base_url = "https://api.mailgun.net/v3/sandboxbfc55faca752420ab825aa4863dbb8ab.mailgun.org";
   }
 
   /**

@@ -83,18 +83,18 @@
               $this->session->unset_userdata('verify');
             }
 
-            // if($this->session->flashdata('msg')){
-            //   echo $this->session->flashdata('msg');
-            //   $this->session->unset_userdata('msg');
-            // }
+            if($this->session->flashdata('msg')){
+              echo $this->session->flashdata('msg');
+              $this->session->unset_userdata('msg');
+            }
 
           ?>
           
-        <?php  $msg = $this->session->flashdata('msg');
-            if($msg['msg']){?>
+        <?php  $msg = @$this->session->flashdata('confirm');
+            if(!empty($msg['msg'])){?>
               <input type="hidden" id="msg" value="<?php echo $msg['msg'];?>">
               <input type="hidden" id="msg2" value="<?php echo $msg['msg2'];?>">
-           <?php  $this->session->unset_userdata('msg');}else{ ?>
+           <?php  $this->session->unset_userdata('confirm');}else{ ?>
             <input type="hidden" id="msg" value ="">
             <input type="hidden" id="msg2" value ="">
          <?php  }?>
