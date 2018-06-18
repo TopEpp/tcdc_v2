@@ -305,6 +305,7 @@ class staff extends MY_Controller {
 				
 			$data = array(
 				'user_type' => 2,
+				'id_number'=>$this->input->post('id_number'),
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
 				'firstname' => $this->input->post('firstname'),

@@ -97,6 +97,15 @@
                                                 <p>ข้อมูลบุคคล</p>
                                                 <div class="form-group-attached">
                                                   <div class="row clearfix">
+                                                    <div class="col-sm-12">
+                                                      <div class="form-group form-group-default required">
+                                                        <label>เลขบัตรประชาชน</label>
+                                                        <input type="text" name="id_number" class="form-control" value="<?php echo @$data->id_number;?>">
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="row clearfix">
                                                     <div class="col-sm-3">
                                                       <div class="form-group form-group-default required form-group-default-selectFx">
                                                         <label>คำนำหน้า</label>
