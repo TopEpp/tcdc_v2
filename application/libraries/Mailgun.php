@@ -31,9 +31,8 @@ class Mailgun {
     $mail = array(
       'from' => "TCDC.Chiangmai@gmail.com", 
       'to' => $data['to'],
-      'subject' => "Chaingmai Design Week 2018",
-      'html' => $html,
-      'text' => 'sadsad',
+      'subject' => $data['subject'],
+      'html' => $html
     );
 
     $ch = curl_init();

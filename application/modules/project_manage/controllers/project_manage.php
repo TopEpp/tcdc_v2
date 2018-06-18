@@ -411,6 +411,7 @@ class project_manage extends MY_Controller {
 
 		$pid = $this->pm_model->saveAppv($data);
         if($pid){
+        	
         	$subject = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"';  //email subject
 
 	        if($data['reg_status']){
@@ -420,31 +421,37 @@ class project_manage extends MY_Controller {
 	        }
 
 	        ## SET PARAM SEND MAIL ##
-	        $data_mail['mail_to'] = 'natchapol.prms@gmail.com';//$data['email_receive'];
+	        $data_mail['to'] = $data['email_receive']; //'natchapol.prms@gmail.com';//
         	$data_mail['mail_to_name'] = $this->input->post('regis_name');
         	$data_mail['message'] = $message;
         	$data_mail['subject'] = $subject;
 
-        	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail/';
-			// $postString = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
+        	$content = array( 
+		     'name' => $data_mail['mail_to_name'], 
+		     'content' => $data_mail['message'], 
+		    ); 
 
-		    $post = curl_init();
-		    $postString = http_build_query($data_mail, '', '/');
+   //      	$url = 'http://www.pitchap.com/project/cmdw/service_mail/send_mail/';
+			// // $postString = 'mail_to=' . $data_mail['mail_to'] . '&mail_to_name=' . $data_mail['mail_to_name']. '&message=' . $data_mail['message']. '&subject=' . $data_mail['subject'];
 
-		    curl_setopt($post, CURLOPT_URL, $url.$postString);
-		    curl_setopt($post, CURLOPT_POST, count($data_mail));
-		    curl_setopt($post, CURLOPT_POSTFIELDS, $postString);
-		    curl_setopt($post, CURLOPT_RETURNTRANSFER, true);
+		 //    $post = curl_init();
+		 //    $postString = http_build_query($data_mail, '', '/');
 
-		    $result = curl_exec($post);
+		 //    curl_setopt($post, CURLOPT_URL, $url.$postString);
+		 //    curl_setopt($post, CURLOPT_POST, count($data_mail));
+		 //    curl_setopt($post, CURLOPT_POSTFIELDS, $postString);
+		 //    curl_setopt($post, CURLOPT_RETURNTRANSFER, true);
 
-		    curl_close($post);
+		 //    $result = curl_exec($post);
+
+		 //    curl_close($post);
 
         	// $this->load->library('cmdw_mail');
         	// if($this->cmdw_mail->sendMail($data_mail)){
         	// if($this->pm_model->sendMail($data)){
-
-			if($result){
+        	
+        	$this->load->library('mailgun');
+			if($this->mailgun->send($data_mail,$content)){ 
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{
