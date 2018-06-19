@@ -42,10 +42,10 @@
                             <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user
                       Comman Practice Followed
                     -->
-                    <th style="width:40%">ชื่อ-นามสกุล</th>
+                    <th style="width:35%">ชื่อ-นามสกุล</th>
                     <th style="width:20%">วันที่สมัคร</th>
                     <th style="width:20%">สถานะ</th>
-                    <th style="width:20%">การจัดการ</th>
+                    <th style="width:25%">การจัดการ</th>
                   </tr>
                 </thead>
                 <tbody>

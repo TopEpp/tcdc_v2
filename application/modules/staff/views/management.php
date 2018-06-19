@@ -81,7 +81,7 @@
                                 <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>">เรียกดู</a></p>
                               </td>
                               <td class="v-align-middle">
-                                <p><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
+                                <p><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a></p>
                                 <p><a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
                               </td>
                             </tr>
@@ -117,15 +117,15 @@
                   <thead>
                     <tr>
                       <th width="50%">หัวข้อข่าว</th>
-                      <th width="10%">ประเภท</th>
-                      <th>ดำเนินการล่าสุดโดย</th>
-                      <th width="10%"></th>
+                      <th width="20%">ประเภท</th>
+                      <th width="15%">ดำเนินการล่าสุดโดย</th>
+                      <th width="15%">การจัดการ</th>
                     </tr>
                   </thead>
                   <tbody>
                   <?php foreach ($news as $key => $value) { ?>
                     <tr>
-                      <td class="v-align-middle semi-bold"  width="50%">
+                      <td class="v-align-middle semi-bold" >
                         <p><span id="news_name_<?php echo $value->news_id;?>"><?php echo $value->news_name?></span></p>
                       </td>
                       <td class="v-align-middle semi-bold" ><span id="news_type_<?php echo $value->news_id;?>"><?php echo $value->news_type?></span></td>
@@ -133,7 +133,7 @@
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
                       <td class="v-align-middle">
-                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a></p>
+                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a></p>
                         <p><a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
                       </td>
                     </tr>

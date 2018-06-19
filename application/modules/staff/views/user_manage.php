@@ -81,7 +81,7 @@
                             <p><?php echo $value->rec_edit_timestamp;?></p>
                           </td>
                           <td class="v-align-middle">
-                            <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>">แก้ไข</a></p>
+                            <p><a  href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
                           </td>
                         </tr>
                     <?php } ?>

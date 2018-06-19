@@ -48,13 +48,13 @@
                             <div class="card-block">
                               <div class="table-responsive">
 
-                                <table class="table table-hover table-condensed" id="condensedTable">
+                                <table class="table table-hover table-condensed" id="condensedTable_<?php echo $prj->project_id?>">
                                   <thead>
                                     <tr>
-                                      <th style="width:40%">ชื่อ-นามสกุล</th>
+                                      <th style="width:35%">ชื่อ-นามสกุล</th>
                                       <th style="width:20%">วันที่สมัคร</th>
                                       <th style="width:20%">สถานะ</th>
-                                      <th style="width:20%">การจัดการ</th>
+                                      <th style="width:25%">การจัดการ</th>
                                     </tr>
                                   </thead>
                                   <tbody>
