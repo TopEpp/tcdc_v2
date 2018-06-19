@@ -286,7 +286,7 @@ class staff extends MY_Controller {
 
 		$this->form_validation->set_rules('email','Email', 'trim|required|valid_email|callback_email_check');
 		$this->form_validation->set_rules('password','Password', 'trim|min_length[8]|required');
-		$this->form_validation->set_rules('phone','Phone', 'trim|required');
+		// $this->form_validation->set_rules('phone','Phone', 'trim|required');
 		$this->form_validation->set_rules('pass_new_confirm', 'Pass_confirm', 'trim|min_length[8]|matches[password]');
 
 		if($this->form_validation->run() == false){
@@ -305,7 +305,7 @@ class staff extends MY_Controller {
 				
 			$data = array(
 				'user_type' => 2,
-				'id_number'=>$this->input->post('id_number'),
+				// 'id_number'=>$this->input->post('id_number'),
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
 				'firstname' => $this->input->post('firstname'),
@@ -427,7 +427,7 @@ class staff extends MY_Controller {
 
 			// $this->form_validation->set_rules('email','Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password','Password', 'trim|min_length[8]|callback_pass_check');
-			$this->form_validation->set_rules('phone','Phone', 'trim|required');
+			// $this->form_validation->set_rules('phone','Phone', 'trim|required');
 			$this->form_validation->set_rules('pass_new', 'Pass_new', 'trim|min_length[8]');
 			$this->form_validation->set_rules('pass_new_confirm', 'Pass_new_confirm', 'trim|min_length[8]|matches[pass_new]');
 

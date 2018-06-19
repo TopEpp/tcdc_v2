@@ -175,7 +175,7 @@
 
     $('#btn-finish').click(function(){
      
-      return false;
+      // return false;
       //check user active
       if ($('#user-active').val() != ''){
         $('#user_active').val($('#user-active').val()) ;

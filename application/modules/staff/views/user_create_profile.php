@@ -272,7 +272,7 @@
                                       <!--  status group -->
                                       <div id="commany">
                                         
-                                        <p>เกี่ยวกับงาน</p>
+                                        <!-- <p>เกี่ยวกับงาน</p>
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
                                               <div class="form-group form-group-default  form-group-default-selectFx  required">
@@ -285,7 +285,7 @@
                                                 </select>
                                               </div>
                                             </div>
-                                          </div>
+                                          </div> -->
                                           <!-- <div class="row clearfix" id="job_detail" <?php echo (@$data->job_detail && @$data->job == 11) ?  "" : "style='display:none;'" ?>>
                                             <div class="col-sm-12">
                                               <div class="form-group form-group-default ">
