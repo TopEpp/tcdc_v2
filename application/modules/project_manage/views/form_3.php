@@ -537,6 +537,7 @@
                       <div class="padding-30 sm-padding-5">
                         <p >ข้อมูลกิจกรรม <span style="color:red;">*</span></p>
                         <div class="row clearfix">
+                        
                             <div class="col-sm-12">
                               <input type="hidden" name="work_talk_type" id="work_talk_type">
                               <input type="hidden" name="work_talk_type_at" id="work_talk_type_at">
@@ -586,7 +587,7 @@
                                 <div class="col-sm-5">
                                   <div class="checkbox check-success">
                                     <input <?php echo (@$regis['work_talk_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty" id="work_talk_ty2">
-                                    <label for="work_talk_ty2">Workshop (เวิร์กชอป))</label>
+                                    <label for="work_talk_ty2">Workshop (เวิร์กชอป)</label>
                                   </div>
                                 </div>
                                 <div class="col-sm-7" id="work_type_2" style="display:none">
@@ -630,24 +631,24 @@
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
-                                <label>หัวข้อ </label>
+                                <label>หัวข้อ</label>
                                 <input name="work_talk_title_th" type="text" value="<?php echo @$regis['work_talk_title_th']; ?>"  placeholder="" class="form-control"  >
                               </div>
                             </div>
                         </div>
-                        <!-- <div class="row clearfix">
+                        <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
                                 <label>หัวข้อ (ภาษาอังกฤษ)</label>
                                 <input name="work_talk_title_en" type="text" value="<?php echo @$regis['work_talk_title_en']; ?>" placeholder="" class="form-control"  >
                               </div>
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
-                                <label>ชื่อวิทยากร </label>
+                                <label>ชื่อวิทยากร</label>
                                 <input name="work_talk_name_th" type="text" value="<?php echo @$regis['work_talk_name_th']; ?>"  placeholder="" class="form-control"  >
                               </div>
                             </div>
@@ -656,16 +657,17 @@
                             <div class="col-sm-12">
                               <div class="form-group form-group-default required">
                                 <label>ชื่อวิทยากร (ภาษาอังกฤษ)</label>
-                                <input name="work_talk_name_en" type="text" value="<?php echo @$regis['work_talk_name_en']; ?>"  placeholder="" class="form-control"  >
+                                <input name="work_talk_name_en" type="text" value="<?php echo @$regis['work_talk_name_en']; ?>"  placeholder="ระบุชื่อชื่อวิทยากรภาษาอังกฤษ" class="form-control"  >
                               </div>
                             </div>
                         </div> -->
+                    
 
                         <div class="row clearfix">
                           <div class="col-sm-12">
                             <p>ขอบเขตเนื้อหาและรูปแบบวิธีการ</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="work_talk_detail" id="wysiwyg5" class="work_talk_detail demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="work_talk_detail" id="" class="work_talk_detail demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }"><?php echo @$regis['work_talk_detail']; ?></textarea>
@@ -674,17 +676,34 @@
                         </div>
                         <br>
                         <div class="row clearfix">
+                            <div class="col-sm-12">
+                              <div class="form-group form-group-default required form-group-default-selectFx">
+                                <label>ขอบเขตเนื้อหาเหมาะสมกับ</label>
+                                <select style="width:100%;"  id="work_talk_scope" name="work_talk_scope" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+  
+                                  <option  <?php echo (@$regis['work_talk_scope'] == '') ? 'selected':'';?> value="" >เลือก</option>
+                                  <option  <?php echo (@$regis['work_talk_scope'] == 1) ? 'selected':'';?> value="1">ทุกคน</option>
+                                  <option  <?php echo (@$regis['work_talk_scope'] == 2) ? 'selected':'';?> value="2">นักออกแบบ</option>
+                                  <option  <?php echo (@$regis['work_talk_scope'] == 3) ? 'selected':'';?> value="3">นักธุรกิจ</option>
+                                  <option  <?php echo (@$regis['work_talk_scope'] == 4) ? 'selected':'';?> value="4">อื่นๆ</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row clearfix">
                           <div class="col-sm-12">
                             <p>คุณสมบัติผู้เข้าร่วม</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea name="join_property" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
+                              <textarea name="join_property" id="" class="join_property demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }">  <?php echo @$regis['join_property']; ?></textarea>
                             </div>
                           </div>
                         </div>
-                        <br>
+                        <br/>
+
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group form-group-default ">
@@ -693,47 +712,48 @@
                               </div>
                             </div>
                         </div>
-                        
+
                         <br>
-                        <label>วันที่และเวลา เริ่มต้นและสิ้นสุดกิจกรรม</label>
+                        <p>วันที่และเวลา เริ่มต้นและสิ้นสุดกิจกรรม</p>
+      
+                      
                         <div class="row clearfix">
-                          <div class="col-sm-5" >
-                            <p>วันที่เริ่มต้น</p>
-                          </div>
-                          <div class="col-sm-2 text-center">ถึงเวลา</div>
-                          <div class="col-sm-5" >
-                            <p>วันที่สิ้นสุด</p>
-                          </div>
-                        </div>
-                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                              <div class="row form-group">
+                                <div class="col-sm-6">
+                                  <label>วันที่เริ่มต้น</label>
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>&nbsp;&nbsp;&nbsp;&nbsp;วันที่สิ้นสุด</label>
+                                </div>
+                              </div>
+                                <!-- <div class="col-sm-6">
+                                  <label>วันที่สิ้นสุด</label>
+                                </div> -->
+                            </div>
                           <div class="input-daterange input-group" id="datepicker-range2">
-                            <input required class="input-sm form-control datepicker-range_event" name="join_start_date" id="event_start_date" value="<?php echo @$regis['join_start_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
-                            </span>
-                            <div class="input-group-addon">ถึงวันที่</div>
-                            <input required class="input-sm form-control datepicker-range_event" name="join_finish_date" id="event_finish_date" value="<?php echo @$regis['join_finish_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
-                            </span>
+                                <input required class="input-sm form-control datepicker-range_event" name="join_start_date" id="event_start_date" value="<?php echo @$regis['join_start_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </span>
+                                <div class="input-group-addon">ถึงวันที่</div>
+                                <label></label>
+                                <input required class="input-sm form-control datepicker-range_event" name="join_finish_date" id="event_finish_date" value="<?php echo @$regis['join_finish_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </span>
                           </div>
 
                         </div>
                         <br/>
                        
-                        <label>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</label>
-                        <div class="row clearfix">
+                        <!-- <p>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</p> -->
+       
+                        <div class="row clearfix form-group">
                           <div class="col-sm-5" >
-                            <p>เวลาเริ่มต้น</p>
-                          </div>
-                          <div class="col-sm-2 text-center">ถึงเวลา</div>
-                          <div class="col-sm-5" >
-                            <p>เวลาสิ้นสุด</p>
-                          </div>
-                        </div>
-                        <div class="row clearfix">
-                          <div class="col-sm-5" >
+                            <label>เวลาเริ่มต้น</label>
                             <input required class="input-sm form-control timepicker" name="join_start_time" id="event_start_time" value="<?php echo @$regis['join_start_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
                             </div>
-                            <div class="col-sm-2 text-center">ถึงเวลา</div>
+                            <div class="col-sm-2 text-center"></div>
                             <div class="col-sm-5" >
+                            <label>เวลาสิ้นสุด</label>
                             <input required class="input-sm form-control timepicker" name="join_finish_time" id="event_finish_time" value="<?php echo @$regis['join_finish_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
                             </span>
                           </div>
@@ -743,10 +763,78 @@
                         
                         <h5>เอกสารประกอบการสมัคร</h5>
                         <hr/>
-                        <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ <input type="file" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
-                        <p> 1. ภาพ Key Visual สำหรับสื่อประชาสัมพันธ์บนเว็บไซต์ และ สูจิบัตร (สัดส่วน 5:7 และความละเอียด 300 dpi)</p>
-                        <p> 2. ตารางเวลากิจกรรม และกำหนดการกิจกรรม</p>
-
+                        <div class=" form-group">
+                          <!-- <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ </p> -->
+                          <div class="row">
+                              <div class="col-sm-12">
+                            <label> 1. โปรไฟล์ของวิทยากร <input type="file" class="join_profile" name="join_profile[]" multiple="multiple" > </p>
+                          
+                            <?php
+                                if (!empty($regis['join_profile'])){ ?>
+                                  <input  type="hidden" id="have_img" value="true">
+                                <?php  $product_img = explode(',',$regis['join_profile']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_profile","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }else{ ?>
+                                  <input  type="hidden" id="have_img" value="false">
+                               <?php }
+                              
+                            ?>
+                            </div>
+                             
+                          </div>
+                          
+                          <div class="row">
+                            <label> 2. ภาพวิทยากร <input type="file" class="join_img_profile" name="join_img_profile[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
+                            <?php
+                                if (!empty($regis['join_img_profile'])){
+                                  $product_img = explode(',',$regis['join_img_profile']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_img_profile","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }
+                              
+                            ?>
+                          </div>
+                       
+                          
+                          <div class="row">
+                            <label> 3. ภาพ Key Visual หรือ กิจกรรมที่เคยจัด <input type="file" class="join_img" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
+                            <?php
+                                if (!empty($regis['join_img'])){
+                                  $product_img = explode(',',$regis['join_img']);
+                              
+                                  foreach ($product_img as $key => $val) {
+                                    echo  cl_image_tag($val, array( "alt" => "join_img","width"=>100, "height"=>100 ));  
+                                    echo '&nbsp;';
+                                  }
+                                }
+                              
+                            ?>
+                          </div>
+                          <div class="row">
+                            <label> 4. กำหนดการณ์กิจกรรม <input type="file" class="join_event" name="join_event[]" multiple="multiple" > </p>
+                              <?php
+                                  if (!empty($regis['join_event'])){
+                                    $product_img = explode(',',$regis['join_event']);
+                                
+                                    foreach ($product_img as $key => $val) {
+                                      echo  cl_image_tag($val, array( "alt" => "join_event","width"=>100, "height"=>100 ));  
+                                      echo '&nbsp;';
+                                    }
+                                  }
+                                
+                              ?>
+                          </div>
+                         
+                         
+                         
+                        </div>
                       </div>
                     </div>
                   </div> 
