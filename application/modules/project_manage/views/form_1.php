@@ -715,9 +715,9 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p> โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p>
+                                              <!-- <p> โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p> -->
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
                                                 }"><?php echo @$value['product_concept']?></textarea>
@@ -758,12 +758,12 @@
                                                 </div>
                                               </div>
                                               <div class="col-sm-6">
-                                                <div class="form-group  ">
+                                                <!-- <div class="form-group  ">
                                                   <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
-                                                </div>
+                                                </div> -->
                                               </div>
                                             
                                             </div>
