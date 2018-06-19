@@ -26,20 +26,15 @@ class Mailgun {
   {
     $CI =& get_instance();
     //load tamplate  $content = array(name,content)
-    // $html =  $CI->load->view('email/tamplate',$content,TRUE);
+    $html =  $CI->load->view('email/tamplate',$content,TRUE);
 
-    // $mail = array(
-    //   'from' => "TCDC.Chiangmai@gmail.com", 
-    //   'to' => $data['to'],
-    //   'subject' => $data['subject'],
-    //   'html' => $html
-    // );
     $mail = array(
-      'from' => "pengjankul@gmail.com", 
-      'to' => 'pengjankulwatcharin@gmail.com',
-      'subject' => 'aasds',
-      'text' => 'asd'
+      'from' => "TCDC.Chiangmai@gmail.com", 
+      'to' => $data['to'],
+      'subject' => $data['subject'],
+      'html' => $html
     );
+  
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     curl_setopt($ch, CURLOPT_USERPWD, 'api:' . self::$api_key);
@@ -48,7 +43,6 @@ class Mailgun {
     curl_setopt($ch, CURLOPT_URL, self::$api_base_url . '/messages');
     curl_setopt($ch, CURLOPT_POSTFIELDS, $mail);
     $result = curl_exec($ch);
-    print_r($result);
     curl_close($ch);
     return $result;
   }
