@@ -50,42 +50,42 @@ class project_manage extends MY_Controller {
 		
 		$project_type = $this->input->post('project_type');
 		
-		switch ($project_type) {
-			case 1:
+		// switch ($project_type) {
+		// 	case 1:
 			
-				$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการจัดแสดงผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-				break;
-			case 2:
+		// 		$this->form_validation->set_rules('target_type[]','เป้าหมายหลัก ในการจัดแสดงผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+		// 		break;
+		// 	case 2:
 			
-				$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
-				$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
-				break;
-			case 3:
-				$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
-				break;
-			case 4:
-				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
-				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
+		// 		$this->form_validation->set_rules('pop_shop_name','ชื่อร้าน', 'trim|required');
+		// 		$this->form_validation->set_rules('pop_select','ประเภทของที่ขาย', 'trim|required');
+		// 		break;
+		// 	case 3:
+		// 		$this->form_validation->set_rules('work_talk_type','ประเภทกิจกรรม', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_title_th','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_title_en','หัวข้อการเสวนา / เวิร์กช็อป (ภาษาอังกฤษ)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_name_th','ชื่อวิทยากร (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('work_talk_name_en','ชื่อวิทยากร (ภาษาอังกฤษ)', 'trim|required');
+		// 		break;
+		// 	case 4:
+		// 		$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
+		// 		$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
+		// 		$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
-				break;
-			default:
-				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
-				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
-				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
-				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
-				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
-				break;
-		}
+		// 		break;
+		// 	default:
+		// 		$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
+		// 		$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
+		// 		$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
+		// 		break;
+		// }
 		
 
 
@@ -96,17 +96,17 @@ class project_manage extends MY_Controller {
 			
 			switch ($project_type) {
 				case 1:
-					$data_regis['target_type'] = $this->input->post('target_type');
-					$data_regis['target_type_detail'] = $this->input->post('target_type_detail');
-					$data_regis['showarea_type'] = $this->input->post('showarea_type');
-					$data_regis['show_type'] = $this->input->post('show_type');
-					$data_regis['area_type'] = $this->input->post('area_type');
+					// $data_regis['target_type'] = $this->input->post('target_type');
+					// $data_regis['target_type_detail'] = $this->input->post('target_type_detail');
+					// $data_regis['showarea_type'] = $this->input->post('showarea_type');
+					// $data_regis['show_type'] = $this->input->post('show_type');
+					// $data_regis['area_type'] = $this->input->post('area_type');
 					break;
 				case 2:
-					$data_regis['pop_shop_name'] = $this->input->post('pop_shop_name');
-					$data_regis['pop_story'] = $this->input->post('pop_story');
-					$data_regis['pop_product_type'] = $this->input->post('pop_product_type');
-					$data_regis['pop_food_type'] = $this->input->post('pop_food_type');
+					// $data_regis['pop_shop_name'] = $this->input->post('pop_shop_name');
+					// $data_regis['pop_story'] = $this->input->post('pop_story');
+					// $data_regis['pop_product_type'] = $this->input->post('pop_product_type');
+					// $data_regis['pop_food_type'] = $this->input->post('pop_food_type');
 					
 					// pop_img flie upload
 					$pop_img = array();

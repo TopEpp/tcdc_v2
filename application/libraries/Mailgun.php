@@ -10,7 +10,7 @@ class Mailgun {
   function __construct() {
 
     // assign CI super object
-   
+ 
    
     // config
     self::$api_key = "";
