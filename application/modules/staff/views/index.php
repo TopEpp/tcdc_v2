@@ -66,7 +66,7 @@
                               <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
                               <td class="v-align-middle"><?php echo $status;?></td>
-                              <td class="v-align-middle"><?php echo $this->mydate->date_2dot($prj->project_update);?></td>
+                              <td class="v-align-middle"><?php $project_update = explode(' ', $prj->project_update); echo $this->mydate->date_2dot($project_update[0]).' '.$project_update[1];?></td>
                             </tr>
                           <?php } ?>
                         </tbody>
