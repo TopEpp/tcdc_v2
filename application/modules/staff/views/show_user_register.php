@@ -25,7 +25,7 @@
                   $first = true; $active = 'active';
                   foreach ($project_type as $key => $ptype) {  ?>
                   <li class="nav-item">
-                    <a class="<?php if($first){ echo 'active';} ?> tab_btn" id="tab_btn_<?php echo $key?>"  data-toggle="tab" href="#tab<?php echo $ptype->type_id?>" role="tab"><i class="pg-outdent tab-icon"></i> <span><?php echo $ptype->type_name?></span></a>
+                    <a class="<?php if($first){ echo 'active';} ?> tab_btn" id="tab_btn_<?php echo $key?>"  data-toggle="tab" href="#tab<?php echo $ptype->type_id?>" role="tab"><i class="pg-outdent tab-icon" style="font-size: 0.8em;"></i> <span  style="font-size: 0.9em;"> <?php echo $ptype->type_name?></span></a>
                   </li>
                 <?php $first = false;} ?>
               </ul>
