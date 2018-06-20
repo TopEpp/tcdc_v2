@@ -270,8 +270,8 @@
             break;
         case '2':
                // pop_product and food form clear checked
-                $("input[name='pop_select']").change(function() {
-                    $("input[name='pop_select']").not(this).prop('checked', false);
+                $("input[name='pop_product_type']").change(function() {
+                    $("input[name='pop_product_type']").not(this).prop('checked', false);
                 });
             //     $("input[name='pop_type']").change(function() {
             //         $("input[name='pop_type']").not(this).prop('checked', false);

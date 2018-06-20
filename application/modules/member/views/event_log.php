@@ -26,7 +26,7 @@
                   <div class="card-header ">
                     <div class="card-title">
                       <h3>ประวัติ</h3>
-                      <p>คุณสามารถค้นหากิจกรรมที่คุณเคยเข้าร่วมได้จากหน้านี้โดยข้อมูลจะแสดงเรียงลำดับด้านล่างนี้</p>
+                      <p style="font-family: 'dbch';font-size: 24px;">คุณสามารถค้นหากิจกรรมที่คุณเคยเข้าร่วมได้จากหน้านี้โดยข้อมูลจะแสดงเรียงลำดับด้านล่างนี้</p>
                     </div>
                   </div>
                   <div class="card-block">
@@ -62,7 +62,7 @@
                               <tbody>
                                 <tr>
                                   <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
-                                  <td width="10%" style="vertical-align:top">ผู้เข้าร่วม 15 ราย</td>
+                                  <td width="10%" style="vertical-align:top"></td>
                                   <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
                                                                             วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
                                   <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เรียกดู</a></td>

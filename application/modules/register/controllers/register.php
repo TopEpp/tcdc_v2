@@ -52,7 +52,7 @@ class Register extends MY_Controller {
 		// if ($this->input->post('job_group') == 1){
 		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 		// }
-		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
+		// $this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
@@ -92,7 +92,7 @@ class Register extends MY_Controller {
 			}
 			//insert data  
             $data = array(
-				'id_number' => $this->input->post('id_number'),
+				// 'id_number' => $this->input->post('id_number'),
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
                 'firstname' => $this->input->post('firstname'),
@@ -115,7 +115,7 @@ class Register extends MY_Controller {
 				'job' => $this->input->post('job'),
 
 				// //ชั่วคราว
-				// 'user_active' => '1'
+				'user_active' => '1'
 				
 				
 			);     
@@ -177,39 +177,40 @@ class Register extends MY_Controller {
 
             if($this->staff_model->saveCreateUser($data,$data_company)){
 				
-					// $msg['msg'] = "คุณสร้างบัญชีผู้ใช้งานสำเร็จแล้ว";
-					// $msg['msg2'] = "ยินดีต้อนรับสู่งานเทศกาลงานออกแบบเชียงใหม่";
-					// $this->session->set_flashdata('confirm',$msg);
-					// redirect('welcome/index');
-
-				// send mail to api
-				$data['to'] = $this->input->post('email');
-				$data['subject'] = 'ยืนยันการลงทะเบียน Chiangmai Design Week 2018';
-				$name = $this->input->post('firstname').' '.$this->input->post('lastname');
-				$encode_rec = $this->encrypt->encode($data['to']);
-				$link = base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec;
-				$content = array(
-					'name' => $name,
-					'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการลงทะเบียน <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์ <br/>',
-					'link' => $link
-				);
-	
-				
-				// send confirm mail
-			
-                if($this->mailgun->send($data,$content)){
-					$msg['msg'] = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email:";
-					$msg['msg2'] = $this->input->post('email');
+					$msg['msg'] = "คุณสร้างบัญชีผู้ใช้งานสำเร็จแล้ว";
+					$msg['msg2'] = "ยินดีต้อนรับสู่งานเทศกาลงานออกแบบเชียงใหม่";
 					$this->session->set_flashdata('confirm',$msg);
-					// $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
-					// $this->session->set_flashdata('msg', $msg);
 					redirect('welcome/index');
 
-                }else{
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
-					redirect('register/index');
+				// send mail to api
+				// $data['to'] = $this->input->post('email');
+				// $data['subject'] = 'ยืนยันการลงทะเบียน Chiangmai Design Week 2018';
+				// $name = $this->input->post('firstname').' '.$this->input->post('lastname');
+				// $encode_rec = $this->encrypt->encode($data['to']);
+				// $link = base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec;
+				// $content = array(
+				// 	'name' => $name,
+				// 	'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการลงทะเบียน <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์ <br/>',
+				// 	'link' => $link
+				// );
+	
+				
+				// // send confirm mail
+				// echo $this->mailgun->send($data,$content);
+				// die();
+                // if($this->mailgun->send($data,$content)){
+				// 	$msg['msg'] = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email:";
+				// 	$msg['msg2'] = $this->input->post('email');
+				// 	$this->session->set_flashdata('confirm',$msg);
+				// 	// $msg = "ลงทะเบียนสำเร็จแล้ว กรุณายืนยันการลงทะเบียนที่  Email: ".$this->input->post('email');
+				// 	// $this->session->set_flashdata('msg', $msg);
+				// 	redirect('welcome/index');
+
+                // }else{
+				// 	$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง.</div>');
+				// 	redirect('register/index');
             
-                }
+                // }
                 
                 
             }else{

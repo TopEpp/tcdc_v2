@@ -15,7 +15,7 @@
            <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
-            <div id="rootwizard" class="m-t-50">
+            <div id="event-form" class="m-t-50">
 
              <!-- show validate error -->
               <!-- status edit -->
@@ -133,13 +133,13 @@
                             <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
-                                <div class="col-sm-3">
+                                <!-- <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
                                     <label>เลขที่บัตรประชาชน</label>
                                     <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo $member->id_number;?>">
                                   </div>
-                                </div>
-                                <div class="col-sm-3">
+                                </div> -->
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
                                     <label>คำนำหน้า</label>
                                     <select style="width:100%;"  id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
@@ -152,13 +152,13 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>ชื่อ</label>
                                     <input type="text" name="firstname" class="form-control" value="<?php echo $member->firstname;?>">
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>นามสกุล</label>
                                     <input type="text" class="form-control" name="lastname" value="<?php echo $member->lastname;?>">
@@ -296,7 +296,7 @@
 
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default required">
-                                      <label>เบอร์โทรศัพท์</label>
+                                      <label>เบอร์โทรศัพท์มือถือ</label>
                                       <input name="phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->phone != 0)? @$member->phone : '';?>">
                                     </div>
                                   </div>
@@ -793,7 +793,7 @@
                       <div class="padding-30 sm-padding-5">
                         <div class="row clearfix">
                             <div class="col-sm-12">
-                            <p>ชื่อร้าน/ข้อมูล</p>
+                            <p>ชื่อร้าน</p>
                               <div class="form-group form-group-default required">
                                 <label>&nbsp;</label>
                                 <input name="pop_shop_name" type="text" placeholder="" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
@@ -919,7 +919,7 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group required ">
-                                  <label>ภาพรวมของผลงาน</label>
+                                  <label>ภาพรวมของสินค้า</label>
                                   
                                   <div class="row">
                                   <?php

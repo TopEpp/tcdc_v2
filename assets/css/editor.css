@@ -10,5 +10,6 @@ body::-moz-selection {
 }
 body{
 	color:#62605a;
-	font-size: 13.5px;
+	font-size: 20px;
+	font-family: 'dbch';
 }

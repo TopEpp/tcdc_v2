@@ -85,7 +85,7 @@
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5>เงื่อนไขและข้อตกลงสำหรับการจัดแสดงหรือนิทรรศกาล</h5>
+                          <h5>เงื่อนไขและข้อตกลงสำหรับการจัดแสดงหรือนิทรรศการ</h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="">
@@ -141,13 +141,13 @@
                             <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
-                                <div class="col-sm-3">
+                                <!-- <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
                                     <label>เลขที่บัตรประชาชน</label>
                                     <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo @$member->id_number;?>">
                                   </div>
-                                </div>
-                                <div class="col-sm-3">
+                                </div> -->
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
                                     <label>คำนำหน้า</label>
                                     <select style="width:100%;"  id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
@@ -160,13 +160,13 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>ชื่อ</label>
                                     <input type="text" name="firstname" class="form-control" value="<?php echo $member->firstname;?>">
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>นามสกุล</label>
                                     <input type="text" class="form-control" name="lastname" value="<?php echo $member->lastname;?>">
@@ -304,7 +304,7 @@
 
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default required">
-                                      <label>เบอร์โทรศัพท์</label>
+                                      <label>เบอร์โทรศัพท์มือถือ</label>
                                       <input name="phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->phone != 0)? @$member->phone : '';?>">
                                     </div>
                                   </div>
@@ -969,7 +969,7 @@
                                         <div class="form-group-attached ">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p>โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -1000,7 +1000,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1232,7 +1232,7 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p>โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,

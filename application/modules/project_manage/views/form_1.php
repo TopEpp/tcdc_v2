@@ -715,7 +715,7 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <!-- <p> โปรดระบุแนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p> -->
+                                              <!-- <p> แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p> -->
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,

@@ -165,14 +165,14 @@
             <div class="tab-pane slide " id="tab2">
 
               <!-- <form id="form-regis-user" class="p-t-15" role="form" action="#"> -->
-              <div class="row clearfix">
+              <!-- <div class="row clearfix">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default required">
                       <label>เลขที่บัตรประชาชน</label><span class="text-danger"><?php echo form_error('id_number'); ?></span>
                       <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo set_value('id_number'); ?>">
                     </div>
                   </div>
-                </div>
+                </div> -->
             
                 <div class="row">
                   <div class="col-md-4">

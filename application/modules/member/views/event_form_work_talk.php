@@ -39,7 +39,7 @@
                   <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png');?>" width="10px"> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>ข้อมูลกิจกรรม</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>เสวนา/เวิร์กช็อป</span></a>
                 </li>
 
               </ul>
@@ -134,13 +134,13 @@
                             <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
-                                <div class="col-sm-3">
+                                <!-- <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
                                     <label>เลขที่บัตรประชาชน</label>
                                     <input type="text" name="id_number" class="form-control" placeholder="" value="<?php echo $member->id_number;?>">
                                   </div>
-                                </div>
-                                <div class="col-sm-3">
+                                </div> -->
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
                                     <label>คำนำหน้า</label>
                                     <select style="width:100%;"  id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
@@ -153,13 +153,13 @@
                                     </select>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>ชื่อ</label>
                                     <input type="text" name="firstname" class="form-control" value="<?php echo $member->firstname;?>">
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
                                     <label>นามสกุล</label>
                                     <input type="text" class="form-control" name="lastname" value="<?php echo $member->lastname;?>">
@@ -297,7 +297,7 @@
 
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default required">
-                                      <label>เบอร์โทรศัพท์</label>
+                                      <label>เบอร์โทรศัพท์มือถือ</label>
                                       <input name="phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->phone != 0)? @$member->phone : '';?>">
                                     </div>
                                   </div>
@@ -844,7 +844,7 @@
                                 <div class="col-sm-5">
                                   <div class="checkbox check-success">
                                     <input <?php echo (@$regis['work_talk_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="work_talk_ty" id="work_talk_ty2">
-                                    <label for="work_talk_ty2">Workshop (เวิร์กชอป)</label>
+                                    <label for="work_talk_ty2">Workshop (เวิร์กช็อป)</label>
                                   </div>
                                 </div>
                                 <div class="col-sm-7" id="work_type_2" style="display:none">
@@ -887,16 +887,18 @@
 
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>หัวข้อ</p>
                               <div class="form-group form-group-default required">
-                                <label>หัวข้อ</label>
+                              <label>&nbsp;</label>
                                 <input name="work_talk_title_th" type="text" value="<?php echo @$regis['work_talk_title_th']; ?>"  placeholder="" class="form-control"  >
                               </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>หัวข้อ (ภาษาอังกฤษ)</p>
                               <div class="form-group form-group-default required">
-                                <label>หัวข้อ (ภาษาอังกฤษ)</label>
+                              <label>&nbsp;</label>
                                 <input name="work_talk_title_en" type="text" value="<?php echo @$regis['work_talk_title_en']; ?>" placeholder="" class="form-control"  >
                               </div>
                             </div>
@@ -904,8 +906,9 @@
 
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>ชื่อวิทยากร</p>
                               <div class="form-group form-group-default required">
-                                <label>ชื่อวิทยากร</label>
+                                <label>&nbsp;</label>
                                 <input name="work_talk_name_th" type="text" value="<?php echo @$regis['work_talk_name_th']; ?>"  placeholder="" class="form-control"  >
                               </div>
                             </div>
@@ -934,8 +937,9 @@
                         <br>
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>ขอบเขตเนื้อหาเหมาะสมกับ</p>
                               <div class="form-group form-group-default required form-group-default-selectFx">
-                                <label>ขอบเขตเนื้อหาเหมาะสมกับ</label>
+                                <label>&nbsp;</label>
                                 <select style="width:100%;"  id="work_talk_scope" name="work_talk_scope" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
   
                                   <option  <?php echo (@$regis['work_talk_scope'] == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -963,8 +967,9 @@
 
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p>จำนวนผู้เข้าร่วม</p>
                               <div class="form-group form-group-default ">
-                                <label>จำนวนผู้เข้าร่วม</label>
+                                <label>&nbsp;</label>
                                 <input name="join_number"  value="<?php echo @$regis['join_number']; ?>" type="text" placeholder="" class="form-control"  >
                               </div>
                             </div>
@@ -1018,77 +1023,109 @@
                         </div>
                         <br/>
                         
-                        <h5>เอกสารประกอบการสมัคร</h5>
+                        <p>เอกสารประกอบการสมัคร <span style="color:red">*</span></p>
                         <hr/>
-                        <div class=" form-group">
-                          <!-- <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ </p> -->
-                          <div class="row">
-                              <div class="col-sm-12">
-                            <label> 1. โปรไฟล์ของวิทยากร <input type="file" class="join_profile" name="join_profile[]" multiple="multiple" > </p>
-                          
-                            <?php
-                                if (!empty($regis['join_profile'])){ ?>
-                                  <input  type="hidden" id="have_img" value="true">
-                                <?php  $product_img = explode(',',$regis['join_profile']);
+                        <div class=" row clearfix">
+                          <div class="col-sm-12">
+                            <div class="form-group required "  style="padding-left: 8px;">
+                              <!-- <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ </p> -->
+                              <label >โปรไฟล์ของวิทยากร </label>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                
                               
-                                  foreach ($product_img as $key => $val) {
-                                    echo  cl_image_tag($val, array( "alt" => "join_profile","width"=>100, "height"=>100 ));  
-                                    echo '&nbsp;';
-                                  }
-                                }else{ ?>
-                                  <input  type="hidden" id="have_img" value="false">
-                               <?php }
-                              
-                            ?>
+                                <?php
+                                    if (!empty($regis['join_profile'])){ ?>
+                                      <input  type="hidden" id="have_img" value="true">
+                                    <?php  $product_img = explode(',',$regis['join_profile']);
+                                  
+                                      foreach ($product_img as $key => $val) {
+                                        echo  cl_image_tag($val, array( "alt" => "join_profile","width"=>100, "height"=>100 ));  
+                                        echo '&nbsp;';
+                                      }
+                                    }else{ ?>
+                                      <input  type="hidden" id="have_img" value="false">
+                                  <?php }
+                                  
+                                ?>
+                                </div>
+                                
+                              </div>
+                              <div class="fallback">
+                                <input type="file" class="join_profile" name="join_profile[]" multiple="multiple" > 
+                              </div>
                             </div>
+                          </div>
+
+                        <div class=" col-sm-12">
+                          <div class=" form-group">
+                            <label>ภาพวิทยากร</label>
+                            <div class="row">
                              
-                          </div>
-                          
-                          <div class="row">
-                            <label> 2. ภาพวิทยากร <input type="file" class="join_img_profile" name="join_img_profile[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
-                            <?php
-                                if (!empty($regis['join_img_profile'])){
-                                  $product_img = explode(',',$regis['join_img_profile']);
-                              
-                                  foreach ($product_img as $key => $val) {
-                                    echo  cl_image_tag($val, array( "alt" => "join_img_profile","width"=>100, "height"=>100 ));  
-                                    echo '&nbsp;';
-                                  }
-                                }
-                              
-                            ?>
-                          </div>
-                       
-                          
-                          <div class="row">
-                            <label> 3. ภาพ Key Visual หรือ กิจกรรมที่เคยจัด <input type="file" class="join_img" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" > </p>
-                            <?php
-                                if (!empty($regis['join_img'])){
-                                  $product_img = explode(',',$regis['join_img']);
-                              
-                                  foreach ($product_img as $key => $val) {
-                                    echo  cl_image_tag($val, array( "alt" => "join_img","width"=>100, "height"=>100 ));  
-                                    echo '&nbsp;';
-                                  }
-                                }
-                              
-                            ?>
-                          </div>
-                          <div class="row">
-                            <label> 4. กำหนดการณ์กิจกรรม <input type="file" class="join_event" name="join_event[]" multiple="multiple" > </p>
                               <?php
-                                  if (!empty($regis['join_event'])){
-                                    $product_img = explode(',',$regis['join_event']);
+                                  if (!empty($regis['join_img_profile'])){
+                                    $product_img = explode(',',$regis['join_img_profile']);
                                 
                                     foreach ($product_img as $key => $val) {
-                                      echo  cl_image_tag($val, array( "alt" => "join_event","width"=>100, "height"=>100 ));  
+                                      echo  cl_image_tag($val, array( "alt" => "join_img_profile","width"=>100, "height"=>100 ));  
                                       echo '&nbsp;';
                                     }
                                   }
                                 
                               ?>
+                            </div>
+                            <div class="fallback">
+                              <input type="file" class="join_img_profile" name="join_img_profile[]" multiple="multiple" accept="image/jpeg,image/png" > 
+                            </div>
+
                           </div>
-                         
+                        </div>
+                       
+                        <div class=" col-sm-12">
+                          <div class=" form-group">
+                          <label>ภาพ Key Visual หรือ กิจกรรมที่เคยจัด </label>
+                            <div class="row">
+                             
+                              <?php
+                                  if (!empty($regis['join_img'])){
+                                    $product_img = explode(',',$regis['join_img']);
+                                
+                                    foreach ($product_img as $key => $val) {
+                                      echo  cl_image_tag($val, array( "alt" => "join_img","width"=>100, "height"=>100 ));  
+                                      echo '&nbsp;';
+                                    }
+                                  }
+                                
+                              ?>
+                            </div>
+                            <div class="fallback">
+                              <input type="file" class="join_img" name="join_image[]" multiple="multiple" accept="image/jpeg,image/png" >
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12 ">
+                          <div class="form-group">
+                            <label>กำหนดการกิจกรรม  </label>
+                            <div class="row">
+                            
+                                <?php
+                                    if (!empty($regis['join_event'])){
+                                      $product_img = explode(',',$regis['join_event']);
+                                  
+                                      foreach ($product_img as $key => $val) {
+                                        echo  cl_image_tag($val, array( "alt" => "join_event","width"=>100, "height"=>100 ));  
+                                        echo '&nbsp;';
+                                      }
+                                    }
+                                  
+                                ?>
+                            </div>
+                            <div class="fallback">
+                              <input type="file" class="join_event" name="join_event[]" multiple="multiple" >
+                            </div>
+                          </div>
+                        </div>
                          
                          
                         </div>

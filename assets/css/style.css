@@ -42,6 +42,12 @@ body ,h2,h3,h5,h4,h1{
   /* font-size: 18px; */
 }
 
+.demo-form-wysiwyg{
+  font-family: 'dbch', sans-serif !important;
+  font-weight: bold;
+  color:rgb(66, 64, 64) !important;
+}
+
 .fn_from{
   font-family: 'dbbl', sans-serif;
 }

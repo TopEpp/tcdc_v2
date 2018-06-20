@@ -107,11 +107,11 @@ class Member extends MY_Controller
 		// if ($this->input->post('job_group') == 1){
 		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 		// }
-		$this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
+		// $this->form_validation->set_rules('id_number', 'รหัสบัตรประชาชน', 'trim|required');
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
-		$this->form_validation->set_rules('phone', 'เบอร์โทรศัพท์', 'trim|required');
+		$this->form_validation->set_rules('phone', 'เบอร์โทรศัพท์มือถือ', 'trim|required');
 		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
 		// $this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
 		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
@@ -160,7 +160,7 @@ class Member extends MY_Controller
 			case 4:
 				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
 				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
-				$this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
+				// $this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
 				break;
 			default:
@@ -204,7 +204,7 @@ class Member extends MY_Controller
 				$data['member']->firstname = $this->input->post('firstname');
 				$data['member']->lastname = $this->input->post('lastname');
 				$data['member']->phone = $this->input->post('phone');
-				$data['member']->id_number = $this->input->post('id_number');
+				// $data['member']->id_number = $this->input->post('id_number');
 				$data['member']->email = $this->input->post('email');
 				$data['member']->address = $this->input->post('address');
 				$data['member']->village = $this->input->post('village');
@@ -349,7 +349,7 @@ class Member extends MY_Controller
 						$data['regis']['event_type'] = $this->input->post('event_type');
 						$data['regis']['event_type_other'] = $this->input->post('event_type_other');
 						$data['regis']['event_name_th'] = $this->input->post('event_name_th');
-						$data['regis']['event_name_en'] = $this->input->post('event_name_en');
+						// $data['regis']['event_name_en'] = $this->input->post('event_name_en');
 						$data['regis']['event_detail'] = $this->input->post('event_detail');
 						$data['regis']['join_number'] = $this->input->post('join_number');
 						$data['regis']['join_property'] = $this->input->post('join_property');
@@ -398,7 +398,7 @@ class Member extends MY_Controller
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
-				'id_number' => $this->input->post('id_number'),
+				// 'id_number' => $this->input->post('id_number'),
 				'address' => $this->input->post('address'),
 				'village' => $this->input->post('village'),
 				'lane' => $this->input->post('lane'),
@@ -691,7 +691,7 @@ class Member extends MY_Controller
 					$data_regis['event_type'] = $this->input->post('event_type');
 					$data_regis['event_type_other'] = $this->input->post('event_type_other');
 					$data_regis['event_name_th'] = $this->input->post('event_name_th');
-					$data_regis['event_name_en'] = $this->input->post('event_name_en');
+					// $data_regis['event_name_en'] = $this->input->post('event_name_en');
 					$data_regis['event_detail'] = $this->input->post('event_detail');
 					$data_regis['join_number'] = $this->input->post('join_number');
 					$data_regis['join_property'] = $this->input->post('join_property');
