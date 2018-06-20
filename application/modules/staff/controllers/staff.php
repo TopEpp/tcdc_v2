@@ -216,6 +216,8 @@ class staff extends MY_Controller {
 
 		$data['data'] = $this->staff_model->getUsers();
 		$data['regisprj'] = $this->staff_model->getProjectUser();
+
+		$this->template->javascript->add('assets/js/datatables.js');
 		$this->setView('user_manage',$data);
         $this->publish();	
 	}

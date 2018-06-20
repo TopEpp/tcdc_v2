@@ -74,6 +74,16 @@
                             <p><?php echo (@$regisprj[$value->user_id])?$regisprj[$value->user_id]:'- ไม่ยังไม่มี -'; ?></p>
                           </td>
                           <td class="v-align-middle">
+                            <?php $user_type = '';
+                              if($value->user_type==1){
+                                $user_type = 'Admin';
+                              }else if($value->user_type==2){
+                                $user_type = 'Project Manage/Editor';
+                              }else if($value->user_type==3){
+                                $user_type = 'Member';
+                              }
+                            ?>
+                            <p><?php echo $user_type;?></p>
                             <p><?php echo ($value->user_active == 1) ? '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ปกติ</span>' : '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">ไม่ปกติ</span>'; ?></p>
                           </td>
                           <td class="v-align-middle">
