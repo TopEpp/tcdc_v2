@@ -6,7 +6,7 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                  <li class="breadcrumb-item"><a href="<?PHP echo base_url('staff')?>">หน้าแรก</a></li>
                   <li class="breadcrumb-item active">ผู้ใช้งาน</li>
                 </ol>
                 <!-- END BREADCRUMB -->
@@ -35,22 +35,24 @@
                 <div class="card-title"><h2>การจัดการผู้ใช้งาน</h2>
                 </div>
                 
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="ค้นหา">
-                  </div>
-                </div>
+                
 
                 <div class="pull-right">
                   <div class="col-xs-12">
-                      <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างบัญชีผู้ใช้</a>
+                      <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างผู้จัดการ</a>
+                  </div>
+                </div>
+
+                <div class="pull-right" style="margin-right: 10px;">
+                  <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="ค้นหา">
                   </div>
                 </div>
                 
                 <div class="clearfix"></div>
               </div>
               <div class="card-block">
-                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
+                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                   <thead>
                     <tr>
                       <th>ชื่อ-นามสกุล</th>

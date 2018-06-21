@@ -6,7 +6,7 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
+                <li class="breadcrumb-item"><a href="<?PHP echo base_url('staff')?>">หน้าแรก</a></li>
                 <li class="breadcrumb-item"><a href="#">ผู้สมัคร</a></li>
                 <li class="breadcrumb-item active"><?php echo $prj->project_name;?></li>
               </ol>
@@ -36,7 +36,7 @@
                     <div class="card-block">
                       <div class="table-responsive">
 
-                        <table class="table table-hover table-condensed" id="condensedTable">
+                        <table class="table table-hover table-condensed" id="condensedTable" style="font-family: 'dbch' !important; ">
                           <thead>
                             <tr>
                             <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user
@@ -59,7 +59,7 @@
                     <td class="v-align-middle semi-bold" style="font-family: 'dbch'"><?php echo $mem->member_name;?></td>
                     <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
                     <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
-                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a>
+                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> แก้ไข</a>
                     </td>
                   </tr>
                 <?php } ?>

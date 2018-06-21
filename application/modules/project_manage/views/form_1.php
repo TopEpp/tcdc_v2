@@ -130,10 +130,10 @@
                               
                               <!--  status group -->
                               <div id="commany">
-                                <p>เกี่ยวกับงาน</p>
+                                <p>คุณสมัครในสถานภาพใด</p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12" style="font-family: 'dbch'">
-                                        <p>สถานะ</p>
+                                        <p>สถานภาพ</p>
                                         <?php 
                                           if(!empty($status)){foreach ($status as $key => $value) { ?>
                                           <?php echo (@$member->job == $value->status_id) ? $value->status_name:'';?> 
@@ -541,8 +541,9 @@
 
                         <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
-                          <p style="font-weight: bold">เป้าหมายหลัก ในการสมัครเข้าร่วม</p>
+                        <p style="font-weight: bold">เป้าหมายในการสมัคร</p>
                           <div class="form-group-default required">
+                           
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
                               <label for="target_type1">นำเสนอผลงานออกแบบและแบรนด์ให้เป็นที่รู้จัก</label>
@@ -563,7 +564,7 @@
                             <div class="form-group-attached" id="target_type_detail" style="display:none;">
                               <div class="form-group form-group-default ">
 
-                                <input type="text" class="form-control" placeholder="โปรดระบุบเป้าหมายหลัก ในการจัดแสดงผลงาน" value="<?php echo @$regis['target_type_detail']; ?>" name="target_type_detail">
+                                <input type="text" class="form-control" placeholder="" value="<?php echo @$regis['target_type_detail']; ?>" name="target_type_detail">
                               </div>
                             </div>
                           </div>
@@ -575,11 +576,262 @@
                       
                       <div class="clone-form">
                       <?php if( empty(@$regis['product']) ) { ?>
+
+                      <div class="clonedInput" id="clonedInput">
+                          <div class="row row-same-height " id ="second">
+                              <!-- <div class="col-md-5 b-r b-dashed b-grey ">
+                                <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                                  <h2>ข้อมูลผลงานออกแบบ</h2>
+                                  <p>ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
+                                </div>
+                              </div> -->
+
+                              
+                                <div class="col-md-12 ">
+                                  <div class="padding-30 sm-padding-5">
+                                  <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น 1</p></span>
+                                    <p id="num" class="num"> ข้อมูลผลงาน </p>
+                                    <div class="form-group-attached">
+                                        <div class="row clearfix">
+                                            <div class="col-sm">
+                                              
+                                              <div class="form-group form-group-default required">
+                                                <label>จำนวนชิ้นงาน</label>
+                                                <span class="help">โปรดระบุจำนวนชิ้นงานที่ต้องการจัดแสดง</span>
+                                                <input name="product_amount[]" class="form-control"  type="text" >
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+
+                                          <div class="col-sm-4">
+                                            <div class="form-group form-group-default required form-group-default-selectFx">
+                                              <label>ประเภทผลงาน</label>
+                                              <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
+                                                <option  value="">เลือก</option>
+                                                <option  value="1">เฟอร์นิเจอร์</option>
+                                                <option  value="2">ไลฟ์สไตล์</option>
+                                                <option  value="3">ของตกแต่งบ้าน</option>
+                                                <option  value="4">เครื่องประดับ</option>
+                                                <option  value="5">แฟชั่น</option>
+                                                <option  value="6">ออกแบบสื่อ (Multimedia, Graphic, Interactive)</option>
+                                              
+                                              </select>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-8">
+                                            <div class="form-group form-group-default required">
+                                              <label>ชื่อผลงาน</label>
+                                              <input  id="product_name" name="product_name[]" type="text" class="form-control" >
+                                            </div>
+                                          </div>
+                                          
+                                        </div>
+
+                                        <div class="form-group-attached">
+                                          <div class="row clearfix">
+
+                                            <div class="col-sm-6">
+                                              <div class="form-group form-group-default required">
+                                                <label>วัสดุหลัก</label>
+                                                <input name="material[]" type="text" class="form-control"  >
+                                              </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                              <div class="form-group form-group-default">
+                                                <label >ปีที่ออกแบบ</label>
+                                            
+                                                <div id="myDatepicker" class="input-group date">
+                                                  <input name="product_date[]" type="text" class="form-control datepicker-year" >
+                                                  <span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                                  </span>
+                                                </div>
+
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                        </div>
+
+
+                                        <br>
+                                        <p>ขนาดและจำนวนของผลงาน</p>
+
+                                        <div class="form-group-attached">
+                                          <div class="row clearfix">
+                                            <div class="col-sm-4">
+
+                                              <div class="form-group form-group-default input-group">
+                                                <div class="form-input-group">
+                                                  <label class="">กว้าง</label>
+                                                  <input name="product_width[]" class="form-control" type="text" >
+                                                </div>
+                                                <div class="input-group-addon">
+                                                  ซ.ม.
+                                                </div>
+                                              </div>
+
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-group-default input-group">
+                                                <div class="form-input-group">
+                                                  <label class="">ยาว</label>
+                                                  <input name="product_length[]" class="form-control" type="text" >
+                                                </div>
+                                                <div class="input-group-addon">
+                                                  ซ.ม.
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                              <div class="form-group form-group-default input-group">
+                                                <div class="form-input-group">
+                                                  <label class="">สูง</label>
+                                                  <input  name="product_height[]"class="form-control" type="text" >
+                                                </div>
+                                                <div class="input-group-addon">
+                                                  ซ.ม.
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <br>
+
+                                          </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group-attached ">
+                                          <div class="row clearfix">
+                                            <div class="col-sm-12">
+                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <div class="wysiwyg5-wrapper b-a b-grey">
+                                                <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
+                                                html: true,
+                                                stylesheets: ['pages/css/editor.css']
+                                                }"></textarea>
+                                              </div>
+                                            </div>
+
+                                    
+
+
+
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                        <p>ภาพผลงาน<span style="color:red">*</span></p>
+
+                                        <div class="col-sm-12">
+                                            <div class="row clearfix">
+                                              <div class="col-sm-6">
+                                                <div class="form-group  ">
+                                                  <label>ภาพรวมของผลงาน</label>
+                                                  <div class="fallback">
+                                                    <input id="product_img" class="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <div class="form-group  ">
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <div class="fallback">
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            
+                                            </div>
+
+                                            <div class="row clearfix">
+                                              <div class="col-sm-12">
+                                                <div class="form-group ">
+                                                  <label>ภาพ Close Up</label>
+                                                  <div class="fallback">
+                                                    <input id="product_closeup" class="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            
+                                            </div>
+
+                                            <div class="row clearfix">
+                                              <div class="col-sm-12">
+                                                <div class="form-group ">
+                                                  <label>ภาพ Pack Shot</label>
+                                                  <div class="fallback">
+                                                    <input id="product_packshot"  class="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
+                                                  </div>
+                                                  
+                                                </div>
+                                              </div>
+                                            
+                                            </div>
+                                        
+                                        </div>
+
+                                      </div>
+
+
+                                    <br>
+                                    <p>ผู้ออกแบบ</p>
+
+                                    <div class="form-group-attached">
+                                      <div class="row clearfix">
+
+
+                                        <div class="col-sm-6">
+                                          <div class="form-group form-group-default required">
+                                            <label>ชื่อ</label>
+                                            <input type="text" class="form-control" name="product_firstname[] "  >
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                        <div class="form-group form-group-default required">
+                                          <label>นามสกุล</label>
+                                          <input type="text" class="form-control" name="product_lastname[]" >
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                  </div>
+
+                                  <div class="row clearfix">
+                                    <div class="col-md-12">
+                                      <div class="padding-10 sm-padding-5">
+                                        <div class="checkbox check-success  ">
+                                            <input type="checkbox" value="1" class="check_product" id="product_check1" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
+                                            <label  class="check_product_for" for="product_check1">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                        </div>
+                              
+                                        <hr >
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                    <hr style="height:2px;border:none;color:#333;background-color:#333;">
+
+                                  <!-- เริ่มส่วนที่ 2 -->
+
+
+                                
+                                <!-- จบส่วนที่ 2 -->
+                                </div>
+                                                
+                          </div>
+                        </div>
+                      
                       <?php }else{ ?>
-                      <?php foreach (@$regis['product'] as $key => $value) {?>
+                      <?php foreach (@$regis['product'] as $keys => $value) {?>
                       
                     
-                        <div class="clonedInput" id="clonedInput<?php echo $key+1;?>">
+                        <div class="clonedInput" id="clonedInput<?php echo $keys+1;?>">
                           <div class="row row-same-height " id ="second">
                               <!-- <div class="col-md-5 b-r b-dashed b-grey ">
                                 <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
@@ -587,15 +839,26 @@
                                   <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
-                                <div class="col-md-12 ">
-                                  <div class="padding-1 sm-padding-5">
-                                     <span align="left" ><p id="num"  style="font-weight: bold; padding-left: 30px;" class="num text-left" >คอลเลกชั่น <?php echo $key+1; ?></p></span>
+                              <!-- <div class="col-md-12 ">
+                                  <div class="padding-30 sm-padding-5">
+                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></p></span>
                                   </div>
-                                </div>
+                              </div> -->
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
-                                    <!-- <p id="num" class="num">1. ข้อมูลชิ้นงานชิ้นที่ <?php echo $key+1; ?></p> -->
+                                  <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></p></span>
+                                    <p >ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
+                                        <div class="row clearfix">
+                                              <div class="col-sm">
+                                    
+                                                <div class="form-group form-group-default  ">  
+                                                  <label>จำนวนชิ้นงาน</label>
+                                                  <span class="help">โปรดระบุจำนวนชิ้นงานที่ต้องการจัดแสดง</span>
+                                                  <input name="product_amount[]" class="form-control"  type="text" value="<?php echo @$value['product_amount']?>">
+                                                </div>
+                                              </div>
+                                        </div>
                                         <div class="row clearfix">
 
                                           <div class="col-sm-4">
@@ -635,7 +898,7 @@
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default">
-                                                <p class="all-caps fs-12 bold">ปีที่ออกแบบ</p>
+                                              <label >ปีที่ออกแบบ</label>
                                                 <?php 
                                                 $date = $value['product_date'];
                                                 if (!empty(@$value['product_date']) && @$value['product_date'] != '0000-00-00'  ){
@@ -643,8 +906,8 @@
                                                   // $date = $dates[1] .'/'.$dates[2].'/'.$dates[0];
                                             
                                                 }?>
-                                                <div id="myDatepicker" class="input-group date">
-                                                  <input name="product_date[]" type="text" class="form-control datepicker-range" value="<?php echo @$date?>">
+                                                <div id="" class="input-group ">
+                                                  <input name="product_date[]" type="text" class="form-control datepicker-year" value="<?php echo @$date?>">
                                                   <span class="input-group-addon"><i class="fa fa-calendar"></i>
                                                   </span>
                                                 </div>
@@ -657,7 +920,7 @@
 
 
                                         <br>
-                                        <p> ขนาดและจำนวนของผลงาน</p>
+                                        <p>ขนาดและจำนวนของผลงาน</p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -699,14 +962,7 @@
                                               </div>
                                             </div>
                                             <br>
-                                            <div class="col-sm">
-                                              <br>
-                                              <div class="form-group">
-                                                <label>จำนวนชิ้นงาน</label>
-                                                <span class="help">โปรดระบุจำนวนชิ้นงานที่ต้องการจัดแสดง</span>
-                                                <input name="product_amount[]" class="form-control"  type="text" value="<?php echo @$value['product_amount']?>">
-                                              </div>
-                                            </div>
+
                                           </div>
                                         </div>
 
@@ -715,9 +971,9 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <!-- <p> แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)</p> -->
+                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
+                                                <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
                                                 }"><?php echo @$value['product_concept']?></textarea>
@@ -732,7 +988,7 @@
                                         </div>
 
                                         <br>
-                                        <p> ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p>ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
@@ -753,17 +1009,17 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                                    <input id="product_img"  name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="col-sm-6">
-                                                <!-- <div class="form-group  ">
+                                                <div class="form-group  ">
                                                   <label>ไพล์นำเสนอผลงาน (ถ้ามี)</label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
-                                                </div> -->
+                                                </div>
                                               </div>
                                             
                                             </div>
@@ -825,7 +1081,7 @@
 
 
                                     <br>
-                                    <p> ผู้ออกแบบ</p>
+                                    <p>ผู้ออกแบบ</p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
@@ -848,7 +1104,21 @@
                                   </div>
                                   </div>
 
-                                    <hr>
+                                  
+                                  <div class="row clearfix">
+                                    <div class="col-md-12">
+                                      <div class="padding-10 sm-padding-5">
+                                        <div class="checkbox check-success  ">
+                                            <input type="checkbox" value="1" class="check_product" id="product_check<?php echo $keys+1;?>" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
+                                            <label clss="check_product_for" for="product_check<?php echo $keys+1;?>">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                        </div>
+                              
+                                        <hr >
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                    <hr style="height:2px;border:none;color:#333;background-color:#333;">
 
                                   <!-- เริ่มส่วนที่ 2 -->
 
@@ -863,6 +1133,7 @@
                 
                       <?php }} ?>
                       </div>
+
             </div>
             <?php if($regis['reg_status']==1){ ?>
             <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4"  >
@@ -1034,9 +1305,9 @@
                       <input type="hidden" name="reg_status" id="reg_status" value="<?php echo $regis['reg_status']?>">
                       <div class="radio radio-default">
                         <input value="1" name="radio_app" id="radio5Yes" type="radio" <?php echo ($regis['reg_status']==1) ? 'checked="checked"':''; ?> >
-                        <label for="radio5Yes">ครบ</label>
+                        <label for="radio5Yes">ใช่</label>
                         <input value="0" name="radio_app" id="radio5No" type="radio" <?php echo ($regis['reg_status']==0) ? 'checked="checked"':''; ?> >
-                        <label for="radio5No">ไม่ครบ</label>
+                        <label for="radio5No">ไม่ใช่</label>
                       </div>
                       <br>
                       <div id='div_reject' style="display: none;">
