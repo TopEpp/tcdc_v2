@@ -336,7 +336,7 @@
                                   <div class="col-sm-12">
                                     <div class="form-group form-group-default ">
                                       <label>โทรศัพท์</label>
-                                      <input name="phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->phone != 0)? @$member->phone : '';?>">
+                                      <input name="h_phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->h_phone != 0)? @$member->h_phone : '';?>">
                                     </div>
                                   </div>
 
@@ -370,7 +370,7 @@
                                       </div>
                                     </div> 
                                   </div> -->
-                                  
+                                  <input type="hidden" name="job_group" id= "job_group">
                                   <!-- status group -->
                                   <div id="group_one" style="display:none;">
                                     
@@ -560,7 +560,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                           <div class="form-group form-group-default  form-group-default-selectFx required">
-                                            <label>ประสบการณ์การทำงานหรือธุรกิจ</label>
+                                            <label>ประสบการณ์</label>
                                             <select style="width:100%" name="company_service_three" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
                                             
                                               <option  <?php echo (@$member->company_service == '') ? 'selected':'';?> value="" >เลือก</option>
@@ -579,9 +579,17 @@
                                       <div class="col-sm-12">
                                         <div class="form-group required">
                                           <label>โปรดระบุเทคนิคหรือความเชี่ยวชาญที่ใช้ทำงาน </label>
-                                          <input type="text" name="company_technic[]" class="form-control" placeholder="1." value="<?php echo '';  ?>">
-                                          <input type="text" name="company_technic[]" class="form-control" placeholder="2." value="<?php echo '';  ?>">
-                                          <input type="text" name="company_technic[]" class="form-control" placeholder="3." value="<?php echo '';  ?>">
+                                          <?php if (!empty($member->company_technic)){ 
+                                              $company_technic = explode(',',$member->company_technic);
+                                              foreach ($company_technic as $key => $value) { ?>
+                                                  <input type="text" name="company_technic[<?= $key ?>]" class="form-control"  value="<?php echo @$value;  ?>">
+                                            <?php  } ?>
+                                           
+                                          <?php }else{ ?>
+                                            <input type="text" name="company_technic[]" class="form-control" placeholder="1." value="<?php echo '';  ?>">
+                                            <input type="text" name="company_technic[]" class="form-control" placeholder="2." value="<?php echo '';  ?>">
+                                            <input type="text" name="company_technic[]" class="form-control" placeholder="3." value="<?php echo '';  ?>">
+                                          <?php  } ?>  
                                         </div>
                                       </div>
 
@@ -1176,7 +1184,7 @@
                                     
                                                 <div class="form-group form-group-default  ">  
                                                   <label>จำนวนชิ้นงาน</label>
-                                                  <span class="help">โปรดระบุจำนวนชิ้นงานที่ต้องการจัดแสดง</span>
+                                                
                                                   <input name="product_amount[]" class="form-control"  type="text" value="<?php echo @$value['product_amount']?>">
                                                 </div>
                                               </div>
@@ -1186,7 +1194,7 @@
                                           <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>ประเภทผลงาน</label>
-                                              <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2">
+                                              <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2"  data-disable-search="true">
                                                 <option <?php echo (@$value['product_type'] == '') ? 'selected':''?> value="">เลือก</option>
                                                 <option <?php echo (@$value['product_type'] == '1') ? 'selected':''?> value="1">เฟอร์นิเจอร์</option>
                                                 <option <?php echo (@$value['product_type'] == '2') ? 'selected':''?> value="2">ไลฟ์สไตล์</option>
@@ -1412,7 +1420,7 @@
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
                                         <div class="col-sm-4">
-                                            <div class="form-group form-group-default required">
+                                            <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>คำนำหน้า</label>
                                               <select  style="width:100%"  id="product_prename" name="product_prename[]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
                                                   <option disabled <?php echo (@$value['product_prename'] == '') ? 'selected':'';?> value="" >เลือก</option>

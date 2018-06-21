@@ -73,6 +73,9 @@
   .table tr td{
     font-family: 'dbch' !important; 
   }
+  .select2-container .select2-selection .select2-selection__arrow{
+    right: 6px !important;
+  }
 
   </style>
 

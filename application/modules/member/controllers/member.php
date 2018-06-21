@@ -98,12 +98,47 @@ class Member extends MY_Controller
 	public function saveEventForm()
 	{
 		// get project type
+		// print_r($this->input->post('company_technic'));die();
 		//  print_r($this->input->post());die();
 		$project_type = $this->input->post('project_type');
-		
+		$group_data = $this->input->post('job_group');
+	
 		//validate form
-		$this->form_validation->set_rules('email','อีเมล์', 'trim|required|valid_email');
-		$this->form_validation->set_rules('job', 'สถานะ', 'trim|required');
+		$this->form_validation->set_rules('email','อีเมล', 'trim|required|valid_email');
+		$this->form_validation->set_rules('job', 'สถานภาพ', 'trim|required');
+
+		switch ($group_data) {
+			case 1:
+				$this->form_validation->set_rules('job_type_one', 'ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด', 'trim|required');
+				$this->form_validation->set_rules('company_service_one', 'ประสบการณ์', 'trim|required');
+				$this->form_validation->set_rules('company_custom_group', 'ลูกค้าของคุณคือกลุ่มใด', 'trim|required');
+				$this->form_validation->set_rules('company_business_look_one', 'ลักษณะการทำงานของธุรกิจ', 'trim|required');
+				$this->form_validation->set_rules('company_people', 'จำนวนพนักงาน', 'trim|required');
+				$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+				break;
+			case 2:
+				$this->form_validation->set_rules('job_type_two', 'ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด', 'trim|required');
+				$this->form_validation->set_rules('company_service_two', 'ประสบการณ์', 'trim|required');
+				$this->form_validation->set_rules('company_work_look', 'ลักษณะการทำงาน', 'trim|required');
+				$this->form_validation->set_rules('company_sell_way', 'ช่องทางการจำหน่าย', 'trim|required');
+				$this->form_validation->set_rules('company_product_build', 'คุณสามารถรับจ้างผลิตสินค้าตามจำนวนได้หรือไม่', 'trim|required');
+			
+				break;
+			case 3:
+				$this->form_validation->set_rules('company_group_product', 'การทำงานของคุณอยู่ในกลุ่มใด', 'trim|required');
+				$this->form_validation->set_rules('company_service_three', 'ประสบการณ์', 'trim|required');
+				$this->form_validation->set_rules('company_product_detail', 'การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด', 'trim|required');
+				$this->form_validation->set_rules('company_num_product', 'คุณสามารถผลิตได้จำนวน', 'trim|required');
+	
+			
+				break;
+			case 4:
+				$this->form_validation->set_rules('company_department', 'องค์กรของคุณคือหน่วยงานประเภทใด', 'trim|required');
+				$this->form_validation->set_rules('company_duty', 'หน้าที่หลักขององค์กร', 'trim|required');
+				$this->form_validation->set_rules('company_join_work', 'คุณเคยร่วมงาน Design Week ใดๆ หรือไม่', 'trim|required');
+		
+				break;
+		}
 		// if ($this->input->post('job_group') == 1){
 		// 	$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 		// }
@@ -111,8 +146,8 @@ class Member extends MY_Controller
 		$this->form_validation->set_rules('prename', 'คำนำหน้า', 'trim|required');
 		$this->form_validation->set_rules('firstname', 'ชื่อ', 'trim|required');
 		$this->form_validation->set_rules('lastname', 'นามสกุล', 'trim|required');
-		$this->form_validation->set_rules('phone', 'เบอร์โทรศัพท์มือถือ', 'trim|required');
-		$this->form_validation->set_rules('address','บ้านเลขที่', 'trim|required');
+		$this->form_validation->set_rules('phone', 'โทรศัพท์มือถือ', 'trim|required');
+		$this->form_validation->set_rules('address','เลขที่', 'trim|required');
 		// $this->form_validation->set_rules('village','หมู่บ้าน', 'trim|required');
 		$this->form_validation->set_rules('subdistrict','แขวง/ตำบล', 'trim|required');
 		$this->form_validation->set_rules('district','อำเภอ', 'trim|required');
@@ -141,6 +176,7 @@ class Member extends MY_Controller
 				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_concept[]','โปรดระบุแนวคิดในการออกแบบผลงาน', 'trim|required');
 				$this->form_validation->set_rules('material[]','วัสดุหลัก', 'trim|required');
+				$this->form_validation->set_rules('product_prename[]','คำนำหน้าชื่อ', 'trim|required');
 				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
 				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 				break;
@@ -167,6 +203,7 @@ class Member extends MY_Controller
 				$this->form_validation->set_rules('product_type[]','ประเภทผลงาน', 'trim|required');
 				$this->form_validation->set_rules('product_name[]','ชื่อผลงาน', 'trim|required');
 				$this->form_validation->set_rules('material[]','วัสดุ', 'trim|required');
+				$this->form_validation->set_rules('product_prename[]','คำนำหน้าชื่อ', 'trim|required');
 				$this->form_validation->set_rules('product_firstname[]','ชื่อผู้ออกแบบ', 'trim|required');
 				$this->form_validation->set_rules('product_lastname[]','นามสกุลผู้ออกแบบ', 'trim|required');
 				break;
@@ -204,7 +241,7 @@ class Member extends MY_Controller
 				$data['member']->firstname = $this->input->post('firstname');
 				$data['member']->lastname = $this->input->post('lastname');
 				$data['member']->phone = $this->input->post('phone');
-				// $data['member']->id_number = $this->input->post('id_number');
+				$data['member']->h_phone = $this->input->post('h_phone');
 				$data['member']->email = $this->input->post('email');
 				$data['member']->address = $this->input->post('address');
 				$data['member']->village = $this->input->post('village');
@@ -255,7 +292,7 @@ class Member extends MY_Controller
 				//group 3
 				$data['member']->company_group_product = $this->input->post('company_group_product');
 				$data['member']->company_group_product_detail = $this->input->post('company_group_product_detail');
-				// $data['member']->company_technic = implode(',',$this->input->post('company_technic'));
+				$data['member']->company_technic = implode(',',$this->input->post('company_technic'));
 				$data['member']->company_product_detail = $this->input->post('company_product_detail');
 				$data['member']->company_num_product = $this->input->post('company_num_product');
 				//group 4
@@ -309,6 +346,7 @@ class Member extends MY_Controller
 							$data['regis']['product'][$key]['product_height'] =  @$this->input->post('product_height')[$key];
 							$data['regis']['product'][$key]['product_amount'] =  $this->input->post('product_amount')[$key];
 							$data['regis']['product'][$key]['product_concept'] =  $this->input->post('product_concept')[$key];
+							$data['regis']['product'][$key]['product_prename'] =  $this->input->post('product_prename')[$key];
 							$data['regis']['product'][$key]['product_firstname'] =  $this->input->post('product_firstname')[$key];
 							$data['regis']['product'][$key]['product_lastname'] =  $this->input->post('product_lastname')[$key];
 						}
@@ -398,7 +436,7 @@ class Member extends MY_Controller
 				'firstname' => $this->input->post('firstname'),
 				'lastname' => $this->input->post('lastname'),
 				'phone' => $this->input->post('phone'),
-				// 'id_number' => $this->input->post('id_number'),
+				 'h_phone' => $this->input->post('h_phone'),
 				'address' => $this->input->post('address'),
 				'village' => $this->input->post('village'),
 				'lane' => $this->input->post('lane'),
@@ -885,6 +923,7 @@ class Member extends MY_Controller
 							'product_height' =>  @$this->input->post('product_height')[$key],
 							'product_amount' =>  $this->input->post('product_amount')[$key],
 							'product_concept' =>  $this->input->post('product_concept')[$key],
+							'product_prename' =>  $this->input->post('product_prename')[$key],
 							'product_firstname' =>  $this->input->post('product_firstname')[$key],
 							'product_lastname' =>  $this->input->post('product_lastname')[$key],
 						);
