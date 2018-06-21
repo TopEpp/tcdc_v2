@@ -184,7 +184,7 @@
                         <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
                         <option  <?php echo (@set_value('prename') == 2) ? 'selected':'';?> value="2">นาง</option>
                         <option  <?php echo (@set_value('prename') == 3) ? 'selected':'';?> value="3">นางสาว</option>
-                        <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">ไม่ระบุ</option>
+                        <option  <?php echo (@set_value('prename') == 4) ? 'selected':'';?> value="4">อื่น ๆ</option>
                       </select>
                       <div id="prename_detail" style="display:none;">
                         <input type="text" class="form-control" name="prename_detail" value="<?php echo @$prename;?>">
@@ -252,7 +252,7 @@
                       <select style="width:100%" id="year_of_birth" name="year_of_birth" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                           <option  value="" >เลือก</option>
         
-                          <?php for ($i = 2501;$i<=2561;$i++) { 
+                          <?php for ($i = 2501;$i<=2570;$i++) { 
                             $select = '';
                             
                               if(set_value('year_of_birth') == $i ){

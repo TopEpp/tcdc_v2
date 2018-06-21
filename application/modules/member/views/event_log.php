@@ -25,15 +25,16 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>ประวัติ</h3>
-                      <p style="font-family: 'dbch';font-size: 24px;">คุณสามารถค้นหากิจกรรมที่คุณเคยเข้าร่วมได้จากหน้านี้โดยข้อมูลจะแสดงเรียงลำดับด้านล่างนี้</p>
+                      <h5>ประวัติ</h5>
+                     
                     </div>
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
                     <div class="card-block">
                     <div class="table-responsive">
-                      <table class="table table-hover table-condensed table-detailed" id="detailedTable">
+                      <table class="table table-hover table-condensed table-detailed" id="">
+                      <!-- detailedTable -->
                           <thead>
                             <tr>
                               <th style="width:35%">ชื่อกิจกรรม</th>

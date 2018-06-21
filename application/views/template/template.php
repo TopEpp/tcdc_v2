@@ -52,6 +52,9 @@
     height: 35px;
     margin-top: 20px;
   }
+  .select2-container .select2-selection .select2-selection__arrow{
+    right: 6px !important;
+  }
 
   .form-group label:not(.error){
     text-transform: none;
@@ -113,7 +116,11 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-            <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"><i class="pg-settings_small"></i> ตั้งค่า</a>
+            <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"> 
+            
+            <span class="pull-left">ตั้งค่า</span>
+              <span class="pull-right"><i class="pg-settings_small"></i></span>
+          </a>
             <a href="<?php echo base_url('logout');?>" class="clearfix bg-master-lighter dropdown-item">
               <span class="pull-left">ออกจากระบบ</span>
               <span class="pull-right"><i class="pg-power"></i></span>

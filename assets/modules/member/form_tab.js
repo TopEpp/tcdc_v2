@@ -39,6 +39,7 @@
                     });
                 }
                 $('#hide_back').toggle(true);
+                $('#previous_hide').toggle(false);
                 if ($current > 1 && $current < 3) {
 
                     var nextIcon = li.next().find('.fa');
@@ -55,10 +56,13 @@
                     
                 } else if ($current == 1) {
                     $('#hide_back').toggle(false);
+                    $('#previous_hide').toggle(true);
                     // remove classes needed for button animations from previous button
                     btnPrev.removeClass('btn-animated from-left fa');
                     removeIcons(btnPrev);
                 } else {
+                    
+                    $('#previous_hide').toggle(false);
                     $('#hide_back').toggle(true);
                     // remove classes needed for button animations from next button
                     btnNext.removeClass('btn-animated from-left fa');

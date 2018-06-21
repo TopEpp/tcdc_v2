@@ -82,7 +82,10 @@
             "sDom": "t",
             "scrollCollapse": true,
             "paging": false,
-            "bSort": false
+            "bSort": false,
+
+            
+              
         });
 
         // Add event listener for opening and closing details

@@ -7,7 +7,7 @@
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="<?php echo base_url('member');?>">หน้าแรก</a></li>
-                  <li class="breadcrumb-item active">กิจกรรม</li>
+                  <!-- <li class="breadcrumb-item active">กิจกรรม</li> -->
                 </ol>
                 <!-- END BREADCRUMB -->
               </div>
@@ -66,12 +66,12 @@
                     <?php  }?>
                    
                     <div class="card-title">
-                      <h3>กิจกรรมเปิดรับสมัคร</h3>
+                      <h5>กิจกรรมเปิดรับสมัคร</h5>
                       
                     </div>
                   </div>
                   <div class="card-block">
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="font-family: 'dbch';">
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
@@ -98,7 +98,7 @@
                               <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
                               <td class="v-align-middle"><?php echo $status;?></td>
-                              <td class="v-align-middle"><?php $project_update = explode(' ', $prj->project_update); echo $this->mydate->date_2dot($project_update[0]).' '.$project_update[1];?></td>
+                              <td class="v-align-middle"><?php if (!empty($prj->project_update)){ $project_update = explode(' ', $prj->project_update); echo $this->mydate->date_2dot($project_update[0]).' '.$project_update[1];}?></td>
                             </tr>
                           <?php } ?>
                         </tbody>
@@ -155,7 +155,7 @@
                     <div class="card card-transparent">
                       <div class="card-header ">
                         <div class="card-title">
-                          <h3>ข่าวสาร</h3>
+                          <h5>ข่าวสาร</h5>
                      
                     </div>
                   </div>
@@ -187,8 +187,8 @@
                         <div class="card-block">
                           <div class="scrollable">
                                 <div class="demo-card-scrollable">
-                                  <h3>
-                                    <span class="semi-bold"></span> <?php echo $value->news_name;?></h3>
+                                  <h5>
+                                    <span class="semi-bold"></span> <?php echo $value->news_name;?></h5>
                                     <p><?php echo $value->news_detail; ?></p>
                                 </div>
                               </div>
@@ -221,8 +221,8 @@
                           </div>
                         </div>
                         <div class="card-block">
-                          <h3>
-                            <span class="semi-bold">เปลี่ยนแปลง</span> สถานที่จัดงาน</h3>
+                          <h5>
+                            <span class="semi-bold">เปลี่ยนแปลง</span> สถานที่จัดงาน</h5>
                           <p>เนื่องจากมีการปิดปรับปรุงสถานที่เพื่อซ้อมแซม ทางผู้จัดการโครงการจึงจำเป็นต้องย้ายสถานที่จัดงานจากชั้นที่ 5 โรงแรมน้ำปิง มาเป็นชั้น 2 ห้อง A5 จึงขออภัยในความไม่สะดวกดังกล่าว 
                           </p>
                         </div>
@@ -250,7 +250,7 @@
                         </div>
                         <div class="card-block">
                           <h3  class="text-white">
-                          ตรวจพบ <span class="semi-bold text-white">ข้อมูลไม่ครบ</span></h3>
+                          ตรวจพบ <span class="semi-bold text-white">ข้อมูลไม่ครบ</span></h5>
                           <p class="text-white">คุณได้ทำการกรอกข้อมูลที่เราต้องการไม่ครบหรือขาดหายไป ทำให้เราไม่สามารถดำเนินการในขั้นตอนต่อไปกับการร้องขอของคุณได้ คุณสามารถดำเนินการแก้ไขข้อผิดพลาดได้เพียงแค่คลิก "ดำเนินการ"
                           </p>
                           <p class="text-white">ปัญหาที่พบ : <span class="semi-bold text-white">ข้อมูลบริษัท , ใบอนุญาติประกอบธุรกิจ</span></p>

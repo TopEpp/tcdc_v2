@@ -2,6 +2,18 @@
   $(function()
   {
 
+    $('#prename').select2({
+        minimumResultsForSearch: -1
+    });
+    // $('#job').select2({
+    //     minimumResultsForSearch: -1
+    // });
+    // $('#select2_nosearch').select2({
+    //     minimumResultsForSearch: -1
+    // });
+
+    
+        
       
     $('.datepicker-year').datepicker({
         format: "yyyy",
@@ -81,8 +93,8 @@
             // .each(function(){  
             //     // $(this).val('');
             //  })
-            .on('click', 'a#clone', clone);
-        // .on('click', 'button.remove', remove);
+            .on('click', 'a#clone', clone)
+        .on('click', 'a.remove', remove);
 
                
         cloneIndex++;
@@ -90,6 +102,7 @@
         $('#num', clone_data).text("คอลเลกชั่น " + cloneIndex);
         $('input', clone_data).val('');
         $('img', clone_data).remove();
+        $('#remove_clone', clone_data).attr('style',"display:'block'");
         $("input[name='product_img[1][]']", clone_data).attr("name",'product_img['+cloneIndex+'][]');
         $("input[name='product_closeup[1][]']", clone_data).attr("name",'product_closeup['+cloneIndex+'][]');
         $("input[name='product_packshot[1][]']", clone_data).attr("name",'product_packshot['+cloneIndex+'][]');
@@ -130,7 +143,7 @@
 
     $("a.clone").on("click", clone);
 
-    $("button.remove").on("click", remove);
+    $("a.remove").on("click", remove);
 
   })
 

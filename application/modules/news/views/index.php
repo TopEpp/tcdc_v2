@@ -9,7 +9,7 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo base_url();?>">หน้าแรก</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url("member");?>">หน้าแรก</a></li>
                 <li class="breadcrumb-item active">ข่าวสาร</li>
               </ol>
               <!-- END BREADCRUMB -->
@@ -27,7 +27,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>ข่าวสาร</h3>
+                      <h5>ข่าวสาร</h5>
                       
                       
                     </div>
