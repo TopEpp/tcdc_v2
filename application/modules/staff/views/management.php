@@ -17,8 +17,8 @@
             <div class="inner" style="transform: translateY(0px); opacity: 1;">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
-                <li class="breadcrumb-item active">การจัดการ</li>
+                <li class="breadcrumb-item"><a href="<?PHP echo base_url('staff')?>">หน้าแรก</a></li>
+                <li class="breadcrumb-item active">กิจกรรม</li>
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="card-block">
-                    <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
+                    <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                       <thead>
                         <tr>
                           <th>ชื่อกิจกรรม</th>
@@ -56,8 +56,7 @@
                           <th style="width:10%">สถานะ</th>
                           <!-- <th>อัปเดทเมื่อ</th> -->
                           <th>อัพเดทล่าสุด</th>
-                          <th></th>
-                          <th></th>
+                          <th style="width:25%"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -77,12 +76,11 @@
                               <td class="v-align-middle"><?php echo $status;?></td>
                               <!-- <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td> -->
                               <td class="v-align-middle"><?php echo $prj->project_update_user.'<br>'.$this->mydate->date_eng2thai($prj->project_update,543,'S');?></td>
+                              
                               <td class="v-align-middle">
-                                <p><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>">เรียกดู</a></p>
-                              </td>
-                              <td class="v-align-middle">
-                                <p><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a></p>
-                                <p><a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
+                                <p><a href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>"><i class="fa fa-user"></i> ผู้สมัคร</a> 
+                                &nbsp;<a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a> 
+                                &nbsp;<a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
                               </td>
                             </tr>
                           <?php } ?>
@@ -100,8 +98,7 @@
               <div class="card card-transparent">
                 <div class="card-header ">
                   <div class="card-title">
-                    <h3>ข่าวสาร</h3>
-                    <p style="font-family: 'dbch'" >คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
+                    <h3 style="font-family: 'dbch' !important; ">ข่าวสาร</h3>
                     <div class="pull-right">
                       <div class="col-xs-12">
                         <button id="show-modal-news" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
@@ -113,12 +110,12 @@
               </div>
 
               <div class="card-block">
-                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
+                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                   <thead>
                     <tr>
-                      <th width="50%">หัวข้อข่าว</th>
+                      <th width="50%">หัวข้อ</th>
                       <th width="20%">ประเภท</th>
-                      <th width="15%">ดำเนินการล่าสุดโดย</th>
+                      <th width="15%">อัทเดทล่าสุด</th>
                       <th width="15%">การจัดการ</th>
                     </tr>
                   </thead>
@@ -133,8 +130,8 @@
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
                       <td class="v-align-middle">
-                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> เปิดอ่าน/แก้ไข</a></p>
-                        <p><a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
+                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a>
+                        &nbsp;<a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
                       </td>
                     </tr>
                     <input type="hidden" id="news_detail_<?php echo $value->news_id;?>" value="<?php echo $value->news_detail;?>">
@@ -252,7 +249,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group form-group-default">
-                          <label>หัวเรื่อง</label>
+                          <label>หัวข้อ</label>
                           <input type="text" class="form-control" name="news_name" id="news_name" value="" required>
                         </div>
                       </div>
@@ -261,7 +258,7 @@
                       <div class="col-md-12">
 
                         <div class="wysiwyg5-wrapper b-a b-grey">
-                          <textarea name="news_detail" id="news_detail" class="wysiwyg demo-form-wysiwyg" placeholder="ใส่เนื้อหาตรงนี้..."  ui-jq="wysihtml5" ui-options="{
+                          <textarea name="news_detail" id="news_detail" class="wysiwyg demo-form-wysiwyg" placeholder="เนื้อหา"  ui-jq="wysihtml5" ui-options="{
                           html: true,
                           stylesheets: ['pages/css/editor.css']
                         }" required></textarea>
