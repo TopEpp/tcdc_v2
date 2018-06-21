@@ -127,10 +127,10 @@
                               
                               <!--  status group -->
                               <div id="commany">
-                                <p>เกี่ยวกับงาน</p>
+                                <p>คุณสมัครในสถานภาพใด</p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12" style="font-family: 'dbch'">
-                                        <p>สถานะ</p>
+                                        <p>สถานภาพ</p>
                                         <?php 
                                           if(!empty($status)){foreach ($status as $key => $value) { ?>
                                           <?php echo (@$member->job == $value->status_id) ? $value->status_name:'';?> 
@@ -703,9 +703,9 @@
                       <input type="hidden" name="reg_status" id="reg_status" value="<?php echo $regis['reg_status']?>">
                       <div class="radio radio-default">
                         <input value="1" name="radio_app" id="radio5Yes" type="radio" <?php echo ($regis['reg_status']==1) ? 'checked="checked"':''; ?> >
-                        <label for="radio5Yes">ครบ</label>
+                        <label for="radio5Yes">ใช่</label>
                         <input value="0" name="radio_app" id="radio5No" type="radio" <?php echo ($regis['reg_status']==0) ? 'checked="checked"':''; ?> >
-                        <label for="radio5No">ไม่ครบ</label>
+                        <label for="radio5No">ไม่ใช่</label>
                       </div>
                       <br>
                       <div id='div_reject' style="display: none;">
