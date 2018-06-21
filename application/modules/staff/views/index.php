@@ -10,7 +10,7 @@
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">หน้าแรก</a></li>
-                <li class="breadcrumb-item active">แดชบอร์ด</li>
+                <!-- <li class="breadcrumb-item active">แดชบอร์ด</li> -->
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -32,17 +32,17 @@
                       <h3>กิจกรรมเปิดรับสมัคร</h3>
                       <!-- <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p> -->
                       <?php if($this->session->userdata('sesUserType')==1){?>
-                      <div class="pull-right">
+                      <!-- <div class="pull-right">
                         <div class="col-xs-12">
                           <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/project');?>"><i class="fa fa-plus"></i> สร้างกิจกรรม</a>
                         </div>
-                      </div>
+                      </div> -->
                       <?php }?>
                     </div>
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
-                      <table class="table table-hover table-condensed table-detailed" id="detailedTable">
+                      <table class="table table-hover table-condensed table-detailed" id="detailedTable" style="font-family: 'dbch'">
                         <thead>
                           <tr>
                             <th style="width:35%">ชื่อกิจกรรม</th>
@@ -101,8 +101,8 @@
               <div class="col-lg-12">
                 <div class="card card-transparent">
                   <div class="card-header ">
-                    <div class="card-title">
-                      <h3>ข่าวสาร</h3>
+                    <div class="card-title" >
+                      <h3 style="font-family: 'dbch'">ข่าวสาร</h3>
                       <p style="font-family: 'dbch'">คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
                       <!-- <div class="pull-right">
                         <div class="col-xs-12">
@@ -117,15 +117,15 @@
                   <div class="row">
                     <?php foreach ($news as $key => $value) { ?>
                       <div class="col-lg-4">
-                        <div id="card-linear-color" class="card card-default card2">
+                        <div id="card-linear-color" class="card card-default card2" style="font-family: 'dbch' !important; ">
                           <div class="card-header ">
-                            <div class="card-title"><?php echo $value->news_type; ?></div>
+                            <div class="card-title" style="font-family: 'dbch' !important; "><?php echo $value->news_type; ?></div>
                           </div>
                           <div class="card-block">
                             <div class="scrollable">
                               <div class="demo-card-scrollable">
-                                  <h3><span class="semi-bold"><?php echo $value->news_name; ?></span></h3>
-                                  <p><?php echo $value->news_detail; ?></p>
+                                  <h3 style="font-family: 'dbch' !important; "><span class="semi-bold"><?php echo $value->news_name; ?></span></h3>
+                                  <p style="font-family: 'dbch' !important; "><?php echo $value->news_detail; ?></p>
                                   <p style="text-align: right;"><?php if($value->news_url){ ?>
                                    <a target="_blank" href="<?php echo $value->news_url;?>"><span class=" label p-t-5 m-l-5 p-b-5 inline fs-12">อ่านต่อ</span></a>
                                   <?php }?></p>
