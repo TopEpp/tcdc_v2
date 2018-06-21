@@ -132,14 +132,17 @@
               </div> -->
             </div>
             <!-- END Form Control-->
-            <a class="btn btn-primary btn-cons m-t-10 fn_from" href="#" id="btn-login" ><?php echo lang('login');?></a>
-            <a class="btn btn-info btn-cons m-t-10 fn_from" href="<?php echo base_url('register')?>"><?php echo lang('register');?></a>
+            <div align="center">
+              <!-- <input type="submit" value="Send Request"> -->
+              <input type="submit" class="btn btn-primary btn-cons m-t-10 fn_from"  id="btn-login" value="<?php echo lang('login');?>" ></button>
+            </div>
             <br/>
+            <a style="color: #d61a67;  font-family: 'dbch';" class="fs-15  btn-cons m-t-10 fn_from" href="<?php echo base_url('register')?>"><?php echo lang('register');?></a>
             <br/>
             <br/>
             <br/>
             <div class="row">
-              <div class="col-md-6 d-flex">
+              <div class="col-md-6 d-flex fs-15">
                   <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">ลืมรหัสผ่าน</a>
                 </div>
             </div>
@@ -149,7 +152,7 @@
             <div class="row">
               <div class="col-md-12 no-padding sm-p-l-10">
 
-                <div class="col-md-12 d-flex ">
+                <div class="col-md-12 d-flex fs-15">
                   <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</a>
                   <!-- <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p> -->
                 </div>
@@ -232,9 +235,9 @@
             });
   
 
-      $('#btn-login').click(function(){
-        $('#form-login').submit();
-      });
+      // $('#btn-login').click(function(){
+      //   $('#form-login').submit();
+      // });
     });
 
     var changeCheckbox = document.querySelector('.switchery');

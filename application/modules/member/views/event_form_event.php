@@ -1,6 +1,26 @@
 <div class="loader-wrap" id="loading" style="display:none;" >
   <div class="loader"><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span></div>
 </div>
+
+
+<div class="modal" id="check_form" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>กรุณายอมรับและได้อ่านเงื่อนไขและข้อตกลง.</p>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- START PAGE CONTENT -->
       <div class="content ">
         <div class=" container-fluid   container-fixed-lg">
@@ -312,7 +332,7 @@
                               <!--  status group -->
                               <div id="commany">
                             
-                                <p style="font-weight: bold">สถานภาพของคุณ</p>
+                                <p style="font-weight: bold">คุณสมัครในสถานภาพใด</p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
                                       <div class="form-group form-group-default  form-group-default-selectFx  required">
@@ -792,7 +812,7 @@
                   <div class="row row-same-height">
                     <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
-                        <p >ข้อมูลอีเว้นท์</p>
+                        <p >ประเภท</p>
                         <div class="row clearfix">
                           <input type="hidden" name="event_type" id="event_type">
                           <div class="form-group-default required">
@@ -877,51 +897,82 @@
                         <br>
                         <p>วันที่และเวลา เริ่มต้นและสิ้นสุดกิจกรรม</p>
                       
-                        <div class="row clearfix">
-                        <div class="col-sm-12">
-                              <div class="row form-group">
-                                <div class="col-sm-6">
-                                  <label>วันที่เริ่มต้น</label>
+                          <div class="row clearfix">
+                              <div class="col-sm-12">
+                                <div class="row form-group">
+                                  <div class="col-sm-6">
+                                    <label>วันที่เริ่มต้น</label>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <label>วันที่สิ้นสุด</label>
+                                  </div>
                                 </div>
-                                <div class="col-sm-6">
-                                  <label>&nbsp;&nbsp;&nbsp;&nbsp;วันที่สิ้นสุด</label>
-                                </div>
+                                  <!-- <div class="col-sm-6">
+                                    <label>วันที่สิ้นสุด</label>
+                                  </div> -->
                               </div>
-                                <!-- <div class="col-sm-6">
-                                  <label>วันที่สิ้นสุด</label>
-                                </div> -->
-                            </div>
-                          <div class="input-daterange input-group" id="datepicker-range2">
-                            <input required class="input-sm form-control datepicker-range_event" name="join_start_date" id="event_start_date" value="<?php echo @$regis['join_start_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
-                            </span>
-                            <div class="input-group-addon">ถึงวันที่</div>
-                            <input required class="input-sm form-control datepicker-range_event" name="join_finish_date" id="event_finish_date" value="<?php echo @$regis['join_finish_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
-                            </span>
                           </div>
 
-                        </div>
-                        <br/>
+  
+                          <div class="row form-group">
+                            <div class="col-sm-12" >
+                            <div class="row" >
+                              <div class="col-sm-6 input-group">
+                                <input required class="input-sm form-control datepicker-range_event" name="join_start_date" id="event_start_date" value="<?php echo @$regis['join_start_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </span>
+                              </div>
+                              <div class="col-sm-6 input-group">
+                                  <input required class="input-sm form-control datepicker-range_event" name="join_finish_date" id="event_finish_date" value="<?php echo @$regis['join_finish_date']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-calendar"></i>
+                              </span>
+                              </div>
+                            </div>
+                            </div>   
+                          </div>            
+                          <br/>
                        
                         <!-- <p>เวลาเริ่มต้นกิจกรรม และ เวลาสิ้นสุดกิจกรรม</p>
         -->
-                        <div class="row clearfix form-group">
-                          <div class="col-sm-5" >
-                          <label>เวลาเริ่มต้น</label>
-                            <input required class="input-sm form-control timepicker" name="join_start_time" id="event_start_time" value="<?php echo @$regis['join_start_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
-                            </span>
+                          <div class="row clearfix form-group">
+                            <div class="col-sm-6" >
+                              <label>เวลาเริ่มต้น</label>
                             </div>
-                            <div class="col-sm-2 text-center"></div>
-                            <div class="col-sm-5" >
-                            <label>เวลาสิ้นสุด</label>
-                            <input required class="input-sm form-control timepicker" name="join_finish_time" id="event_finish_time" value="<?php echo @$regis['join_finish_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
-                            </span>
+                              <!-- <div class="col-sm-2 text-center"></div> -->
+                            <div class="col-sm-6" >
+                              <label>เวลาสิ้นสุด</label>
+                            </div>
                           </div>
+
+                          <div class="row form-group">
+                            <div class="col-sm-12" >
+                              <!-- <label>เวลาเริ่มต้น</label> -->
+                              <div class="row">
+                                <div class="col-sm-6 input-group">
+                                  <input  class="input-sm form-control timepicker" name="join_start_time" id="event_start_time" value="<?php echo @$regis['join_start_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
+                                  </span>
+                                </div>
+
+                                <div class="col-sm-6 input-group">
+                                    <input  class="input-sm form-control timepicker" name="join_finish_time" id="event_finish_time" value="<?php echo @$regis['join_finish_time']; ?>" type="text"><span class="input-group-addon"><i class="fa fa-clock-o"></i>
+                                    </span>
+                                </div>
+                             
+                              </div>
+                             
+                             
+                            </div>
+                          </div>
+                            <!-- <div class="col-sm-2 text-center"></div> -->
+                          <!-- <div class="input-group">
+                            <div class="col-sm-5" >
+                             
+                              
+                            </div>
+                          </div> -->
                        
-                        </div>
+                        <!-- </div> -->
                         <br/>
 
                         <p>สถานที่จัดกิจกรรม</p>
-                        <label>โปรดระบุในรูปแบบ อาคาร เลขที่ ซอย ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์</label>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <input type="hidden" name="event_address" id="event_address">

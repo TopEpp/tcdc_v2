@@ -98,7 +98,7 @@
                               <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
                               <td class="v-align-middle"><?php echo $status;?></td>
-                              <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td>
+                              <td class="v-align-middle"><?php $project_update = explode(' ', $prj->project_update); echo $this->mydate->date_2dot($project_update[0]).' '.$project_update[1];?></td>
                             </tr>
                           <?php } ?>
                         </tbody>
@@ -127,10 +127,11 @@
                                 <?php $start_reg = explode('-',$prj->register_start_date);
                                         $end_reg = explode('-',$prj->register_finish_date);
                                   ?>
-                                <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> <br>
+                                <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> 
+                                วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date).' - '.$this->mydate->date_2dot($prj->project_finish_date);?></p></td><br>
                                                                         
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">สมัคร</a></td>
+                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/form/'.$prj->project_id)?>">สมัคร</a></td>
                                 <?php }else{ ?>
                                   <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                 <?php } ?>

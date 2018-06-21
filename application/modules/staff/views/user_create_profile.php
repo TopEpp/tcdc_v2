@@ -85,7 +85,7 @@
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>คำนำหน้า</label>
-                                              <select name="prename" id="prename"  class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="cs-select">
+                                              <select style="width:100%" name="prename" id="prename"  class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
                                                
                                                 <option  <?php echo (@$data->prename == '') ? 'selected':'';?> value="" >เลือก</option>
                                                 <option  <?php echo (@$data->prename == 1) ? 'selected':'';?> value="1">นาย</option>
@@ -124,18 +124,18 @@
                                         <div class="form-group form-group-default has-error">
                                          
                                             <label>อีเมล</label>
-                                            <input name="email" placeholder="ระบุอีเมล์ที่ใช้ในการลงทะเบียน" type="text" class="form-control" value="<?php echo @$data->email;?>">
+                                            <input name="email" placeholder="" type="text" class="form-control" value="<?php echo @$data->email;?>">
                                           
                                         </div>
                                         <br>
                                         <div class="form-group form-group-default has-error">
                                           <label class="">รหัสผ่าน</label>
-                                          <input name="password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
+                                          <input name="password" placeholder="" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                         </div>
                                         <br>
                                         <div class="form-group form-group-default has-error">
                                           <label class="">ยืนยันรหัสผ่าน</label>
-                                          <input name="pass_new_confirm" placeholder="พิมพ์รหัสผ่านใหม่อีกครั้ง" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
+                                          <input name="pass_new_confirm" placeholder="" class="form-control error" required="" aria-required="true" aria-invalid="true" type="password">
                                         </div>
 
 
@@ -148,39 +148,39 @@
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default required">
                                               <label>เลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
-                                              <input type="text" name="address" class="form-control" placeholder="ระบุบ้านเลขที่" value="<?php echo @$data->address; ?>">
+                                              <input type="text" name="address" class="form-control" placeholder="" value="<?php echo @$data->address; ?>">
                                             </div>
                                           </div>
                                           <div class="col-sm-3">
-                                            <div class="form-group form-group-default required">
+                                            <div class="form-group form-group-default ">
                                               <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
-                                              <input type="text" name="village" class="form-control" placeholder="ระบุหมู่" value="<?php echo @$data->village; ?>">
+                                              <input type="text" name="village" class="form-control" placeholder="" value="<?php echo @$data->village; ?>">
                                             </div>
                                           </div>
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default ">
                                               <label>ซอย</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
-                                              <input type="text" name="lane" class="form-control" placeholder="ระบุซอย" value="<?php echo @$data->lane; ?>">
+                                              <input type="text" name="lane" class="form-control" placeholder="" value="<?php echo @$data->lane; ?>">
                                             </div>
                                           </div>
                                           <div class="col-sm-3">
                                             <div class="form-group form-group-default ">
                                               <label>ถนน</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
-                                              <input type="text" name="road" class="form-control" placeholder="ระบุถนน" value="<?php echo @$data->road; ?>">
+                                              <input type="text" name="road" class="form-control" placeholder="" value="<?php echo @$data->road; ?>">
                                             </div>
                                           </div>
                                         </div>
                                         <div class="row clearfix">
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default required">
-                                              <label>ตำบล/แขวง</label>
-                                              <input  name="subdistrict" type="text" class="form-control" placeholder="ระบุแขวงหรือตำบลของคุณ" value="<?php echo @$data->subdistrict; ?>">
+                                              <label>ตำบล</label>
+                                              <input  name="subdistrict" type="text" class="form-control" placeholder="" value="<?php echo @$data->subdistrict; ?>">
                                             </div>
                                           </div>
                                           
                                           <div class="col-sm-6">
                                             <div class="form-group form-group-default required">
-                                              <label>เขต/อำเภอ</label>
+                                              <label>อำเภอ/เขต</label>
                                               <input name="district" type="text" class="form-control" value="<?php echo @$data->district; ?>">
                                             </div>
                                           </div>
@@ -619,13 +619,13 @@
 
                                               <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
-                                                  <label>LINE</label>
+                                                  <label>ไลน์ @</label>
                                                   <input type="text" class="form-control" name="lineid" value="<?php echo @$data->lineid; ?>">
                                                 </div>
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
-                                                  <label>Facebook Fan Page</label>
+                                                  <label>เฟซบุ๊ค แฟนเพจ</label>
                                                   <input type="text" class="form-control" name="facebook" value="<?php echo @$data->facebook; ?>">
                                                 </div>
                                               </div>

@@ -2716,7 +2716,7 @@ html {
 body {
   color: #575757;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: normal;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -2811,8 +2811,9 @@ code:hover {
   background-color: #fddede;
 }
 p {
+  font-family: 'dbch';
   display: block;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: normal;
   letter-spacing: 0.01em;
   line-height: 22px;
@@ -3234,7 +3235,7 @@ hr.dotted {
   font-size: 22px !important;
 }
 .fs-16 {
-  font-size: 22px !important;
+  font-size: 24px !important;
 }
 /* Line-heights
 ------------------------------------
@@ -3329,7 +3330,7 @@ hr.dotted {
 @media (max-width: 1400px) {
   body,
   p {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 20px;
   }
   h1 {
@@ -3364,7 +3365,7 @@ hr.dotted {
 */
 .windows body,
 .windows p {
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: normal;
 }
 .windows h3 {
@@ -3376,7 +3377,7 @@ hr.dotted {
   line-height: 32px;
 }
 .windows h5 {
-  font-size: 25px;
+  font-size: 24px;
   line-height: 28px;
   font-weight: normal;
 }
@@ -3422,7 +3423,7 @@ hr.dotted {
 */
 .btn {
   font-family: 'dbbl', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: normal;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
@@ -5557,7 +5558,7 @@ body > .pgn-wrapper {
   font-weight: 500;
   letter-spacing: 0.06em;
   color: rgba(87, 87, 87, 0.7);
-  font-size: 18px;
+  font-size: 22px;
   min-width: 70px;
   text-transform: uppercase;
   border-color: transparent;
@@ -6565,7 +6566,8 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
+  font-size: 22px;
+  font-family: 'dbch';
   font-weight: normal;
   line-height: 20px;
 }
@@ -6705,7 +6707,7 @@ fieldset[disabled] .form-control {
   margin-right: 15px;
   min-width: 17px;
   min-height: 17px;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 20px;
   margin-bottom: 0;
   font-family: 'dbch';
@@ -7051,7 +7053,7 @@ body.rtl .checkbox label::after {
 }
 .form-group label:not(.error) {
   font-family: 'dbch';
-  font-size: 18px;
+  font-size: 22px;
   /* letter-spacing: 0.06em; */
   text-transform: uppercase;
   font-weight: 500;

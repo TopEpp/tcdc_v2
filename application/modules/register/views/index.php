@@ -87,7 +87,7 @@
       <div class=" justify-content-center flex-column  ">
         <div id="title_head">
         <!-- <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"></a> -->
-        <h3 >สร้างบัญชีผู้ใช้งาน</h3>
+        <h5 >สร้างบัญชีผู้ใช้งาน</h5>
 
         </div>
        
@@ -104,10 +104,10 @@
 
           <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
             <li class="nav-item">
-              <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/Create.png');?>" width="25px">  <span >สร้างบัญชีผู้ใช้งาน</span></a>
+              <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png');?>" width="10px">  <span >สร้างบัญชีผู้ใช้งาน</span></a>
             </li>
             <li class="nav-item">
-              <a data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/Form.png');?>" width="20px"> <span  >ข้อมูลผู้ใช้งาน</span></a>
+              <a data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png');?>" width="11px"> <span  >ข้อมูลผู้ใช้งาน</span></a>
             </li>
             <!-- <li class="nav-item">
               <a data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-check tab-icon"></i> <span>ยืนยันข้อมูล</span></a>
@@ -178,9 +178,9 @@
                   <div class="col-md-4">
                     <div class="form-group form-group-default  form-group-default-selectFx required ">
                       <label>คำนำหน้า</label><span class="text-danger"><?php  echo  form_error('prename'); ?></span>
-                      <select  style="width:100%" style="width:100%" id="prename" name="prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2">
+                      <select  style="width:100%"  id="prename" name="prename">
                                                 
-                        <option disable <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
+                        <option disabled <?php echo (@set_value('prename') == '') ? 'selected':'';?> value="" >เลือก</option>
                         <option  <?php echo (@set_value('prename') == 1) ? 'selected':'';?> value="1">นาย</option>
                         <option  <?php echo (@set_value('prename') == 2) ? 'selected':'';?> value="2">นาง</option>
                         <option  <?php echo (@set_value('prename') == 3) ? 'selected':'';?> value="3">นางสาว</option>
@@ -948,6 +948,10 @@
 <script>
 
   $(document).ready(function() {
+
+    $('#prename').select2({
+    minimumResultsForSearch: -1
+    });
 
     //check verifive email
     if ($('#msg').val() != ''){

@@ -37,7 +37,7 @@ class Member extends MY_Controller
 	}
 
 	//form register profile
-	public function event_form($id = '')
+	public function form($id = '')
 	{
 	
 

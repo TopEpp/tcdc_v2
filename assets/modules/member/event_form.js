@@ -1,6 +1,7 @@
 
   $(function()
   {
+
       
     $('.datepicker-year').datepicker({
         format: "yyyy",
@@ -13,6 +14,7 @@
 
     
     $('.timepicker').timepicker();
+    
 
     // show
     $(".product_concept").wysihtml5({
@@ -492,7 +494,8 @@
 
     $('#btn-next').click(function(){
         if(!$('#checkbox2').is(":checked")){
-            alert('ยังไม่ได้ยอมรับ ฉันเข้าใจและยอมรับในเงื่อนไข และ ข้อตกลง ');
+            
+            $('#check_form').modal();
             return false;
         }
 

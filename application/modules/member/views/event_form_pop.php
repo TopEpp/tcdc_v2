@@ -1,6 +1,24 @@
 <div class="loader-wrap" id="loading" style="display:none;" >
   <div class="loader"><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span><span class="loader-item"></span></div>
 </div>
+<div class="modal" id="check_form" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>กรุณายอมรับและได้อ่านเงื่อนไขและข้อตกลง.</p>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- START PAGE CONTENT -->
       <div class="content ">
         <div class=" container-fluid   container-fixed-lg">
@@ -311,7 +329,7 @@
                               <!--  status group -->
                               <div id="commany">
                             
-                                <p style="font-weight: bold">สถานภาพของคุณ</p>
+                                <p style="font-weight: bold">คุณสมัครในสถานภาพใด</p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
                                       <div class="form-group form-group-default  form-group-default-selectFx  required">
