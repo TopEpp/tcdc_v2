@@ -121,7 +121,7 @@
               if ($this->session->userdata('sesUserImage'))
                 echo  cl_image_tag($this->session->userdata('sesUserImage'), array( "alt" => "profile" )); 
               else ?>
-                <img src="<?php echo base_url('assets/img/profiles/avatar.jpg');?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar.jpg');?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" width="32" height="32">
+                <img src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" width="32" height="32">
             
               
             </span>

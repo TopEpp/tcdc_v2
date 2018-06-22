@@ -114,7 +114,7 @@ class Member extends MY_Controller
 				$this->form_validation->set_rules('company_custom_group', 'ลูกค้าของคุณคือกลุ่มใด', 'trim|required');
 				$this->form_validation->set_rules('company_business_look_one', 'ลักษณะการทำงานของธุรกิจ', 'trim|required');
 				$this->form_validation->set_rules('company_people', 'จำนวนพนักงาน', 'trim|required');
-				$this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
+				// $this->form_validation->set_rules('company_num_regis', 'เลขทะเบียนนิติบุคคล', 'trim|required|callback_num_regis');
 				break;
 			case 2:
 				$this->form_validation->set_rules('job_type_two', 'ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด', 'trim|required');

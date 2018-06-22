@@ -128,7 +128,7 @@
                                         $end_reg = explode('-',$prj->register_finish_date);
                                   ?>
                                 <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> 
-                                วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date).' - '.$this->mydate->date_2dot($prj->project_finish_date);?></p></td><br>
+                                ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date).' - '.$this->mydate->date_2dot($prj->project_finish_date);?></p></td><br>
                                                                         
                                 <?php if ($status) {?>
                                   <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/form/'.$prj->project_id)?>">สมัคร</a></td>

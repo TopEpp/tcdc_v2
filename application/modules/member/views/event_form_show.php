@@ -445,7 +445,7 @@
                                         </div>
                                       </div>
                                       <div class="col-sm-6">
-                                        <div class="form-group form-group-default required">
+                                        <div class="form-group form-group-default ">
                                           <label>เลขทะเบียนนิติบุคคล </label>
                                           <input type="text" name="company_num_regis" class="form-control" placeholder="" value="<?php echo @$member->company_num_regis; ?>">
                                         </div>
