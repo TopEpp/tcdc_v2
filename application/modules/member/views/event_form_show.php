@@ -890,14 +890,14 @@
                                   <div class="padding-30 sm-padding-5">
                                   <div class="row clearfix">
                                     <div class="col-md-6">
-                                      <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น 1</p></span>
+                                      <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" >คอลเลกชั่น 1</h5></span>
                                     </div>
                                     <div class="col-md-6 text-right" id="remove_clone" style="display:none">
                                     <a  style="color:white;"  class="btn btn-primary btn-cons remove"><i class="fa fa-times"></i> ยกเลิก</a>
                                     </div>
                                   </div>
                                  
-                                    <p id="num" class="num"> ข้อมูลผลงาน </p>
+                                    <p id="num" class="num" style="font-weight: bold;"> ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                             <div class="col-sm">
@@ -975,7 +975,7 @@
 
 
                                         <br>
-                                        <p>ขนาดและจำนวนของผลงาน</p>
+                                        <p style="font-weight: bold;">ขนาดและจำนวนของผลงาน</p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -1026,7 +1026,7 @@
                                         <div class="form-group-attached ">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p style="font-weight: bold;">แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -1043,7 +1043,7 @@
                                         </div>
 
                                         <br>
-                                        <p>ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p style="font-weight: bold;">ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
@@ -1097,7 +1097,7 @@
 
 
                                     <br>
-                                    <p>ผู้ออกแบบ</p>
+                                    <p style="font-weight: bold;">ผู้ออกแบบ</p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
@@ -1176,8 +1176,8 @@
                               </div> -->
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
-                                  <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></p></span>
-                                    <p >ข้อมูลผลงาน </p>
+                                  <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys+1; ?></h5></span>
+                                    <p style="font-weight: bold;">ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                               <div class="col-sm">
@@ -1254,7 +1254,7 @@
 
 
                                         <br>
-                                        <p>ขนาดและจำนวนของผลงาน</p>
+                                        <p style="font-weight: bold;">ขนาดและจำนวนของผลงาน</p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -1305,7 +1305,7 @@
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p>แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p style="font-weight: bold;">แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -1322,7 +1322,7 @@
                                         </div>
 
                                         <br>
-                                        <p>ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p style="font-weight: bold;">ภาพผลงาน<span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
@@ -1415,7 +1415,7 @@
 
 
                                     <br>
-                                    <p>ผู้ออกแบบ</p>
+                                    <p style="font-weight: bold;">ผู้ออกแบบ</p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">

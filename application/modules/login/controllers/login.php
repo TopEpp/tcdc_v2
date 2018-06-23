@@ -49,7 +49,7 @@ class login extends  MY_Controller{
 			}
 		}
 
-		$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Email Or Password Incorrect!</div>');
+		$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">อีเมลหรือรหัสผ่าน ไม่ถูกต้อง</div>');
 		redirect(base_url());		
     }
 

@@ -107,7 +107,7 @@
       </div>
       <div class="d-flex align-items-center">
         <!-- START User Info-->
-        <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important;">
+        <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important; font-family: 'dbch';">
           ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
@@ -211,19 +211,19 @@
 
 
             <?php }else if($this->session->userdata('sesUserType')==3){ ?>
-            <li class="m-t-30 ">
+            <li class="m-t-30 <?= ($this->uri->segment(2) == 'member' && $this->uri->segment(3) == '')?'active':'';?>">
               <a href="<?php echo base_url('member');?>" class="detailed">
                 <span class="title"><?php echo lang('bashboard');?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?= ($this->uri->segment(2) == 'news')?'active':'';?>">
               <a href="<?php echo base_url('news');?>" class="detailed">
                 <span class="title"><?php echo lang('news');?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?= ($this->uri->segment(2) == 'member' && $this->uri->segment(3) == 'event_log')?'active':'';?>">
               <a href="<?php echo base_url('member/event_log');?>" class="detailed">
                 <span class="title"><?php echo lang('history');?></span>
               </a>

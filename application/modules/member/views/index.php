@@ -33,13 +33,13 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="loginModal">CMDW</h5>
+                        <h5 class="modal-title" id="loginModal">Chiang Mai Design Week 2018</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        ยินดีต้อนรับเข้าสู่ CMDW
+                        ยินดีต้อนรับเข้าสู่ ระบบเทศกาลงานออกแบบเชียงใหม่ Chiang Mai Design Week 2018
                       </div>
                       
                     </div>
@@ -113,32 +113,34 @@
                             $status = 0;
                          }
                         ?>
+             
                         <div id="table-detail-<?php echo $prj->project_id;?>" style="display: none">
-                          <table class="table table-inline" >
+                          <table class="table table-condensed " >
                             <tbody>
                               <tr>
-                                <td width="60%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail;?></p></td>
+                                <td width="40%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail;?></p></td>
                                 <?php if ($this->session->userdata('sesUserType') == 1){ ?>
-                                  <td width="10%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
+                                  <td width="5%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg;?> ราย</td>
 
                                 <?php }else{?>
-                                  <td width="10%" style="vertical-align:top"></td> 
+                                  <td width="5%" style="vertical-align:top"></td> 
                                 <?php } ?>
                                 <?php $start_reg = explode('-',$prj->register_start_date);
                                         $end_reg = explode('-',$prj->register_finish_date);
                                   ?>
-                                <td width="10%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> 
+                                <td width="25%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2].'.'.$start_reg[1].'.'.$start_reg[0].' - '.$end_reg[2].'.'.$end_reg[1].'.'.$end_reg[0]?></p> 
                                 ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date).' - '.$this->mydate->date_2dot($prj->project_finish_date);?></p></td><br>
                                                                         
                                 <?php if ($status) {?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/form/'.$prj->project_id)?>">สมัคร</a></td>
+                                  <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/form/'.$prj->project_id)?>">สมัคร</a></td>
                                 <?php }else{ ?>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
+                                  <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                 <?php } ?>
                               </tr>
                             </tbody>
                           </table>
                         </div>
+                 
                     <?php } ?>  
                     </div>
                   </div>

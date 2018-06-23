@@ -59,17 +59,19 @@
 
                         <?php foreach ($project as $key => $prj) { ?>
                           <div id="table-detail-<?php echo $prj->project_id;?>" style="display: none">
-                            <table class="table table-inline" >
-                              <tbody>
-                                <tr>
-                                  <td width="60%" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
-                                  <td width="10%" style="vertical-align:top"></td>
-                                  <td width="10%" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
-                                                                            วันเริ่มกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
-                                  <td width="10%" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เรียกดู</a></td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div class="table-responsive">
+                              <table class="table table-inline  table-detailed" >
+                                <tbody>
+                                  <tr>
+                                    <td width="" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
+                                    <!-- <td width="10%" style="vertical-align:top"></td> -->
+                                    <td width="" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
+                                    ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
+                                    <td width="" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เรียกดู</a></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         <?php } ?>  
                     </div>

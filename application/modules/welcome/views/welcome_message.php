@@ -65,7 +65,7 @@
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
         <div class="d-flex align-items-right" style="float: right; padding: 10px; ">
-          <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important;">
+          <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important; font-family: 'dbch';">
             ไทย <input type="checkbox" id="toggle_lang"   class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
           </div>
         </div>
@@ -106,7 +106,7 @@
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
             <div class="form-group form-group-default fn_from">
-              <label class="fn_from" style="font-family: 'dbch', sans-serif;">อีเมล</label>
+              <label  style="font-family: 'dbch', sans-serif;">อีเมล</label>
               <div class="controls">
                 <input type="text" name="username" id="username" placeholder="" class="form-control" required >
               </div>

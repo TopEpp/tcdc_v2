@@ -13,8 +13,9 @@ class Mailgun {
  
    
     // config
-    self::$api_key = "";
-    self::$api_base_url = "";
+    self::$api_key = "b60fb8974bb599a4db3cb6e7cecb6532-0470a1f7-2285df3e";
+   
+    self::$api_base_url = "https://api.mailgun.net/v3/cmdw.pitchap.com";
   }
 
   /**
