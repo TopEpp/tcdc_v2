@@ -104,7 +104,7 @@
                     <div class="pull-right">
                       <div class="col-xs-12">
                         <?php if($this->session->userdata('sesUserType')==1){ ?>
-                        <button id="show-modal-news" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
+                        <button  class="btn btn-primary btn-cons" onclick="window.location.href='<?php echo base_url('staff/news');?>' " ><i class="fa fa-plus"></i> สร้างข่าวสาร
                         </button>
                         <?php }?>
                       </div>
@@ -135,12 +135,12 @@
                       </td>
                       <td class="v-align-middle">
                         <?php if($this->session->userdata('sesUserType')==1){ ?>
-                        <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a>
+                        <p><a style="cursor: pointer;" href="<?php echo base_url('staff/news/'.$value->news_id);?>"><i class="fa fa-edit"></i> แก้ไข</a>
                         &nbsp;<a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
                         <?php }?>
                       </td>
                     </tr>
-                    <input type="hidden" id="news_detail_<?php echo $value->news_id;?>" value="<?php echo $value->news_detail;?>">
+                    <!-- <input type="hidden" id="news_detail_<?php echo $value->news_id;?>" value="<?php echo $value->news_detail;?>"> -->
                     <input type="hidden" id="news_url_<?php echo $value->news_id;?>" value="<?php echo $value->news_url;?>">
                   <?php }?>
                   </tbody>

@@ -141,6 +141,22 @@ class staff extends MY_Controller {
 		redirect(base_url($this->uri->segment(1).'/staff/management'));
 	}
 
+	function news($news_id=''){
+		$data = array();
+
+		if($news_id){
+			$data['news'] = $this->staff_model->getNewsById($news_id);
+		}
+
+		$this->template->stylesheet->add('assets/plugins/summernote/summernote-bs4.css');
+		$this->template->javascript->add('assets/plugins/summernote/summernote-bs4.js');
+
+		$this->template->javascript->add('assets/modules/staff/management_news.js');
+		$this->config->set_item('title','การจัดข่าวสาร');
+		$this->setView('management_news',$data);
+        $this->publish();
+	}
+
 	function saveNews(){
 		$data = array(
         	'news_create' => $this->session->userdata('sesUserID'),
@@ -173,7 +189,7 @@ class staff extends MY_Controller {
 		$data['news'] = $this->staff_model->getNews();
 
 		$this->template->javascript->add('assets/modules/staff/management.js');
-		$this->config->set_item('title','การจัดการโครงการ');
+		$this->config->set_item('title','การจัดการกิจกรรม');
 		$this->setView('management',$data);
         $this->publish();
 	}
