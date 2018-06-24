@@ -93,7 +93,9 @@
                             <p><?php echo $value->rec_edit_timestamp;?></p>
                           </td>
                           <td class="v-align-middle">
+                            <?php if($this->session->userdata('sesUserType')==1){ ?>
                             <p><a  href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
+                            <?php }?>
                           </td>
                         </tr>
                     <?php } ?>

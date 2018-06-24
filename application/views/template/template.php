@@ -183,7 +183,7 @@
             </li> -->
 
 
-            <?php }else if($this->session->userdata('sesUserType')==2){ ?>
+            <?php }else if($this->session->userdata('sesUserType')==2 || $this->session->userdata('sesUserType')==4){ ?>
             <li class="m-t-30 ">
               <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('bashboard');?></span>

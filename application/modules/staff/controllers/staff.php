@@ -323,20 +323,22 @@ class staff extends MY_Controller {
 				'province' => $this->input->post('province'),
 				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
-				'user_active' => $this->input->post('user_active'),
-				'job' => $this->input->post('job'),
-				'brand' => $this->input->post('brand'),
-				'website' => $this->input->post('website'),
-				'facebook' => $this->input->post('facebook'),
-				'lineid' => $this->input->post('lineid'),
+				'user_active' => 1,
+				'user_type' => $this->input->post('user_type')
+				// 'job' => $this->input->post('job'),
+				// 'brand' => $this->input->post('brand'),
+				// 'website' => $this->input->post('website'),
+				// 'facebook' => $this->input->post('facebook'),
+				// 'lineid' => $this->input->post('lineid'),
 				
 			);
-			if (!empty($this->input->post('job_type_one'))){
-				$data['job_type'] = $this->input->post('job_type_one');
-			}
-			if (!empty($this->input->post('job_type_two'))){
-				$data['job_type'] = $this->input->post('job_type_two');
-			}
+
+			// if (!empty($this->input->post('job_type_one'))){
+			// 	$data['job_type'] = $this->input->post('job_type_one');
+			// }
+			// if (!empty($this->input->post('job_type_two'))){
+			// 	$data['job_type'] = $this->input->post('job_type_two');
+			// }
 
 								
 			if (!empty($this->input->post('password'))){
@@ -348,66 +350,69 @@ class staff extends MY_Controller {
 			}
 
 			//company 
-			$data_company = array(
+			$data_company = array();
+			// $data_company = array(
 	
-				'company_name' => $this->input->post('company_name'),
+			// 	'company_name' => $this->input->post('company_name'),
 				
-				'company_address' => $this->input->post('company_address'),
-				'company_village' => $this->input->post('company_village'),
-				'company_lane' => $this->input->post('company_lane'),
-				'company_road' => $this->input->post('company_road'),
-				'company_country' => $this->input->post('company_country'),
-				'company_province' => $this->input->post('company_province'),
-				'company_district' => $this->input->post('company_district'),
-				'company_subdistrict' => $this->input->post('company_subdistrict'),
-				'company_zipcode' => $this->input->post('company_zipcode'),
+			// 	'company_address' => $this->input->post('company_address'),
+			// 	'company_village' => $this->input->post('company_village'),
+			// 	'company_lane' => $this->input->post('company_lane'),
+			// 	'company_road' => $this->input->post('company_road'),
+			// 	'company_country' => $this->input->post('company_country'),
+			// 	'company_province' => $this->input->post('company_province'),
+			// 	'company_district' => $this->input->post('company_district'),
+			// 	'company_subdistrict' => $this->input->post('company_subdistrict'),
+			// 	'company_zipcode' => $this->input->post('company_zipcode'),
 				
-				'company_custom_group' => $this->input->post('company_custom_group'),
-				'company_people' => $this->input->post('company_people'),
-				'company_num_regis' => $this->input->post('company_num_regis'),
-				//group 2
-				'company_work_look' => $this->input->post('company_work_look'),
-				'company_sell_way' => $this->input->post('company_sell_way'),
-				'company_product_build' => $this->input->post('company_product_build'),
-				//group 3
-				'company_group_product' => $this->input->post('company_group_product'),
-				'company_group_product_detail' => $this->input->post('company_group_product_detail'),
-				'company_technic' => implode(',',$this->input->post('company_technic')),
-				'company_product_detail' => $this->input->post('company_product_detail'),
-				'company_num_product' => $this->input->post('company_num_product'),
-				//group 4
-				'company_department' => $this->input->post('company_department'),
-				'company_duty' => $this->input->post('company_duty'),
-				'company_join_work' => $this->input->post('company_join_work'),
+			// 	'company_custom_group' => $this->input->post('company_custom_group'),
+			// 	'company_people' => $this->input->post('company_people'),
+			// 	'company_num_regis' => $this->input->post('company_num_regis'),
+			// 	//group 2
+			// 	'company_work_look' => $this->input->post('company_work_look'),
+			// 	'company_sell_way' => $this->input->post('company_sell_way'),
+			// 	'company_product_build' => $this->input->post('company_product_build'),
+			// 	//group 3
+			// 	'company_group_product' => $this->input->post('company_group_product'),
+			// 	'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+			// 	'company_technic' => implode(',',$this->input->post('company_technic')),
+			// 	'company_product_detail' => $this->input->post('company_product_detail'),
+			// 	'company_num_product' => $this->input->post('company_num_product'),
+			// 	//group 4
+			// 	'company_department' => $this->input->post('company_department'),
+			// 	'company_duty' => $this->input->post('company_duty'),
+			// 	'company_join_work' => $this->input->post('company_join_work'),
 
 
-			);
+			// );
 
 			
-			if (!empty($this->input->post('company_service_one'))){
-				$data_company['company_service'] = $this->input->post('company_service_one');
-			}
-			if (!empty($this->input->post('company_service_two'))){
-				$data_company['company_service'] = $this->input->post('company_service_two');
-			}
-			if (!empty($this->input->post('company_service_three'))){
-				$data_company['company_service'] = $this->input->post('company_service_three');
-			}
+			// if (!empty($this->input->post('company_service_one'))){
+			// 	$data_company['company_service'] = $this->input->post('company_service_one');
+			// }
+			// if (!empty($this->input->post('company_service_two'))){
+			// 	$data_company['company_service'] = $this->input->post('company_service_two');
+			// }
+			// if (!empty($this->input->post('company_service_three'))){
+			// 	$data_company['company_service'] = $this->input->post('company_service_three');
+			// }
 
-			if (!empty($this->input->post('company_business_look_one'))){
-				$data_company['company_business_look'] = $this->input->post('company_business_look_one');
-			}
-			if (!empty($this->input->post('company_business_look_two'))){
-				$data_company['company_business_look'] = $this->input->post('company_business_look_two');
-			}
+			// if (!empty($this->input->post('company_business_look_one'))){
+			// 	$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+			// }
+			// if (!empty($this->input->post('company_business_look_two'))){
+			// 	$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+			// }
 
-			if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
-				$data_company['company_type'] = $this->input->post('radio1');
-			}else{
-				$data_company['company_type'] = '1';
-			}
+			// if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
+			// 	$data_company['company_type'] = $this->input->post('radio1');
+			// }else{
+			// 	$data_company['company_type'] = '1';
+			// }
 	
 			//end company
+
+
 
 			if($this->staff_model->saveCreateUser($data,$data_company)){
 				$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">สร้างผู้ใช้งานเรียบร้อย. </div>');
@@ -463,11 +468,12 @@ class staff extends MY_Controller {
 					'country' => $this->input->post('country'),
 					'zipcode' => $this->input->post('zipcode'),
 					'user_active' => $this->input->post('user_active'),
-					'job' => $this->input->post('job'),
-					'brand' => $this->input->post('brand'),
-					'website' => $this->input->post('website'),
-					'facebook' => $this->input->post('facebook'),
-					'lineid' => $this->input->post('lineid'),
+					'user_type' => $this->input->post('user_type')
+					// 'job' => $this->input->post('job'),
+					// 'brand' => $this->input->post('brand'),
+					// 'website' => $this->input->post('website'),
+					// 'facebook' => $this->input->post('facebook'),
+					// 'lineid' => $this->input->post('lineid'),
 					
 				);
 				if (!empty($this->input->post('job_type_one'))){
@@ -484,62 +490,64 @@ class staff extends MY_Controller {
 				}
 				
 				//company 
-				$data_company = array(
-					
-					'company_name' => $this->input->post('company_name'),
-					
-					'company_address' => $this->input->post('company_address'),
-					'company_village' => $this->input->post('company_village'),
-					'company_lane' => $this->input->post('company_lane'),
-					'company_road' => $this->input->post('company_road'),
-					'company_country' => $this->input->post('company_country'),
-					'company_province' => $this->input->post('company_province'),
-					'company_district' => $this->input->post('company_district'),
-					'company_subdistrict' => $this->input->post('company_subdistrict'),
-					'company_zipcode' => $this->input->post('company_zipcode'),
-					
-					'company_custom_group' => $this->input->post('company_custom_group'),
-					'company_people' => $this->input->post('company_people'),
-					'company_num_regis' => $this->input->post('company_num_regis'),
-					//group 2
-					'company_work_look' => $this->input->post('company_work_look'),
-					'company_sell_way' => $this->input->post('company_sell_way'),
-					'company_product_build' => $this->input->post('company_product_build'),
-					//group 3
-					'company_group_product' => $this->input->post('company_group_product'),
-					'company_group_product_detail' => $this->input->post('company_group_product_detail'),
-					'company_technic' => implode(',',$this->input->post('company_technic')),
-					'company_product_detail' => $this->input->post('company_product_detail'),
-					'company_num_product' => $this->input->post('company_num_product'),
-					//group 4
-					'company_department' => $this->input->post('company_department'),
-					'company_duty' => $this->input->post('company_duty'),
-					'company_join_work' => $this->input->post('company_join_work'),
+				$data_company = array();
 
-				);
+				// $data_company = array(
+					
+				// 	'company_name' => $this->input->post('company_name'),
+					
+				// 	'company_address' => $this->input->post('company_address'),
+				// 	'company_village' => $this->input->post('company_village'),
+				// 	'company_lane' => $this->input->post('company_lane'),
+				// 	'company_road' => $this->input->post('company_road'),
+				// 	'company_country' => $this->input->post('company_country'),
+				// 	'company_province' => $this->input->post('company_province'),
+				// 	'company_district' => $this->input->post('company_district'),
+				// 	'company_subdistrict' => $this->input->post('company_subdistrict'),
+				// 	'company_zipcode' => $this->input->post('company_zipcode'),
+					
+				// 	'company_custom_group' => $this->input->post('company_custom_group'),
+				// 	'company_people' => $this->input->post('company_people'),
+				// 	'company_num_regis' => $this->input->post('company_num_regis'),
+				// 	//group 2
+				// 	'company_work_look' => $this->input->post('company_work_look'),
+				// 	'company_sell_way' => $this->input->post('company_sell_way'),
+				// 	'company_product_build' => $this->input->post('company_product_build'),
+				// 	//group 3
+				// 	'company_group_product' => $this->input->post('company_group_product'),
+				// 	'company_group_product_detail' => $this->input->post('company_group_product_detail'),
+				// 	'company_technic' => implode(',',$this->input->post('company_technic')),
+				// 	'company_product_detail' => $this->input->post('company_product_detail'),
+				// 	'company_num_product' => $this->input->post('company_num_product'),
+				// 	//group 4
+				// 	'company_department' => $this->input->post('company_department'),
+				// 	'company_duty' => $this->input->post('company_duty'),
+				// 	'company_join_work' => $this->input->post('company_join_work'),
 
-				if (!empty($this->input->post('company_service_one'))){
-					$data_company['company_service'] = $this->input->post('company_service_one');
-				}
-				if (!empty($this->input->post('company_service_two'))){
-					$data_company['company_service'] = $this->input->post('company_service_two');
-				}
-				if (!empty($this->input->post('company_service_three'))){
-					$data_company['company_service'] = $this->input->post('company_service_three');
-				}
+				// );
+
+				// if (!empty($this->input->post('company_service_one'))){
+				// 	$data_company['company_service'] = $this->input->post('company_service_one');
+				// }
+				// if (!empty($this->input->post('company_service_two'))){
+				// 	$data_company['company_service'] = $this->input->post('company_service_two');
+				// }
+				// if (!empty($this->input->post('company_service_three'))){
+				// 	$data_company['company_service'] = $this->input->post('company_service_three');
+				// }
 	
-				if (!empty($this->input->post('company_business_look_one'))){
-					$data_company['company_business_look'] = $this->input->post('company_business_look_one');
-				}
-				if (!empty($this->input->post('company_business_look_two'))){
-					$data_company['company_business_look'] = $this->input->post('company_business_look_two');
-				}
+				// if (!empty($this->input->post('company_business_look_one'))){
+				// 	$data_company['company_business_look'] = $this->input->post('company_business_look_one');
+				// }
+				// if (!empty($this->input->post('company_business_look_two'))){
+				// 	$data_company['company_business_look'] = $this->input->post('company_business_look_two');
+				// }
 
-				if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
-					$data_company['company_type'] = $this->input->post('radio1');
-				}else{
-					$data_company['company_type'] = '1';
-				}
+				// if (!empty( $this->input->post('radio1')) || $this->input->post('radio1') != null){
+				// 	$data_company['company_type'] = $this->input->post('radio1');
+				// }else{
+				// 	$data_company['company_type'] = '1';
+				// }
 		
 				//end company
 			
