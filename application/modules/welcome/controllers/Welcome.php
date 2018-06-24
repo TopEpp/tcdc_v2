@@ -26,10 +26,13 @@ class Welcome extends MY_Controller {
 		$this->session->keep_flashdata('msg');
 		$this->session->keep_flashdata('confirm');
 		$this->session->keep_flashdata('verify');
+		$this->session->keep_flashdata('reset');
 	}
 	
 	public function index()
 	{
         $this->load->view('welcome_message');
 	}
+
+	
 }

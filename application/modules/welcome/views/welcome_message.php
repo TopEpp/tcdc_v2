@@ -83,6 +83,11 @@
               $this->session->unset_userdata('verify');
             }
 
+            if($this->session->flashdata('reset')){
+              echo $this->session->flashdata('reset');
+              $this->session->unset_userdata('reset');
+            }
+
             if($this->session->flashdata('msg')){
               echo $this->session->flashdata('msg');
               $this->session->unset_userdata('msg');
@@ -105,7 +110,7 @@
         ?>
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
-            <div class="form-group form-group-default fn_from">
+            <div class="form-group form-group-default ">
               <label  style="font-family: 'dbch', sans-serif;">อีเมล</label>
               <div class="controls">
                 <input type="text" name="username" id="username" placeholder="" class="form-control" required >
@@ -113,7 +118,7 @@
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
-            <div class="form-group form-group-default fn_from">
+            <div class="form-group form-group-default ">
               <label style="font-family: 'dbch', sans-serif;">รหัสผ่าน</label>
               <div class="controls">
                 <input type="password" class="form-control" name="password" id="password" placeholder="" required>
@@ -143,7 +148,7 @@
             <br/>
             <div class="row">
               <div class="col-md-6 d-flex fs-15">
-                  <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">ลืมรหัสผ่าน</a>
+                  <a href="#" data-toggle="modal" data-target="#reset_password" class="text-info small" style="font-family: 'dbch', sans-serif;">ลืมรหัสผ่าน</a>
                 </div>
             </div>
             <br/>
@@ -153,7 +158,7 @@
               <div class="col-md-12 no-padding sm-p-l-10">
 
                 <div class="col-md-12 d-flex fs-15">
-                  <a href="#" class="text-info small" style="font-family: 'dbch', sans-serif;">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</a>
+                  <a href="#" data-toggle="modal" data-target="#norify" class="text-info small" style="font-family: 'dbch', sans-serif;">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</a>
                   <!-- <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p> -->
                 </div>
               </div>
@@ -188,6 +193,79 @@
     </div>
   </div>
 
+<!-- reset password -->
+<div class="modal fade " id="reset_password" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    
+      <!-- Modal content-->
+      <div class="modal-content  ">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ลืมรหัสผ่าน</h4>
+          <h4>
+        </div>
+        <div class="modal-body ">
+         <!-- <form id="reset_form" action ="<?php echo base_url('register/reset_password');?>" method="POST"> -->
+            <div class="form-group ">
+            
+                <label style="font-family: 'dbch', sans-serif;">อีเมล</label>
+                <div class="controls">
+                  <input class="form-control" type="text" name="email_reset" id="email_reset">
+                  <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
+                </div>
+            </div>
+          <!-- </form> -->
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_resetpassword" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+<!-- reset password -->
+<div class="modal fade " id="norify" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    
+      <!-- Modal content-->
+      <div class="modal-content  ">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</h4>
+          <hr>
+        </div>
+        <div class="modal-body ">
+         <!-- <form id="reset_form" action ="<?php echo base_url('register/reset_password');?>" method="POST"> -->
+            <div class="form-group  ">
+                <label style="font-family: 'dbch', sans-serif;">อีเมลผู้แจ้ง</label>
+                <div class="controls">
+                  <input class="form-control" type="text" name="norify_email" id="norify_email">
+                  <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
+                </div>
+            </div>
+            <div class="form-group ">
+                <label style="font-family: 'dbch', sans-serif;">ปัญหาที่พบ</label>
+                <div class="controls">
+                    <textarea style="width: 100%;height:200px;">
+                    </textarea>
+                  <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
+                </div>
+            </div>
+          <!-- </form> -->
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_norify" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets/plugins/pace/pace.min.js');?>" type="text/javascript"></script>
     <script src="<?php echo base_url('assets/plugins/jquery/jquery-1.11.1.min.js');?>" type="text/javascript"></script>
@@ -210,6 +288,35 @@
     <script>
     $(function()
     {
+
+      //reset password
+      $('#btn_resetpassword').click(function(){
+          var email = $('#email_reset').val();
+          $.ajax({
+              type: "POST",
+              url: domain+'register/reset_password',
+              data: {email:email},
+              success: function(data, status) {
+                if (data)
+                  window.location.href = domain;
+              }
+          });
+      });
+
+            //norify 
+      $('#btn_norify').click(function(){
+          var email = $('#email_reset').val();
+          $.ajax({
+              type: "POST",
+              url: domain+'register/reset_password',
+              data: {email:email},
+              success: function(data, status) {
+                if (data)
+                  window.location.href = domain;
+              }
+          });
+      });
+
 
       var validator = $("#form-login").validate({
           rules: {

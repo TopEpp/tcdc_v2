@@ -433,7 +433,7 @@ body.menu-pin .overlay .overlay-brand {
 .page-sidebar .sidebar-menu .menu-items li.open > a,
 .page-sidebar .sidebar-menu .menu-items li.active > a {
   color: #fff;
-  background-color:#a7a7a7;
+  /* background-color:#a7a7a7; */
 }
 .page-sidebar .sidebar-menu .menu-items li > a {
   white-space: nowrap;

@@ -77,6 +77,12 @@
     right: 6px !important;
   }
 
+  /* class active sub menu */
+  .page-sidebar .sidebar-menu .menu-items li.active > a {
+    color: #fff;
+    background-color:#a7a7a7;
+  }
+
   </style>
 
   <!-- <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker3.css'); ?>"> -->

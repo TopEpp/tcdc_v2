@@ -282,14 +282,78 @@ class Register extends MY_Controller {
 	// call back Allow dashes to numbers 
 	function numeric_dash ($num) {
 		return ( ! preg_match("/^([0-9-\s])+$/D", $num)) ? FALSE : TRUE;
-	  }
+	}
+
+	//send reset password 
+	public function reset_password(){
+		$email = $this->input->post('email');
+
+		if (!empty($email)){
+			$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
+	
+			if($query->num_rows())
+			{
+				$user = $query->row();
+				// print_r($user)
+				$slug = md5($user->user_id . $user->email . date('Ymd'));
+
+				$url =  site_url('register/reset/'. $user->user_id .'/'. $slug);
+				$data['success'] = true;
+				$this->session->set_flashdata('reset','ok');
+				// echo $url;
+				// echo $pass_check .' '. $pass;die();
+				// $this->form_validation->set_message('email_check', 'Try agin, Email is already used.');
+				$this->json_publish($data);
+			}else{
+				$data['success'] = false;
+				$this->session->set_flashdata('reset','fail');
+				$this->json_publish($data);
+			}
+
+		}else{
+			$data['success'] = false;
+			$this->session->set_flashdata('reset','fail');
+			$this->json_publish($data);
+		}
+	
+		
+	}
+
+		/**
+	 * Reset password page
+	 */
+	public function reset()
+	{
+		 
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+		$data['success'] = false;
+		 
+		$user_id = $this->uri->segment(4);
+		if(!$user_id) show_error('Invalid reset code.');
+		$hash = $this->uri->segment(5);
+		if(!$hash) show_error('Invalid reset code.');
+		
+		// $this->load->model('Authme_model');
+		$query = $this->db->query('SELECT * FROM tcdc_member where user_id ='.'\''.$user_id.'\''  );
+		$user = $query->row();
+		if(!$user) show_error('Invalid reset code.');
+		$slug = md5($user->user_id . $user->email . date('Ymd'));
+		if($hash != $slug) show_error('Invalid reset code.');
+		
+
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
+		$this->form_validation->set_rules('password_conf', 'Confirm Password', 'required|matches[password]');
+		
+		if($this->form_validation->run()){
+			// $this->authme->reset_password($user->id, $this->input->post('password'));
+			// $data['success'] = true;
+		}
+		
+		$this->load->view('register/reset_password', $data);
+	}
 	
 
-	//   function test_mail(){
-	// 	$this->load->library('mailgun');
-	// 	$this->mailgun->send('','');
-	//   }
-	
         
    
 }
