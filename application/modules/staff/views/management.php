@@ -80,7 +80,9 @@
                               <td class="v-align-middle">
                                 <p><a href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>"><i class="fa fa-user"></i> ผู้สมัคร</a> 
                                 &nbsp;<a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a> 
+                                <?php if($this->session->userdata('sesUserType')==1){ ?>
                                 &nbsp;<a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
+                                <?php } ?>
                               </td>
                             </tr>
                           <?php } ?>
@@ -101,8 +103,10 @@
                     <h3 style="font-family: 'dbch' !important; ">ข่าวสาร</h3>
                     <div class="pull-right">
                       <div class="col-xs-12">
+                        <?php if($this->session->userdata('sesUserType')==1){ ?>
                         <button id="show-modal-news" class="btn btn-primary btn-cons" data-toggle="modal" data-target="#cr_news"><i class="fa fa-plus"></i> สร้างข่าวสาร
                         </button>
+                        <?php }?>
                       </div>
                     </div>
                   </div>
@@ -130,8 +134,10 @@
                         <p><?php echo $value->news_update_user.'<br>'.$this->mydate->date_eng2thai($value->news_update,543,'S');?></p>
                       </td>
                       <td class="v-align-middle">
+                        <?php if($this->session->userdata('sesUserType')==1){ ?>
                         <p><a style="cursor: pointer;" onclick="editNews('<?php echo $value->news_id;?>')" data-toggle="modal" data-target="#cr_news"><i class="fa fa-edit"></i> แก้ไข</a>
                         &nbsp;<a style="cursor: pointer;" onclick="delNews('<?php echo $value->news_id;?>')" ><i class="fa fa-trash-o"></i> ลบ</a></p>
+                        <?php }?>
                       </td>
                     </tr>
                     <input type="hidden" id="news_detail_<?php echo $value->news_id;?>" value="<?php echo $value->news_detail;?>">

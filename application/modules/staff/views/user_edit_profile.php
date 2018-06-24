@@ -7,6 +7,7 @@
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?PHP echo base_url('staff')?>">หน้าแรก</a></li>
+                <li class="breadcrumb-item "><a href="<?php echo base_url('staff/user_manage')?>">ผู้ใช้งาน</a></li>
                 <li class="breadcrumb-item active"><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</li>
               </ol>
               <!-- END BREADCRUMB -->
@@ -70,7 +71,7 @@
                                         <div class="chat-status available">
                                         </div>
                                       </div>
-                                      <div class="inline m-l-20">
+                                      <div >
                                         <p class="m-t-5">ชื่อ- สกุล : <?php echo @$data->firstname .' '.@$data->lastname;?>
                                           <br>อาชีพ : <?php echo @$data->job;?><br>ที่อยู่ : <?php echo @$data->address.' ต.'.@$data->subdistrict.' อ.'.@$data->district.' จ.'. @$province_name->name_th.' '.@$data->zipcode;?></p>
                                         </div>
@@ -252,7 +253,7 @@
                                                   <div class="form-group-attached">
                                                     <div class="row clearfix">
 
-                                                      <div class="col-sm-6">
+                                                      <div class="col-sm-12">
                                                         <div class="form-group form-group-default required">
                                                           <label>เบอร์โทรศัพท์</label>
                                                         
@@ -266,12 +267,12 @@
                                                         </div>
                                                       </div>
 
-                                                      <div class="col-sm-6">
+                                                      <!-- <div class="col-sm-6">
                                                           <div class="form-group form-group-default">
                                                             <label>ไลน์ไอดี</label>
                                                             <input type="text" class="form-control" name="lineid" value="<?php echo @$data->lineid; ?>">
                                                           </div>
-                                                        </div>
+                                                        </div> -->
 
                                                     </div>
 
@@ -828,9 +829,16 @@
                                         <input type="hidden"  id="user_active" name="user_active" value="" />
                                         <input type="checkbox" id="user-active"  class="switchery" <?php echo ($data->user_active == 1) ? "checked value='1'" : "value='0'"; ?> />
                                         <br><br>
-                                        <p>สมัครเมื่อ : 15/05/2561</p>
-                                        <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p>
-                                        
+                                        <!-- <p>สมัครเมื่อ : 15/05/2561</p>
+                                        <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p> -->
+                                        <?php if($this->session->userdata('sesUserType')==1){ ?>
+                                        <p>ประเภทผู้จัดการ </p>
+                                        <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type==1)?'checked="checked"' : '';?> > Admin</label> <br>
+                                        <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type==2)?'checked="checked"' : '';?> > Project Manager (PM)</label> <br>
+                                        <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type==4)?'checked="checked"' : '';?>> Editor</label>
+                                        <?php }else{?>
+                                          <input type="hidden" name="user_type" value="<?php echo $data->user_type;?>">
+                                        <?php }?>
                                         <br>
                                       </div>
 
