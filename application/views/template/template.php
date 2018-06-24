@@ -80,7 +80,22 @@
   /* class active sub menu */
   .page-sidebar .sidebar-menu .menu-items li.active > a {
     color: #fff;
-    background-color:#a7a7a7;
+    <?php if($this->session->userdata('sesUserType')==3){ ?>
+      background-color:#a7a7a7;
+    <?php }else{?>
+      background-color:#d41a69;
+    <?php }?>
+  }
+
+  .page-sidebar .sidebar-menu .menu-items li:hover > a, 
+  .page-sidebar .sidebar-menu .menu-items li.open > a, 
+  .page-sidebar .sidebar-menu .menu-items li.active > a { 
+    color: #fff; 
+    <?php if($this->session->userdata('sesUserType')==3){ ?>
+      background-color:#a7a7a7;
+    <?php }else{?>
+      background-color:#d41a69;
+    <?php }?>
   }
 
   </style>
@@ -159,26 +174,26 @@
 
 
             <?php if($this->session->userdata('sesUserType')==1){ ?>
-            <li class="m-t-30 ">
+            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '')?'active':'';?>">
               <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('bashboard');?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'management' || $this->uri->segment(3) == 'project' || $this->uri->segment(3) == 'news'))?'active':'';?>">
               <a href="<?php echo base_url('staff/management');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('manage');?></span>
                 <!-- <span class="details">มี 10 การแจ้งเตือน</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'show_user_register' || $this->uri->segment(3) == 'show_user' ))?'active':'';?>">
               <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('joiner');?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ( $this->uri->segment(3) == 'user_manage' || $this->uri->segment(3) == 'create_user' || $this->uri->segment(3) == 'user_edit_profile'))?'active':'';?>">
               <a href="<?php echo base_url('staff/user_manage');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('user');?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-user"></i></span> -->
@@ -190,20 +205,20 @@
 
 
             <?php }else if($this->session->userdata('sesUserType')==2 || $this->session->userdata('sesUserType')==4){ ?>
-            <li class="m-t-30 ">
+            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '')?'active':'';?>">
               <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('bashboard');?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'news')?'active':'';?>">
               <a href="<?php echo base_url('news');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('news');?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="">
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'show_user_register')?'active':'';?>">
               <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
                 <span class="title"><?php echo lang('joiner');?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span> -->
