@@ -119,7 +119,7 @@
                       <div class="col-lg-4">
                         <div id="card-linear-color" class="card card-default card2" style="font-family: 'dbch' !important; ">
                           <div class="card-header ">
-                            <div class="card-title" style="font-family: 'dbch' !important; "><?php echo $value->news_type; ?></div>
+                            <div class="card-title" style="font-family: 'dbch' !important; ">ข่าวสาร</div>
                           </div>
                           <div class="card-block">
                             <div class="scrollable">
