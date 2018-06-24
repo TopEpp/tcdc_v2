@@ -80,9 +80,11 @@
                               if($value->user_type==1){
                                 $user_type = 'Admin';
                               }else if($value->user_type==2){
-                                $user_type = 'Project Manage/Editor';
+                                $user_type = 'Project Manage';
                               }else if($value->user_type==3){
                                 $user_type = 'Member';
+                              }else if($value->user_type==4){
+                                $user_type = 'Editor';
                               }
                             ?>
                             <p><?php echo $user_type;?></p>
