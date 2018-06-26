@@ -102,6 +102,19 @@
     padding-top: 5px;
   }
 
+  .dataTables_info{
+    font-size: 0.8em !important;
+  }
+
+  .dataTables_paginate{
+    font-size: 0.8em !important;
+  }
+
+  .dataTables_paginate .paginate_button{
+    padding: 2px !important;
+    font-size: 0.8em !important;
+  }
+
   </style>
 
   <!-- <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker3.css'); ?>"> -->
