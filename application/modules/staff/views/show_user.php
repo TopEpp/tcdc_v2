@@ -36,7 +36,7 @@
                     <div class="card-block">
                       <div class="table-responsive">
 
-                        <table class="table table-hover table-condensed" id="condensedTable" style="font-family: 'dbch' !important; ">
+                        <table class="table table-hover table-condensed table_pageing" id="condensedTable" style="font-family: 'dbch' !important; ">
                           <thead>
                             <tr>
                             <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user

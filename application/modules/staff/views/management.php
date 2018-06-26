@@ -48,7 +48,7 @@
                   </div>
 
                   <div class="card-block">
-                    <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
+                    <table class="table table-hover demo-table-search table-responsive-block table_pageing" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                       <thead>
                         <tr>
                           <th>ชื่อกิจกรรม</th>
@@ -114,7 +114,7 @@
               </div>
 
               <div class="card-block">
-                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
+                <table class="table table-hover demo-table-search table-responsive-block table_pageing" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                   <thead>
                     <tr>
                       <th width="50%">หัวข้อ</th>

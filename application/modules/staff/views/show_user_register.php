@@ -48,7 +48,7 @@
                             <div class="card-block">
                               <div class="table-responsive">
 
-                                <table class="table table-hover table-condensed" id="condensedTable_<?php echo $prj->project_id?>">
+                                <table class="table table-hover demo-table-search table-responsive-block table_pageing" id="condensedTable_<?php echo $prj->project_id?>">
                                   <thead>
                                     <tr>
                                       <th style="width:35%">ชื่อ-นามสกุล</th>
