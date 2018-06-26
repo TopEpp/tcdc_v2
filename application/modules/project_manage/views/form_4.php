@@ -713,7 +713,7 @@
                       <!-- <p class="all-caps fs-12 bold">โปรดระบุส่งที่ต้องแก้ไข : </p> -->
                       <div class="card-block">
                         <div class="wysiwyg5-wrapper b-a b-grey">
-                          <textarea required id="reject_detail" name="reject_detail" class="wysiwyg demo-form-wysiwyg reject_detail" placeholder="" ui-jq="wysihtml5" ui-options="{
+                          <textarea required id="reject_detail" name="reject_detail" class=" demo-form-wysiwyg reject_detail" placeholder="" ui-jq="wysihtml5" ui-options="{
                           html: true,
                           stylesheets: ['pages/css/editor.css']
                         }"><?php if(!empty($regis)){ echo $regis['reject_detail'];}?></textarea>
