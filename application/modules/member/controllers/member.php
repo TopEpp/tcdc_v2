@@ -30,6 +30,7 @@ class Member extends MY_Controller
 		
 		//check user first login
 		$user_id = $this->session->userdata('sesUserID');
+		$data['alert_data'] = $this->member_model->getAlert($user_id);
 		$data['first_login'] = $this->member_model->getUserLogin($user_id);
 
 		$this->setView('index',$data);
@@ -39,7 +40,11 @@ class Member extends MY_Controller
 	//form register profile
 	public function form($id = '')
 	{
-	
+
+		//check approve regis 
+		$status = $this->member_model->getStatusRegis($id);
+		if (empty($id) && $status[$id]->reg_status)
+			redirect(base_url('member'));
 
 		$user_id = $this->session->userdata('sesUserID');
 		if(!empty($id)){

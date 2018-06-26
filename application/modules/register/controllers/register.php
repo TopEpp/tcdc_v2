@@ -324,33 +324,43 @@ class Register extends MY_Controller {
 	 */
 	public function reset()
 	{
-		 
+	
+	
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 		$data['success'] = false;
 		 
+	
 		$user_id = $this->uri->segment(4);
-		if(!$user_id) show_error('Invalid reset code.');
+		if(!$user_id) show_error('ไม่พบรหัสยืนยัน');
 		$hash = $this->uri->segment(5);
-		if(!$hash) show_error('Invalid reset code.');
+		if(!$hash) show_error('ไม่พบรหัสยืนยัน.');
 		
 		// $this->load->model('Authme_model');
 		$query = $this->db->query('SELECT * FROM tcdc_member where user_id ='.'\''.$user_id.'\''  );
 		$user = $query->row();
-		if(!$user) show_error('Invalid reset code.');
+		if(!$user) show_error('ไม่พบรหัสยืนยัน.');
 		$slug = md5($user->user_id . $user->email . date('Ymd'));
-		if($hash != $slug) show_error('Invalid reset code.');
+		if($hash != $slug) show_error('ไม่พบรหัสยืนยัน.');
 		
-
+		$data['email'] = $user->email;
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 		$this->form_validation->set_rules('password_conf', 'Confirm Password', 'required|matches[password]');
 		
 		if($this->form_validation->run()){
+			echo $this->input->post('password');
+			die();
 			// $this->authme->reset_password($user->id, $this->input->post('password'));
 			// $data['success'] = true;
 		}
 		
 		$this->load->view('register/reset_password', $data);
+	}
+
+	public function norify(){
+		$email = $this->input->post('email');
+		$problem = $this->input->post('problem');
+
 	}
 	
 

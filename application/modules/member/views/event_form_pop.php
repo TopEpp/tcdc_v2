@@ -957,7 +957,7 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group required ">
-                                  <label>ภาพรวมของสินค้า</label>
+                                  <label>ภาพรวมของสินค้า <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                   
                                   <div class="row">
                                   <?php
@@ -986,7 +986,7 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group ">
-                                  <label>ภาพ Close Up</label>
+                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                   <div class="row">
                                   <?php
                                       if (!empty($regis['pop_closeup'])){
@@ -1012,7 +1012,7 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group ">
-                                  <label>ภาพ Pack Shot</label>
+                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                   <div class="row">
                                   <?php
                                       if (!empty($regis['pop_packshot'])){

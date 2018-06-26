@@ -137,7 +137,7 @@
               </div> -->
             </div>
             <!-- END Form Control-->
-            <div align="center">
+            <div>
               <!-- <input type="submit" value="Send Request"> -->
               <input type="submit" class="btn btn-primary btn-cons m-t-10 fn_from"  id="btn-login" value="<?php echo lang('login');?>" ></button>
             </div>
@@ -249,7 +249,7 @@
             <div class="form-group ">
                 <label style="font-family: 'dbch', sans-serif;">ปัญหาที่พบ</label>
                 <div class="controls">
-                    <textarea style="width: 100%;height:200px;">
+                    <textarea  name="problem" id="problem" style="width: 100%;height:200px;">
                     </textarea>
                   <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
                 </div>
@@ -305,11 +305,12 @@
 
             //norify 
       $('#btn_norify').click(function(){
-          var email = $('#email_reset').val();
+          var email = $('#norify_email').val();
+          var problem = $('#problem').val();
           $.ajax({
               type: "POST",
-              url: domain+'register/reset_password',
-              data: {email:email},
+              url: domain+'register/norify',
+              data: {email:email,problem:problem},
               success: function(data, status) {
                 if (data)
                   window.location.href = domain;

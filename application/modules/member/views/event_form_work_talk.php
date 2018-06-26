@@ -1088,7 +1088,7 @@
                           <div class="col-sm-12">
                             <div class="form-group required "  style="padding-left: 8px;">
                               <!-- <p> โปรดส่งเอกสารประกอบการสมัครได้ที่ </p> -->
-                              <label >โปรไฟล์วิทยากร </label>
+                              <label >โปรไฟล์วิทยากร <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span> </label>
                               <div class="row">
                                   <div class="col-sm-12">
                                 
@@ -1118,7 +1118,7 @@
 
                         <div class=" col-sm-12">
                           <div class=" form-group">
-                            <label>ภาพวิทยากร</label>
+                            <label>ภาพวิทยากร <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                             <div class="row">
                              
                               <?php
@@ -1142,7 +1142,7 @@
                        
                         <div class=" col-sm-12">
                           <div class=" form-group">
-                          <label>ภาพกราฟิกหรือภาพกิจกรรมที่เคยจัด </label>
+                          <label>ภาพกราฟิกหรือภาพกิจกรรมที่เคยจัด <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                             <div class="row">
                              
                               <?php
@@ -1165,7 +1165,7 @@
 
                         <div class="col-sm-12 ">
                           <div class="form-group">
-                            <label>กำหนดการกิจกรรม  </label>
+                            <label>กำหนดการกิจกรรม <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span> </label>
                             <div class="row">
                             
                                 <?php

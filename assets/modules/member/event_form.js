@@ -83,7 +83,7 @@
     // $('#form-event-profile').validate();
    
     var cloneIndex = $(".clonedInput").length;
-  
+    console.log(cloneIndex);
     function clone(){
         //  console.log(cloneIndex)
         var clone_data = $("#second").parents(".clonedInput").clone()
@@ -121,6 +121,7 @@
             minViewMode: "years"
         });
         $("select[name='product_type[]']").select2();
+        $("select[name='product_date[]']").select2();
         // $('.product_concept').wysihtml5();
         // 
 
@@ -139,6 +140,7 @@
     
     function remove(){
         $(this).parents(".clonedInput").remove();
+        cloneIndex--;
     }
 
     $("a.clone").on("click", clone);

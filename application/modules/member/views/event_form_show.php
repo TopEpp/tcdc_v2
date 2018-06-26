@@ -897,7 +897,7 @@
                                     </div>
                                   </div>
                                  
-                                    <p id="num" class="num" style="font-weight: bold;"> ข้อมูลผลงาน </p>
+                                    <p style="font-weight: bold;"> ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                             <div class="col-sm">
@@ -1049,7 +1049,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน</label>
+                                                  <label>ภาพรวมของผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_img" class="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1057,7 +1057,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1069,7 +1069,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up</label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_closeup" class="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1081,7 +1081,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot</label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_packshot"  class="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1328,7 +1328,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน</label>
+                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span> </label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_img'])){
@@ -1349,7 +1349,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1361,7 +1361,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up</label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_closeup'])){
@@ -1386,7 +1386,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot</label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_packshot'])){

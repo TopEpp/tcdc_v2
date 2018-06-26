@@ -8,14 +8,18 @@ class member_model extends MY_Model{
 
         
     //get status user regis
-    public function getStatusRegis(){
+    public function getStatusRegis($project_id = ''){
+        if (!empty($project_id)){
+            $this->db->where('project_id',$project_id);
+        }
         $this->db->select('project_id,reg_status');
         $this->db->where('user_id',$this->session->userdata('sesUserID'));
         $this->db->from('tcdc_prj_register');
         $query = $this->db->get();
         $data =array();
         foreach ($query->result() as $key => $value) {
-            $data[$value->project_id] = 1;
+            @$data[$value->project_id]->status = 1;
+            @$data[$value->project_id]->reg_status = $value->reg_status;
         }
         return $data;
     }
@@ -48,6 +52,7 @@ class member_model extends MY_Model{
         $query = $this->db->query('SELECT reg_id FROM tcdc_prj_register WHERE project_id = '.$data['project_id'].' AND '.'user_id = '.$data['user_id']);
         
         if( $query->num_rows() > 0){
+            $data['approve_date'] = null;
             $id = $query->row();
             $this->db->where('project_id',$data['project_id']);
             $this->db->where('user_id',$data['user_id']);
@@ -138,6 +143,18 @@ class member_model extends MY_Model{
                 show_error($this->email->print_debugger());
                 return false;
              }
+        }
+
+        public function getAlert($id){
+            
+            $this->db->select('*');
+            $this->db->from('tcdc_prj_register');
+            $this->db->where('reg_status','0');
+            $this->db->where('user_id',$id);
+            $this->db->where('reject_detail is not null',null,false);
+            $this->db->where('approve_date is not null',null,false);
+            $query = $this->db->get();
+            return $query->result();
         }
 
   

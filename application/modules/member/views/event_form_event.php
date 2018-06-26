@@ -1021,7 +1021,7 @@
                           <div class="row clearfix ">
                             <div class="col-sm-12">
                                 <div class="form-group required " style="padding-left: 8px;">
-                                    <label>โปรไฟล์ของผู้จัด</label>
+                                    <label>โปรไฟล์ของผู้จัด <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                     <div class="row">
                                   
                                       <?php
@@ -1046,7 +1046,7 @@
                             
                             <div class="col-sm-12">
                                 <div class="form-group required ">
-                                  <label>ภาพกิจกรรมที่เคยจัดหรือภาพร่าง</label>
+                                  <label>ภาพกิจกรรมที่เคยจัดหรือภาพร่าง <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                   <div class="row">
                                     
                                     <?php
@@ -1068,7 +1068,7 @@
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group required ">
-                                <label>กำหนดการกิจกรรม</label>
+                                <label>กำหนดการกิจกรรม <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
                                 <div class="row">
                                 
                                   <?php
