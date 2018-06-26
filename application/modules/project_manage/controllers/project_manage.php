@@ -279,7 +279,7 @@ class project_manage extends MY_Controller {
 			// data register 
 			$data_regis = array(
 				'project_id' => $this->input->post('project_id'),
-				'user_id' => $id,			
+				'user_id' => $this->input->post('user_id'),			
 			);
 			switch ($project_type) {
 				case 1:
