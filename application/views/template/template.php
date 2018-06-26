@@ -98,6 +98,10 @@
     <?php }?>
   }
 
+  .page-sidebar .sidebar-menu .menu-items li >a{
+    padding-top: 5px;
+  }
+
   </style>
 
   <!-- <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker3.css'); ?>"> -->
