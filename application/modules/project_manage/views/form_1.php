@@ -1151,7 +1151,7 @@
                                   </div>
 
                                   
-                                  <div class="row clearfix">
+                                  <!-- <div class="row clearfix">
                                     <div class="col-md-12">
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
@@ -1162,7 +1162,7 @@
                                         <hr >
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> -->
 
                                     <hr style="height:2px;border:none;color:#333;background-color:#333;">
 
