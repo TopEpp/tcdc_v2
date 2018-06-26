@@ -28,6 +28,15 @@ $(function(){
     
   });
 
+  $(".product_concept").wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='product_concept[]']").val(html);
+            }
+        }
+    });
+
   $(".reject_detail").wysihtml5({
         events: {
             change: function() {

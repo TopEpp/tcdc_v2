@@ -833,7 +833,7 @@
                                   </div>
                                   </div>
 
-                                  <div class="row clearfix">
+                                  <!-- <div class="row clearfix">
                                     <div class="col-md-12">
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
@@ -844,7 +844,7 @@
                                         <hr >
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> -->
 
                                     <hr style="height:2px;border:none;color:#333;background-color:#333;">
 
@@ -1181,11 +1181,11 @@
                       </div>
 
                     
-                      <div class="row clearfix">
+                      <!-- <div class="row clearfix">
                         <div class="col-md-5">
                           <a  style="color:white;" id="clone" class="btn btn-primary btn-cons clone"><i class="fa fa-plus"></i> เพิ่มผลงานออกแบบ</a>
                         </div>
-                      </div>
+                      </div> -->
 
                  
             </div>
