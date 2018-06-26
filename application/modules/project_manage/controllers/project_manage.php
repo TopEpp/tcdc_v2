@@ -161,39 +161,39 @@ class project_manage extends MY_Controller {
 		// if($this->form_validation->run() == false){
 			
 		// }else{
-			$id = $this->session->userdata('sesUserID');
-			//save user
-			$data_user = array(
-				'prename' => $this->input->post('prename'),
-				'prename_detail' => $this->input->post('prename_detail'),
-				'firstname' => $this->input->post('firstname'),
-				'lastname' => $this->input->post('lastname'),
-				'phone' => $this->input->post('phone'),
-				 'h_phone' => $this->input->post('h_phone'),
-				'address' => $this->input->post('address'),
-				'village' => $this->input->post('village'),
-				'lane' => $this->input->post('lane'),
-				'road' => $this->input->post('road'),
-				'subdistrict' => $this->input->post('subdistrict'),
-				'district' => $this->input->post('district'),
-				'province' => $this->input->post('province'),
-				'country' => $this->input->post('country'),
-				'zipcode' => $this->input->post('zipcode'),
-				'job' => $this->input->post('job'),
-				'brand' => $this->input->post('brand'),
-				'website' => $this->input->post('website'),
-				'facebook' => $this->input->post('facebook'),
-				'lineid' => $this->input->post('lineid'),
-				'company' => $this->input->post('company'),
-				'instragram' => $this->input->post('instragram')
+			// $id = $this->session->userdata('sesUserID');
+			// //save user
+			// $data_user = array(
+			// 	'prename' => $this->input->post('prename'),
+			// 	'prename_detail' => $this->input->post('prename_detail'),
+			// 	'firstname' => $this->input->post('firstname'),
+			// 	'lastname' => $this->input->post('lastname'),
+			// 	'phone' => $this->input->post('phone'),
+			// 	 'h_phone' => $this->input->post('h_phone'),
+			// 	'address' => $this->input->post('address'),
+			// 	'village' => $this->input->post('village'),
+			// 	'lane' => $this->input->post('lane'),
+			// 	'road' => $this->input->post('road'),
+			// 	'subdistrict' => $this->input->post('subdistrict'),
+			// 	'district' => $this->input->post('district'),
+			// 	'province' => $this->input->post('province'),
+			// 	'country' => $this->input->post('country'),
+			// 	'zipcode' => $this->input->post('zipcode'),
+			// 	'job' => $this->input->post('job'),
+			// 	'brand' => $this->input->post('brand'),
+			// 	'website' => $this->input->post('website'),
+			// 	'facebook' => $this->input->post('facebook'),
+			// 	'lineid' => $this->input->post('lineid'),
+			// 	'company' => $this->input->post('company'),
+			// 	'instragram' => $this->input->post('instragram')
 				
-			);
-			if (!empty($this->input->post('job_type_one'))){
-				$data['job_type'] = $this->input->post('job_type_one');
-			}
-			if (!empty($this->input->post('job_type_two'))){
-				$data['job_type'] = $this->input->post('job_type_two');
-			}
+			// );
+			// if (!empty($this->input->post('job_type_one'))){
+			// 	$data['job_type'] = $this->input->post('job_type_one');
+			// }
+			// if (!empty($this->input->post('job_type_two'))){
+			// 	$data['job_type'] = $this->input->post('job_type_two');
+			// }
 			//end user
 			
 

@@ -62,6 +62,8 @@
                                     $reg_status = '<span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">รอตรวจสอบ</span>';
                                     if($mem->reg_status){
                                       $reg_status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ผ่าน</span>';
+                                    } else if(!$mem->reg_status && $mem->approve_date){
+                                      $reg_status = '<span class=" label label-important p-t-5 m-l-5 p-b-5 inline fs-12">ไม่ผ่าน</span>';
                                     } 
                                  ?>
                                   <tr>
