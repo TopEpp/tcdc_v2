@@ -208,7 +208,7 @@ class staff extends MY_Controller {
 		foreach ($data['project'] as $key => $prj) {
 			$data['member_reg'][$prj->project_id] = $this->staff_model->getProjectRegist($prj->project_id);
 		}
-		$this->config->set_item('title','ผู้เข้าร่วมโครงการ');
+		$this->config->set_item('title','ผู้เข้าร่วมกิจกรรม');
 		$this->template->javascript->add('assets/modules/staff/show_user_register.js');
 		$this->setView('show_user_register',$data);
         $this->publish();
@@ -220,7 +220,7 @@ class staff extends MY_Controller {
 		// $data['prj_owner'] = $this->staff_model->getProjectOwner($project_id);
 		$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
 
-		$this->config->set_item('title','ผู้ขอเข้าร่วมโครงการ');
+		$this->config->set_item('title','ผู้เข้าร่วมกิจกรรม');
 		$this->setView('show_user',$data);
 		$this->publish();
 	}
