@@ -727,9 +727,10 @@ class project_manage extends MY_Controller {
 		     'content' => $data_mail['message'], 
 		    ); 
 
-        	
-        	$this->load->library('mailgun');
-			if($this->mailgun->send($data_mail,$content)){ 
+        	// $this->load->library('mailgun');
+			// if($this->mailgun->send($data_mail,$content)){ 
+        	$this->load->library('cmdw_mail');
+        	if($this->cmdw_mail->sendMail($data_mail)){ 
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{
