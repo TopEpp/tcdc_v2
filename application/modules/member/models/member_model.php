@@ -157,6 +157,21 @@ class member_model extends MY_Model{
             return $query->result();
         }
 
+        public function insertQuiz($data){
+            $query = $this->db->query('SELECT quiz_id FROM tcdc_quiz WHERE project_id = '.$data['project_id'].' AND '.'user_id = '.$data['user_id']);
+        
+            if( $query->num_rows() > 0){
+    
+                $this->db->where('project_id',$data['project_id']);
+                $this->db->where('user_id',$data['user_id']);
+                $this->db->update('tcdc_quiz',$data);
+                return true;
+            }
+            $this->db->insert('tcdc_quiz',$data);
+            return true;
+            
+        }
+
   
 
 }

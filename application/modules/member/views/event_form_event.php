@@ -26,16 +26,30 @@
         <div class=" container-fluid   container-fixed-lg">
           <!-- START CONTAINER FLUID -->
 
-          <?php $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
+          <?php 
+              if (@$regis['reg_status']){
+                $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
                               $lang = $this->uri->segment(1);
                               $id = $this->uri->segment(4);
-                              echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
-              ?>
+                              echo form_open_multipart($lang.'/member/savepreview', $attributes);
+              } 
+              else  
+              {
+                $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
+                $lang = $this->uri->segment(1);
+                $id = $this->uri->segment(4);
+                echo form_open_multipart($lang.'/member/saveEventForm', $attributes);
+              }
+            ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
            <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
-            <div id="event-form" class="m-t-50">
+          <?php   if (@$regis['reg_status']){ ?>
+              <div id="previewnotshow-form" class="m-t-50">
+            <?php }else{ ?>
+              <div id="event-form" class="m-t-50">
+            <?php } ?>
 
              <!-- show validate error -->
               <!-- status edit -->
@@ -60,6 +74,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png');?>" width="10px"> <span>อีเว้นท์</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="" data-toggle="tab" href="#tab4" role="tab"><img src="<?php echo base_url('assets/img/icons/4.png');?>" width="10px"> <span>แบบประเมินผล</span></a>
                 </li>
 
               </ul>
@@ -750,9 +767,9 @@
                               <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
-                                <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
+                                <input type="radio" value="0" name="radio22" id="radio2Yes" <?php echo $status1;?> >
                                 <label for="radio2Yes">ฉันเป็นผู้ประสานงาน</label>
-                                <input type="radio" value="1" name="radio2" id="radio2No" <?php echo $status2;?>>
+                                <input type="radio" value="1" name="radio22" id="radio2No" <?php echo $status2;?>>
                                 <label for="radio2No">เพิ่มผู้ประสานงาน</label>
                               </div>
                               <br><br>
@@ -1021,7 +1038,7 @@
                           <div class="row clearfix ">
                             <div class="col-sm-12">
                                 <div class="form-group required " style="padding-left: 8px;">
-                                    <label>โปรไฟล์ของผู้จัด <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                    <label>โปรไฟล์ของผู้จัด <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                     <div class="row">
                                   
                                       <?php
@@ -1046,7 +1063,7 @@
                             
                             <div class="col-sm-12">
                                 <div class="form-group required ">
-                                  <label>ภาพกิจกรรมที่เคยจัดหรือภาพร่าง <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                  <label>ภาพกิจกรรมที่เคยจัดหรือภาพร่าง <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                   <div class="row">
                                     
                                     <?php
@@ -1068,7 +1085,7 @@
                             </div>
                             <div class="col-sm-12">
                               <div class="form-group required ">
-                                <label>กำหนดการกิจกรรม <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                <label>กำหนดการกิจกรรม <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                 <div class="row">
                                 
                                   <?php
@@ -1095,6 +1112,133 @@
                     </div>
                   </div> 
                 </div>
+
+              <div class="tab-pane slide-left padding-20 sm-no-padding radio radio-success" id="tab4">
+                <p>แบบประเมินผล สำหรับผู้สมัครจัดกิจกรรม CMDW</p>
+                <table class="table table-borderless" border="0">
+                    <tr>
+                        <th>คำถาม</th>
+                        
+                        <th>&nbsp;</th>
+                        <th>คะแนน</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <th>&nbsp;</th>
+                        
+                        <th>น้อย</th>
+                        <th>&nbsp;</th>
+                        <th>มาก</th>
+                    </tr>
+                    <tr>
+                        <td>1.	ผู้จัดการกิจกรรมให้ข้อมูลและอำนวยความสะดวก</td>
+
+                        <td>  
+                            <input type="radio" value="1" name="radio1" id="1_1">
+                            <label for="1_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio1" id="1_2">
+                            <label for="1_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio1" id="1_3">
+                            <label for="1_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2.	ขั้นตอนการเข้าร่วมกิจกรรมสะดวกและเข้าใจง่าย</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio2" id="2_1">
+                            <label for="2_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio2" id="2_2">
+                            <label for="2_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio2" id="2_3">
+                            <label for="2_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.	สถานที่จัดมีความเหมาะสมกับกิจกรรม</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio3" id="3_1">
+                            <label for="3_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio3" id="3_2">
+                            <label for="3_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio3" id="3_3">
+                            <label for="3_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4.	การออกแบบผังพื้นที่และบรรยากาศได้น่าสนใจ</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio4" id="4_1">
+                            <label for="4_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio4" id="4_2">
+                            <label for="4_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio4" id="4_3">
+                            <label for="4_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5.	ระยะเวลาการจัดมีความเหมาะสมกับกิจกรรม</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio5" id="5_1">
+                            <label for="5_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio5" id="5_2">
+                            <label for="5_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio5" id="5_3">
+                            <label for="5_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.	สูจิบัตรและสื่อสิ่งพิมพ์แสดงข้อมูลได้ครบถ้วน</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio6" id="6_1">
+                            <label for="6_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio6" id="6_2">
+                            <label for="6_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio6" id="6_3">
+                            <label for="6_3">3</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7.	การประชาสัมพันธ์กิจกรรมไปสู่กลุ่มเป้าหมายได้ทั่วถึง</td>
+                        <td>  
+                            <input type="radio" value="1" name="radio7" id="7_1">
+                            <label for="7_1">1</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="2" name="radio7" id="7_2">
+                            <label for="7_2">2</label>
+                        </td>
+                        <td> 
+                            <input type="radio" value="3" name="radio7" id="7_3">
+                            <label for="7_3">3</label>
+                        </td>
+                    </tr>
+                    </table>
+              </div>
+                        
                
 
         

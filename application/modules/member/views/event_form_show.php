@@ -24,17 +24,30 @@
         <div class=" container-fluid   container-fixed-lg">
           <!-- START CONTAINER FLUID -->
 
-          <?php $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
+          <?php 
+              if (@$regis['reg_status']){
+                $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
                               $lang = $this->uri->segment(1);
                               $id = $this->uri->segment(4);
-                              echo form_open_multipart($lang.'/member/saveEventForm', $attributes); 
-              ?>
+                              echo form_open_multipart($lang.'/member/savepreview', $attributes);
+              } 
+              else  
+              {
+                $attributes = array('name' => 'frmCreatevent', 'id' => 'form-event-profile');
+                $lang = $this->uri->segment(1);
+                $id = $this->uri->segment(4);
+                echo form_open_multipart($lang.'/member/saveEventForm', $attributes);
+              }
+            ?>
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
            <input type="hidden" id="project_type" name="project_type" value="<?php echo $project[0]->project_type;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
-            <div id="event-form" class="m-t-50">
-
+            <?php   if (@$regis['reg_status']){ ?>
+              <div id="preview-form" class="m-t-50">
+            <?php }else{ ?>
+              <div id="event-form" class="m-t-50">
+            <?php } ?>
              <!-- show validate error -->
               <!-- status edit -->
               <?php             
@@ -755,9 +768,9 @@
                               <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
-                                <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
+                                <input type="radio" value="0" name="radio22" id="radio2Yes" <?php echo $status1;?> >
                                 <label for="radio2Yes">ฉันเป็นผู้ประสานงาน</label>
-                                <input type="radio" value="1" name="radio2" id="radio2No" <?php echo $status2;?>>
+                                <input type="radio" value="1" name="radio22" id="radio2No" <?php echo $status2;?>>
                                 <label for="radio2No">เพิ่มผู้ประสานงาน</label>
                               </div>
                               <br><br>
@@ -1049,7 +1062,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                                  <label>ภาพรวมของผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_img" class="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1057,7 +1070,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</p></label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1069,7 +1082,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_closeup" class="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1081,7 +1094,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_packshot"  class="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1328,7 +1341,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span> </label>
+                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span> </label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_img'])){
@@ -1349,7 +1362,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</p></label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1361,7 +1374,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_closeup'])){
@@ -1386,7 +1399,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 10MB.)</span></label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_packshot'])){
@@ -1487,8 +1500,277 @@
                       </div>
 
                  
-            </div>
-               
+                
+                </div>
+                <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
+                  <div class="row row-same-height">
+                      <div class="col-md-5 b-r b-dashed b-grey ">
+                        <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                          <h2>การจัดแสดงผลงานออกแบบ</h2>
+                          <p>รายละเอียดการจัดแสดงผลงานออกแบบ</p>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="padding-30 sm-padding-5">
+                      
+                          
+                              <!-- <p>1. เป้าหมายหลักของการจัดแสดงผลงาน</p>
+                              <div class="row clearfix">
+                                <div class="col-sm">
+
+                                  <div class="checkbox check-success">
+                                    <input type="checkbox"  value="1" name="target_type" id="check1">
+                                    <label for="check1">ต้องการพบคู่ค้าทางธุรกิจและรับออเดอร์</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input type="checkbox"  value="2" name="target_type" id="check2">
+                                    <label for="check2">ต้องการนำเสนอผลงานการออกแบบใหม่ และจับคู่ทางธุรกิจ</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input type="checkbox"  value="3" name="target_type" id="check3">
+                                    <label for="check3">ต้องการจำหน่ายสินค้า</label>
+                                  </div>
+
+
+                                </div>
+
+                              </div> -->
+
+                              <p>1. ลักษณะพื้นที่ในการจัดแสดง</p>
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+                                  <div class="col-sm">
+
+                                    <div class="checkbox check-success">
+                                      <input <?php echo (@$regis['showarea_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="showarea_type" id="check7">
+                                      <label for="check7">ภายในอาคาร</label>
+                                    </div>
+                                    <div class="checkbox check-success">
+                                      <input <?php echo (@$regis['showarea_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="showarea_type" id="check8">
+                                      <label for="check8">ภายนอกอาคาร</label>
+                                    </div>
+                      
+
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <br>
+                              <p>2. ขนาดพื้นที่ใช้จัดแสดง</p>
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+
+
+                                  <div class="col-sm">
+
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['area_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="area_type" id="check4">
+                                    <label for="check4">2 x 1.5 เมตร</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['area_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="area_type" id="check5">
+                                    <label for="check5">2 x 3 เมตร</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['area_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="area_type" id="check6">
+                                    <label for="check6">2 x 6 เมตร</label>
+                                  </div>
+
+
+
+                                </div>
+                              </div>
+
+                          
+
+                              <br>
+                              <p>3. ลักษณะในการจัดแสดง</p>
+
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+
+
+                                  <div class="col-sm">
+
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['show_type'] == 1)? 'checked':'' ?> type="checkbox"  value="1" name="show_type" id="check9">
+                                    <label for="check9">จัดวางผลงานพร้อมคำอธิบาย</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['show_type'] == 2)? 'checked':'' ?> type="checkbox"  value="2" name="show_type" id="check11">
+                                    <label for="check11">จัดวางผลงานพร้อมสื่อประกอบ แสงสีเสียง กลิ่น ภาพ วีดีโอ</label>
+                                  </div>
+            
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['show_type'] == 3)? 'checked':'' ?> type="checkbox"  value="3" name="show_type" id="check13">
+                                    <label for="check13">จัดแสดงพร้อมการสาธิต</label>
+                                  </div>
+                                  <div class="checkbox check-success">
+                                    <input <?php echo (@$regis['show_type'] == 4)? 'checked':'' ?> type="checkbox"  value="4" name="show_type" id="check14">
+                                    <label for="check14">จัดแสดงพร้อมจัดกิจกรรม</label>
+                                  </div>
+
+
+
+                                </div>
+
+                              </div>
+
+                              <p>4. แผนผัง แบบการจัดแสดงและคำอธิบาย *หากมี</p>
+
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
+
+
+                                  <div class="col-sm">
+                                    <input type="file">
+                                  </div>
+
+                                </div>
+
+                              </div>
+              
+
+
+
+                        </div>
+                      </div>
+
+
+                    </div>
+                    </div>
+
+                    </div>
+                </div>
+
+
+                 <div class="tab-pane slide-left padding-20 sm-no-padding radio radio-success" id="tab5">
+                    <p>แบบประเมินผล สำหรับผู้สมัครจัดกิจกรรม CMDW</p>
+                    <table class="table table-borderless" border="0">
+                        <tr>
+                            <th>คำถาม</th>
+                            
+                            <th>&nbsp;</th>
+                            <th>คะแนน</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <th>&nbsp;</th>
+                           
+                            <th>น้อย</th>
+                            <th>&nbsp;</th>
+                            <th>มาก</th>
+                        </tr>
+                        <tr>
+                            <td>1.	ผู้จัดการกิจกรรมให้ข้อมูลและอำนวยความสะดวก</td>
+
+                            <td>  
+                                <input type="radio" value="1" name="radio1" id="1_1">
+                                <label for="1_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio1" id="1_2">
+                                <label for="1_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio1" id="1_3">
+                                <label for="1_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.	ขั้นตอนการเข้าร่วมกิจกรรมสะดวกและเข้าใจง่าย</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio2" id="2_1">
+                                <label for="2_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio2" id="2_2">
+                                <label for="2_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio2" id="2_3">
+                                <label for="2_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.	สถานที่จัดมีความเหมาะสมกับกิจกรรม</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio3" id="3_1">
+                                <label for="3_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio3" id="3_2">
+                                <label for="3_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio3" id="3_3">
+                                <label for="3_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.	การออกแบบผังพื้นที่และบรรยากาศได้น่าสนใจ</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio4" id="4_1">
+                                <label for="4_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio4" id="4_2">
+                                <label for="4_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio4" id="4_3">
+                                <label for="4_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5.	ระยะเวลาการจัดมีความเหมาะสมกับกิจกรรม</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio5" id="5_1">
+                                <label for="5_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio5" id="5_2">
+                                <label for="5_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio5" id="5_3">
+                                <label for="5_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6.	สูจิบัตรและสื่อสิ่งพิมพ์แสดงข้อมูลได้ครบถ้วน</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio6" id="6_1">
+                                <label for="6_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio6" id="6_2">
+                                <label for="6_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio6" id="6_3">
+                                <label for="6_3">3</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7.	การประชาสัมพันธ์กิจกรรมไปสู่กลุ่มเป้าหมายได้ทั่วถึง</td>
+                            <td>  
+                                <input type="radio" value="1" name="radio7" id="7_1">
+                                <label for="7_1">1</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="2" name="radio7" id="7_2">
+                                <label for="7_2">2</label>
+                            </td>
+                            <td> 
+                                <input type="radio" value="3" name="radio7" id="7_3">
+                                <label for="7_3">3</label>
+                            </td>
+                        </tr>
+                        </table>
+                 </div>
+                        
 
         
 

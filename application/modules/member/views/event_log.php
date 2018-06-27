@@ -29,11 +29,60 @@
                      
                     </div>
                   </div>
-                  <div class="card-block">
+                  <?php if (!empty($project)){  ?>
+                    <div class="card-block">
+                      <div class="table-responsive">
+                      <div class="card-block">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-condensed table-detailed " id="detailedTable">
+                        <!-- detailedTable -->
+                            <thead>
+                              <tr>
+                                <th style="width:35%">ชื่อกิจกรรม</th>
+                                <th style="width:25%">ประเภท</th>
+                                <th style="width:20%">สถานะ</th>
+                                <th style="width:20%">อัพเดทล่าสุด</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php foreach ($project as $key => $prj) { 
+
+                              ?>
+                                <tr id="<?php echo $prj->project_id;?>">
+                                  <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
+                                  <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
+                                  <td class="v-align-middle"><?php echo ($prj->reg_status == 1) ? '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ได้เข้าร่วมกิจกรรม</span>':'<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">รอยืนยัน</span>'; ?></td>
+                                  <td class="v-align-middle"><?php echo $this->mydate->date_2dot($prj->approve_date);?></td>
+                                </tr>
+                              <?php } ?>
+                            </tbody>
+                        </table>
+
+                          <?php foreach ($project as $key => $prj) { ?>
+                            <div id="table-detail-<?php echo $prj->project_id;?>" style="display: none">
+                              <div class="table-responsive">
+                                <table class="table table-inline  table-detailed" >
+                                  <tbody>
+                                    <tr>
+                                      <td width="" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
+                                      <!-- <td width="10%" style="vertical-align:top"></td> -->
+                                      <td width="" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
+                                      ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
+                                      <td width="" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/form/'.$prj->project_id).'/1'?>">เรียกดู</a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          <?php } ?>  
+                      </div>
+                    </div>
+                  <?php }else{?>
+                    <div class="card-block">
                     <div class="table-responsive">
                     <div class="card-block">
                     <div class="table-responsive">
-                      <table class="table table-hover table-condensed table-detailed" id="">
+                      <table class="table table-hover table-condensed " id="">
                       <!-- detailedTable -->
                           <thead>
                             <tr>
@@ -44,45 +93,21 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <?php foreach ($project as $key => $prj) { 
-
-                            ?>
-                              <tr id="<?php echo $prj->project_id;?>">
-                                <td class="v-align-middle semi-bold"><?php echo $prj->project_name;?></td>
-                                <td class="v-align-middle semi-bold"><?php echo $prj->type_name;?></td>
-                                <td class="v-align-middle"><?php echo ($prj->reg_status == 1) ? 'สำเร็จแล้ว':'รอยืนยัน'; ?></td>
-                                <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($prj->project_update,543,'S');?></td>
-                              </tr>
-                            <?php } ?>
+                    
                           </tbody>
-                        </table>
+                      </table>
 
-                        <?php foreach ($project as $key => $prj) { ?>
-                          <div id="table-detail-<?php echo $prj->project_id;?>" style="display: none">
-                            <div class="table-responsive">
-                              <table class="table table-inline  table-detailed" >
-                                <tbody>
-                                  <tr>
-                                    <td width="" style="vertical-align:top">รายละเอียดกิจกรรม <p><?php echo $prj->project_detail;?></p></td>
-                                    <!-- <td width="10%" style="vertical-align:top"></td> -->
-                                    <td width="" style="vertical-align:top">ระยะเวลาสมัครกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->register_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->register_finish_date,543,'S');?></p> <br>
-                                    ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_eng2thai($prj->project_start_date,543,'S').' - '.$this->mydate->date_eng2thai($prj->project_finish_date,543,'S');?></p></td>
-                                    <td width="" style="vertical-align:top; text-align: center;"><a class="btn btn-bg-warning btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1).'/member/event_form/'.$prj->project_id)?>">เรียกดู</a></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        <?php } ?>  
+                        
                     </div>
                   </div>
-                    </div>
-                  </div>
+                  <?php } ?>
                 </div>
-                <!-- END card -->
               </div>
             </div>
+            <!-- END card -->
           </div>
+        </div>
+      </div>
 
               
 

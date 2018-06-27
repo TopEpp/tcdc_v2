@@ -16,15 +16,18 @@ class register_model extends MY_Model
     }
 
     //send confirm mail
-    public function sendEmail($receiver){
+    public function sendEmail($data,$content){
 
-        $from = "TCDC.Chiangmai@gmail.com";    //senders email address
-        $subject = 'ยืนยันการลงทะเบียน Chiang Mai Design Week 2017';  //email subject
+        $from = "TCDC.Chiangmai@gmail.com";    //senders email address TCDC.Chiangmai@gmail.com
+        // $subject = 'ยืนยันการลงทะเบียน Chiang Mai Design Week 2017';  //email subject
 
-        $encode_rec = $this->encrypt->encode($receiver);
-        //sending confirmEmail($receiver) function calling link to the user, inside message body
-        $message = 'ถึง ผู้ใช้งาน,<br><br> กรุณาคลิกเพื่อยืนยันการลงทะเบียน Chiang Mai Design Week 2017<br><br>
-        <a href=\''.base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec.'\'>คลิกที่นี่เพื่อยืนยันการลงทะเบียน</a><br><br>ขอบคุณ';
+  
+        //load tamplate  $content = array(name,content)
+        $message =  $this->load->view('email/tamplate',$content,TRUE);
+        // $encode_rec = $this->encrypt->encode($data['to']);
+        // //sending confirmEmail($receiver) function calling link to the user, inside message body
+        // $message = 'ถึง ผู้ใช้งาน,<br><br> กรุณาคลิกเพื่อยืนยันการลงทะเบียน Chiang Mai Design Week 2017<br><br>
+        // <a href=\''.base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec.'\'>คลิกที่นี่เพื่อยืนยันการลงทะเบียน</a><br><br>ขอบคุณ';
         
         //config email settings
         $config['useragent'] = '\''.base_url().'\'';
@@ -32,7 +35,7 @@ class register_model extends MY_Model
         $config['smtp_host'] = 'ssl://smtp.gmail.com';
         $config['smtp_port'] = '465';
         $config['smtp_user'] = $from;
-        $config['smtp_pass'] = 'TCDC@CMDW';  //sender's password uupsqwbvahhjdhdu
+        $config['smtp_pass'] = 'TCDC@CMDW';  //sender's password uupsqwbvahhjdhdu TCDC@CMDW
         $config['mailtype'] = 'html';
         // $config['charset'] = 'UTF-8';
         $config['wordwrap'] = 'TRUE';
@@ -44,8 +47,8 @@ class register_model extends MY_Model
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
       //  $this->email->set_header('Content-type', 'text/html');
         $this->email->from($from);
-        $this->email->to($receiver);
-        $this->email->subject($subject);
+        $this->email->to($data['to']);
+        $this->email->subject($data['subject']);
         $this->email->message($message);
         
          if($this->email->send()){

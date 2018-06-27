@@ -7718,7 +7718,7 @@ select.full-width + .select2-container {
   line-height: 28px;
   border-radius: 2px;
   border: none;
-  font-size: 12px;
+  font-size: 22px;
   border: 1px solid rgba(0, 0, 0, 0.07) !important;
 }
 .select2-results {

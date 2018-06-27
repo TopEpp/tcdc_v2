@@ -38,12 +38,12 @@ class Member extends MY_Controller
 	}
 
 	//form register profile
-	public function form($id = '')
+	public function form($id = '',$preview = '')
 	{
 
 		//check approve regis 
 		$status = $this->member_model->getStatusRegis($id);
-		if (empty($id) && $status[$id]->reg_status)
+		if ($preview == '' && @$status[$id]->reg_status)
 			redirect(base_url('member'));
 
 		$user_id = $this->session->userdata('sesUserID');
@@ -61,7 +61,6 @@ class Member extends MY_Controller
 			$data['project'] = $this->staff_model->getProject($id);
 			$data['member'] = $this->staff_model->getUsers($user_id);
 			$data['regis'] = $this->member_model->getUserRegis($id,$user_id);
-			
 			if (!empty($data['regis']['join_start_date'])){
 				$tmp = explode('-',$data['regis']['join_start_date']);
 				$data['regis']['join_start_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
@@ -74,6 +73,7 @@ class Member extends MY_Controller
 			$this->template->stylesheet->add('assets/css/loader.css');
 			$this->template->javascript->add('assets/modules/member/event_form.js');
 			$this->template->javascript->add('assets/modules/member/form_tab.js');
+		
 			
 			switch ($data['project'][0]->project_type) {
 				case 1:
@@ -162,7 +162,7 @@ class Member extends MY_Controller
 
 
 		// //company
-		if ( $this->input->post('radio2') == 1){
+		if ( $this->input->post('radio22') == 1){
 			
 			$this->form_validation->set_rules('coordinator_prename','คำนำหน้าผู้ประสานงาน', 'trim|required');
 			$this->form_validation->set_rules('coordinator_firstname','ชื่อผู้ประสานงาน', 'trim|required');
@@ -322,7 +322,7 @@ class Member extends MY_Controller
 					$data['member']->company_business_look = $this->input->post('company_business_look_two');
 				}
 
-				$data['member']->coordinator_type = $this->input->post('radio2');
+				$data['member']->coordinator_type = $this->input->post('radio22');
 				$data['member']->coordinator_prename = $this->input->post('coordinator_prename');
 				$data['member']->coordinator_firstname = $this->input->post('coordinator_firstname');
 				$data['member']->coordinator_lastname = $this->input->post('coordinator_lastname');
@@ -525,7 +525,7 @@ class Member extends MY_Controller
 
 			// coordinator
 			$data_coordinator = array(
-				'coordinator_type' => $this->input->post('radio2'),
+				'coordinator_type' => $this->input->post('radio22'),
 				'coordinator_prename' => $this->input->post('coordinator_prename'),
 				'coordinator_firstname' => $this->input->post('coordinator_firstname'),
 				'coordinator_lastname' => $this->input->post('coordinator_lastname'),
@@ -1001,4 +1001,53 @@ class Member extends MY_Controller
 		$this->setView('member_profile');
         $this->publish();
 	}
+
+	public function preview($project_id,$user_id){
+		if($project_id=='' || $user_id ==''){
+			redirect(base_url($this->uri->segment(1).'/staff/show_user_register'));
+		}
+
+		$query = $this->db->query('SELECT * FROM std_area_province');
+		$data['province'] = $query->result();
+		$query = $this->db->query('SELECT * FROM std_countries');
+		$data['countries'] = $query->result();
+		$query = $this->db->query('SELECT * FROM tcdc_status_group');
+		$data['status'] = $query->result();
+
+		$this->load->model('member/member_model');
+		$this->load->model('staff/staff_model');
+		$data['project'] = $this->staff_model->getProject($project_id);
+		$data['member'] = $this->staff_model->getUsers($user_id);	
+		$data['regis'] = $this->member_model->getUserRegis($project_id,$user_id);
+		$data['project_id'] = $project_id;
+		$data['user_id'] = $user_id;
+
+
+		$this->config->set_item('title','แสดงผลข้อมูลผู้สมัคร : '.$data['project'][0]->project_name);
+		$this->template->javascript->add('assets/modules/member/preview.js');
+		$this->setView('preview_show',$data);
+        $this->publish();
+
+	}
+
+	public function savepreview(){
+	
+		$data = array();
+		if (!empty($this->input->post('radio1'))){
+			$data['project_id'] = $this->input->post('project_id');
+			$data['user_id'] = $this->session->userdata('sesUserID');
+			$data['answer_1'] = $this->input->post('radio1');
+			$data['answer_2'] = $this->input->post('radio2');
+			$data['answer_3'] = $this->input->post('radio3');
+			$data['answer_4'] = $this->input->post('radio4');
+			$data['answer_5'] = $this->input->post('radio5');
+			$data['answer_6'] = $this->input->post('radio6');
+			$data['answer_7'] = $this->input->post('radio7');
+			$this->member_model->insertQuiz($data);
+			redirect(base_url('member'));
+		}
+		redirect(base_url('member'));
+		
+	}
+
 }
