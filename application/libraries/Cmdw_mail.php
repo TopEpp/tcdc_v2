@@ -37,7 +37,6 @@ class Cmdw_mail {
 
         $this->_ci->mail->Setup($conf);
         $result=$this->_ci->mail->Send();
-        // print_r($result);
         return true;
     }
 

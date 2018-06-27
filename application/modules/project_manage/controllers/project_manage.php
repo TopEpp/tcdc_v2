@@ -711,13 +711,14 @@ class project_manage extends MY_Controller {
         	$subject = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"';  //email subject
 
 	        if($data['reg_status']){
-	            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:green"> ผ่านการคัดเลือก </span><br>ขอบคุณ';
+	            $message = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:green"> ผ่านการคัดเลือก </span><br>ขอบคุณ';
 	        }else{
-	            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
+	            $message = 'ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
 	        }
 
 	        ## SET PARAM SEND MAIL ##
-	        $data_mail['to'] = $data['email_receive']; //'natchapol.prms@gmail.com';//
+	        $data_mail['to'] = $data['email_receive']; 
+	        $data_mail['mail_to'] = $data['email_receive']; //'natchapol.prms@gmail.com';//
         	$data_mail['mail_to_name'] = $this->input->post('regis_name');
         	$data_mail['message'] = $message;
         	$data_mail['subject'] = $subject;
