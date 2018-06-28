@@ -751,7 +751,7 @@
                         <label for="radio5No">ไม่ใช่</label>
                       </div>
                       <br>
-                      <div id='div_reject' style="display: none;">
+                      <div id='div_reject' >
                       <h5>แจ้งสิ่งที่ต้องแก้ไข</h5>
                       <!-- <p class="all-caps fs-12 bold">โปรดระบุส่งที่ต้องแก้ไข : </p> -->
                       <div class="card-block">
