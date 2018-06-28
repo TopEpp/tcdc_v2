@@ -221,6 +221,7 @@ class staff extends MY_Controller {
 		$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
 
 		$this->config->set_item('title','ผู้เข้าร่วมกิจกรรม');
+		$this->template->javascript->add('assets/modules/staff/show_user.js');
 		$this->setView('show_user',$data);
 		$this->publish();
 	}

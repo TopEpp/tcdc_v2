@@ -2,9 +2,9 @@ $(function(){
 
   var reg_status = $('#reg_status').val();
   if(reg_status==1){
-    $('#div_reject').hide();
+    // $('#div_reject').hide();
   }else{
-    $('#div_reject').show();
+    // $('#div_reject').show();
   }
 
   // var check = false;
@@ -45,6 +45,7 @@ $(function(){
             }
         }
     });
+
 
 }); 
 

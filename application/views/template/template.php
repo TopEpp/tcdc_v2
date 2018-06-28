@@ -272,7 +272,7 @@
                 <span class="title"><?php echo lang('help');?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
-            </li> -->
+            </li> --> 
             <?php }?>
           </ul>
           <div class="clearfix"></div>

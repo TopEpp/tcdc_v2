@@ -30,13 +30,18 @@
                       <h3>ผู้สมัคร <?php echo $prj->project_name;?></h3>
                       <p></p>
                     </div>
+                    <div class="pull-right" style="margin-right: 10px;">
+                      <div class="col-xs-12">
+                        <input type="text" id="search-table" class="form-control pull-right" placeholder="ค้นหา">
+                      </div>
+                    </div>
 
 
 
                     <div class="card-block">
                       <div class="table-responsive">
 
-                        <table class="table table-hover table-condensed table_pageing" id="condensedTable" style="font-family: 'dbch' !important; ">
+                        <table class="table table-hover table-condensed" id="table_user_reg" style="font-family: 'dbch' !important; ">
                           <thead>
                             <tr>
                             <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user

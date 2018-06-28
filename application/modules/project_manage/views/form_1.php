@@ -1405,10 +1405,20 @@
           <span>หน้าสุด</span>
         </button>
       </li>
-      <li class="previous">
+      <!-- <li class="previous">
         <button class="btn btn-default btn-cons pull-right" type="button">
           <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
         </button>
+      </li> -->
+      <li class="previous" id="hide_back" style="display:none;">
+        <button class="btn btn-default btn-cons pull-right" type="button">
+          <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
+        </button>
+      </li>
+      <li class="previous_tmp" id ="previous_hide" style="display:none;">
+        <a  href="<?php echo base_url('staff/show_user_register');?>"  class="btn btn-white btn-cons pull-right" type="button">
+          <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
+        </a>
       </li>
     </ul>
   </div>
