@@ -82,5 +82,10 @@ class register_model extends MY_Model
       
     }
 
+    public function reset_password($id ,$email){
+        $this->db->where('user_id',$id);
+        return $this->db->update('tcdc_member',$email);
+    }
+
 
 }

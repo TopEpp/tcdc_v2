@@ -156,6 +156,17 @@
         $("input[name='company_join_work']").not(this).prop('checked', false);
     });
 
+    $("input[name='showarea_type']").change(function() {
+        $("input[name='showarea_type']").not(this).prop('checked', false);
+    });
+    $("input[name='area_type']").change(function() {
+        $("input[name='area_type']").not(this).prop('checked', false);
+    });
+    $("input[name='show_type']").change(function() {
+        $("input[name='show_type']").not(this).prop('checked', false);
+    });
+
+
      //job change 
     //  $("#job").change(function(){
     //     if ($(this).val() ==  11){
@@ -548,57 +559,57 @@
        
         switch (type) {
             case '1':
-                var loops = false;
-                $('.check_product').each(function() {
-                    if(!$(this).is(":checked")){
-                       loops = true;
-                    }else{
-                        loops = false;
-                    }
-                });
-                if (loops){
-                    alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
-                    return false;
-                }
-                var loops = false;
-                $('.product_img').each(function() {
-                    if ($(this).get(0).files.length === 0) {
-                        loops = true;
+                // var loops = false;
+                // $('.check_product').each(function() {
+                //     if(!$(this).is(":checked")){
+                //        loops = true;
+                //     }else{
+                //         loops = false;
+                //     }
+                // });
+                // if (loops){
+                //     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
+                //     return false;
+                // }
+                // var loops = false;
+                // $('.product_img').each(function() {
+                //     if ($(this).get(0).files.length === 0) {
+                //         loops = true;
                        
-                    }else{
-                        loops = false;
-                    }
-                });
-                if (loops){
-                    alert('กรุณาอัพโหลดภาพรวมของผลงาน');
-                    return false;
-                }
-                var loops = false;
-                $('.product_closeup').each(function() {
-                    if ($(this).get(0).files.length === 0) {
-                        loops = true;
+                //     }else{
+                //         loops = false;
+                //     }
+                // });
+                // if (loops){
+                //     alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                //     return false;
+                // }
+                // var loops = false;
+                // $('.product_closeup').each(function() {
+                //     if ($(this).get(0).files.length === 0) {
+                //         loops = true;
                        
-                    }else{
-                        loops = false;
-                    }
-                });
-                if (loops){
-                    alert('กรุณาอัพโหลดภาพ Close Up');
-                    return false;
-                }
-                var loops = false;
-                $('.product_packshot').each(function() {
-                    if ($(this).get(0).files.length === 0) {
-                        loops = true;
+                //     }else{
+                //         loops = false;
+                //     }
+                // });
+                // if (loops){
+                //     alert('กรุณาอัพโหลดภาพ Close Up');
+                //     return false;
+                // }
+                // var loops = false;
+                // $('.product_packshot').each(function() {
+                //     if ($(this).get(0).files.length === 0) {
+                //         loops = true;
                        
-                    }else{
-                        loops = false;
-                    }
-                });
-                if (loops){
-                    alert('กรุณาอัพโหลดภาพPack Shot');
-                    return false;
-                }
+                //     }else{
+                //         loops = false;
+                //     }
+                // });
+                // if (loops){
+                //     alert('กรุณาอัพโหลดภาพPack Shot');
+                //     return false;
+                // }
                     
                 
                

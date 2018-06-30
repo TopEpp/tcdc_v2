@@ -191,7 +191,8 @@ class Register extends MY_Controller {
 				$content = array(
 					'name' => $name,
 					'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการลงทะเบียน <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์ <br/>',
-					'link' => $link
+					'link' => $link,
+					'show_link'=>false
 				);
 	
 				
@@ -299,14 +300,40 @@ class Register extends MY_Controller {
 
 				$url =  site_url('register/reset/'. $user->user_id .'/'. $slug);
 				$data['success'] = true;
-				$this->session->set_flashdata('reset','ok');
+
+				$data['to'] = $email;
+				$data['subject'] = 'ลืมรหัสผ่าน Chiangmai Design Week 2018';
+				$name = $user->firstname.' '.$user->lastname;
+			
+				$content = array(
+					'name' => $name,
+					'content' => 'ตามที่คุณแจ้งลืมรหัสผ่านสำหรับบัญชีผู้ใช้งาน<br>คุณสามารถกำหนดรหัสผ่านใหม่ โดยกดที่ลิ้งค์ดังนี้ <br/>',
+					'link' => $url,
+					'show_link'=>true
+				);
+				// $message = "ถึง ผู้ใช้งาน,<br><br>ลืมรหัสผ่าน <a href='{$url}'>link</a> <br>ขอบคุณ";
+				// $data_mail['to'] = $email; //'natchapol.prms@gmail.com';//
+				// $data_mail['mail_to_name'] = $user->firstname.' '.$user->lastname;
+				// $data_mail['message'] = $message;
+				// $data_mail['subject'] = 'ลืมรหัสผ่าน Chiangmai Design Week 2018';
+
+			
+		
+					
+				// send confirm mail
+				// echo $this->mailgun->send($data,$content);
+				// die();
+				if($this->register_model->sendEmail($data,$content)){ 
+					$this->session->set_flashdata('reset','<div class="alert alert-success text-center">ส่งข้อมูลไปยังเมลเรียบร้อย. </div>');
+				}
+				
 				// echo $url;
 				// echo $pass_check .' '. $pass;die();
 				// $this->form_validation->set_message('email_check', 'Try agin, Email is already used.');
 				$this->json_publish($data);
 			}else{
 				$data['success'] = false;
-				$this->session->set_flashdata('reset','fail');
+				$this->session->set_flashdata('reset','<div class="alert alert-danger text-center">ไม่สามารถส่งข้อมูลได้. </div>');
 				$this->json_publish($data);
 			}
 
@@ -339,6 +366,7 @@ class Register extends MY_Controller {
 		// $this->load->model('Authme_model');
 		$query = $this->db->query('SELECT * FROM tcdc_member where user_id ='.'\''.$user_id.'\''  );
 		$user = $query->row();
+
 		if(!$user) show_error('ไม่พบรหัสยืนยัน.');
 		$slug = md5($user->user_id . $user->email . date('Ymd'));
 		if($hash != $slug) show_error('ไม่พบรหัสยืนยัน.');
@@ -348,10 +376,9 @@ class Register extends MY_Controller {
 		$this->form_validation->set_rules('password_conf', 'Confirm Password', 'required|matches[password]');
 		
 		if($this->form_validation->run()){
-			echo $this->input->post('password');
-			die();
-			// $this->authme->reset_password($user->id, $this->input->post('password'));
-			// $data['success'] = true;
+			$password['password'] = $this->encrypt->encode($this->input->post('password'));
+			$data['success'] = $this->register_model->reset_password($user->user_id, $password);
+
 		}
 		
 		$this->load->view('register/reset_password', $data);

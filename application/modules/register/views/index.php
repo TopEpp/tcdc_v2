@@ -377,7 +377,7 @@
                   <div class="col-sm-4">
                     <div class="form-group form-group-default required">
                       <label>รหัสไปรษณีย์</label><span class="text-danger"><?php echo form_error('zipcode'); ?></span>
-                      <input type="text" name="zipcode" class="form-control" placeholder=""  pattern="[0-9]*"  value="<?php echo set_value('zipcode'); ?>">
+                      <input type="text" name="zipcode" class="form-control" placeholder=""  pattern="[0-9]*" maxlength="5" value="<?php echo set_value('zipcode'); ?>">
                     </div>
                   </div>
                 </div>
@@ -733,8 +733,10 @@
                     <div class="checkbox check-success  ">
 
                       <input type="checkbox" value="1" id="checkbox2" >
-                      <label for="checkbox2" style="font-weight: bold;"> ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
+                      <label for="checkbox2" style="font-weight: bold;"> ฉันยอมรับและได้อ่าน<a href="#" id="btn_condition">เงื่อนไขและข้อตกลงแล้ว</a></label>
                     </div>
+
+                    
                   
                   </div>
                 </div>
@@ -812,6 +814,35 @@
           <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body " style="color: white;">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="modal fade" id="condition" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content ">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title"></h5>
+        </div>
+        <div class="modal-body " >
+          <p style="font-weight: bold;">หากต้องการสร้างบัญชี คุณจะต้องยอมรับเงื่อนไขและข้อตกลง</p>
+          <p>- เมื่อคุณสร้างบัญชี เราจะจัดเก็บข้อมูลที่ให้ไว้ เช่น ชื่อ ที่อยู่อีเมล และหมายเลขโทรศัพท์ของคุณ</p>
+          <p>- เมื่อคุณใช้บัญชีในการสมัครกิจกรรมต่างๆ เราจะจัดเก็บข้อมูลที่คุณสมัครไว้</p>
+          <p style="font-weight: bold;">จุดประสงค์ในการสร้างบัญชี</p>
+          <p>- ช่วยให้บริการของเราแสดงเนื้อหาที่เป็นประโยชน์ยิ่งขึ้น และปรับปรุงคุณภาพของบริการ และพัฒนาบริการใหม่ๆ</p>
+          <p>- ปรับปรุงความปลอดภัยโดยป้องกันการประพฤติมิชอบและการละเมิด ตลอดจนวิเคราะห์และวัดผลเพื่อคัดเลือกผู้สมัครเข้าร่วมกิจกรรม เรามีเจ้าหน้าที่ Project Manager ช่วยควบคุมดูและข้อมูลด้วย</p>
+          <p>- เรายังเก็บข้อมูลนี้ไว้เพื่อเป็นประโยชน์ในการสมัครเข้าร่วมกิจกรรมในปีต่อๆไป</p>
+          <p>- ข้อมูลที่เกี่ยวข้องกับบัญชีของคุณ เราถือว่าข้อมูลเหล่านี้เป็นข้อมูลส่วนบุคคล คุณสามารถปรับเปลี่ยนการควบคุมหรือแก้ไขในอนาคตได้</p>
+
 
         </div>
         <div class="modal-footer">
@@ -958,6 +989,10 @@
       $('.modal-body').text($('#msg').val());
       $('#Success').modal('show');
     }
+
+    $('#btn_condition').click(function(){
+      $('#condition').modal('show');
+    });
    
    
     //status job

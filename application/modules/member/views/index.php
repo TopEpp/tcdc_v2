@@ -239,11 +239,12 @@ foreach ($project as $key => $prj) {
                         </div>
                       </div>
                     </div> -->
-                    <?php foreach (@$alert_data as $key => $value) { ?>
+                    <?php foreach (@$alert_data as $key => $value) {
+                      if ($value->reg_status){?>
                       <div class="col-lg-4" style="display:block;">
-                        <div id="card-error" class="card card-default bg-danger-light">
+                        <div id="card-error" class="card card-default bg-success-light">
                           <div class="card-header ">
-                            <div class="card-title">ประกาศ
+                            <div class="card-title">ข้อความ
                             </div>
                             <div class="card-controls">
                               <!-- <ul>
@@ -257,8 +258,37 @@ foreach ($project as $key => $prj) {
                             </div>
                           </div>
                           <div class="card-block">
-                            <h3  class="text-white">
-                            ตรวจพบ <span class="semi-bold text-white">ข้อมูลไม่ครบ</span></h5>
+                 
+                            
+                            <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail;?></span></p>
+                            <p class="text-white">
+                            <?php echo 'ณ วันที่  '.  $this->mydate->date_2dot($value->approve_date);?>
+                            </p>
+
+                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php  echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id).'/1';?>">ดำเนินการ</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <?php }else{?>
+                        <div class="col-lg-4" style="display:block;">
+                        <div id="card-error" class="card card-default bg-danger-light">
+                          <div class="card-header ">
+                            <div class="card-title">แจ้งเตือน
+                            </div>
+                            <div class="card-controls">
+                              <!-- <ul>
+                                <li><a href="#" class="card-collapse" data-toggle="collapse"><i class="card-icon card-icon-collapse"></i></a>
+                                </li>
+                                <li><a href="#" class="card-refresh" data-toggle="refresh"><i class="card-icon card-icon-refresh"></i></a>
+                                </li>
+                                <li><a href="#" class="card-close" data-toggle="close"><i class="card-icon card-icon-close"></i></a>
+                                </li>
+                              </ul> -->
+                            </div>
+                          </div>
+                          <div class="card-block">
+                 
                             
                             <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail;?></span></p>
                             <p class="text-white">
@@ -269,6 +299,9 @@ foreach ($project as $key => $prj) {
                           </div>
                         </div>
                       </div>
+                     <?php }
+                    ?>
+                      
                     <?php } ?>
                   </div>
                 </div>

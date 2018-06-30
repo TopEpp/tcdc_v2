@@ -48,7 +48,7 @@ class member_model extends MY_Model{
     //save or edit user regis
     public function saveRegis($data)
     {
-        
+        $data_result = array();   
         $query = $this->db->query('SELECT reg_id FROM tcdc_prj_register WHERE project_id = '.$data['project_id'].' AND '.'user_id = '.$data['user_id']);
         
         if( $query->num_rows() > 0){
@@ -57,11 +57,15 @@ class member_model extends MY_Model{
             $this->db->where('project_id',$data['project_id']);
             $this->db->where('user_id',$data['user_id']);
             $this->db->update('tcdc_prj_register',$data);
-            return $id->reg_id;
+            $data_result['id'] = $id->reg_id;
+            $data_result['show'] = false;
+            return $data_result;
         }
         $data['reg_date'] = date('Y-m-d H:i:s');
         $this->db->insert('tcdc_prj_register',$data);
-        return $this->db->insert_id();
+        $data_result['id'] = $this->db->insert_id();
+        $data_result['show'] = true;
+        return $data_result;
     }
 
     public function saveProduct($data)
@@ -149,7 +153,7 @@ class member_model extends MY_Model{
             
             $this->db->select('*');
             $this->db->from('tcdc_prj_register');
-            $this->db->where('reg_status','0');
+            // $this->db->where('reg_status','0');
             $this->db->where('user_id',$id);
             $this->db->where('reject_detail is not null',null,false);
             $this->db->where('approve_date is not null',null,false);
@@ -170,6 +174,11 @@ class member_model extends MY_Model{
             $this->db->insert('tcdc_quiz',$data);
             return true;
             
+        }
+
+        public function getUserQuiz($project_id,$user_id){
+            $query = $this->db->query('SELECT * FROM tcdc_quiz WHERE project_id = '.$project_id.' AND '.'user_id = '.$user_id);
+            return $query->row();
         }
 
   

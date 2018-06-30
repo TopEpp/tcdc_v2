@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: 'dbch';
-  src: url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.eot'); /* IE9 Compat Modes */
-  src: url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
-       url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
-       url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('<?php echo base_url();?>assets/font/DBChuanPimXv3_2.svg#DBChuanPimXv') format('svg'); /* Legacy iOS */
+  src: url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.eot'); /* IE9 Compat Modes */
+  src: url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.woff2') format('woff2'), /* Super Modern Browsers */
+       url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.woff') format('woff'), /* Pretty Modern Browsers */
+       url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('http://www.chiangmaidesignweek.com/register/assets/font/DBChuanPimXv3_2.svg#DBChuanPimXv') format('svg'); /* Legacy iOS */
 }
 
 body,td,th {
@@ -33,26 +33,32 @@ body {
 <div align="center">
     <table width="80%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-        <td style="text-align: center;"><img src="<?php echo base_url();?>assets/img/logo_b_tmp.png"></td>
+    <td style="text-align: center;"><img width="100%" height="50%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_header.png"></td>
     </tr>
     <tr>
-        <td style="text-align: left;">
-        <div style="border-radius: 5px;  padding: 50px; box-shadow: 3px 2px 8px #888888; margin-top: 30px; margin-bottom: 30px; background: #fff;">
-            <h2>สวัสดี คุณ <?= $name ?></h2>
-            <div style="font-size:20px">
+        <td style="text-align: left; font-size:14px;">
+        <div style="font-family: 'dbch'; border-radius: 5px;  padding: 50px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
+            <h2>สวัสดีครับ คุณ <?= $name ?></h2>
+            <div style="font-size:14px">
                 <?= $content;?>
-                <?php if (!empty($link)){ ?>
-                <a href="<?= $link ?>">[link]</a> 
+                <?php if (!empty($link) && !$show_link){ ?>
+                    <a href="<?= $link ?>">[link]</a> 
+                <?php }else{ ?>
+                    <a href="<?= $link ?>"><?php echo $link;?></a> 
                 <?php } ?>
                 <br><br>
-                ขอแสดงความนับถือ<br>
-                ศูนย์สร้างสรรค์งานออกแบบเชียงใหม่
+                ขอแสดงความนับถือ<br/>
+                ศูนย์สร้างสรรค์งานออกแบบ เชียงใหม่<br/>
+                ผู้จัดเทศกาลงานออกแบบเชียงใหม่</br>  
             </div>
         </div>
         </td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img src="<?php echo base_url();?>assets/img/TCDC.png"></td>
+        <td style="text-align: center;"><img width="100%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_second_footer.png"></td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><img width="100%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_footer.png"></td>
     </tr>
     </table>
 </div>

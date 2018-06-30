@@ -110,7 +110,7 @@
 
 <?php 
 if($success){
-	echo '<p>You have successfully reset your password.</p>';
+	echo '<div class="alert alert-success text-center"> คุณได้รีเซตรหัสผ่านเรียบร้อยแล้ว กรุณากลับไปหน้าล็อกอิน. </div>';
 } 
 ?>
 		 <?php echo form_open(); ?>

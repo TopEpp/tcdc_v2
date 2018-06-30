@@ -19,6 +19,16 @@
             $('#form-event-profile').submit();
         });
 
+        $("input[name='showarea_type']").change(function() {
+            $("input[name='showarea_type']").not(this).prop('checked', false);
+        });
+        $("input[name='area_type']").change(function() {
+            $("input[name='area_type']").not(this).prop('checked', false);
+        });
+        $("input[name='show_type']").change(function() {
+            $("input[name='show_type']").not(this).prop('checked', false);
+        });
+
     'use strict';
 
     $(document).ready(function() {

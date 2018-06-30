@@ -1347,10 +1347,11 @@
                                                      if (!empty($value['product_img'])){
                                                         $product_img = explode(',',$value['product_img']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
-                                                          echo '&nbsp;';  
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1380,10 +1381,11 @@
                                                      if (!empty($value['product_closeup'])){
                                                         $product_img = explode(',',$value['product_closeup']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1405,10 +1407,11 @@
                                                      if (!empty($value['product_packshot'])){
                                                         $product_img = explode(',',$value['product_packshot']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1666,105 +1669,105 @@
                             <td>1.	ผู้จัดการกิจกรรมให้ข้อมูลและอำนวยความสะดวก</td>
 
                             <td>  
-                                <input type="radio" value="1" name="radio1" id="1_1">
+                                <input <?= (@$quiz->answer_1 == 1)? 'checked':'';?> type="radio" value="1" name="radio1" id="1_1">
                                 <label for="1_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio1" id="1_2">
+                                <input <?= (@$quiz->answer_1 == 2)? 'checked':'';?> type="radio" value="2" name="radio1" id="1_2">
                                 <label for="1_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio1" id="1_3">
+                                <input <?= (@$quiz->answer_1 == 3)? 'checked':'';?> type="radio" value="3" name="radio1" id="1_3">
                                 <label for="1_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>2.	ขั้นตอนการเข้าร่วมกิจกรรมสะดวกและเข้าใจง่าย</td>
                             <td>  
-                                <input type="radio" value="1" name="radio2" id="2_1">
+                                <input <?= (@$quiz->answer_2 == 1)? 'checked':'';?> type="radio" value="1" name="radio2" id="2_1">
                                 <label for="2_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio2" id="2_2">
+                                <input <?= (@$quiz->answer_2 == 2)? 'checked':'';?> type="radio" value="2" name="radio2" id="2_2">
                                 <label for="2_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio2" id="2_3">
+                                <input <?= (@$quiz->answer_2 == 3)? 'checked':'';?> type="radio" value="3" name="radio2" id="2_3">
                                 <label for="2_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>3.	สถานที่จัดมีความเหมาะสมกับกิจกรรม</td>
                             <td>  
-                                <input type="radio" value="1" name="radio3" id="3_1">
+                                <input <?= (@$quiz->answer_3 == 1)? 'checked':'';?> type="radio" value="1" name="radio3" id="3_1">
                                 <label for="3_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio3" id="3_2">
+                                <input <?= (@$quiz->answer_3 == 2)? 'checked':'';?> type="radio" value="2" name="radio3" id="3_2">
                                 <label for="3_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio3" id="3_3">
+                                <input <?= (@$quiz->answer_3 == 3)? 'checked':'';?> type="radio" value="3" name="radio3" id="3_3">
                                 <label for="3_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>4.	การออกแบบผังพื้นที่และบรรยากาศได้น่าสนใจ</td>
                             <td>  
-                                <input type="radio" value="1" name="radio4" id="4_1">
+                                <input <?= (@$quiz->answer_4 == 1)? 'checked':'';?> type="radio" value="1" name="radio4" id="4_1">
                                 <label for="4_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio4" id="4_2">
+                                <input <?= (@$quiz->answer_4 == 2)? 'checked':'';?> type="radio" value="2" name="radio4" id="4_2">
                                 <label for="4_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio4" id="4_3">
+                                <input <?= (@$quiz->answer_4 == 3)? 'checked':'';?> type="radio" value="3" name="radio4" id="4_3">
                                 <label for="4_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>5.	ระยะเวลาการจัดมีความเหมาะสมกับกิจกรรม</td>
                             <td>  
-                                <input type="radio" value="1" name="radio5" id="5_1">
+                                <input <?= (@$quiz->answer_5 == 1)? 'checked':'';?> type="radio" value="1" name="radio5" id="5_1">
                                 <label for="5_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio5" id="5_2">
+                                <input <?= (@$quiz->answer_5 == 2)? 'checked':'';?> type="radio" value="2" name="radio5" id="5_2">
                                 <label for="5_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio5" id="5_3">
+                                <input <?= (@$quiz->answer_5 == 3)? 'checked':'';?> type="radio" value="3" name="radio5" id="5_3">
                                 <label for="5_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>6.	สูจิบัตรและสื่อสิ่งพิมพ์แสดงข้อมูลได้ครบถ้วน</td>
                             <td>  
-                                <input type="radio" value="1" name="radio6" id="6_1">
+                                <input <?= (@$quiz->answer_6 == 1)? 'checked':'';?> type="radio" value="1" name="radio6" id="6_1">
                                 <label for="6_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio6" id="6_2">
+                                <input <?= (@$quiz->answer_6 == 2)? 'checked':'';?> type="radio" value="2" name="radio6" id="6_2">
                                 <label for="6_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio6" id="6_3">
+                                <input <?= (@$quiz->answer_6 == 3)? 'checked':'';?> type="radio" value="3" name="radio6" id="6_3">
                                 <label for="6_3">3</label>
                             </td>
                         </tr>
                         <tr>
                             <td>7.	การประชาสัมพันธ์กิจกรรมไปสู่กลุ่มเป้าหมายได้ทั่วถึง</td>
                             <td>  
-                                <input type="radio" value="1" name="radio7" id="7_1">
+                                <input <?= (@$quiz->answer_7 == 1)? 'checked':'';?> type="radio" value="1" name="radio7" id="7_1">
                                 <label for="7_1">1</label>
                             </td>
                             <td> 
-                                <input type="radio" value="2" name="radio7" id="7_2">
+                                <input <?= (@$quiz->answer_7 == 2)? 'checked':'';?> type="radio" value="2" name="radio7" id="7_2">
                                 <label for="7_2">2</label>
                             </td>
                             <td> 
-                                <input type="radio" value="3" name="radio7" id="7_3">
+                                <input <?= (@$quiz->answer_7 == 3)? 'checked':'';?> type="radio" value="3" name="radio7" id="7_3">
                                 <label for="7_3">3</label>
                             </td>
                         </tr>
@@ -1773,6 +1776,26 @@
                         
 
         
+  <div class="modal fade" id="showcase_popup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content ">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title"></h5>
+        </div>
+        <div class="modal-body " >
+        <p>"หากท่านผ่านการคัดเลือกจะสามารถลงทะเบียน<br/>ในขั้นตอนที่ 4 และ 5 ได้"</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
     
 

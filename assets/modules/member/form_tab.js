@@ -15,11 +15,12 @@
               },
             onTabShow: function(tab, navigation, index) {
                 var $total = navigation.find('li').length;
-                console.log($total)
+                // console.log($total)
                 var $current = index + 1;
 
                 // If it's the last tab then hide the last button and show the finish instead
                 if ($current >= 3) {
+                    $('#showcase_popup').modal(true);
                     $('#event-form').find('.pager .next').hide();
                     $('#event-form').find('.pager .finish').show().removeClass('disabled hidden');
                 } else {
@@ -41,7 +42,7 @@
                 $('#hide_back').toggle(true);
                 $('#previous_hide').toggle(false);
                 if ($current > 1 && $current < 3) {
-
+                 
                     var nextIcon = li.next().find('.fa');
                     var nextIconClass = nextIcon.attr('class').match(/fa-[\w-]*/).join();
 
