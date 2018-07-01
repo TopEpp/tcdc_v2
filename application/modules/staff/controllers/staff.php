@@ -461,11 +461,14 @@ class staff extends MY_Controller {
 				
 			}else{
 				$imageupload = '';
+				$id = $this->session->userdata('sesUserID');
+				$path = 'uploads/profile/';
 				if (isset( $_FILES['profile_img']['name']) && !empty( $_FILES['profile_img']['name'])){
 					//upload data
-					$imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
-						"folder"=>'profile'
-					));
+					$imageupload = $this->uploadData('profile_img','pop_img_'.$key,$path);
+					// $imageupload = \Cloudinary\Uploader::upload($_FILES['profile_img']['tmp_name'],array(
+					// 	"folder"=>'profile'
+					// ));
 				}
 
 				$data = array(
@@ -570,9 +573,9 @@ class staff extends MY_Controller {
 			
 
 				if($imageupload){
-					$data['profile_img'] = $imageupload['public_id'];
+					$data['profile_img'] = $imageupload;
 
-					$this->session->set_userdata('sesUserImage',$imageupload['public_id'] ) ;
+					$this->session->set_userdata('sesUserImage',$imageupload ) ;
 				}
 								
 				if($this->staff_model->saveEditUser($id,$data,$data_company)){
@@ -631,4 +634,40 @@ class staff extends MY_Controller {
 			}	
 	
 		}
+
+		public function uploadData($file,$file_name,$path){
+
+
+			if (!is_dir($path)) {
+				mkdir($path, 0777, TRUE);
+			}
+	
+			$config['upload_path'] = $path;
+			$config['allowed_types'] = 'jpg|jpeg';
+			$config['encrypt_name'] = TRUE;
+			$config['max_size'] = '2048'; //2MB
+			$config['overwrite'] = FALSE;
+			// $config['max_width'] = '1024';
+			// $config['max_height'] = '1024';
+			$config['file_name'] = $file_name;
+			$config['remove_spaces'] = TRUE;
+	
+			$this->load->library("upload");
+			$this->upload->initialize($config); 
+	
+			if ($this->upload->do_upload($file)) {
+				// Files Upload Success
+				$data = $this->upload->data();
+				return $path.$data['file_name'];
+				 
+			} else {
+			// Files Upload Not Success!!
+			$errors = $this->upload->display_errors();
+			return $errors;
+				
+			}
+	
+		}
+		
+	
 }

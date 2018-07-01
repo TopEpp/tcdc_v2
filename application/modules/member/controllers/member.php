@@ -1256,53 +1256,5 @@ class Member extends MY_Controller
 
 	}
 
-	function upload()
-    {       
-			$config['allowed_types'] = 'jpg|jpeg';
-		$config['encrypt_name'] = TRUE;
-		$config['upload_path'] = './uploads';
-		// $config['max_size'] = '1024';
-		// $config['max_width'] = '1024';
-		// $config['max_height'] = '1024';
-		$config['remove_spaces'] = TRUE;
-
-		$this->load->library("upload");
-		$this->upload->initialize($config); 
-
-    // normalise files array
-		$input_name = 'product_img'; // change it when needed to match your html
-		$field_names = array('name', 'type', 'tmp_name', 'error', 'size', );
-		$keys = array();
-		foreach($field_names as $field_name){
-			if (isset($_FILES[$input_name][$field_name])){ 
-				foreach($_FILES[$input_name][$field_name] as $key => $value){
-					$_FILES[$input_name.'_'.$key][$field_name] = $value;
-					$keys[$key] = $key;
-				}
-			}
-		}
-		unset($_FILES[$input_name]); // just in case
-		foreach ($keys as $key){
-
-			$new_file = $this->upload->do_upload($input_name.'_'.$key);
-		
-			// do your stuff with each uploaded file here, delete for example:
-			$upload_data = $this->upload->data();
-			unlink($upload_data['file_name']);
-		
-		}
-    }
-
-    private function set_upload_options()
-    {   
-        //upload an image options
-        $config = array();
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']      = '0';
-        $config['overwrite']     = FALSE;
-
-        return $config;
-    }
 
 }

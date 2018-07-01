@@ -156,11 +156,12 @@
             <span class="thumbnail-wrapper d32 circular inline">
             <!-- //profile image -->
             <?php 
-              if ($this->session->userdata('sesUserImage'))
-                echo  cl_image_tag($this->session->userdata('sesUserImage'), array( "alt" => "profile" )); 
-              else ?>
+              if ($this->session->userdata('sesUserImage')){ ?>
+                <img src="<?php echo base_url($this->session->userdata('sesUserImage'));?>" alt="" data-src="<?php echo base_url($this->session->userdata('sesUserImage'));?>" data-src-retina="<?php echo base_url($this->session->userdata('sesUserImage'));?>" width="32" height="32">
+                <!-- echo  cl_image_tag($this->session->userdata('sesUserImage'), array( "alt" => "profile" ));  -->
+              <?php }else{ ?>
                 <img src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" width="32" height="32">
-            
+              <?php } ?>
               
             </span>
           </button>
@@ -168,11 +169,11 @@
             <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"> 
             
             <span class="pull-left">ตั้งค่า</span>
-              <span class="pull-right"><i class="pg-settings_small"></i></span>
+              <!-- <span class="pull-right"><i class="pg-settings_small"></i></span> -->
           </a>
             <a href="<?php echo base_url('logout');?>" class="clearfix bg-master-lighter dropdown-item">
               <span class="pull-left">ออกจากระบบ</span>
-              <span class="pull-right"><i class="pg-power"></i></span>
+              <!-- <span class="pull-right"><i class="pg-power"></i></span> -->
             </a>
           </div>
         </div>

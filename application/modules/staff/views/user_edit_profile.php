@@ -35,7 +35,7 @@
               
             ?>
             <div class=" container-fluid   container-fixed-lg">
-              <div id="rootwizard" class="m-t-50">
+              <div id="edit_profile-form" class="m-t-50">
               <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                   <li class="nav-item">
@@ -60,24 +60,36 @@
                               <div style="max-height:auto">
                               
                                 <div class="row row-same-height">
-                                  <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
-                                    <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-                                    
-                                      <h2><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</h2>
-                                      <!-- <p style="font-family: 'dbch'">โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p> -->
-                                      <br>
-                                      <div class="profile-img-wrapper2 m-t-5 inline">
-                                        <?php echo  cl_image_tag(@$data->profile_img, array( "alt" => "","width" => 70 ,"height"=>70  )); ?>
-                                        <div class="chat-status available">
-                                        </div>
-                                      </div>
-                                      <div >
-                                        <p class="m-t-5">ชื่อ- สกุล : <?php echo @$data->firstname .' '.@$data->lastname;?>
-                                          <br>อาชีพ : <?php echo @$data->job;?><br>ที่อยู่ : <?php echo @$data->address.' ต.'.@$data->subdistrict.' อ.'.@$data->district.' จ.'. @$province_name->name_th.' '.@$data->zipcode;?></p>
-                                        </div>
+                                    <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
+                                      <div class="padding-15 sm-padding-5 sm-m-t-15 m-t-50">
+                                      
+                                        <!-- <h2><?php echo (empty($data))?'สร้าง':'แก้ไข';?>บัญชีผู้ใช้งาน</h2> -->
+                                        <!-- <p style="font-family: 'dbch'">โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p> -->
+                                        <br/>
+                                          <div class="row">
+                                            <div class="col-sm-4">
+                                              <div class="profile-img-wrapper2 m-t-5 inline">
+                                                <?php if (!empty($data->profile_img)){ ?>
+                                                  <img src="<?php echo base_url($data->profile_img);?>" width="100" hight="100"> 
+                                                <?php }else{ ?>
+                                                  <img src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" width="100" height="100">
+                                                <?php } ?>
+                                                <!-- <?php echo  cl_image_tag(@$data->profile_img, array( "alt" => "","width" => 70 ,"height"=>70  )); ?> -->
+                                                
+                                              </div>
+                                            </div>
+                                            <div class="col-sm-8">
+                                              <p class="m-t-5">ชื่อ-นามสกุล: <?php echo @$data->firstname .' '.@$data->lastname;?> </p>
+                                              <p class="m-t-5">อีเมล: <?php echo @$data->email;?> </p>
+                                              <?php $type = ['Admin','Program Manager','Editor','Member']; ?>
+                                              <p class="m-t-5">ประเภทบัญชี: <?php echo $type[@$data->user_type];?> </p>
 
-                                        
-                                        <br>
+                                            </div>
+                                    
+                                          </div>
+                                         
+                                          
+                                          <br>
                                       </div>
 
                                     </div>
@@ -279,12 +291,13 @@
                                                   </div>
                                                   
                                                   <br>
-                                                  <p>รูปภาพโปรไฟล์</p>
+                                                  <p></p>
                                                     <div class="col-sm-12">
                                                       <!-- <form  class="dropzone" id="form-regis-upload"> -->
                                                         <div class="fallback">
                                                           <input name="profile_img" type="file" size='20' />
                                                         </div>
+                                                        <p style="color:red">หมายเหตุ ไฟล์ .jpg .png ขนาดไม่เกิน 2 MB</p>
                                                       <!-- </form> -->
                                                     </div>
                                                   <br>
@@ -622,40 +635,40 @@
 
                                                 <?php if ($this->session->userdata('sesUserType') == 3){ ?>
                                                   
-                                                  <div class="form-group-attached" >
-                                                  <p>เกี่ยวกับองค์กร/บริษัท/หน่วยงาน</p>
-                                                  
-                                                  <div class="form-group-attached">
-                                                    <div class="row clearfix">
-                                                      <div class="col-sm-6">
-                                                          <div class="form-group form-group-default">
-                                                            <label>ชื่อแบรนด์</label>
-                                                            <input type="text" class="form-control" name="brand" value="<?php echo @$data->brand; ?>" > 
-                                                          </div>
-                                                        </div>
-
-                                                      <div class="col-sm-6">
-                                                        <div class="form-group form-group-default">
-                                                          <label>เว็บไซต์</label>
-                                                          <input type="text" id="website" name="website" class="form-control" value="<?php echo @$data->website; ?>">
-                                                        </div>
-                                                      </div>
-                                                      
-                                                    </div>
-
-                                                    <div class="form-group-attached">
+                                                  <!-- <div class="form-group-attached" >
+                                                    <p>เกี่ยวกับองค์กร/บริษัท/หน่วยงาน</p> -->
+                                                    
+                                                    <!-- <div class="form-group-attached">
                                                       <div class="row clearfix">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group form-group-default">
+                                                              <label>ชื่อแบรนด์</label>
+                                                              <input type="text" class="form-control" name="brand" value="<?php echo @$data->brand; ?>" > 
+                                                            </div>
+                                                          </div>
 
-                                                        
-                                                        <div class="col-sm-12">
+                                                        <div class="col-sm-6">
                                                           <div class="form-group form-group-default">
-                                                            <label>เฟสบุ๊ค แฟนเพจ</label>
-                                                            <input type="text" class="form-control" name="facebook" value="<?php echo @$data->facebook; ?>">
+                                                            <label>เว็บไซต์</label>
+                                                            <input type="text" id="website" name="website" class="form-control" value="<?php echo @$data->website; ?>">
+                                                          </div>
+                                                        </div>
+                                                        
+                                                      </div>
+
+                                                      <div class="form-group-attached">
+                                                        <div class="row clearfix">
+
+                                                          
+                                                          <div class="col-sm-12">
+                                                            <div class="form-group form-group-default">
+                                                              <label>เฟสบุ๊ค แฟนเพจ</label>
+                                                              <input type="text" class="form-control" name="facebook" value="<?php echo @$data->facebook; ?>">
+                                                            </div>
                                                           </div>
                                                         </div>
                                                       </div>
                                                     </div>
-                                                  </div>
                                                     <div class="row clearfix">
                                                       <div class="col-sm">
                                                         <div class="form-group form-group-default">
@@ -711,7 +724,7 @@
                                                     <div class="row clearfix">
                                                         <div class="col-sm-4">
                                                           <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                                                            <label>ประเทศ</label><span class="text-danger" style="text-align:center;"><?php echo form_error('company_country'); ?></span>
+                                                            <!-- <label>ประเทศ</label><span class="text-danger" style="text-align:center;"><?php echo form_error('company_country'); ?></span>
                                                             <select style="width:100%" name="company_country" id="company_country" class=" form-control" data-init-plugin="select2"  >
                                                               <option value="">เลือก</option>
                                                               <?php foreach ($countries as $key => $value) { ?>
@@ -733,9 +746,9 @@
                                                               
                                                             </select>
                                                           </div>
-                                                        </div>
+                                                        </div> -->
 
-                                                    <div class="col-sm-4">
+                                                    <!-- <div class="col-sm-4">
                                                         <div class="form-group form-group-default required form-group-default-selectFx">
                                                           <label for="company_province">จังหวัด</label>
                                                           <select style=" width:100;"   name="company_province" id="company_province " class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2">
@@ -758,11 +771,11 @@
                                                           <input type="text" name="company_zipcode" id="company_zipcode"  class="form-control" value="<?php echo @$data->company_zipcode;?>">
                                                         </div>
                                                       </div>
-                                                    </div>
+                                                    </div>  -->
 
 
 
-                                                  </div>
+                                                  <!-- </div> -->
 
                                                   <?php } ?> 
 
@@ -818,16 +831,25 @@
                                   <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
                                     <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
                                     
-                                      <h2>แก้ไขบัญชี</h2>
+                                      <!-- <h2>แก้ไขบัญชี</h2>
                                       <p>โปรดรักษาความปลอดภัยผู้ใช้งาน ห้ามเผยแพร่และไม่เปิดเผยข้อมูลผู้ใช้งาน</p>
-      
-                                        <br>
+       -->
+                                        <!-- <br> -->
                                         <br >
-                                        <h5>สถานะบัญชี</h5>
-                                        <p>สถานะ : <?php echo ($data->user_active == 1) ? "ปกติ" : "<span style='color:red'>ไม่ปกติ</span>"; ?></p>
-                                        <h5>เปลี่ยนสถานะบัญชี</h5>
-                                        <input type="hidden"  id="user_active" name="user_active" value="" />
-                                        <input type="checkbox" id="user-active"  class="switchery" <?php echo ($data->user_active == 1) ? "checked value='1'" : "value='0'"; ?> />
+                                        <!-- <h5>สถานะบัญชี</h5> -->
+                                        <p>สถานะบัญชี : <?php echo ($data->user_active == 1) ? "ปกติ" : "<span style='color:red'>ไม่ปกติ</span>"; ?></p>
+                                        <div class="row">
+                                          <div class="col-sm-6">
+                                          <h5 style="font-family: 'dbch';">เปลี่ยนสถานะบัญชี</h5>
+                                          </div>
+                                          <div class="col-sm-6 form-control " style="border: none;">
+                                            <input type="hidden"  id="user_active" name="user_active" value="" />
+                                            <input  type="checkbox" id="user-active"  class="user_active" <?php echo ($data->user_active == 1) ? "checked value='1'" : "value='0'"; ?> />
+                                          </div>
+                                         
+                                        
+                                        </div>
+                                       
                                         <br><br>
                                         <!-- <p>สมัครเมื่อ : 15/05/2561</p>
                                         <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p> -->
@@ -941,10 +963,15 @@
                         <span>หน้าสุด</span>
                       </button>
                     </li>
-                    <li class="previous">
+                    <li class="previous" id="hide_back" style="display:none;">
                       <button class="btn btn-default btn-cons pull-right" type="button">
                         <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
                       </button>
+                    </li>
+                    <li class="previous_tmp" id ="previous_hide" style="display:none;">
+                      <a  href="<?php echo base_url('member');?>"  class="btn btn-white btn-cons pull-right" type="button">
+                        <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
+                      </a>
                     </li>
                   </ul>
                 </div>

@@ -559,57 +559,57 @@
        
         switch (type) {
             case '1':
-                // var loops = false;
-                // $('.check_product').each(function() {
-                //     if(!$(this).is(":checked")){
-                //        loops = true;
-                //     }else{
-                //         loops = false;
-                //     }
-                // });
-                // if (loops){
-                //     alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
-                //     return false;
-                // }
-                // var loops = false;
-                // $('.product_img').each(function() {
-                //     if ($(this).get(0).files.length === 0) {
-                //         loops = true;
+                var loops = false;
+                $('.check_product').each(function() {
+                    if(!$(this).is(":checked")){
+                       loops = true;
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('ยังไม่ได้ยอมรับ ข้าพเจ้าขอยืนยันว่าผลงานชิ้นนี้ไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น');
+                    return false;
+                }
+                var loops = false;
+                $('.product_img').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
                        
-                //     }else{
-                //         loops = false;
-                //     }
-                // });
-                // if (loops){
-                //     alert('กรุณาอัพโหลดภาพรวมของผลงาน');
-                //     return false;
-                // }
-                // var loops = false;
-                // $('.product_closeup').each(function() {
-                //     if ($(this).get(0).files.length === 0) {
-                //         loops = true;
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพรวมของผลงาน');
+                    return false;
+                }
+                var loops = false;
+                $('.product_closeup').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
                        
-                //     }else{
-                //         loops = false;
-                //     }
-                // });
-                // if (loops){
-                //     alert('กรุณาอัพโหลดภาพ Close Up');
-                //     return false;
-                // }
-                // var loops = false;
-                // $('.product_packshot').each(function() {
-                //     if ($(this).get(0).files.length === 0) {
-                //         loops = true;
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพ Close Up');
+                    return false;
+                }
+                var loops = false;
+                $('.product_packshot').each(function() {
+                    if ($(this).get(0).files.length === 0) {
+                        loops = true;
                        
-                //     }else{
-                //         loops = false;
-                //     }
-                // });
-                // if (loops){
-                //     alert('กรุณาอัพโหลดภาพPack Shot');
-                //     return false;
-                // }
+                    }else{
+                        loops = false;
+                    }
+                });
+                if (loops){
+                    alert('กรุณาอัพโหลดภาพPack Shot');
+                    return false;
+                }
                     
                 
                
