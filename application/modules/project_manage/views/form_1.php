@@ -598,7 +598,7 @@
                                     </div>
                                   </div>
                                  
-                                    <p id="num" class="num" style="font-weight: bold;"> ข้อมูลผลงาน </p>
+                                    <p style="font-weight: bold;"> ข้อมูลผลงาน </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                             <div class="col-sm">
@@ -750,7 +750,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน</label>
+                                                  <label>ภาพรวมของผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_img" class="product_img" name="product_img[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -758,7 +758,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -770,7 +770,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up</label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_closeup" class="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -782,7 +782,7 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot</label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="fallback">
                                                     <input id="product_packshot"  class="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -833,7 +833,7 @@
                                   </div>
                                   </div>
 
-                                  <!-- <div class="row clearfix">
+                                  <div class="row clearfix">
                                     <div class="col-md-12">
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
@@ -844,7 +844,7 @@
                                         <hr >
                                       </div>
                                     </div>
-                                  </div> -->
+                                  </div>
 
                                     <hr style="height:2px;border:none;color:#333;background-color:#333;">
 
@@ -1029,16 +1029,17 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน</label>
+                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span> </label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_img'])){
                                                         $product_img = explode(',',$value['product_img']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
-                                                          echo '&nbsp;';  
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1050,7 +1051,7 @@
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)</label>
+                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1062,16 +1063,17 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up</label>
+                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_closeup'])){
                                                         $product_img = explode(',',$value['product_closeup']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1087,16 +1089,17 @@
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot</label>
+                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="row">
                                                   <?php
                                                      if (!empty($value['product_packshot'])){
                                                         $product_img = explode(',',$value['product_packshot']);
                                                     
-                                                        foreach ($product_img as $key => $val) {
-                                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                                          echo '&nbsp;';
-                                                        }
+                                                        foreach ($product_img as $key => $val) { ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }
                                                      }
                                                    
                                                   ?>
@@ -1151,18 +1154,6 @@
                                   </div>
 
                                   
-                                  <!-- <div class="row clearfix">
-                                    <div class="col-md-12">
-                                      <div class="padding-10 sm-padding-5">
-                                        <div class="checkbox check-success  ">
-                                            <input type="checkbox" value="1" class="check_product" id="product_check<?php echo $keys+1;?>" <?php echo (!empty($regis['reg_id'])) ? 'checked':'' ?>>
-                                            <label clss="check_product_for" for="product_check<?php echo $keys+1;?>">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
-                                        </div>
-                              
-                                        <hr >
-                                      </div>
-                                    </div>
-                                  </div> -->
 
                                     <hr style="height:2px;border:none;color:#333;background-color:#333;">
 
@@ -1181,14 +1172,10 @@
                       </div>
 
                     
-                      <!-- <div class="row clearfix">
-                        <div class="col-md-5">
-                          <a  style="color:white;" id="clone" class="btn btn-primary btn-cons clone"><i class="fa fa-plus"></i> เพิ่มผลงานออกแบบ</a>
-                        </div>
-                      </div> -->
 
                  
-            </div>
+                
+                </div>
             <?php if($regis['reg_status']==1){ ?>
             <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4"  >
          <div class="row row-same-height">

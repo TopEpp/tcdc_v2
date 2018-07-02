@@ -302,10 +302,17 @@ class project_manage extends MY_Controller {
 						$pop_img = array();
 						foreach ($_FILES['pop_img']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'store'
-								));
-								array_push($pop_img,$imageupload['public_id']);
+								$_FILES['pop_img']['name']= $files['pop_img']['name'][$key];
+								$_FILES['pop_img']['type']= $files['pop_img']['type'][$key];
+								$_FILES['pop_img']['tmp_name']= $files['pop_img']['tmp_name'][$key];
+								$_FILES['pop_img']['error']= $files['pop_img']['error'][$key];
+								$_FILES['pop_img']['size']= $files['pop_img']['size'][$key];
+								
+								$img_pop = $this->uploadData('pop_img','pop_img_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'store'
+								// ));
+								array_push($pop_img,$img_pop);
 								
 							}
 						}
@@ -319,10 +326,17 @@ class project_manage extends MY_Controller {
 						$pop_closeup = array();
 						foreach ($_FILES['pop_closeup']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'store'
-								));
-								array_push($pop_closeup,$imageupload['public_id']);
+								$_FILES['pop_closeup']['name']= $files['pop_closeup']['name'][$key];
+								$_FILES['pop_closeup']['type']= $files['pop_closeup']['type'][$key];
+								$_FILES['pop_closeup']['tmp_name']= $files['pop_closeup']['tmp_name'][$key];
+								$_FILES['pop_closeup']['error']= $files['pop_closeup']['error'][$key];
+								$_FILES['pop_closeup']['size']= $files['pop_closeup']['size'][$key];
+								
+								$closeup_pop = $this->uploadData('pop_closeup','pop_closeup_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'store'
+								// ));
+								array_push($pop_closeup,$closeup_pop);
 								
 							}
 						}
@@ -336,10 +350,17 @@ class project_manage extends MY_Controller {
 						$pop_packshot = array();
 						foreach ($_FILES['pop_packshot']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'store'
-								));
-								array_push($pop_packshot,$imageupload['public_id']);
+								$_FILES['pop_packshot']['name']= $files['pop_packshot']['name'][$key];
+								$_FILES['pop_packshot']['type']= $files['pop_packshot']['type'][$key];
+								$_FILES['pop_packshot']['tmp_name']= $files['pop_packshot']['tmp_name'][$key];
+								$_FILES['pop_packshot']['error']= $files['pop_packshot']['error'][$key];
+								$_FILES['pop_packshot']['size']= $files['pop_packshot']['size'][$key];
+								
+								$packshot_pop = $this->uploadData('pop_packshot','pop_packshot_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'store'
+								// ));
+								array_push($pop_packshot,$packshot_pop);
 								
 							}
 						}
@@ -383,10 +404,17 @@ class project_manage extends MY_Controller {
 						$join_profile = array();
 						foreach ($_FILES['join_profile']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'document'
-								));
-								array_push($join_profile,$imageupload['public_id']);
+								$_FILES['join_profile']['name']= $files['join_profile']['name'][$key];
+								$_FILES['join_profile']['type']= $files['join_profile']['type'][$key];
+								$_FILES['join_profile']['tmp_name']= $files['join_profile']['tmp_name'][$key];
+								$_FILES['join_profile']['error']= $files['join_profile']['error'][$key];
+								$_FILES['join_profile']['size']= $files['join_profile']['size'][$key];
+								
+								$profile = $this->uploadData('join_profile','join_profile_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_profile,$profile);
 								
 							}
 						}
@@ -400,10 +428,17 @@ class project_manage extends MY_Controller {
 						$join_img_profile = array();
 						foreach ($_FILES['join_img_profile']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'document'
-								));
-								array_push($join_img_profile,$imageupload['public_id']);
+								$_FILES['join_img_profile']['name']= $files['join_img_profile']['name'][$key];
+								$_FILES['join_img_profile']['type']= $files['join_img_profile']['type'][$key];
+								$_FILES['join_img_profile']['tmp_name']= $files['join_img_profile']['tmp_name'][$key];
+								$_FILES['join_img_profile']['error']= $files['join_img_profile']['error'][$key];
+								$_FILES['join_img_profile']['size']= $files['join_img_profile']['size'][$key];
+								
+								$img_profile = $this->uploadData('join_img_profile','join_img_profile_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_img_profile,$img_profile);
 								
 							}
 						}
@@ -416,10 +451,17 @@ class project_manage extends MY_Controller {
 						$join_image = array();
 						foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'document'
-								));
-								array_push($join_image,$imageupload['public_id']);
+								$_FILES['join_image']['name']= $files['join_image']['name'][$key];
+								$_FILES['join_image']['type']= $files['join_image']['type'][$key];
+								$_FILES['join_image']['tmp_name']= $files['join_image']['tmp_name'][$key];
+								$_FILES['join_image']['error']= $files['join_image']['error'][$key];
+								$_FILES['join_image']['size']= $files['join_image']['size'][$key];
+								
+								$join_imag = $this->uploadData('join_image','join_image_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_image,$join_imag);
 								
 							}
 						}
@@ -432,10 +474,17 @@ class project_manage extends MY_Controller {
 						$join_event = array();
 						foreach ($_FILES['join_event']['tmp_name'] as $key => $value) {
 							if (strlen($value) > 0){
-								$imageupload = \Cloudinary\Uploader::upload($value,array(
-									"folder"=>'document'
-								));
-								array_push($join_event,$imageupload['public_id']);
+								$_FILES['join_event']['name']= $files['join_event']['name'][$key];
+								$_FILES['join_event']['type']= $files['join_event']['type'][$key];
+								$_FILES['join_event']['tmp_name']= $files['join_event']['tmp_name'][$key];
+								$_FILES['join_event']['error']= $files['join_event']['error'][$key];
+								$_FILES['join_event']['size']= $files['join_event']['size'][$key];
+								
+								$event = $this->uploadData('join_event','join_event_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_event,$event);
 								
 							}
 						}
@@ -475,56 +524,79 @@ class project_manage extends MY_Controller {
 
 
 
-						// event  flie upload
-						if (!empty($_FILES['join_profile']['tmp_name'][0])){
+					// event  flie upload
+					if (!empty($_FILES['join_profile']['tmp_name'][0])){
 
-							$join_profile = array();
-							foreach ($_FILES['join_profile']['tmp_name'] as $key => $value) {
-								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'document'
-									));
-									array_push($join_profile,$imageupload['public_id']);
-									
-								}
+						$join_profile = array();
+						foreach ($_FILES['join_profile']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$_FILES['join_profile']['name']= $files['join_profile']['name'][$key];
+								$_FILES['join_profile']['type']= $files['join_profile']['type'][$key];
+								$_FILES['join_profile']['tmp_name']= $files['join_profile']['tmp_name'][$key];
+								$_FILES['join_profile']['error']= $files['join_profile']['error'][$key];
+								$_FILES['join_profile']['size']= $files['join_profile']['size'][$key];
+								
+								$profile = $this->uploadData('join_profile','join_profile_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_profile,$profile);
+								
 							}
-							$data_regis['join_profile'] = '';
-							if (!empty($join_profile))
-								$data_regis['join_profile'] = implode(",",$join_profile);
-						
-							//end event upload
-					
-							// join_image
-							$join_image = array();
-							foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
-								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'document'
-									));
-									array_push($join_image,$imageupload['public_id']);
-									
-								}
-							}
-							$data_regis['join_img'] = '';
-							if (!empty($join_image))
-								$data_regis['join_img'] = implode(",",$join_image);
-													//end pop_closeup upload
-	
-							// join_event
-							$join_event = array();
-							foreach ($_FILES['join_event']['tmp_name'] as $key => $value) {
-								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'document'
-									));
-									array_push($join_event,$imageupload['public_id']);
-									
-								}
-							}
-							$data_regis['join_event'] = '';
-							if (!empty($join_event))
-								$data_regis['join_event'] = implode(",",$join_event);
 						}
+						$data_regis['join_profile'] = '';
+						if (!empty($join_profile))
+							$data_regis['join_profile'] = implode(",",$join_profile);
+					
+						//end event upload
+
+						
+				
+						// join_image
+						$join_image = array();
+						foreach ($_FILES['join_image']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$_FILES['join_image']['name']= $files['join_image']['name'][$key];
+								$_FILES['join_image']['type']= $files['join_image']['type'][$key];
+								$_FILES['join_image']['tmp_name']= $files['join_image']['tmp_name'][$key];
+								$_FILES['join_image']['error']= $files['join_image']['error'][$key];
+								$_FILES['join_image']['size']= $files['join_image']['size'][$key];
+								
+								$join_imag = $this->uploadData('join_image','join_image_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_image,$join_imag);
+								
+							}
+						}
+						$data_regis['join_img'] = '';
+						if (!empty($join_image))
+							$data_regis['join_img'] = implode(",",$join_image);
+												//end pop_closeup upload
+
+						// join_event
+						$join_event = array();
+						foreach ($_FILES['join_event']['tmp_name'] as $key => $value) {
+							if (strlen($value) > 0){
+								$_FILES['join_event']['name']= $files['join_event']['name'][$key];
+								$_FILES['join_event']['type']= $files['join_event']['type'][$key];
+								$_FILES['join_event']['tmp_name']= $files['join_event']['tmp_name'][$key];
+								$_FILES['join_event']['error']= $files['join_event']['error'][$key];
+								$_FILES['join_event']['size']= $files['join_event']['size'][$key];
+								
+								$event = $this->uploadData('join_event','join_event_'.$key,$path);
+								// $imageupload = \Cloudinary\Uploader::upload($value,array(
+								// 	"folder"=>'document'
+								// ));
+								array_push($join_event,$event);
+								
+							}
+						}
+						$data_regis['join_event'] = '';
+						if (!empty($join_event))
+							$data_regis['join_event'] = implode(",",$join_event);
+					}
 					
 
 				
@@ -561,17 +633,23 @@ class project_manage extends MY_Controller {
 						//upload image  product_img
 						
 						$product_img = array();
-						
+						// $files = $_FILES;
 						if ( !empty( $_FILES['product_img']['name'][$key+1]) && !is_null($_FILES['product_img']['name'][$key+1])){
-							//upload data
-						
+							// //upload data
 							$image = $_FILES['product_img']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'product'
-									));
-									array_push($product_img,$imageupload['public_id']);
+									$_FILES['product_img']['name']= $files['product_img']['name'][$key+1][$keys];
+									$_FILES['product_img']['type']= $files['product_img']['type'][$key+1][$keys];
+									$_FILES['product_img']['tmp_name']= $files['product_img']['tmp_name'][$key+1][$keys];
+									$_FILES['product_img']['error']= $files['product_img']['error'][$key+1][$keys];
+									$_FILES['product_img']['size']= $files['product_img']['size'][$key+1][$keys];
+									
+									$img = $this->uploadData('product_img','product_img_'.$keys,$path);
+									// $imageupload = \Cloudinary\Uploader::upload($value,array(
+									// 	"folder"=>'product'
+									// ));
+									array_push($product_img,$img);
 									
 								}
 							
@@ -589,10 +667,17 @@ class project_manage extends MY_Controller {
 							$image = $_FILES['product_closeup']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'product'
-									));
-									array_push($product_closeup,$imageupload['public_id']);
+									$_FILES['product_closeup']['name']= $files['product_closeup']['name'][$key+1][$keys];
+									$_FILES['product_closeup']['type']= $files['product_closeup']['type'][$key+1][$keys];
+									$_FILES['product_closeup']['tmp_name']= $files['product_closeup']['tmp_name'][$key+1][$keys];
+									$_FILES['product_closeup']['error']= $files['product_closeup']['error'][$key+1][$keys];
+									$_FILES['product_closeup']['size']= $files['product_closeup']['size'][$key+1][$keys];
+									
+									$closeup = $this->uploadData('product_closeup','product_closeup_'.$keys,$path);
+									// $imageupload = \Cloudinary\Uploader::upload($value,array(
+									// 	"folder"=>'product'
+									// ));
+									array_push($product_closeup,$closeup);
 									
 								}
 							}
@@ -610,10 +695,17 @@ class project_manage extends MY_Controller {
 							$image = $_FILES['product_packshot']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'product'
-									));
-									array_push($product_packshot,$imageupload['public_id']);
+									$_FILES['product_packshot']['name']= $files['product_packshot']['name'][$key+1][$keys];
+									$_FILES['product_packshot']['type']= $files['product_packshot']['type'][$key+1][$keys];
+									$_FILES['product_packshot']['tmp_name']= $files['product_packshot']['tmp_name'][$key+1][$keys];
+									$_FILES['product_packshot']['error']= $files['product_packshot']['error'][$key+1][$keys];
+									$_FILES['product_packshot']['size']= $files['product_packshot']['size'][$key+1][$keys];
+									
+									$packshot = $this->uploadData('product_packshot','product_packshot_'.$keys,$path);
+									// $imageupload = \Cloudinary\Uploader::upload($value,array(
+									// 	"folder"=>'product'
+									// ));
+									array_push($product_packshot,$packshot);
 									
 								}
 							}
@@ -631,10 +723,17 @@ class project_manage extends MY_Controller {
 							foreach ($image as $keys => $value) {
 			
 								if (strlen($value) > 0){
-									$imageupload = \Cloudinary\Uploader::upload($value,array(
-										"folder"=>'product_pdf'
-									));
-									array_push($product_pdf,$imageupload['public_id']);
+									$_FILES['product_pdf']['name']= $files['product_pdf']['name'][$key+1][$keys];
+									$_FILES['product_pdf']['type']= $files['product_pdf']['type'][$key+1][$keys];
+									$_FILES['product_pdf']['tmp_name']= $files['product_pdf']['tmp_name'][$key+1][$keys];
+									$_FILES['product_pdf']['error']= $files['product_pdf']['error'][$key+1][$keys];
+									$_FILES['product_pdf']['size']= $files['product_pdf']['size'][$key+1][$keys];
+									
+									$pdf = $this->uploadData('product_pdf','product_pdf_'.$keys,$path);
+									// $imageupload = \Cloudinary\Uploader::upload($value,array(
+									// 	"folder"=>'product_pdf'
+									// ));
+									array_push($product_pdf,$pdf);
 									
 								}
 							}
@@ -652,7 +751,7 @@ class project_manage extends MY_Controller {
 						
 
 						$data_product = array(
-							'reg_id' => $insert_id,
+							'reg_id' => $insert_id['id'],
 							'product_num' => $key,
 							'product_type' =>  $this->input->post('product_type')[$key],
 							'product_name' =>  $this->input->post('product_name')[$key],
@@ -684,7 +783,8 @@ class project_manage extends MY_Controller {
 						//end save user detail
 				
 					}
-				
+					
+
 				}
 			}
 
@@ -744,5 +844,39 @@ class project_manage extends MY_Controller {
         }
 		
 		// }
+	}
+
+	public function uploadData($file,$file_name,$path){
+
+
+		if (!is_dir($path)) {
+            mkdir($path, 0777, TRUE);
+        }
+
+		$config['upload_path'] = $path;
+		$config['allowed_types'] = 'jpg|jpeg';
+		// $config['encrypt_name'] = TRUE;
+		$config['max_size'] = '2048'; //2MB
+		$config['overwrite'] = FALSE;
+		// $config['max_width'] = '1024';
+		// $config['max_height'] = '1024';
+		$config['file_name'] = $file_name;
+		$config['remove_spaces'] = TRUE;
+
+		$this->load->library("upload");
+		$this->upload->initialize($config); 
+
+		if ($this->upload->do_upload($file)) {
+			// Files Upload Success
+			$data = $this->upload->data();
+			return $path.$data['file_name'];
+			 
+		} else {
+		// Files Upload Not Success!!
+		$errors = $this->upload->display_errors();
+		return $errors;
+			
+		}
+
 	}
 }
