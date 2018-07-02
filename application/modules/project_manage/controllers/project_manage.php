@@ -751,7 +751,7 @@ class project_manage extends MY_Controller {
 						
 
 						$data_product = array(
-							'reg_id' => $insert_id['id'],
+							'reg_id' => $insert_id,
 							'product_num' => $key,
 							'product_type' =>  $this->input->post('product_type')[$key],
 							'product_name' =>  $this->input->post('product_name')[$key],
@@ -826,12 +826,17 @@ class project_manage extends MY_Controller {
         	$content = array( 
 		     'name' => $data_mail['mail_to_name'], 
 		     'content' => $data_mail['message'], 
+		     'link' => '',
+			 'show_link'=>false
 		    ); 
+
 
         	// $this->load->library('mailgun');
 			// if($this->mailgun->send($data_mail,$content)){ 
-        	$this->load->library('cmdw_mail');
-        	if($this->cmdw_mail->sendMail($data_mail)){ 
+        	// $this->load->library('cmdw_mail');
+        	// if($this->cmdw_mail->sendMail($data_mail)){ 
+
+        	if($this->pm_model->sendEmail($data_mail,$content)){
         		$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Successfully Save Data </div>');
         		redirect(base_url('staff/show_user_register'));	
         	}else{

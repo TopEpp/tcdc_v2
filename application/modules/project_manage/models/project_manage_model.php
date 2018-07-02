@@ -20,26 +20,18 @@ class project_manage_model extends MY_Model
     	return $data['reg_id'];
     }
 
-     public function sendEmail($data){
+     public function sendEmail($data,$content){
 
-        return true;
-
-        $from = "TCDC.Chiangmai@gmail.com";    //senders email address
-        $subject = 'ผลการสมัครเข้าร่วม '.$data['prj_name'];  //email subject
-
-        if($data['reg_status']){
-            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:green"> ผ่านการคัดเลือก </span><br>ขอบคุณ';
-        }else{
-            $message = 'ถึง ผู้ใช้งาน,<br><br> ผลการสมัครเข้าร่วม "'.$data['prj_name'].'"<br><span style="color:red"> ไม่ผ่านการคัดเลือก </span><br>เนื่องจาก : '.htmlspecialchars($data['reject_detail']).'<br><br>ขอบคุณ';
-        }
-        
+        $from = "TCDC.Chiangmai@gmail.com";    
+        //load tamplate  $content = array(name,content)
+        $message =  $this->load->view('email/tamplate',$content,TRUE);
         //config email settings
         $config['useragent'] = '\''.base_url().'\'';
         $config['protocol'] = 'smtp';
         $config['smtp_host'] = 'ssl://smtp.gmail.com';
         $config['smtp_port'] = '465';
         $config['smtp_user'] = $from;
-        $config['smtp_pass'] = 'TCDC@CMDW';  //sender's password uupsqwbvahhjdhdu
+        $config['smtp_pass'] = 'TCDC@CMDW';  //sender's password uupsqwbvahhjdhdu TCDC@CMDW
         $config['mailtype'] = 'html';
         // $config['charset'] = 'UTF-8';
         $config['wordwrap'] = 'TRUE';
@@ -49,18 +41,24 @@ class project_manage_model extends MY_Model
         $this->email->initialize($config);
         //send email
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
-        //$this->email->set_header('Content-type', 'text/html');
+      //  $this->email->set_header('Content-type', 'text/html');
         $this->email->from($from);
-        $this->email->to($data['email_receive']);
-        $this->email->subject($subject);
+        $this->email->to($data['to']);
+        $this->email->subject($data['subject']);
         $this->email->message($message);
         
-        if($this->email->send()){
-            return true;
-        }else{
+         if($this->email->send()){
+        //     //for testing
+            // echo "sent to: ".$receiver."<br>";
+            // echo "from: ".$from. "<br>";
+            // echo "protocol: ". $config['protocol']."<br>";
+            // echo "message: ".$message;
+             return true;
+         }else{
             show_error($this->email->print_debugger());
             return false;
-        }
+         }
+
     }
 
     function sendMail($data){
