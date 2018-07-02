@@ -42,7 +42,7 @@
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
-                      <table class="table table-hover table-condensed table-detailed table_pageing" id="detailedTable" style="font-family: 'dbch'">
+                      <table class="table table-hover table-condensed table-detailed table_pageing"  style="font-family: 'dbch'">
                         <thead>
                           <tr>
                             <th style="width:35%">ชื่อกิจกรรม</th>

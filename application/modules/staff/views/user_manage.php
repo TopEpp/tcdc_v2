@@ -52,7 +52,15 @@
                 <div class="clearfix"></div>
               </div>
               <div class="card-block">
-                <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch" style="font-family: 'dbch' !important; ">
+                Show 
+                <select class="" aria-controls="tableWithSearch" name="table_pageing_length" id="table_pageing_length">
+                   <option value="5">5</option>
+                   <option value="10">10</option>
+                   <option value="20">20</option>
+                   <option value="-1">All</option>
+                </select>
+                entries
+                <table class="table table-hover demo-table-search table-responsive-block table_pageing"  style="font-family: 'dbch' !important; ">
                   <thead>
                     <tr>
                       <th>ชื่อ-นามสกุล</th>

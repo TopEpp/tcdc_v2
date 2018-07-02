@@ -26,7 +26,7 @@ class Cmdw_mail {
             ,'to'=>$data['mail_to']
             ,'toname'=>$data['mail_to_name']
             ,'template'=>array(// กรณใช้ template ถ้าไม่ใช้ให้เอาออก
-                'name'=>"/tcdc_cmdw/tcdc_v2/assets/mailtemplate/tempplate.html",
+                'name'=>"/register/assets/mailtemplate/tempplate.html",
                 'param'=>array(
                     '{Name}'=>$data['mail_to_name'],
                     '{Content}'=>$data['message'],
