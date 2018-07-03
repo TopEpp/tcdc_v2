@@ -4,7 +4,7 @@ header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
 header("Content-type:   application/x-msexcel; charset=utf-8");
 header("Content-Disposition: attachment; filename=$file"); 
 ?>
-<table class="table table-hover table-condensed" id="table_user_reg" style="font-family: 'dbch' !important; ">
+<table class="table table-condensed table-bordered"  style="font-family: 'dbch' !important; ">
   <thead>
     <tr>
       <th>ชื่อ-นามสกุล</th>
@@ -24,11 +24,11 @@ header("Content-Disposition: attachment; filename=$file");
       } 
    ?>
     <tr>
-      <td class="v-align-middle semi-bold" style="font-family: 'dbch'"><?php echo $mem->member_name;?></td>
-      <td class="v-align-middle semi-bold" style="font-family: 'dbch'"><?php echo $mem->email;?></td>
-      <td class="v-align-middle semi-bold" style="font-family: 'dbch'"><?php echo $mem->phone;?></td>
-      <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
-      <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
+      <td ><?php echo $mem->member_name;?></td>
+      <td ><?php echo $mem->email;?></td>
+      <td ><?php echo $mem->phone;?></td>
+      <td ><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
+      <td ><?php echo $reg_status;?></td>
     </tr>
   <?php } ?>
   </tbody>
