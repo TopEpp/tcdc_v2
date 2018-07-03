@@ -197,7 +197,7 @@ class staff_model extends MY_Model{
     }
 
     function getProjectRegist($project_id){
-        $this->db->select("tcdc_prj_register.*, concat(tcdc_member.firstname,' ',tcdc_member.lastname) as member_name ");
+        $this->db->select("tcdc_prj_register.*, concat(tcdc_member.firstname,' ',tcdc_member.lastname) as member_name , tcdc_member.email, tcdc_member.phone ");
         $this->db->where('project_id',$project_id);
         $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj_register.user_id');
         $query = $this->db->get('tcdc_prj_register');

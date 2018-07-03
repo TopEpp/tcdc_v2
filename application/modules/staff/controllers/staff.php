@@ -226,6 +226,14 @@ class staff extends MY_Controller {
 		$this->publish();
 	}
 
+	function export_user($project_id){
+		$data = array();
+		$data['prj'] = $this->staff_model->getProjectData($project_id);
+		$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
+
+		$this->load->view('export_user',$data);
+	}
+
 	//management members all
 	function user_manage()
 	{

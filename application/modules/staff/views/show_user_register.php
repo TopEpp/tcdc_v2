@@ -51,9 +51,16 @@
                             </div>
                             <div class="pull-right" style="margin-right: 10px;">
                               <div class="col-xs-12">
+                                <div class="btn btn-default" onclick="window.open('<?php echo base_url('staff/export_user/'.$prj->project_id)?>')">Download ข้อมูลผู้สมัคร</div>
+                              </div>
+                            </div>
+
+                            <div class="pull-right" style="margin-right: 10px;">
+                              <div class="col-xs-12">
                                 <input type="text" id="search-table_<?php echo $prj->project_id?>" class="form-control pull-right" placeholder="ค้นหา">
                               </div>
                             </div>
+                            
                             <div class="card-block">
                               <div class="table-responsive">
 
