@@ -579,10 +579,11 @@ class staff extends MY_Controller {
 				}
 								
 				if($this->staff_model->saveEditUser($id,$data,$data_company)){
-					$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">อัพเดทข้อมูลเรียบร้อย. </div>');
+					$this->session->set_flashdata('msg', 'แก้ไขข้อมูลเรียบร้อย. ');
+					// $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">แก้ไขข้อมูลเรียบร้อย. </div>');
 				}
 				else{
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">อัพเดทข้อมูลไม่สำเร๊จ. </div>');
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">แก้ไขข้อมูลไม่สำเร๊จ. </div>');
 				}
 				
 				redirect($this->uri->segment(1).'/'.'staff/user_edit_profile/'.$this->uri->segment(4)); 

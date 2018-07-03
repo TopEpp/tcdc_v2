@@ -18,12 +18,14 @@
         <div class=" container-fluid   container-fixed-lg">
           <!-- BEGIN PlACE PAGE CONTENT HERE -->
           <div class=" container-fluid   container-fixed-lg">
+            
+          <h3 style="font-family: 'dbch' !important; ">การจัดการผู้สมัคร</h3>
             <div id="rootwizard" class="m-t-50">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <?php 
                   $first = true; $active = 'active'; 
-                  foreach ($project_type as $key => $ptype) { ?>
+                  foreach ($project_type as $key => $ptype) { if($ptype->type_id==5){ continue;} ?>
                   <li class="nav-item">
                     <a class="<?php if($first){ echo 'active';} ?> tab_btn" id="tab_btn_<?php echo $key?>"  data-toggle="tab" href="#tab<?php echo $ptype->type_id?>" role="tab"><i class="pg-outdent tab-icon" style="font-size: 0.8em;"></i> <span  style="font-size: 0.9em;"> <?php echo $ptype->type_name?></span></a>
                   </li>
@@ -34,7 +36,7 @@
               <div class="tab-content">
                 <?php 
                   $first = true; $active = 'active'; $table_prj_id='';
-                  foreach ($project_type as $key => $ptype) {  ?>
+                  foreach ($project_type as $key => $ptype) {  if($ptype->type_id==5){ continue;}?>
                   <div class="tab-pane padding-20 sm-no-padding <?php if($first){ echo 'active';} ?> slide-left" id="tab<?php echo $key;?>">
                     <?php 
                           foreach ($project as $key => $prj) { 
@@ -44,7 +46,7 @@
                         <div class="card card-transparent">
                           <div class="card-header ">
                             <div class="card-title">
-                              <h3>ผู้สมัคร : <?php echo $prj->project_name;?></h3>
+                              <h3 style="font-family: 'dbch' !important; ">ผู้สมัคร : <?php echo $prj->project_name;?></h3>
                               <p></p>
                             </div>
                             <div class="pull-right" style="margin-right: 10px;">

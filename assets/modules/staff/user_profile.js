@@ -28,6 +28,11 @@ elems.forEach(function(html) {
   //user active status
   $(document).ready(function() {
 
+    if ($('#msg').val() != ''){
+      $('#flash_1').text($('#msg').val());
+      $('#Success').modal('show');
+    }
+
     $("#user-active").change(function(){
    
       if($('#user-active').is(':checked')){

@@ -24,14 +24,23 @@
               <!-- show validate error -->
             <!-- status edit -->
             <?php             
-            if($this->session->flashdata('msg')){
-                echo $this->session->flashdata('msg');
+             
+
+             $msg = $this->session->flashdata('msg');
+             if(!empty($msg)){ ?>
+                <input type="hidden" id="msg" value='<?php echo $msg;?>'>
+             <?php }else{ ?>
+              <input type="hidden" id="msg" value ="">
+           <?php  }
+
+           if($this->session->flashdata('msg')){
+                // echo $this->session->flashdata('msg');
                 $this->session->unset_userdata('msg');
               } 
             if($this->session->flashdata('error')){
                 echo $this->session->flashdata('error');
                 $this->session->unset_userdata('error');
-            }  
+            } ?>
               
             ?>
             <div class=" container-fluid   container-fixed-lg">
@@ -854,9 +863,9 @@
                                         <!-- <p>สมัครเมื่อ : 15/05/2561</p>
                                         <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p> -->
                                         <?php if($this->session->userdata('sesUserType')==1){ ?>
-                                        <p>ประเภทผู้จัดการ </p>
+                                        <p>ประเภทบัญชี </p>
                                         <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type==1)?'checked="checked"' : '';?> > Admin</label> <br>
-                                        <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type==2)?'checked="checked"' : '';?> > Project Manager (PM)</label> <br>
+                                        <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type==2)?'checked="checked"' : '';?> > Program Manager</label> <br>
                                         <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type==4)?'checked="checked"' : '';?>> Editor</label>
                                         <?php }else{?>
                                           <input type="hidden" name="user_type" value="<?php echo $data->user_type;?>">
@@ -989,4 +998,26 @@
 
 
 <!--js  validate form -->
+
+   <!-- Modal -->
+<div class="modal fade" id="Success" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content  bg-success-dark">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body " style="color: white;">
+            <div id="flash_1"></div>
+            <div id="flash_2"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal" onclick="window.location.href='<?php echo base_url('staff/user_manage');?>';">ตกลง</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 

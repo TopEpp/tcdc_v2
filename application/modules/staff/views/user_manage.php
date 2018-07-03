@@ -81,14 +81,14 @@
                             <p><?php echo $value->email; ?></p>
                           </td>
                           <td class="v-align-middle">
-                            <p><?php echo (@$regisprj[$value->user_id])?$regisprj[$value->user_id]:'- ไม่ยังไม่มี -'; ?></p>
+                            <p><?php echo (@$regisprj[$value->user_id])?$regisprj[$value->user_id]:'- ไม่มี -'; ?></p>
                           </td>
                           <td class="v-align-middle">
                             <?php $user_type = '';
                               if($value->user_type==1){
                                 $user_type = 'Admin';
                               }else if($value->user_type==2){
-                                $user_type = 'Project Manage';
+                                $user_type = 'Program Manage';
                               }else if($value->user_type==3){
                                 $user_type = 'Member';
                               }else if($value->user_type==4){
@@ -100,7 +100,11 @@
                           </td>
                           <td class="v-align-middle">
                             <!-- <p>April 13,2014 10:13</p> -->
-                            <p><?php echo $value->rec_edit_timestamp;?></p>
+                            <p><?php 
+                                $edit_stamp = explode(' ', $value->rec_edit_timestamp);
+                                $edit_date = explode('-', $edit_stamp[0]);
+
+                             echo $edit_date[2].'-'.$edit_date[1].'-'.$edit_date[0].' '.$edit_stamp[1];?></p>
                           </td>
                           <td class="v-align-middle">
                             <?php if($this->session->userdata('sesUserType')==1){ ?>

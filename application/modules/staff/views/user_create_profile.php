@@ -52,8 +52,8 @@
                     <div class="col-md-6 b-r b-dashed b-grey sm-b-b">
                       <div class="padding-10 sm-padding-5 sm-m-t-15 ">
                         <h2>สร้างผู้จัดการ</h2>
-                        <p>ประเภทผู้จัดการ </p>
-                        <label><input type="radio" name="user_type" value="2" checked="checked"> Project Manager (PM)</label> <br>
+                        <p>ประเภทบัญชี </p>
+                        <label><input type="radio" name="user_type" value="2" checked="checked"> Program Manager</label> <br>
                         <label><input type="radio" name="user_type" value="4"> Editor</label>
                         </div>
                         <div class="row">

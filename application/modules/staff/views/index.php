@@ -29,7 +29,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>กิจกรรมเปิดรับสมัคร</h3>
+                      <h3 style="font-family: 'dbch'">กิจกรรมเปิดรับสมัคร</h3>
                       <!-- <p>คุณสามารถควบคุมและสร้างโครงการกิจกรรมได้จากนี่นี่ โดยการคลิกปุ่มสร้างด้านบน</p> -->
                       <?php if($this->session->userdata('sesUserType')==1){?>
                       <!-- <div class="pull-right">
@@ -103,7 +103,7 @@
                   <div class="card-header ">
                     <div class="card-title" >
                       <h3 style="font-family: 'dbch'">ข่าวสาร</h3>
-                      <p style="font-family: 'dbch'">คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p>
+                      <!-- <p style="font-family: 'dbch'">คุณสามารถแจ้งข่าวสร้างหรือแจ้งเตือนผู้ใช้ของคุณโดยการสร้างข่าวสารใหม่ โดยระบบจะส่งข้อความไปยังผู้ใช้งานของคุณทั้งทางอีเมล์และผ่านหน้าเว็บ</p> -->
                       <!-- <div class="pull-right">
                         <div class="col-xs-12">
                           <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/news');?>"><i class="fa fa-plus"></i> สร้างข่าวสาร</a>

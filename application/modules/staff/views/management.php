@@ -37,7 +37,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h3>การจัดการกิจกรรม</h3>
+                      <h3 style="font-family: 'dbch' !important; ">การจัดการกิจกรรม</h3>
                       <!-- <p>คุณสามารถแก้ไขสถาณะโครงการ ปิด หรือ เปิด ให้ผู้ใช้ดำเนินการได้โดยการกำหนดจากหน้านี้</p> -->
                       <div class="pull-right">
                         <div class="col-xs-12">
