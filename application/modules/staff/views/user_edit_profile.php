@@ -90,8 +90,8 @@
                                             <div class="col-sm-8">
                                               <p class="m-t-5">ชื่อ-นามสกุล: <?php echo @$data->firstname .' '.@$data->lastname;?> </p>
                                               <p class="m-t-5">อีเมล: <?php echo @$data->email;?> </p>
-                                              <?php $type = ['Admin','Program Manager','Editor','Member']; ?>
-                                              <p class="m-t-5">ประเภทบัญชี: <?php echo $type[@$data->user_type];?> </p>
+                                              <?php $type = [1=>'Admin',2=>'Program Manager',3=>'Member',4=>'Editor']; ?>
+                                              <p class="m-t-5">ประเภทบัญชี: <?php echo @$type[@$data->user_type];?> </p>
 
                                             </div>
                                     
@@ -302,6 +302,7 @@
                                                   <br>
                                                   <p></p>
                                                     <div class="col-sm-12">
+                                                      <p>ภาพโปรไฟล์</p>
                                                       <!-- <form  class="dropzone" id="form-regis-upload"> -->
                                                         <div class="fallback">
                                                           <input name="profile_img" type="file" size='20' />

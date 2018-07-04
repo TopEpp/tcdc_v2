@@ -88,7 +88,7 @@
                               if($value->user_type==1){
                                 $user_type = 'Admin';
                               }else if($value->user_type==2){
-                                $user_type = 'Program Manage';
+                                $user_type = 'Program Manager';
                               }else if($value->user_type==3){
                                 $user_type = 'Member';
                               }else if($value->user_type==4){

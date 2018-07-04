@@ -255,12 +255,14 @@
                                         </div>
                                         
                                         <br>
-                                         <p>รูปภาพโปรไฟล์</p>
+                                         
                                           <div class="col-sm-12">
+                                            <p>ภาพโปรไฟล์</p>
                                             <!-- <form  class="dropzone" id="form-regis-upload"> -->
                                               <div class="fallback">
                                                 <input name="profile_img" type="file" size='20' />
                                               </div>
+                                               <p style="color:red">หมายเหตุ ไฟล์ .jpg .png ขนาดไม่เกิน 2 MB</p>
                                             <!-- </form> -->
                                           </div>
                                         <br>
