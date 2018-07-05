@@ -108,11 +108,9 @@
                           </td>
                           <td class="v-align-middle">
                             <?php if($this->session->userdata('sesUserType')==1){ ?>
-                            <p><a  href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
+                            <p><a  href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>"><i class="fa fa-edit"></i> แก้ไข</a>
+                              &nbsp;<a style="cursor: pointer;" onclick="delUser('<?php echo $value->user_id;?>','<?php echo $value->firstname .' '.$value->lastname;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
                             <?php }?>
-                            <?php if($this->session->userdata('sesUserType')==1){ ?>
-                            &nbsp;<a style="cursor: pointer;" onclick="delUser('<?php echo $value->user_id;?>','<?php echo $value->firstname .' '.$value->lastname;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
-                            <?php } ?>
                           </td>
                         </tr>
                     <?php } ?>
