@@ -183,6 +183,13 @@ class staff extends MY_Controller {
 		redirect(base_url($this->uri->segment(1).'/staff/management'));
 	}
 
+	function delUser(){
+		$id = $this->input->post('del_id');
+		$this->staff_model->delUser($id);
+
+		redirect(base_url($this->uri->segment(1).'/staff/user_manage'));
+	}
+
 	function management(){
 		$data = array();
 		$data['project'] = $this->staff_model->getProject();
@@ -242,6 +249,7 @@ class staff extends MY_Controller {
 		$data['data'] = $this->staff_model->getUsers();
 		$data['regisprj'] = $this->staff_model->getProjectUser();
 
+		$this->template->javascript->add('assets/modules/staff/user_manage.js');
 		$this->template->javascript->add('assets/js/datatables.js');
 		$this->setView('user_manage',$data);
         $this->publish();	

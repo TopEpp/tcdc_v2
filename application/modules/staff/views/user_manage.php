@@ -110,6 +110,9 @@
                             <?php if($this->session->userdata('sesUserType')==1){ ?>
                             <p><a  href="<?php echo base_url($this->uri->segment(1).'/staff/user_edit_profile').'/'.$value->user_id;?>"><i class="fa fa-edit"></i> แก้ไข</a></p>
                             <?php }?>
+                            <?php if($this->session->userdata('sesUserType')==1){ ?>
+                            &nbsp;<a style="cursor: pointer;" onclick="delUser('<?php echo $value->user_id;?>','<?php echo $value->firstname .' '.$value->lastname;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
+                            <?php } ?>
                           </td>
                         </tr>
                     <?php } ?>
@@ -134,3 +137,42 @@
           <!-- END CONTAINER FLUID -->
         </div>
         <!-- END PAGE CONTENT -->
+
+        <!-- Modal -->
+      <div class="modal fade slide-up disable-scroll" id="modal-delUser" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog ">
+          <div class="modal-content-wrapper">
+            <div class="modal-content">
+              <div class="modal-header clearfix text-left">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                </button>
+                <h5>แจ้งเตือน <span class="semi-bold">ลบบัญชีผู้ใช้งาน</span></h5>
+
+              </div>
+              <div class="modal-body">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <p> คุณต้องการลบบัญชีผู้ใช้งาน <span id="name_del"></span> ใช่หรือไม่</p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+
+                  <div class="modal-footer">
+                  <?php $attributes = array('name' => 'frmDelUser', 'id' => 'form-del-user');
+                                  $lang = $this->uri->segment(1);
+                                   echo form_open_multipart($lang.'/staff/delUser/', $attributes); 
+                            ?>
+                    <input type="hidden" name="del_id" id="del_id" value="">
+                    <button type="button" class="btn btn-primary btn-cons  pull-left inline" data-dismiss="modal" id="delBtn">ยืนยัน</button>
+                    <button type="button" class="btn btn-default btn-cons no-margin pull-left inline" data-dismiss="modal">ยกเลิก</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+      </div>

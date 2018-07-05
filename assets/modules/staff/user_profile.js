@@ -26,6 +26,8 @@ elems.forEach(function(html) {
   // });
 
   //user active status
+  
+
   $(document).ready(function() {
 
     if ($('#msg').val() != ''){

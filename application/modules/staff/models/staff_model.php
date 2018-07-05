@@ -164,6 +164,13 @@ class staff_model extends MY_Model{
         }
     }
 
+    function delUser($id){
+        if($id){
+            $this->db->where('user_id',$id);
+            $this->db->delete('tcdc_member');
+        }
+    }
+
     function getProjectData($project_id){
         $this->db->select('*');
         $this->db->where('project_id',$project_id);
