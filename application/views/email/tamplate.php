@@ -33,12 +33,12 @@ body {
 <div align="center">
     <table width="80%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-    <td style="text-align: center;"><img width="100%" height="50%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_header.png"></td>
+    <td style=""><img width="80%"  src="http://www.chiangmaidesignweek.com/register/assets/img/email_header.png"></td>
     </tr>
     <tr>
         <td style="text-align: left; font-size:14px;">
-        <div style="font-family: 'dbch'; border-radius: 5px;  padding: 50px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
-            <h2>สวัสดีครับ คุณ <?= $name ?></h2>
+        <div style="font-family: 'dbch'; border-radius: 5px;  padding-left:30px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
+            <h3>สวัสดีครับ คุณ <?= $name ?></h3>
             <div style="font-size:14px">
                 <?= $content;?>
                 <?php if (!empty($link) && !$show_link){ ?>
@@ -55,10 +55,10 @@ body {
         </td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img width="100%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_second_footer.png"></td>
+        <td style=""><img width="80%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_second_footer.png"></td>
     </tr>
     <tr>
-        <td style="text-align: center;"><img width="100%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_footer.png"></td>
+        <td style=""><img width="80%" src="http://www.chiangmaidesignweek.com/register/assets/img/email_footer.png"></td>
     </tr>
     </table>
 </div>

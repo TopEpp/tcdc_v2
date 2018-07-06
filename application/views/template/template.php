@@ -140,7 +140,7 @@
       <!-- END MOBILE SIDEBAR TOGGLE -->
       <div class="">
         <div class="brand inline  m-l-10 ">
-          <a  href="<?php echo base_url('member');?>"><img src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " data-src-retina="<?php echo base_url('assets/img/logo_dashboard.jpg');?> "></a>
+          <a  href="<?php echo base_url('member');?>"><img width="130px" src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " data-src-retina="<?php echo base_url('assets/img/logo_dashboard.jpg');?> "></a>
         </div>
       </div>
       <div class="d-flex align-items-center">

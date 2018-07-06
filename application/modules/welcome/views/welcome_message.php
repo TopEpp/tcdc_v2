@@ -47,9 +47,9 @@
   <body class="fixed-header menu-pin menu-behind">
     <div class="login-wrapper ">
       <!-- START Login Background Pic Wrapper-->
-      <div class="bg-pic" >
+      <div class="bg-pic col-sm-9" style="padding-right: 0px;padding-left: 0px;">
         <!-- START Background Pic-->
-        <img src="<?php echo base_url('assets/img/img_login.jpg')?>" data-src="<?php echo base_url('assets/img/img_login.jpg')?>" data-src-retina="<?php echo base_url('assets/img/img_login.jpg')?>" alt="" class="lazy">
+        <img src="<?php echo base_url('assets/img/CMDW Log in.jpg')?>" data-src="<?php echo base_url('assets/img/CMDW Log in.jpg')?>" data-src-retina="<?php echo base_url('assets/img/CMDW Log in.jpg')?>" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <!-- <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
@@ -152,7 +152,8 @@
                 </div>
             </div>
             <br/>
-      
+
+
             <div class="row">
               <div class="col-md-12 no-padding sm-p-l-10">
 
