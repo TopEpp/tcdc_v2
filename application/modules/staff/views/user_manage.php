@@ -60,7 +60,7 @@
                    <option value="-1">All</option>
                 </select>
                 entries
-                <table class="table table-hover demo-table-search table-responsive-block table_pageing"  style="font-family: 'dbch' !important; ">
+                <table class="table table-hover demo-table-search table-responsive-block table_pageing" id="tableWithSearch" style="font-family: 'dbch' !important; ">
                   <thead>
                     <tr>
                       <th>ชื่อ-นามสกุล</th>
