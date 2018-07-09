@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('max_execution_time', 0); 
-ini_set('memory_limit','2048M');
+
 
 
 class Member extends MY_Controller 
@@ -103,7 +102,17 @@ class Member extends MY_Controller
 	//save event register form
 	public function saveEventForm()
 	{
+
+		ini_set('max_execution_time', 0); 
+		ini_set('memory_limit','2048M');
+		set_time_limit(1800);
+
+		// print_r($_FILES);die();
 		// get project type
+		if (empty( $this->input->post())){
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง. </div>' );
+			redirect(base_url('member'));
+		}
 		// print_r($this->input->post('company_technic'));die();
 		//  print_r($this->input->post());die();
 		$project_type = $this->input->post('project_type');
@@ -352,9 +361,9 @@ class Member extends MY_Controller
 							$data['regis']['product'][$key]['product_height'] =  @$this->input->post('product_height')[$key];
 							$data['regis']['product'][$key]['product_amount'] =  $this->input->post('product_amount')[$key];
 							$data['regis']['product'][$key]['product_concept'] =  $this->input->post('product_concept')[$key];
-							$data['regis']['product'][$key]['product_prename'] =  $this->input->post('product_prename')[$key];
-							$data['regis']['product'][$key]['product_firstname'] =  $this->input->post('product_firstname')[$key];
-							$data['regis']['product'][$key]['product_lastname'] =  $this->input->post('product_lastname')[$key];
+							$data['regis']['product'][$key]['product_prename'] =  @$this->input->post('product_prename')[$key];
+							$data['regis']['product'][$key]['product_firstname'] =  @$this->input->post('product_firstname')[$key];
+							$data['regis']['product'][$key]['product_lastname'] =  @$this->input->post('product_lastname')[$key];
 						}
 						
 						$this->setView('event_form_show',$data);break;
@@ -467,14 +476,15 @@ class Member extends MY_Controller
 				'instragram' => $this->input->post('instragram')
 				
 			);
+	
 			if (!empty($this->input->post('job_type_one'))){
-				$data['job_type'] = $this->input->post('job_type_one');
+				$data_user['job_type'] = $this->input->post('job_type_one');
 			}
 			if (!empty($this->input->post('job_type_two'))){
-				$data['job_type'] = $this->input->post('job_type_two');
+				$data_user['job_type'] = $this->input->post('job_type_two');
 			}
 			//end user
-			
+		
 
 			//company 
 			$data_company = array(
@@ -552,7 +562,11 @@ class Member extends MY_Controller
 			$data_merage = array_merge($data_company,$data_coordinator);
 			
 			//save user detail
-			$this->staff_model->saveEditUser($id,$data_user,$data_merage);
+			$status = $this->staff_model->saveEditUser($id,$data_user,$data_merage);
+			if (!$status){
+				$this->session->set_flashdata('error','<div class="alert alert-danger text-center">บันทึกประวัติผู้ลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง. </div>' );
+				redirect(base_url('member'));
+			}
 			//end save user detail
 
 			// data register 
@@ -891,6 +905,11 @@ class Member extends MY_Controller
 			//end data register
 			//save user detail
 			$insert_id = $this->member_model->saveRegis($data_regis);
+			if (empty($insert_id['id'])){
+				$this->session->set_flashdata('error','<div class="alert alert-danger text-center">บันทึกข้อมูลลงทะเบียนไม่สำเร็จ กรุณาลองใหม่อีกครั้ง. </div>' );
+				redirect(base_url('member'));
+
+			}
 			//end save user detail
 
 			//all product save
@@ -914,13 +933,13 @@ class Member extends MY_Controller
 							$image = $_FILES['product_img']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_img']['name']= $files['product_img']['name'][$key+1][$keys];
-									$_FILES['product_img']['type']= $files['product_img']['type'][$key+1][$keys];
-									$_FILES['product_img']['tmp_name']= $files['product_img']['tmp_name'][$key+1][$keys];
-									$_FILES['product_img']['error']= $files['product_img']['error'][$key+1][$keys];
-									$_FILES['product_img']['size']= $files['product_img']['size'][$key+1][$keys];
+									$_FILES['product_image']['name']= $files['product_img']['name'][$key+1][$keys];
+									$_FILES['product_image']['type']= $files['product_img']['type'][$key+1][$keys];
+									$_FILES['product_image']['tmp_name']= $files['product_img']['tmp_name'][$key+1][$keys];
+									$_FILES['product_image']['error']= $files['product_img']['error'][$key+1][$keys];
+									$_FILES['product_image']['size']= $files['product_img']['size'][$key+1][$keys];
 									
-									$img = $this->uploadData('product_img','product_img_'.$keys,$path);
+									$img = $this->uploadData('product_image','product_img_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
 									// 	"folder"=>'product'
 									// ));
@@ -930,6 +949,7 @@ class Member extends MY_Controller
 							
 							}
 							$product_img = implode(",",$product_img);
+							// echo $product_img;die();
 							
 						}
 
@@ -942,13 +962,13 @@ class Member extends MY_Controller
 							$image = $_FILES['product_closeup']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_closeup']['name']= $files['product_closeup']['name'][$key+1][$keys];
-									$_FILES['product_closeup']['type']= $files['product_closeup']['type'][$key+1][$keys];
-									$_FILES['product_closeup']['tmp_name']= $files['product_closeup']['tmp_name'][$key+1][$keys];
-									$_FILES['product_closeup']['error']= $files['product_closeup']['error'][$key+1][$keys];
-									$_FILES['product_closeup']['size']= $files['product_closeup']['size'][$key+1][$keys];
+									$_FILES['product_closeups']['name']= $files['product_closeup']['name'][$key+1][$keys];
+									$_FILES['product_closeups']['type']= $files['product_closeup']['type'][$key+1][$keys];
+									$_FILES['product_closeups']['tmp_name']= $files['product_closeup']['tmp_name'][$key+1][$keys];
+									$_FILES['product_closeups']['error']= $files['product_closeup']['error'][$key+1][$keys];
+									$_FILES['product_closeups']['size']= $files['product_closeup']['size'][$key+1][$keys];
 									
-									$closeup = $this->uploadData('product_closeup','product_closeup_'.$keys,$path);
+									$closeup = $this->uploadData('product_closeups','product_closeup_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
 									// 	"folder"=>'product'
 									// ));
@@ -970,13 +990,13 @@ class Member extends MY_Controller
 							$image = $_FILES['product_packshot']['tmp_name'][$key+1];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_packshot']['name']= $files['product_packshot']['name'][$key+1][$keys];
-									$_FILES['product_packshot']['type']= $files['product_packshot']['type'][$key+1][$keys];
-									$_FILES['product_packshot']['tmp_name']= $files['product_packshot']['tmp_name'][$key+1][$keys];
-									$_FILES['product_packshot']['error']= $files['product_packshot']['error'][$key+1][$keys];
-									$_FILES['product_packshot']['size']= $files['product_packshot']['size'][$key+1][$keys];
+									$_FILES['product_packshots']['name']= $files['product_packshot']['name'][$key+1][$keys];
+									$_FILES['product_packshots']['type']= $files['product_packshot']['type'][$key+1][$keys];
+									$_FILES['product_packshots']['tmp_name']= $files['product_packshot']['tmp_name'][$key+1][$keys];
+									$_FILES['product_packshots']['error']= $files['product_packshot']['error'][$key+1][$keys];
+									$_FILES['product_packshots']['size']= $files['product_packshot']['size'][$key+1][$keys];
 									
-									$packshot = $this->uploadData('product_packshot','product_packshot_'.$keys,$path);
+									$packshot = $this->uploadData('product_packshots','product_packshot_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
 									// 	"folder"=>'product'
 									// ));
@@ -998,13 +1018,13 @@ class Member extends MY_Controller
 							foreach ($image as $keys => $value) {
 			
 								if (strlen($value) > 0){
-									$_FILES['product_pdf']['name']= $files['product_pdf']['name'][$key+1][$keys];
-									$_FILES['product_pdf']['type']= $files['product_pdf']['type'][$key+1][$keys];
-									$_FILES['product_pdf']['tmp_name']= $files['product_pdf']['tmp_name'][$key+1][$keys];
-									$_FILES['product_pdf']['error']= $files['product_pdf']['error'][$key+1][$keys];
-									$_FILES['product_pdf']['size']= $files['product_pdf']['size'][$key+1][$keys];
+									$_FILES['product_pdfs']['name']= $files['product_pdf']['name'][$key+1][$keys];
+									$_FILES['product_pdfs']['type']= $files['product_pdf']['type'][$key+1][$keys];
+									$_FILES['product_pdfs']['tmp_name']= $files['product_pdf']['tmp_name'][$key+1][$keys];
+									$_FILES['product_pdfs']['error']= $files['product_pdf']['error'][$key+1][$keys];
+									$_FILES['product_pdfs']['size']= $files['product_pdf']['size'][$key+1][$keys];
 									
-									$pdf = $this->uploadData('product_pdf','product_pdf_'.$keys,$path);
+									$pdf = $this->uploadData('product_pdfs','product_pdf_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
 									// 	"folder"=>'product_pdf'
 									// ));
@@ -1055,6 +1075,11 @@ class Member extends MY_Controller
 
 						
 						$status = $this->member_model->saveProduct($data_product);
+						if (!$status){
+							$this->session->set_flashdata('error','<div class="alert alert-danger text-center">บันทึกข้อมูลช่วงที่ 3 ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง3. </div>' );
+							redirect(base_url('member'));
+						}
+						
 						//end save user detail
 				
 					}
@@ -1091,7 +1116,7 @@ class Member extends MY_Controller
 			// 	redirect(base_url('member'));
 			// }
 		}
-		
+		// redirect(base_url('member'));
 	}
 
 	
@@ -1185,42 +1210,9 @@ class Member extends MY_Controller
 		redirect(base_url('member'));
 		
 	}
-	public function testupload(){
-		$this->load->helper(array('form', 'url'));
-		$this->load->view('upload');
-
-	}
 
 
-	public function saveimg()
-	{
-
-		$path = $this->uploadData('userfile','product','./uploads/34/');
-		echo $path;
-		// $config['upload_path'] = './uploads/';
-		
-		// $config['allowed_types'] = 'jpg|jpeg';
-		// $config['encrypt_name'] = TRUE;
-		// // $config['max_size'] = '1024';
-		// // $config['max_width'] = '1024';
-		// // $config['max_height'] = '1024';
-		// $config['remove_spaces'] = TRUE;
-
-		// $this->load->library("upload");
-		// $this->upload->initialize($config); 
-
-		// if ($this->upload->do_upload('userfile')) {
-		// 	// Files Upload Success
-		// 	echo "OK Good";
-		// 	var_dump($this->upload->data());
-			 
-		// } else {
-		// // Files Upload Not Success!!
-		// $errors = $this->upload->display_errors();
-		// echo $errors;
-			
-		// }
-	}
+	
 
 	public function uploadData($file,$file_name,$path){
 
@@ -1249,11 +1241,17 @@ class Member extends MY_Controller
 			 
 		} else {
 		// Files Upload Not Success!!
-		$errors = $this->upload->display_errors();
-		return $errors;
+			$errors = $this->upload->display_errors();
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.$errors.'. </div>' );
+			redirect(base_url('member'));
+			return $errors;
 			
 		}
 
+	}
+
+	public function __destruct() {  
+		$this->db->close();  
 	}
 
 

@@ -58,6 +58,11 @@
 
                 <div class="card card-transparent">
                   <div class="card-header ">
+                    <?php   if($this->session->flashdata('error')){
+                    echo $this->session->flashdata('error');
+                    $this->session->unset_userdata('error');
+                    }  
+                    ?>
                     <!-- status product -->
                     <?php if ($this->session->flashdata('msg')) {?>
                           <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg'); ?>">

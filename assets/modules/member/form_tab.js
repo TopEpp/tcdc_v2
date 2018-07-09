@@ -19,6 +19,7 @@
                 var $current = index + 1;
 
                 // If it's the last tab then hide the last button and show the finish instead
+
                 if ($current >= 3) {
                     $('#showcase_popup').modal(true);
                     $('#event-form').find('.pager .next').hide();
@@ -43,17 +44,17 @@
                 $('#previous_hide').toggle(false);
                 if ($current > 1 && $current < 3) {
                  
-                    var nextIcon = li.next().find('.fa');
-                    var nextIconClass = nextIcon.attr('class').match(/fa-[\w-]*/).join();
+                    // var nextIcon = li.next().find('.fa');
+                    // var nextIconClass = nextIcon.attr('class').match(/fa-[\w-]*/).join();
 
-                    removeIcons(btnNext);
-                    btnNext.addClass(nextIconClass + ' btn-animated from-left fa');
+                    // removeIcons(btnNext);
+                    // btnNext.addClass(nextIconClass + ' btn-animated from-left fa');
 
-                    var prevIcon = li.prev().find('.fa');
-                    var prevIconClass = prevIcon.attr('class').match(/fa-[\w-]*/).join();
+                    // var prevIcon = li.prev().find('.fa');
+                    // var prevIconClass = prevIcon.attr('class').match(/fa-[\w-]*/).join();
 
-                    removeIcons(btnPrev);
-                    btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
+                    // removeIcons(btnPrev);
+                    // btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
                     
                 } else if ($current == 1) {
                     $('#hide_back').toggle(false);

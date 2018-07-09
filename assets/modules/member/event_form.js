@@ -120,8 +120,13 @@
             viewMode: "years",
             minViewMode: "years"
         });
-        $("select[name='product_type[]']").select2();
+        $("select[name='product_type[]']").select2({
+            minimumResultsForSearch: -1
+        });
         $("select[name='product_date[]']").select2();
+        $("select[name='product_prename[]']").select2({
+            minimumResultsForSearch: -1
+        });
         // $('.product_concept').wysihtml5();
         // 
 
@@ -500,17 +505,18 @@
     //end check company
 
      //hidden agent
-     $('#agent').hide();
+    //  $('#agent').hide();
     
      //get status agent
      $('#radio2No').on('change', function() {
-         if($('input[name=radio2]').is(':checked')){
-             $('#agent').show();
+
+         if($('input[name=radio22]').is(':checked')){
+             $('#agent').toggle(true);
          }
      });
      $('#radio2Yes').on('change', function() {
-         if($('input[name=radio2]').is(':checked')){
-             $('#agent').hide();
+         if($('input[name=radio22]').is(':checked')){
+            $('#agent').toggle(false);
          }
      });
      //end status agent
@@ -786,6 +792,8 @@
             default:
                 day = "Saturday";
         }
+
+        $('#showcase_popup').modal(false);
         $('#loading').toggle(true);
    
 

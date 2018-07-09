@@ -776,7 +776,7 @@
                               <br><br>
 
                               <!-- ข้อมูลผู้ประสานงาน เริ่ม -->
-                              <div id="agent">
+                              <div id="agent" style="display:<?php ($status2 =='checked')?'block':'none';?>">
                                 <!-- <p style="font-weight: bold" >ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p> -->
                              
                                 <div class="form-group-attached">
@@ -1117,7 +1117,7 @@
                                       <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>คำนำหน้า</label>
-                                              <select  style="width:100%"  id="product_prename" name="product_prename[]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
+                                              <select  style="width:100%"  id="product_prename" name="product_prename[]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="true">
                                                   <option disabled value="" >เลือก</option>
                                                   <option  value="1">นาย</option>
                                                   <option   value="2">นาง</option>
@@ -1198,7 +1198,7 @@
                                                 <div class="form-group form-group-default  ">  
                                                   <label>จำนวนชิ้นงาน</label>
                                                 
-                                                  <input name="product_amount[]" class="form-control"  type="text" value="<?php echo @$value['product_amount']?>">
+                                                  <input name="product_amount[<?php echo $keys;?>]" class="form-control"  type="text" value="<?php echo @$value['product_amount']?>">
                                                 </div>
                                               </div>
                                         </div>
@@ -1207,7 +1207,7 @@
                                           <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>ประเภทผลงาน</label>
-                                              <select style="width:100%" name="product_type[]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2"  data-disable-search="true">
+                                              <select style="width:100%" name="product_type[<?php echo $keys;?>]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2"  data-disable-search="true">
                                                 <option <?php echo (@$value['product_type'] == '') ? 'selected':''?> value="">เลือก</option>
                                                 <option <?php echo (@$value['product_type'] == '1') ? 'selected':''?> value="1">เฟอร์นิเจอร์</option>
                                                 <option <?php echo (@$value['product_type'] == '2') ? 'selected':''?> value="2">ไลฟ์สไตล์</option>
@@ -1223,7 +1223,7 @@
                                           <div class="col-sm-8">
                                             <div class="form-group form-group-default required">
                                               <label>ชื่อผลงาน</label>
-                                              <input  id="product_name" name="product_name[]" type="text" class="form-control" value="<?php echo @$value['product_name']?>" >
+                                              <input  id="product_name" name="product_name[<?php echo $keys;?>]" type="text" class="form-control" value="<?php echo @$value['product_name']?>" >
                                             </div>
                                           </div>
                                           
@@ -1235,7 +1235,7 @@
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
                                                 <label>วัสดุหลัก</label>
-                                                <input name="material[]" type="text" class="form-control" value="<?php echo @$value['material']?>" >
+                                                <input name="material[<?php echo $keys;?>]" type="text" class="form-control" value="<?php echo @$value['material']?>" >
                                               </div>
                                             </div>
 
@@ -1243,7 +1243,7 @@
                                               <div class="form-group form-group-default">
                                               <label >ปีที่ออกแบบ</label>
 
-                                               <select style="width:100%" name="product_date[]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
+                                               <select style="width:100%" name="product_date[<?php echo $keys;?>]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
                                                 <option  value="" >เลือก</option>
           
                                                   <?php for ($i = 1959;$i<=2030;$i++) { 
@@ -1276,7 +1276,7 @@
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
                                                   <label class="">กว้าง</label>
-                                                  <input name="product_width[]" class="form-control" type="text" value="<?php echo @$value['product_width']?>">
+                                                  <input name="product_width[<?php echo $keys;?>]" class="form-control" type="text" value="<?php echo @$value['product_width']?>">
                                                 </div>
                                                 <div class="input-group-addon">
                                                   ซ.ม.
@@ -1289,7 +1289,7 @@
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
                                                   <label class="">ยาว</label>
-                                                  <input name="product_length[]" class="form-control" type="text" value="<?php echo @$value['product_length']?>">
+                                                  <input name="product_length[<?php echo $keys;?>]" class="form-control" type="text" value="<?php echo @$value['product_length']?>">
                                                 </div>
                                                 <div class="input-group-addon">
                                                   ซ.ม.
@@ -1301,7 +1301,7 @@
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
                                                   <label class="">สูง</label>
-                                                  <input  name="product_height[]"class="form-control" type="text" value="<?php echo @$value['product_height']?>">
+                                                  <input  name="product_height[<?php echo $keys;?>]"class="form-control" type="text" value="<?php echo @$value['product_height']?>">
                                                 </div>
                                                 <div class="input-group-addon">
                                                   ซ.ม.
@@ -1320,7 +1320,7 @@
                                             <div class="col-sm-12">
                                               <p style="font-weight: bold;">แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
-                                                <textarea name="product_concept[]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
+                                                <textarea style="  font-family: 'dbch', sans-serif !important;" name="product_concept[<?php echo $keys;?>]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
                                                 stylesheets: ['pages/css/editor.css']
                                                 }"><?php echo @$value['product_concept']?></textarea>
@@ -1357,7 +1357,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_img"  name="product_img[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                                    <input id="product_img"  name="product_img[<?php echo $keys+1;?>][]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1365,7 +1365,7 @@
                                                 <div class="form-group  ">
                                                   <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
-                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
+                                                    <input  id="product_pdf" name="product_pdf[<?php echo $keys+1;?>][]" type="file" accept="application/pdf"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1391,7 +1391,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_closeup" name="product_closeup[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                                    <input id="product_closeup" name="product_closeup[<?php echo $keys+1;?>][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1417,7 +1417,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input id="product_packshot" name="product_packshot[1][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                                    <input id="product_packshot" name="product_packshot[<?php echo $keys+1;?>][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                                   </div>
                                                   
                                                 </div>
@@ -1438,7 +1438,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
                                               <label>คำนำหน้า</label>
-                                              <select  style="width:100%"  id="product_prename" name="product_prename[]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
+                                              <select  style="width:100%"  id="product_prename" name="product_prename[<?php echo $keys;?>]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="true">
                                                   <option disabled <?php echo (@$value['product_prename'] == '') ? 'selected':'';?> value="" >เลือก</option>
                                                   <option  <?php echo (@$value['product_prename'] == 1) ? 'selected':'';?> value="1">นาย</option>
                                                   <option  <?php echo (@$value['product_prename'] == 2) ? 'selected':'';?> value="2">นาง</option>
@@ -1451,13 +1451,13 @@
                                         <div class="col-sm-4">
                                           <div class="form-group form-group-default required">
                                             <label>ชื่อ</label>
-                                            <input type="text" class="form-control" name="product_firstname[] " value="<?php echo @$value['product_firstname'];?>" >
+                                            <input type="text" class="form-control" name="product_firstname[<?php echo $keys;?>] " value="<?php echo @$value['product_firstname'];?>" >
                                           </div>
                                         </div>
                                         <div class="col-sm-4">
                                         <div class="form-group form-group-default required">
                                           <label>นามสกุล</label>
-                                          <input type="text" class="form-control" name="product_lastname[]" value="<?php echo @$value['product_lastname'];?>">
+                                          <input type="text" class="form-control" name="product_lastname[<?php echo $keys;?>]" value="<?php echo @$value['product_lastname'];?>">
                                         </div>
                                       </div>
 
