@@ -1035,11 +1035,12 @@
                                                      if (!empty($value['product_img'])){
                                                         $product_img = explode(',',$value['product_img']);
                                                     
-                                                        foreach ($product_img as $key => $val) { ?>
+                                                        foreach ($product_img as $key => $val) { 
+                                                          if(file_exists(base_url().$val;)){ ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
-                                                       <?php }
+                                                       <?php }}
                                                      }
                                                    
                                                   ?>
@@ -1052,6 +1053,21 @@
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
                                                   <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
+                                                  <div class="row">
+                                                  <?php
+                                                     if (!empty($value['product_pdf'])){
+                                                        $product_pdf = explode(',',$value['product_pdf']);
+                                                    
+                                                        foreach ($product_pdf as $key => $val) { 
+                                                          if(file_exists(base_url().$val;)){ ?>
+                                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                                          echo '&nbsp;'; -->
+                                                       <?php }}
+                                                     }
+                                                   
+                                                  ?>
+                                                  </div>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
                                                   </div>
@@ -1069,11 +1085,12 @@
                                                      if (!empty($value['product_closeup'])){
                                                         $product_img = explode(',',$value['product_closeup']);
                                                     
-                                                        foreach ($product_img as $key => $val) { ?>
+                                                        foreach ($product_img as $key => $val)
+                                                          if(file_exists(base_url().$val;)){ { ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
-                                                       <?php }
+                                                       <?php }}
                                                      }
                                                    
                                                   ?>
@@ -1095,11 +1112,12 @@
                                                      if (!empty($value['product_packshot'])){
                                                         $product_img = explode(',',$value['product_packshot']);
                                                     
-                                                        foreach ($product_img as $key => $val) { ?>
+                                                        foreach ($product_img as $key => $val) {
+                                                          if(file_exists(base_url().$val;)){ ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
-                                                       <?php }
+                                                       <?php }}
                                                      }
                                                    
                                                   ?>
