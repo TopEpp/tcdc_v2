@@ -1036,7 +1036,7 @@
                                                         $product_img = explode(',',$value['product_img']);
                                                     
                                                         foreach ($product_img as $key => $val) { 
-                                                          if(file_exists(base_url($val))){ ?>
+                                                          if(is_file(base_url($val))){ ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
@@ -1059,7 +1059,7 @@
                                                         $product_pdf = explode(',',$value['product_pdf']);
                                                     
                                                         foreach ($product_pdf as $key => $val) { 
-                                                          if(file_exists(base_url($val))){ ?>
+                                                          if(is_file(base_url($val))){ ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
@@ -1086,7 +1086,7 @@
                                                         $product_img = explode(',',$value['product_closeup']);
                                                     
                                                         foreach ($product_img as $key => $val)
-                                                          if(file_exists(base_url($val))){ { ?>
+                                                          if(is_file(base_url($val))){ { ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
@@ -1113,7 +1113,7 @@
                                                         $product_img = explode(',',$value['product_packshot']);
                                                     
                                                         foreach ($product_img as $key => $val) {
-                                                          if(file_exists(base_url($val))){ ?>
+                                                          if(is_file(base_url($val))){ ?>
                                                           <img src="<?= base_url().$val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
                                                           echo '&nbsp;'; -->
