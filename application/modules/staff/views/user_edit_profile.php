@@ -873,7 +873,7 @@ $select = '';
                                         <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type == 1) ? 'checked="checked"' : ''; ?> > Admin</label> <br>
                                         <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type == 2) ? 'checked="checked"' : ''; ?> > Program Manager</label> <br>
                                         <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type == 4) ? 'checked="checked"' : ''; ?>> Editor</label><br>
-                                        <label><input type="radio" name="user_type" value="3" <?php echo ($data->user_type == 3) ? 'checked="checked"' : ''; ?>> User</label>
+                                        <label><input type="radio" name="user_type" value="3" <?php echo ($data->user_type == 3) ? 'checked="checked"' : ''; ?>> Member</label>
                                         <?php } else {?>
                                           <input type="hidden" name="user_type" value="<?php echo $data->user_type; ?>">
                                         <?php }?>
