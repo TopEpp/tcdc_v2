@@ -34,7 +34,7 @@ function delUser(pid,name){
 
         table.dataTable(settings);
 
-        search box for table
+        // search box for table
         $('#search-table').keyup(function() {
             table.fnFilter($(this).val());
         });
