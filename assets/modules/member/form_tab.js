@@ -3,25 +3,27 @@
  * Multistep form wizard using Bootstrap Wizard Plugin
  * For DEMO purposes only. Extract what you need.
  * ============================================================ */
-(function($) {
+(function ($) {
 
     'use strict';
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('#event-form').bootstrapWizard({
-            onTabClick : function () {
+            onTabClick: function () {
                 return false;
-              },
-            onTabShow: function(tab, navigation, index) {
+            },
+            onTabShow: function (tab, navigation, index) {
                 var $total = navigation.find('li').length;
                 // console.log($total)
                 var $current = index + 1;
 
                 // If it's the last tab then hide the last button and show the finish instead
-
-                if ($current >= 3) {
+                if ($current > 3) {
                     $('#showcase_popup').modal(true);
+                }
+                if ($current >= 3) {
+
                     $('#event-form').find('.pager .next').hide();
                     $('#event-form').find('.pager .finish').show().removeClass('disabled hidden');
                 } else {
@@ -36,14 +38,14 @@
 
                 // remove fontAwesome icon classes
                 function removeIcons(btn) {
-                    btn.removeClass(function(index, css) {
+                    btn.removeClass(function (index, css) {
                         return (css.match(/(^|\s)fa-\S+/g) || []).join(' ');
                     });
                 }
                 $('#hide_back').toggle(true);
                 $('#previous_hide').toggle(false);
                 if ($current > 1 && $current < 3) {
-                 
+
                     // var nextIcon = li.next().find('.fa');
                     // var nextIconClass = nextIcon.attr('class').match(/fa-[\w-]*/).join();
 
@@ -55,7 +57,7 @@
 
                     // removeIcons(btnPrev);
                     // btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
-                    
+
                 } else if ($current == 1) {
                     $('#hide_back').toggle(false);
                     $('#previous_hide').toggle(true);
@@ -63,7 +65,7 @@
                     btnPrev.removeClass('btn-animated from-left fa');
                     removeIcons(btnPrev);
                 } else {
-                    
+
                     $('#previous_hide').toggle(false);
                     $('#hide_back').toggle(true);
                     // remove classes needed for button animations from next button
@@ -71,25 +73,25 @@
                     removeIcons(btnNext);
                 }
             },
-            onNext: function(tab, navigation, index) {
+            onNext: function (tab, navigation, index) {
                 console.log("Showing next tab");
                 window.scrollTo(0, 0);
             },
-            onPrevious: function(tab, navigation, index) {
+            onPrevious: function (tab, navigation, index) {
                 console.log("Showing previous tab");
             },
-            onInit: function() {
+            onInit: function () {
                 $('#event-form ul').removeClass('nav-pills');
             },
-          
+
 
         });
 
         $('#preview-form').bootstrapWizard({
-            onTabClick : function () {
+            onTabClick: function () {
                 return true;
-              },
-            onTabShow: function(tab, navigation, index) {
+            },
+            onTabShow: function (tab, navigation, index) {
                 var $total = navigation.find('li').length;
                 console.log($total)
                 var $current = index + 1;
@@ -110,7 +112,7 @@
 
                 // remove fontAwesome icon classes
                 function removeIcons(btn) {
-                    btn.removeClass(function(index, css) {
+                    btn.removeClass(function (index, css) {
                         return (css.match(/(^|\s)fa-\S+/g) || []).join(' ');
                     });
                 }
@@ -129,7 +131,7 @@
 
                     removeIcons(btnPrev);
                     btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
-                    
+
                 } else if ($current == 1) {
                     $('#hide_back').toggle(false);
                     $('#previous_hide').toggle(true);
@@ -137,7 +139,7 @@
                     btnPrev.removeClass('btn-animated from-left fa');
                     removeIcons(btnPrev);
                 } else {
-                    
+
                     $('#previous_hide').toggle(false);
                     $('#hide_back').toggle(true);
                     // remove classes needed for button animations from next button
@@ -145,25 +147,25 @@
                     removeIcons(btnNext);
                 }
             },
-            onNext: function(tab, navigation, index) {
+            onNext: function (tab, navigation, index) {
                 console.log("Showing next tab");
                 window.scrollTo(0, 0);
             },
-            onPrevious: function(tab, navigation, index) {
+            onPrevious: function (tab, navigation, index) {
                 console.log("Showing previous tab");
             },
-            onInit: function() {
+            onInit: function () {
                 $('#event-form ul').removeClass('nav-pills');
             },
-          
+
 
         });
 
         $('#previewnotshow-form').bootstrapWizard({
-            onTabClick : function () {
+            onTabClick: function () {
                 return true;
-              },
-            onTabShow: function(tab, navigation, index) {
+            },
+            onTabShow: function (tab, navigation, index) {
                 var $total = navigation.find('li').length;
                 console.log($total)
                 var $current = index + 1;
@@ -184,7 +186,7 @@
 
                 // remove fontAwesome icon classes
                 function removeIcons(btn) {
-                    btn.removeClass(function(index, css) {
+                    btn.removeClass(function (index, css) {
                         return (css.match(/(^|\s)fa-\S+/g) || []).join(' ');
                     });
                 }
@@ -203,7 +205,7 @@
 
                     removeIcons(btnPrev);
                     btnPrev.addClass(prevIconClass + ' btn-animated from-left fa');
-                    
+
                 } else if ($current == 1) {
                     $('#hide_back').toggle(false);
                     $('#previous_hide').toggle(true);
@@ -211,7 +213,7 @@
                     btnPrev.removeClass('btn-animated from-left fa');
                     removeIcons(btnPrev);
                 } else {
-                    
+
                     $('#previous_hide').toggle(false);
                     $('#hide_back').toggle(true);
                     // remove classes needed for button animations from next button
@@ -219,27 +221,27 @@
                     removeIcons(btnNext);
                 }
             },
-            onNext: function(tab, navigation, index) {
+            onNext: function (tab, navigation, index) {
                 console.log("Showing next tab");
                 window.scrollTo(0, 0);
             },
-            onPrevious: function(tab, navigation, index) {
+            onPrevious: function (tab, navigation, index) {
                 console.log("Showing previous tab");
             },
-            onInit: function() {
+            onInit: function () {
                 $('#event-form ul').removeClass('nav-pills');
             },
-          
+
 
         });
 
-        $('.remove-item').click(function() {
-            $(this).parents('tr').fadeOut(function() {
+        $('.remove-item').click(function () {
+            $(this).parents('tr').fadeOut(function () {
                 $(this).remove();
             });
         });
 
-        
+
 
     });
 
