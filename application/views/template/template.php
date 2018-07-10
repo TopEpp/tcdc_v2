@@ -166,11 +166,12 @@
             </span>
           </button>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+            <?php if($this->session->userdata('sesUserType')!=1){?>
             <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"> 
-            
             <span class="pull-left">ตั้งค่า</span>
               <!-- <span class="pull-right"><i class="pg-settings_small"></i></span> -->
           </a>
+          <?php }?>
             <a href="<?php echo base_url('logout');?>" class="clearfix bg-master-lighter dropdown-item">
               <span class="pull-left">ออกจากระบบ</span>
               <!-- <span class="pull-right"><i class="pg-power"></i></span> -->
