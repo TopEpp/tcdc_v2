@@ -12974,13 +12974,13 @@ Responsive Util
 
 .login-wrapper .bg-pic {
   position: absolute;
-  width: 90%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
 .login-wrapper .bg-pic>img {
-  width: 85%;
+  width: 90%;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -12989,7 +12989,7 @@ Responsive Util
 }
 
 .login-wrapper .login-container {
-  width: 450px;
+  width: 420px;
   display: block;
   position: relative;
   float: right;
