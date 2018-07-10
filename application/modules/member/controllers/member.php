@@ -103,6 +103,8 @@ class Member extends MY_Controller
 	public function saveEventForm()
 	{
 
+
+
 		ini_set('max_execution_time', 0); 
 		ini_set('memory_limit','2048M');
 		set_time_limit(1800);
@@ -927,17 +929,17 @@ class Member extends MY_Controller
 						//upload image  product_img
 						
 						$product_img = array();
-						// $files = $_FILES;
-						if ( !empty( $_FILES['product_img']['name'][$key+1]) && !is_null($_FILES['product_img']['name'][$key+1])){
+						$files = $_FILES;
+						if ( !empty( $_FILES['product_img']['name'][$key]) && !is_null($_FILES['product_img']['name'][$key])){
 							// //upload data
-							$image = $_FILES['product_img']['tmp_name'][$key+1];
+							$image = $_FILES['product_img']['tmp_name'][$key];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_image']['name']= $files['product_img']['name'][$key+1][$keys];
-									$_FILES['product_image']['type']= $files['product_img']['type'][$key+1][$keys];
-									$_FILES['product_image']['tmp_name']= $files['product_img']['tmp_name'][$key+1][$keys];
-									$_FILES['product_image']['error']= $files['product_img']['error'][$key+1][$keys];
-									$_FILES['product_image']['size']= $files['product_img']['size'][$key+1][$keys];
+									$_FILES['product_image']['name']= $files['product_img']['name'][$key][$keys];
+									$_FILES['product_image']['type']= $files['product_img']['type'][$key][$keys];
+									$_FILES['product_image']['tmp_name']= $files['product_img']['tmp_name'][$key][$keys];
+									$_FILES['product_image']['error']= $files['product_img']['error'][$key][$keys];
+									$_FILES['product_image']['size']= $files['product_img']['size'][$key][$keys];
 									
 									$img = $this->uploadData('product_image','product_img_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
@@ -957,16 +959,16 @@ class Member extends MY_Controller
 
 						//upload image  product_closeup
 						$product_closeup = array();
-						if ( !empty( $_FILES['product_closeup']['name'][$key+1]) && !is_null($_FILES['product_closeup']['name'][$key+1]) ){
+						if ( !empty( $_FILES['product_closeup']['name'][$key]) && !is_null($_FILES['product_closeup']['name'][$key]) ){
 							//upload data
-							$image = $_FILES['product_closeup']['tmp_name'][$key+1];
+							$image = $_FILES['product_closeup']['tmp_name'][$key];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_closeups']['name']= $files['product_closeup']['name'][$key+1][$keys];
-									$_FILES['product_closeups']['type']= $files['product_closeup']['type'][$key+1][$keys];
-									$_FILES['product_closeups']['tmp_name']= $files['product_closeup']['tmp_name'][$key+1][$keys];
-									$_FILES['product_closeups']['error']= $files['product_closeup']['error'][$key+1][$keys];
-									$_FILES['product_closeups']['size']= $files['product_closeup']['size'][$key+1][$keys];
+									$_FILES['product_closeups']['name']= $files['product_closeup']['name'][$key][$keys];
+									$_FILES['product_closeups']['type']= $files['product_closeup']['type'][$key][$keys];
+									$_FILES['product_closeups']['tmp_name']= $files['product_closeup']['tmp_name'][$key][$keys];
+									$_FILES['product_closeups']['error']= $files['product_closeup']['error'][$key][$keys];
+									$_FILES['product_closeups']['size']= $files['product_closeup']['size'][$key][$keys];
 									
 									$closeup = $this->uploadData('product_closeups','product_closeup_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
@@ -985,16 +987,16 @@ class Member extends MY_Controller
 
 						//upload image  product_packshot
 						$product_packshot = array();
-						if (!empty( $_FILES['product_packshot']['name'][$key+1])&& !is_null($_FILES['product_packshot']['name'][$key+1])  ){
+						if (!empty( $_FILES['product_packshot']['name'][$key])&& !is_null($_FILES['product_packshot']['name'][$key])  ){
 							//upload data
-							$image = $_FILES['product_packshot']['tmp_name'][$key+1];
+							$image = $_FILES['product_packshot']['tmp_name'][$key];
 							foreach ($image as $keys => $value) {
 								if (strlen($value) > 0){
-									$_FILES['product_packshots']['name']= $files['product_packshot']['name'][$key+1][$keys];
-									$_FILES['product_packshots']['type']= $files['product_packshot']['type'][$key+1][$keys];
-									$_FILES['product_packshots']['tmp_name']= $files['product_packshot']['tmp_name'][$key+1][$keys];
-									$_FILES['product_packshots']['error']= $files['product_packshot']['error'][$key+1][$keys];
-									$_FILES['product_packshots']['size']= $files['product_packshot']['size'][$key+1][$keys];
+									$_FILES['product_packshots']['name']= $files['product_packshot']['name'][$key][$keys];
+									$_FILES['product_packshots']['type']= $files['product_packshot']['type'][$key][$keys];
+									$_FILES['product_packshots']['tmp_name']= $files['product_packshot']['tmp_name'][$key][$keys];
+									$_FILES['product_packshots']['error']= $files['product_packshot']['error'][$key][$keys];
+									$_FILES['product_packshots']['size']= $files['product_packshot']['size'][$key][$keys];
 									
 									$packshot = $this->uploadData('product_packshots','product_packshot_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
@@ -1012,17 +1014,17 @@ class Member extends MY_Controller
 						
 						//upload pdf  product
 						$product_pdf = array();
-						if (!empty( $_FILES['product_pdf']['name'][$key+1])&& !is_null($_FILES['product_pdf']['name'][$key+1])  ){
+						if (!empty( $_FILES['product_pdf']['name'][$key])&& !is_null($_FILES['product_pdf']['name'][$key])  ){
 							//upload data
-							$image = $_FILES['product_pdf']['tmp_name'][$key+1];
+							$image = $_FILES['product_pdf']['tmp_name'][$key];
 							foreach ($image as $keys => $value) {
 			
 								if (strlen($value) > 0){
-									$_FILES['product_pdfs']['name']= $files['product_pdf']['name'][$key+1][$keys];
-									$_FILES['product_pdfs']['type']= $files['product_pdf']['type'][$key+1][$keys];
-									$_FILES['product_pdfs']['tmp_name']= $files['product_pdf']['tmp_name'][$key+1][$keys];
-									$_FILES['product_pdfs']['error']= $files['product_pdf']['error'][$key+1][$keys];
-									$_FILES['product_pdfs']['size']= $files['product_pdf']['size'][$key+1][$keys];
+									$_FILES['product_pdfs']['name']= $files['product_pdf']['name'][$key][$keys];
+									$_FILES['product_pdfs']['type']= $files['product_pdf']['type'][$key][$keys];
+									$_FILES['product_pdfs']['tmp_name']= $files['product_pdf']['tmp_name'][$key][$keys];
+									$_FILES['product_pdfs']['error']= $files['product_pdf']['error'][$key][$keys];
+									$_FILES['product_pdfs']['size']= $files['product_pdf']['size'][$key][$keys];
 									
 									$pdf = $this->uploadData('product_pdfs','product_pdf_'.($keys+$key),$path);
 									// $imageupload = \Cloudinary\Uploader::upload($value,array(
