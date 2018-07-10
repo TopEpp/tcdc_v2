@@ -19,10 +19,13 @@
                 var $current = index + 1;
 
                 // If it's the last tab then hide the last button and show the finish instead
-                if ($current > 3) {
-                    $('#showcase_popup').modal(true);
-                }
+
                 if ($current >= 3) {
+                    if ($current == 3) {
+                        $('#showcase_popup').modal(true);
+                    } else {
+                        $('#showcase_popup').modal(false);
+                    }
 
                     $('#event-form').find('.pager .next').hide();
                     $('#event-form').find('.pager .finish').show().removeClass('disabled hidden');

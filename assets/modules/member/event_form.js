@@ -807,7 +807,6 @@ $(document).ready(function () {
                 day = "Saturday";
         }
 
-        $('#showcase_popup').modal(false);
         $('#loading').toggle(true);
 
 
