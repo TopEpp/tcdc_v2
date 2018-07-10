@@ -47,7 +47,7 @@
   <body class="fixed-header menu-pin menu-behind">
     <div class="login-wrapper ">
       <!-- START Login Background Pic Wrapper-->
-      <div class="bg-pic col-sm-9" style="padding-right: 0px;padding-left: 0px;">
+      <div class="bg-pic col-sm-8" style="padding-right: 0px;padding-left: 0px;">
         <!-- START Background Pic-->
         <img src="<?php echo base_url('assets/img/img_login_new.jpg') ?>" data-src="<?php echo base_url('assets/img/img_login_new.jpg') ?>" data-src-retina="<?php echo base_url('assets/img/img_login_new.jpg') ?>" alt="" class="lazy">
         <!-- END Background Pic-->
@@ -63,7 +63,7 @@
       </div>
       <!-- END Login Background Pic Wrapper-->
       <!-- START Login Right Container-->
-      <div class="login-container bg-white">
+      <div class="login-container bg-white col-sm-4" style="padding: 0">
         <div class="d-flex align-items-right" style="float: right; padding: 10px; ">
           <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important; font-family: 'dbch';">
             ไทย <input type="checkbox" id="toggle_lang"   class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1) == 'en' ? 'checked="checked"' : ''; ?> > English

@@ -12980,7 +12980,7 @@ Responsive Util
 }
 
 .login-wrapper .bg-pic>img {
-  width: 85%;
+  width: 100%;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
