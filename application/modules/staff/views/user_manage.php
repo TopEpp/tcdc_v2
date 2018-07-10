@@ -54,7 +54,7 @@
               <div class="card-block">
                 Show 
                 <select class="" aria-controls="tableWithSearch" name="table_pageing_length" id="table_pageing_length">
-                   <option value="5">5</option>
+                   <!-- <option value="5">5</option> -->
                    <option value="10">10</option>
                    <option value="20">20</option>
                    <option value="-1">All</option>

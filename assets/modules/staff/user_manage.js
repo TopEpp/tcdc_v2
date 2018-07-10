@@ -13,7 +13,7 @@ function delUser(pid,name){
 
 
 	var initTableWithPage = function() {
-        var table = $('$tableWithSearch');
+        var table = $('#tableWithSearch');
 
         var settings = {
 
@@ -26,10 +26,10 @@ function delUser(pid,name){
             },
             "bPaginate": true,
             "aLengthMenu": [
-              [5, 10, 25, 50, -1],
-              [5, 10, 25, 50, "All"]
+              [ 10, 25, 50, -1],
+              [ 10, 25, 50, "All"]
             ],
-            "iDisplayLength": 5
+            "iDisplayLength": 10
         };
 
         table.dataTable(settings);
@@ -51,8 +51,8 @@ function delUser(pid,name){
               },
               "bPaginate": true,
               "aLengthMenu": [
-                [5, 10, 25, 50, -1],
-                [5, 10, 25, 50, "All"]
+                [ 10, 25, 50, -1],
+                [ 10, 25, 50, "All"]
               ],
               "iDisplayLength": this.value
           };

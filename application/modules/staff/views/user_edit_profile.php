@@ -115,10 +115,10 @@ if ($this->session->flashdata('error')) {
                                           <div class="card-block">
                                             <div class="">
                                               <?php $attributes = array('name' => 'frmEditProfile', 'id' => 'form-edit-profile');
-$lang = $this->uri->segment(1);
-$id = $this->uri->segment(4);
-echo form_open_multipart($lang . '/staff/editProfileSave' . '/' . $id, $attributes);
-?>
+                                                $lang = $this->uri->segment(1);
+                                                $id = $this->uri->segment(4);
+                                                echo form_open_multipart($lang . '/staff/editProfileSave' . '/' . $id, $attributes);
+                                                ?>
                                                 <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
 
                                                 <p>ข้อมูลบุคคล</p>
@@ -872,7 +872,8 @@ $select = '';
                                         <p>ประเภทบัญชี </p>
                                         <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type == 1) ? 'checked="checked"' : ''; ?> > Admin</label> <br>
                                         <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type == 2) ? 'checked="checked"' : ''; ?> > Program Manager</label> <br>
-                                        <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type == 4) ? 'checked="checked"' : ''; ?>> Editor</label>
+                                        <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type == 4) ? 'checked="checked"' : ''; ?>> Editor</label><br>
+                                        <label><input type="radio" name="user_type" value="3" <?php echo ($data->user_type == 3) ? 'checked="checked"' : ''; ?>> User</label>
                                         <?php } else {?>
                                           <input type="hidden" name="user_type" value="<?php echo $data->user_type; ?>">
                                         <?php }?>

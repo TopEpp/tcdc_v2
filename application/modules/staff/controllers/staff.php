@@ -477,7 +477,7 @@ class staff extends MY_Controller {
 				
 			}else{
 				$imageupload = '';
-				$id = $this->session->userdata('sesUserID');
+				// $id_edit = $this->session->userdata('sesUserID');
 				$path = 'uploads/profile/';
 				if (isset( $_FILES['profile_img']['name']) && !empty( $_FILES['profile_img']['name'])){
 					//upload data
