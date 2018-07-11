@@ -42,13 +42,15 @@ class staff_model extends MY_Model{
     {
        //get update user
        $this->db->join('tcdc_member_company','tcdc_member_company.member_id = tcdc_member.user_id','left');
-       $this->db->where('user_type <>',1);
+      
         if(!empty($id)){
             $this->db->select('tcdc_member_company.*,tcdc_member.*');
             $this->db->from('tcdc_member');
             $this->db->where('user_id',$id);
             $query =  $this->db->get();
             return $query->row();
+        }else{
+             $this->db->where('user_type <>',1);
         }
         //get all users
         $query = $this->db->get('tcdc_member');
