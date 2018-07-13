@@ -31,6 +31,20 @@ class Member extends MY_Controller
 		$user_id = $this->session->userdata('sesUserID');
 		$data['alert_data'] = $this->member_model->getAlert($user_id);
 		$data['first_login'] = $this->member_model->getUserLogin($user_id);
+		// print_r($data['first_login']);die();
+		// $this->session->unset_userdata('first_login');
+		// die();
+		//check show first_login
+		$first = $this->session->userdata('first_login');
+		if ( $data['first_login'] == 0){
+					// echo $first;die();
+			if ($first == '1'){
+				$data['first_login'] = 1;
+			}else{
+				$this->session->set_userdata('first_login', '1');
+			}
+		
+		}
 
 		$this->setView('index',$data);
 		$this->publish();

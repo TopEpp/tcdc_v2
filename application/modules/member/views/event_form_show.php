@@ -757,12 +757,12 @@ $select = '';
 
                               <br>
                               <?php
-$status2 = 'checked';
-$status1 = '';
-if (@$member->coordinator_type == 0) {
-    $status1 = 'checked';
-    $status2 = '';
-}?>
+                                  $status2 = 'checked';
+                                  $status1 = '';
+                                  if (@$member->coordinator_type == 0) {
+                                      $status1 = 'checked';
+                                      $status2 = '';
+                                  }?>
                               <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">

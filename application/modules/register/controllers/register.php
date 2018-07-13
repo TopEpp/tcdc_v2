@@ -195,7 +195,7 @@ class Register extends MY_Controller {
 				$link = base_url($this->uri->segment(1)).'/register/confirmEmail?encode='.$encode_rec;
 				$content = array(
 					'name' => $name,
-					'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการลงทะเบียน <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์ <br/>',
+					'content' => 'ยินดีต้อนรับเข้าสู่เทศกาลงานออกแบบเชียงใหม่ ขอบคุณสำหรับการสร้างบัญชีผู้ใช้งาน  <br>คุณสามารถกดที่ลิงค์ด้านล่างเพื่อเข้าสู่เว็บไซต์และสมัครกิจกรรมที่คุณสนใจได้<br/>',
 					'link' => $link,
 					'show_link'=>false
 				);
@@ -231,14 +231,25 @@ class Register extends MY_Controller {
 
 	public function confirmEmail()
 	{
+		$this->load->model('login/login_model');
 		//mearge string 
 		$hashcode = $this->input->get('encode');
 		$text = str_replace(' ', '+', $hashcode);
-
+        $email = $this->encrypt->decode($text);
 		if($this->register_model->verifyEmail($text)){
 	
 			$this->session->set_flashdata('verify', '<div class="alert alert-success text-center">ยืนยันการลงทะเบียนสำเร็จ. กรุณาลงชื่อเพื่อเข้าใช้งานระบบ</div>');
-			redirect(base_url());
+			
+			$res = $this->login_model->login_redirect($email,'1');
+			if($res['status']){
+				if($res['user_type']==1){
+				 redirect(base_url('staff'));
+				}else if($res['user_type']==2){
+				 redirect(base_url('staff/show_user_register'));
+				}else if($res['user_type']==3){
+				 redirect(base_url('member'));
+				}
+			}
 		}else{
 
 			$this->session->set_flashdata('verify', '<div class="alert alert-danger text-center">ยืนยันการลงทะเบียนไม่สำเร็จ. กรุณาลงทะเบียนอีกครั้งหรือติดต่อเจ้าหน้าที่</div>');
@@ -405,7 +416,7 @@ class Register extends MY_Controller {
 		$config['upload_path'] = $path;
 		$config['allowed_types'] = 'jpg|jpeg';
 		$config['encrypt_name'] = TRUE;
-		$config['max_size'] = '2048'; //2MB
+		$config['max_size'] = '8192'; //2MB
 		$config['overwrite'] = FALSE;
 		// $config['max_width'] = '1024';
 		// $config['max_height'] = '1024';

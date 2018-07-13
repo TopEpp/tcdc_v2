@@ -775,7 +775,7 @@
                               <br><br>
 
                               <!-- ข้อมูลผู้ประสานงาน เริ่ม -->
-                              <div id="agent">
+                              <div id="agent" style="display:<?php echo ($status2 == 'checked') ? 'block' : 'none'; ?>">
                                 <!-- <p style="font-weight: bold" >ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p> -->
                              
                                 <div class="form-group-attached">

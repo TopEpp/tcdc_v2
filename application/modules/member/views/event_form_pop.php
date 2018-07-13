@@ -764,15 +764,15 @@
                               <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
                               <br>
                               <div class="radio radio-default">
-                                <input type="radio" value="0" name="radio2" id="radio2Yes" <?php echo $status1;?> >
+                                <input type="radio" value="0" name="radio22" id="radio2Yes" <?php echo $status1;?> >
                                 <label for="radio2Yes">ฉันเป็นผู้ประสานงาน</label>
-                                <input type="radio" value="1" name="radio2" id="radio2No" <?php echo $status2;?>>
+                                <input type="radio" value="1" name="radio22" id="radio2No" <?php echo $status2;?>>
                                 <label for="radio2No">เพิ่มผู้ประสานงาน</label>
                               </div>
                               <br><br>
 
                               <!-- ข้อมูลผู้ประสานงาน เริ่ม -->
-                              <div id="agent">
+                              <div id="agent" style="display:<?php echo ($status2 == 'checked') ? 'block' : 'none'; ?>">
                                 <!-- <p style="font-weight: bold" >ข้อมูลผู้ประสานงานสำหรับการสมัครเข้าร่วม</p> -->
                              
                                 <div class="form-group-attached">

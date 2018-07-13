@@ -36,15 +36,16 @@ body {
     <td style=""><img width="80%"  src="http://www.chiangmaidesignweek.com/register/assets/img/email_header.png"></td>
     </tr>
     <tr>
-        <td style="text-align: left; font-size:14px;">
-        <div style="font-family: 'dbch'; border-radius: 5px;  padding-left:30px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
+        <td >
+        <div style="text-align: left; font-size:14px; width:80%; font-family: 'dbch'; border-radius: 5px;  padding-left:30px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
             <h3>สวัสดีครับ คุณ <?= $name ?></h3>
-            <div style="font-size:14px">
+            <div style="font-size:14px;  width:80%;">
                 <?= $content;?>
                 <?php if (!empty($link) && !$show_link){ ?>
                     <a href="<?= $link ?>">[link]</a> 
                 <?php }else{ ?>
                     <a href="<?= $link ?>"><?php echo $link;?></a> 
+                    <br>หรือสามารถติดตามการประกาศรายชื่อผู้ผ่านการคัดเลือกในวันที่ 10 สิงหาคม 2561 ได้ทางอีเมล 
                 <?php } ?>
                 <br><br>
                 ขอแสดงความนับถือ<br/>
