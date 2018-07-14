@@ -760,7 +760,7 @@
                                                 <div class="form-group  ">
                                                   <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
-                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="image/jpg, image/jpeg" />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1069,7 +1069,7 @@
                                                   ?>
                                                   </div>
                                                   <div class="fallback">
-                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="application/pdf"  />
+                                                    <input  id="product_pdf" name="product_pdf[1][]" type="file" accept="image/jpg, image/jpeg" />
                                                   </div>
                                                 </div>
                                               </div>

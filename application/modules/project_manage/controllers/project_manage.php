@@ -281,6 +281,11 @@ class project_manage extends MY_Controller {
 				'project_id' => $this->input->post('project_id'),
 				'user_id' => $this->input->post('user_id'),			
 			);
+
+			$project_id = $this->input->post('project_id');
+			$id = $this->input->post('user_id');
+
+			$path = 'uploads/'.$project_id.'/'.$id.'/';
 			switch ($project_type) {
 				case 1:
 					$data_regis['target_type'] = $this->input->post('target_type');
@@ -633,7 +638,7 @@ class project_manage extends MY_Controller {
 						//upload image  product_img
 						
 						$product_img = array();
-						// $files = $_FILES;
+						$files = $_FILES;
 						if ( !empty( $_FILES['product_img']['name'][$key+1]) && !is_null($_FILES['product_img']['name'][$key+1])){
 							// //upload data
 							$image = $_FILES['product_img']['tmp_name'][$key+1];
@@ -657,7 +662,6 @@ class project_manage extends MY_Controller {
 							$product_img = implode(",",$product_img);
 							
 						}
-
 						//end upload product_img
 
 						//upload image  product_closeup
@@ -878,8 +882,10 @@ class project_manage extends MY_Controller {
 			 
 		} else {
 		// Files Upload Not Success!!
-		$errors = $this->upload->display_errors();
-		return $errors;
+			$errors = $this->upload->display_errors();
+			$this->session->set_flashdata('error','<div class="alert alert-danger text-center">'.$errors.'. </div>' );
+			redirect(base_url('show_user_register'));
+			return $errors;
 			
 		}
 
