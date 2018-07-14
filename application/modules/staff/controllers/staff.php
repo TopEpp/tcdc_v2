@@ -29,7 +29,7 @@ class staff extends MY_Controller {
 
 	function project($project_id=''){
 
-		$this->config->set_item('title','สร้างโครงการ');
+		$this->config->set_item('title','สร้างกิจกรรม');
 
 		$data['project_id'] = $project_id;
 		$data['project_type'] = $this->staff_model->getProjectType();
@@ -79,6 +79,7 @@ class staff extends MY_Controller {
 			// $data['prj']->project_id = $this->input->post('project_id');
 			@$data['prj']->project_name = $this->input->post('project_name');
 			@$data['prj']->project_type = $this->input->post('project_type');
+			@$data['prj']->event_type = @$this->input->post('event_type');
 			@$data['prj']->project_detail = $this->input->post('project_detail');
 			@$data['prj']->project_provenance = $this->input->post('project_provenance');
 			@$data['prj']->project_start_date = $this->input->post('project_start_date');
@@ -102,6 +103,7 @@ class staff extends MY_Controller {
             	'project_create' => $this->session->userdata('sesUserID'),
                 'project_name' => $this->input->post('project_name'),
                 'project_type' => $this->input->post('project_type'),
+                'event_type' => $this->input->post('event_type'),
                 'project_detail' => $this->input->post('project_detail'),
                 'project_provenance' => $this->input->post('project_provenance'),
                 'project_start_date' => $project_start_date,

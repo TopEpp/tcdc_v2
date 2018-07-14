@@ -22,6 +22,14 @@
             }
         }
     });
+
+    $('#project_type').change(function(){
+      if(this.value==4){
+        $('#event_type_div').show();
+      }else{
+        $('#event_type_div').hide();
+      }
+    });
     
     // $('#form-project').validate();
     

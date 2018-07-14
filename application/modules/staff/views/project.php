@@ -72,7 +72,28 @@
                                   </div>
                                 </div>
 
+                              </div>
+                            </div>
+                            <div style="display: none;" id="event_type_div">
+                              <br>
+                              <p>เลือกประเภท Event</p>
+                               
+                              <div class="form-group-attached">
+                                <div class="row clearfix">
 
+                                  <div class="col-sm">
+                                    <div class="form-group form-group-default required form-group-default-selectFx">
+                                      <label><!-- เลือกประเภทโครงการหรือกิจกรรม --></label>
+                                      <select class="cs-select cs-skin-slide cs-transparent form-control" name="event_type" id="event_type" data-init-plugin="cs-select">
+                                        <option value="1">เยี่ยมชม (Tour)</option>
+                                        <option value="2">เปิดบ้าน (Open House)</option>
+                                        <option value="3">การแสดง (Performance)</option>
+                                        <option value="4">ปาร์ตี้ (Party)</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                </div>
                               </div>
                             </div>
 
