@@ -233,10 +233,20 @@ class staff extends MY_Controller {
 		$this->publish();
 	}
 
-	function export_user($project_id){
+	function export_user($project_id=''){
 		$data = array();
-		$data['prj'] = $this->staff_model->getProjectData($project_id);
-		$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
+		$query = $this->db->query('SELECT * FROM std_area_province');
+		$data['province'] = $query->result();
+		$query = $this->db->query('SELECT * FROM std_countries');
+		$data['countries'] = $query->result();
+		
+		if($project_id){
+			$data['prj'] = $this->staff_model->getProjectData($project_id);
+			$data['member_reg'] = $this->staff_model->getProjectRegist($project_id);
+		}else{
+			$data['member_reg'] = $this->staff_model->getUsers();
+		}
+		
 
 		$this->load->view('export_user',$data);
 	}

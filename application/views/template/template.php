@@ -165,7 +165,11 @@
               
             </span>
           </button>
+          <?php $type = [1 => 'Admin', 2 => 'Program Manager', 3 => 'Member', 4 => 'Editor'];?>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+            <a href="#" class="dropdown-item">
+              <span>Login as <?php echo $type[$this->session->userdata('sesUserType')]?></span>
+            </a>
             <?php if($this->session->userdata('sesUserType')!=1){?>
             <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"> 
             <span class="pull-left">ตั้งค่า</span>

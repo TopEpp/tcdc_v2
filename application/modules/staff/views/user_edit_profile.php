@@ -870,7 +870,7 @@ $select = '';
                                         <p>เข้าใช้ครั้งล่าสุด : 25/05/2561</p> -->
                                         <?php if ($this->session->userdata('sesUserType') == 1) {?>
                                         <p>ประเภทบัญชี </p>
-                                        <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type == 1) ? 'checked="checked"' : ''; ?> > Admin</label> <br>
+                                        <!-- <label><input type="radio" name="user_type" value="1" <?php echo ($data->user_type == 1) ? 'checked="checked"' : ''; ?> > Admin</label> <br> -->
                                         <label><input type="radio" name="user_type" value="2" <?php echo ($data->user_type == 2) ? 'checked="checked"' : ''; ?> > Program Manager</label> <br>
                                         <label><input type="radio" name="user_type" value="4" <?php echo ($data->user_type == 4) ? 'checked="checked"' : ''; ?>> Editor</label><br>
                                         <label><input type="radio" name="user_type" value="3" <?php echo ($data->user_type == 3) ? 'checked="checked"' : ''; ?>> Member</label>

@@ -20,7 +20,7 @@
           <div class=" container-fluid   container-fixed-lg">
             
           <h3 style="font-family: 'dbch' !important; ">การจัดการผู้สมัคร</h3>
-            <div id="rootwizard" class="m-t-50">
+            <div id="rootwizard" >
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <?php 

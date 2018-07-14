@@ -1,5 +1,15 @@
 $(function(){
 
+  $('.tab_btn').click(function(){
+     var tab_id = this.id;
+     $('.tab_btn').removeClass('active');
+     $('.tab-pane').removeClass('active');
+
+     var id = tab_id.split('_');
+     $('#'+this.id).addClass('active');
+     $('#tab'+id[1]).addClass('active');
+  });
+
   var reg_status = $('#reg_status').val();
   if(reg_status==1){
     // $('#div_reject').hide();
@@ -42,6 +52,24 @@ $(function(){
             change: function() {
                 var html = this.textarea.getValue();
                 $("input[name='reject_detail']").val(html);
+            }
+        }
+    });
+
+  $('.work_talk_detail').wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='work_talk_detail']").val(html);
+            }
+        }
+    });
+
+  $('.join_property').wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='join_property']").val(html);
             }
         }
     });

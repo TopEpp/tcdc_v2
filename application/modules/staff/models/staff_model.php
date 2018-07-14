@@ -41,10 +41,11 @@ class staff_model extends MY_Model{
     public function getUsers($id = '')
     {
        //get update user
-       $this->db->join('tcdc_member_company','tcdc_member_company.member_id = tcdc_member.user_id','left');
-      
+        $this->db->select('tcdc_member_company.*,tcdc_member.*,tcdc_status_group.status_name');
+        $this->db->join('tcdc_member_company','tcdc_member_company.member_id = tcdc_member.user_id','left');
+        $this->db->join('tcdc_status_group','tcdc_status_group.status_id = tcdc_member.job','left');
         if(!empty($id)){
-            $this->db->select('tcdc_member_company.*,tcdc_member.*');
+            
             $this->db->from('tcdc_member');
             $this->db->where('user_id',$id);
             $query =  $this->db->get();
@@ -53,6 +54,7 @@ class staff_model extends MY_Model{
              $this->db->where('user_type <>',1);
         }
         //get all users
+
         $query = $this->db->get('tcdc_member');
         return $query->result();
     
@@ -207,9 +209,10 @@ class staff_model extends MY_Model{
     }
 
     function getProjectRegist($project_id){
-        $this->db->select("tcdc_prj_register.*, concat(tcdc_member.firstname,' ',tcdc_member.lastname) as member_name , tcdc_member.email, tcdc_member.phone ");
+        $this->db->select("tcdc_prj_register.*, concat(tcdc_member.firstname,' ',tcdc_member.lastname) as member_name , tcdc_member.*,tcdc_status_group.status_name ");
         $this->db->where('project_id',$project_id);
         $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj_register.user_id');
+        $this->db->join('tcdc_status_group','tcdc_status_group.status_id = tcdc_member.job','left');
         $query = $this->db->get('tcdc_prj_register');
 
         return $query->result();

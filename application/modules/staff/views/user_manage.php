@@ -39,7 +39,13 @@
 
                 <div class="pull-right">
                   <div class="col-xs-12">
-                      <a id="show-modal" class="btn btn-primary btn-cons" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างผู้จัดการ</a>
+                      <a id="show-modal" class="btn btn-primary" style="height: 35px;" href="<?php echo base_url('staff/create_user'); ?>"><i class="fa fa-plus"></i> สร้างผู้จัดการ</a>
+                  </div>
+                </div>
+
+                <div class="pull-right">
+                  <div class="col-xs-12" style="margin-right: 10px;">
+                      <div class="btn btn-default" onclick="window.open('<?php echo base_url('staff/export_user/')?>')">Download บัญชีผู้ใช้งาน</div>
                   </div>
                 </div>
 

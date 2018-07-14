@@ -38,16 +38,16 @@
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
+                  <a class="active tab_btn" data-toggle="tab" href="#tab2" id="tabbtn_2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ผลงานออกแบบ</span></a>
+                  <a class="tab_btn" data-toggle="tab" href="#tab3" id="tabbtn_3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ผลงานออกแบบ</span></a>
                 </li>
                 <li class="nav-item" <?php echo ($regis['reg_status']==0) ? 'style="display: none;"':''; ?> >
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>การร่วมจัดแสดงและเอกสาร</span></a>
+                  <a class="tab_btn" data-toggle="tab" href="#tab4" id="tabbtn_4" role="tab"><i class="fa fa-clipboard tab-icon"></i> <span>การร่วมจัดแสดงและเอกสาร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab<?php echo ($regis['reg_status']==0) ? '4"':'5'; ?>" role="tab"><i class="fa fa-check tab-icon"></i> <span>การจัดการ</span></a>
+                  <a class="tab_btn" data-toggle="tab" href="#tab<?php echo ($regis['reg_status']==0) ? '4':'5'; ?>" id="tabbtn_<?php echo ($regis['reg_status']==0) ? '4':'5'; ?>" role="tab"><i class="fa fa-check tab-icon"></i> <span>การจัดการ</span></a>
                 </li>
                 <!-- <li class="nav-item">
                   <a class="" data-toggle="tab" href="#tab6" role="tab"><i class="fa fa-check tab-icon"></i> <span>เผยแพร่</span></a>
