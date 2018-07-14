@@ -19,7 +19,7 @@
            <input type="hidden"  name="project_id" value="<?php echo $project[0]->project_id;?>" />
            <input type="hidden" name="redirect" value="<?php echo current_url(); ?>" />
           <div class=" container-fluid   container-fixed-lg">
-            <div id="rootwizard" class="m-t-50">
+            <div id="rootwizard_appv" >
 
              <!-- show validate error -->
               <!-- status edit -->
