@@ -41,7 +41,7 @@
                   <a class="active tab_btn" data-toggle="tab" href="#tab2" id="tabbtn_2" role="tab"><i class="fa fa-hospital-o tab-icon"></i> <span>ข้อมูลบุคคล/องค์กร</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab_btn" data-toggle="tab" href="#tab3" id="tabbtn_3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>ข้อมูลการลงทะเบียน</span></a>
+                  <a class="tab_btn" data-toggle="tab" href="#tab3" id="tabbtn_3" role="tab"><i class="fa fa-credit-card tab-icon"></i> <span>มาร์เก็ต</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="tab_btn" data-toggle="tab" href="#tab5" id="tabbtn_5" role="tab"><i class="fa fa-check tab-icon"></i> <span>การจัดการ</span></a>
@@ -534,17 +534,18 @@
                       <div class="padding-30 sm-padding-5">
                         <div class="row clearfix">
                             <div class="col-sm-12">
+                            <p style="font-weight: bold;">ชื่อร้าน</p>
                               <div class="form-group form-group-default required">
-                                <label>ชื่อร้าน</label>
-                                <input name="pop_shop_name" type="text" placeholder="ระบุชื่อร้านค้า" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
+                                <label>&nbsp;</label>
+                                <input name="pop_shop_name" type="text" placeholder="" class="form-control"  value="<?php echo @$regis['pop_shop_name'];?>" >
                               </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                           <div class="col-sm-12">
-                            <p>เกี่ยวกับแบรนด์(เล่าถึงที่มาของร้านและประเภทสินค้าที่ขาย)</p>
+                            <p style="font-weight: bold;">เกี่ยวกับแบรนด์</p>
                             <div class="wysiwyg5-wrapper b-a b-grey">
-                              <textarea  name="pop_story" id="wysiwyg5" class="wysiwyg demo-form-wysiwyg"  placeholder="โปรดระบุบแนวความคิด ..." ui-jq="wysihtml5" ui-options="{
+                              <textarea  name="pop_story" id="" class="pop_story demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                               html: true,
                               stylesheets: ['pages/css/editor.css']
                               }"><?php echo @$regis['pop_story'];?></textarea>
@@ -552,26 +553,51 @@
                           </div>
                         </div>
                         <br>
-                        <h5>ประเภทของที่ขาย</h5>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                            <p style="font-weight: bold;">ช่วงราคาสินค้า</p>
+                              <div class="form-group form-group-default required form-group-default-selectFx">
+                                <label>&nbsp;</label>
+                                <select style="width:100%;"  id="pop_range" name="pop_range" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
+  
+                                  <option  <?php echo (@$regis['pop_range'] == '') ? 'selected':'';?> value="" >เลือก</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 1) ? 'selected':'';?> value="1">0 - 100 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 2) ? 'selected':'';?> value="2">101 - 1000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 3) ? 'selected':'';?> value="3">1,001 - 5,000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 4) ? 'selected':'';?> value="4">5,001 - 10,000 บาท</option>
+                                  <option  <?php echo (@$regis['pop_range'] == 5) ? 'selected':'';?> value="5">10,000 บาท ขึ้นไป</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+                        <p style="font-weight: bold;">ประเภทสินค้า</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
                               <div class="form-group-default required">
                         
                                 <div class="checkbox check-success">
-                                  <input <?php echo (!empty(@$regis['pop_product_type']))? 'checked':''?> type="checkbox"  value="1" name="pop_select" id="pop_select1">
-                                  <label for="pop_select1">Product</label>
+                                  <input <?php echo (@$regis['pop_product_type']  == 1)? 'checked':''?> type="checkbox"  value="1" name="pop_product_type" id="pop_select1">
+                                  <label for="pop_select1">เสื้อผ้าและสินค้าไลฟ์สไตล์</label>
                                 </div>
                                 <div class="checkbox check-success">
-                                  <input <?php echo (!empty(@$regis['pop_food_type']))? 'checked':''?> type="checkbox"  value="2" name="pop_select" id="pop_select2">
-                                  <label for="pop_select2">Food & Beverage</label>
+                                  <input <?php echo (@$regis['pop_product_type'] == 2)? 'checked':''?> type="checkbox"  value="2" name="pop_product_type" id="pop_select2">
+                                  <label for="pop_select2">ของตกแต่งบ้าน</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == 3)? 'checked':''?> type="checkbox"  value="3" name="pop_product_type" id="pop_select3">
+                                  <label for="pop_select3">เฟอร์นิเจอร์</label>
+                                </div>
+                                <div class="checkbox check-success">
+                                  <input <?php echo (@$regis['pop_product_type'] == 4)? 'checked':''?> type="checkbox"  value="4" name="pop_product_type" id="pop_select4">
+                                  <label for="pop_select4">อาหารและเครื่องดื่ม</label>
                                 </div>
                             
                               </div>
                             </div>
                         </div>
                         <br>
-                        <div id="product" style="display:none;">
-                          <h5>Product</h5>
+                        <!-- <div id="product" style="display:none;">
+                          <p>Product</p>
                           <p >ประเภทของที่ขาย</p>
                           <div class="row clearfix">
                               <div class="col-sm-12">
@@ -626,32 +652,35 @@
                               </div>
                               </div>
                           </div>
-                        </div>
+                        </div> -->
                          <br>
-                        <h5 >แนบรูปสินค้า<span style="color:red">*</span></h5>
-
+                        <p style="font-weight: bold;">แนบภาพสินค้า<span style="color:red">*</span></p>
+                                <hr/>
                         <div class="col-sm-12">
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group required ">
-                                  <label>ภาพรวมของผลงาน</label>
+                                  <label>ภาพรวมของสินค้า <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                  
                                   <div class="row">
                                   <?php
-                                        if (!empty($regis['pop_img'])){
-                                          
-                                          $pop_img = explode(',',$regis['pop_img']);
+                                        if (!empty($regis['pop_img'])){ ?>
+                                          <input  type="hidden" id="have_img" value="true">
+                                        <?php  $pop_img = explode(',',$regis['pop_img']);
                                       
-                                          foreach ($pop_img as $key => $val) {
-                                            echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                            echo '&nbsp;';
-                                          }
-                                        }
-                                      
-                                    ?>
+                                        foreach ($pop_img as $key => $val) { ?>
+                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          echo '&nbsp;'; -->
+                                      <?php }
+                                        }else{ ?>
+                                           <input  type="hidden" id="have_img" value="false">
+                                      <?php  }
+                                   ?>
                                   </div>
                                  
                                   <div class="fallback">
-                                    <input id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                    <input class="pop_img" id="product_img" name="pop_img[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -661,23 +690,24 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group ">
-                                  <label>ภาพ Close Up</label>
+                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                   <div class="row">
                                   <?php
                                       if (!empty($regis['pop_closeup'])){
                                         
                                         $pop_closeup = explode(',',$regis['pop_closeup']);
                                     
-                                        foreach ($pop_closeup as $key => $val) {
-                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                          echo '&nbsp;';
-                                        }
+                                        foreach ($pop_closeup as $key => $val) { ?>
+                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          echo '&nbsp;'; -->
+                                       <?php }
                                       }
                                     
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
+                                    <input id="product_closeup" class="pop_closeup" name="pop_closeup[]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
                                   </div>
                                 </div>
                               </div>
@@ -687,23 +717,24 @@
                             <div class="row clearfix">
                               <div class="col-sm-12">
                                 <div class="form-group ">
-                                  <label>ภาพ Pack Shot</label>
+                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                   <div class="row">
                                   <?php
                                       if (!empty($regis['pop_packshot'])){
                                         
                                         $pop_packshot = explode(',',$regis['pop_packshot']);
                                     
-                                        foreach ($pop_packshot as $key => $val) {
-                                          echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
-                                          echo '&nbsp;';
-                                        }
+                                        foreach ($pop_packshot as $key => $val) { ?>
+                                          <img src="<?= base_url().$val;?>" width='100px' height="100">
+                                          <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));  
+                                          echo '&nbsp;'; -->
+                                       <?php }
                                       }
                                     
                                   ?>
                                   </div>
                                   <div class="fallback">
-                                    <input id="product_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
+                                    <input id="product_packshot" class="pop_packshot" name="pop_packshot[]" type="file" multiple="multiple" accept="image/jpeg, image/png" />
                                   </div>
                                   
                                 </div>
