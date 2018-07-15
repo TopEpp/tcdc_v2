@@ -23,6 +23,21 @@ class Member extends MY_Controller
 		$this->config->set_item('title','กิจกรรม');
 
 		$data['project'] = $this->staff_model->getProject();
+		
+		$events = false;
+		foreach ($data['project'] as $key => $value) {
+			if($value->project_type == 4 && $events){
+				$events = true;
+				unset($data['project'][$key]);
+			}
+			else if($value->project_type == 4 && !$events){
+				$data['project'][$key]->project_name = 'Events';
+			}
+		}
+		// print_r($data['project']);die();
+		// die();
+		$data['prj_events'] =$this->member_model->getProjectEvents();
+		// print_r($data['prj_events']);die();
 		$data['status_regis'] = $this->member_model->getStatusRegis();
 
 		$data['news'] = $this->staff_model->getNews();
@@ -225,7 +240,7 @@ class Member extends MY_Controller
 				$this->form_validation->set_rules('work_talk_scope','ขอบเขตเนื้อหาเหมาะสมกับ', 'trim|required');
 				break;
 			case 4:
-				$this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
+				// $this->form_validation->set_rules('event_type','ประเภทกิจกรรม', 'trim|required');
 				$this->form_validation->set_rules('event_name_th','ชื่อกิจกรรม (ภาษาไทย)', 'trim|required');
 				// $this->form_validation->set_rules('event_name_en','ชื่อกิจกรรม (ภาษาอังกฤษ)', 'trim|required');
 			
@@ -415,8 +430,8 @@ class Member extends MY_Controller
 					case 4:
 						$this->config->set_item('title','ลงทะเบียน '.$data['project'][0]->type_name);
 
-						$data['regis']['event_type'] = $this->input->post('event_type');
-						$data['regis']['event_type_other'] = $this->input->post('event_type_other');
+						// $data['regis']['event_type'] = $this->input->post('event_type');
+						// $data['regis']['event_type_other'] = $this->input->post('event_type_other');
 						$data['regis']['event_name_th'] = $this->input->post('event_name_th');
 						// $data['regis']['event_name_en'] = $this->input->post('event_name_en');
 						$data['regis']['event_detail'] = $this->input->post('event_detail');
@@ -817,8 +832,8 @@ class Member extends MY_Controller
 						$finish_date = $tmp[2].'-'.$tmp[0].'-'.$tmp[1];
 					}
 					// echo $finish_date;die();
-					$data_regis['event_type'] = $this->input->post('event_type');
-					$data_regis['event_type_other'] = $this->input->post('event_type_other');
+					// $data_regis['event_type'] = $this->input->post('event_type');
+					// $data_regis['event_type_other'] = $this->input->post('event_type_other');
 					$data_regis['event_name_th'] = $this->input->post('event_name_th');
 					// $data_regis['event_name_en'] = $this->input->post('event_name_en');
 					$data_regis['event_detail'] = $this->input->post('event_detail');
@@ -1240,7 +1255,7 @@ class Member extends MY_Controller
 		$config['upload_path'] = $path;
 		$config['allowed_types'] = 'jpg|jpeg';
 		// $config['encrypt_name'] = TRUE;
-		$config['max_size'] = '2048'; //2MB
+		// $config['max_size'] = '2048'; //2MB
 		$config['overwrite'] = FALSE;
 		// $config['max_width'] = '1024';
 		// $config['max_height'] = '1024';

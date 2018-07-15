@@ -39,7 +39,7 @@ body {
         <td >
         <div style="text-align: left; font-size:14px; width:80%; font-family: 'dbch'; border-radius: 5px;  padding-left:30px; box-shadow: 3px 2px 8px #888888;  background: #fff;">
             <h3>สวัสดีครับ คุณ <?= $name ?></h3>
-            <div style="font-size:14px;  width:80%;">
+            <!-- <div style="font-size:14px;  width:80%;"> -->
                 <?= $content;?>
                 <?php if (!empty($link) && !$show_link){ ?>
                     <a href="<?= $link ?>">[link]</a> 
@@ -51,7 +51,7 @@ body {
                 ขอแสดงความนับถือ<br/>
                 ศูนย์สร้างสรรค์งานออกแบบ เชียงใหม่<br/>
                 ผู้จัดเทศกาลงานออกแบบเชียงใหม่</br>  
-            </div>
+            <!-- </div> -->
         </div>
         </td>
     </tr>

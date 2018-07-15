@@ -114,6 +114,7 @@ $(function () {
         $("input[name='product_lastname[0]']", clone_data).attr("name", 'product_lastname[' + cloneIndex + ']');
 
         $("input[name='product_img[0][]']", clone_data).attr("name", 'product_img[' + cloneIndex + '][]');
+        $("input[name='product_pdf[0][]']", clone_data).attr("name", 'product_pdf[' + cloneIndex + '][]');
         $("input[name='product_closeup[0][]']", clone_data).attr("name", 'product_closeup[' + cloneIndex + '][]');
         $("input[name='product_packshot[0][]']", clone_data).attr("name", 'product_packshot[' + cloneIndex + '][]');
         $(".check_product", clone_data).attr("id", 'check_product' + cloneIndex);

@@ -1070,7 +1070,7 @@ $select = '';
                                                 <div class="form-group  ">
                                                   <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
                                                   <div class="fallback">
-                                                    <input  id="product_pdf" name="product_pdf[0][]" type="file" accept="application/pdf"  />
+                                                    <input  id="product_pdf" name="product_pdf[0][]" type="file" accept="image/jpg, image/jpeg"  />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1362,8 +1362,22 @@ if (!empty($value['product_img'])) {
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
                                                   <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
+                                                    <div class="row">
+                                                    <?php
+                                                      if (!empty($value['product_pdf'])) {
+                                                      $product_img = explode(',', $value['product_pdf']);
+
+                                                          foreach ($product_img as $key => $val) {?>
+                                                            <img src="<?=base_url() . $val;?>" width='100px' height="100">
+                                                            <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
+                                                            echo '&nbsp;'; -->
+                                                          <?php }
+                                                      }
+
+                                                      ?>
+                                                    </div>
                                                   <div class="fallback">
-                                                    <input  id="product_pdf" name="product_pdf[<?php echo $keys; ?>][]" type="file" accept="application/pdf"  />
+                                                    <input  id="product_pdf" name="product_pdf[<?php echo $keys; ?>][]" type="file" accept="image/jpg, image/jpeg" />
                                                   </div>
                                                 </div>
                                               </div>
@@ -1376,17 +1390,17 @@ if (!empty($value['product_img'])) {
                                                   <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
                                                   <div class="row">
                                                   <?php
-if (!empty($value['product_closeup'])) {
-        $product_img = explode(',', $value['product_closeup']);
+                                                    if (!empty($value['product_closeup'])) {
+                                                    $product_img = explode(',', $value['product_closeup']);
 
-        foreach ($product_img as $key => $val) {?>
+                                                        foreach ($product_img as $key => $val) {?>
                                                           <img src="<?=base_url() . $val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
                                                           echo '&nbsp;'; -->
-                                                       <?php }
-    }
+                                                        <?php }
+                                                    }
 
-    ?>
+                                                    ?>
                                                   </div>
                                                   <div class="fallback">
                                                     <input id="product_closeup" name="product_closeup[<?php echo $keys; ?>][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />

@@ -181,6 +181,23 @@ class member_model extends MY_Model{
             return $query->row();
         }
 
+
+        function getProjectEvents($id = ''){
+        
+            if(!empty($id)){
+                $this->db->where('tcdc_prj.project_id',$id);
+            }
+            $this->db->select("tcdc_prj.*, tcdc_prj_type.type_name, count(tcdc_prj_register.reg_id) as num_reg , concat(tcdc_member.firstname,' ',tcdc_member.lastname) as project_update_user ");
+            $this->db->from('tcdc_prj');
+            $this->db->where('project_type',4);
+            $this->db->join('tcdc_prj_type','tcdc_prj.project_type = tcdc_prj_type.type_id');
+            $this->db->join('tcdc_prj_register ','tcdc_prj_register.project_id = tcdc_prj.project_id','left');
+            $this->db->join('tcdc_member','tcdc_member.user_id = tcdc_prj.project_create','left');
+            $this->db->group_by('tcdc_prj.project_id');
+            $query = $this->db->get();
+            return $query->result();
+        }
+
   
 
 }
