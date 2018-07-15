@@ -36,6 +36,14 @@ class project_manage extends MY_Controller {
 		$data['project'] = $this->staff_model->getProject($project_id);
 		$data['member'] = $this->staff_model->getUsers($user_id);	
 		$data['regis'] = $this->member_model->getUserRegis($project_id,$user_id);
+		if (!empty($data['regis']['join_start_date'])){
+			$tmp = explode('-',$data['regis']['join_start_date']);
+			$data['regis']['join_start_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
+		}
+		if (!empty($data['regis']['join_finish_date'])){
+			$tmp = explode('-',$data['regis']['join_finish_date']);
+			$data['regis']['join_finish_date'] = $tmp[1].'/'.$tmp[2].'/'.$tmp[0];
+		}
 		$data['project_id'] = $project_id;
 		$data['user_id'] = $user_id;
 

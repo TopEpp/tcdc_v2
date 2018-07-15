@@ -74,6 +74,28 @@ $(function(){
         }
     });
 
+  $('.event_detail').wysihtml5({
+        events: {
+            change: function() {
+                var html = this.textarea.getValue();
+                $("input[name='event_detail']").val(html);
+            }
+        }
+    });
+
+
+  $('.datepicker-year').datepicker({
+        format: "yyyy",
+        weekStart: 1,
+        viewMode: "years",
+        minViewMode: "years"
+    });
+
+    $('.datepicker-range_event').datepicker();
+
+
+    $('.timepicker').timepicker();
+
 
 }); 
 
