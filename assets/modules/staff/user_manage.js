@@ -40,22 +40,34 @@ function delUser(pid,name){
         });
 
         $('#table_pageing_length').change(function(){
-          var settings = {
+          if(this.value>0){
+              var settings = {
 
-              "sDom": "<t><'row'<p i>>",
-              "destroy": true,
-              "scrollCollapse": true,
-              "oLanguage": {
-                  "sLengthMenu": "_MENU_ ",
-                  "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-              },
-              "bPaginate": true,
-              "aLengthMenu": [
-                [ 10, 25, 50, -1],
-                [ 10, 25, 50, "All"]
-              ],
-              "iDisplayLength": this.value
-          };
+                "sDom": "<t><'row'<p i>>",
+                "destroy": true,
+                "scrollCollapse": true,
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_ ",
+                    "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+                },
+                "bPaginate": true,
+                "aLengthMenu": [
+                  [ 10, 25, 50, -1],
+                  [ 10, 25, 50, "All"]
+                ],
+
+                "iDisplayLength": this.value
+            };
+          }else{
+              var settings = {
+
+                "sDom": "<t><'row'<p i>>",
+                "destroy": true,
+                "scrollCollapse": true,
+                "bPaginate": false
+            };
+          }
+          
             table.dataTable(settings);
         });
     }
