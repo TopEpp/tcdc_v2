@@ -153,10 +153,10 @@
                                   <?php }?>
                                 </tr>
                               <?php }else{
-
+                                  $event_type = ['','เยี่ยมชม (Tour)','เปิดบ้าน (Open House)','การแสดง (Performance)','ปาร์ตี้ (Party)'];
                                 foreach ($prj_events as $key => $prj) { ?>
-                                                                  <tr>
-                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name; ?><br/>รายละเอียด<p><?php echo $prj->project_detail; ?></p></td>
+                                <tr>
+                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name.' '.@$event_type[$prj->event_type]; ?><br/>รายละเอียด<p><?php echo $prj->project_detail; ?></p></td>
                                   <?php if ($this->session->userdata('sesUserType') == 1) {?>
                                     <td width="5%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg; ?> ราย</td>
 

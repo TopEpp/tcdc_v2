@@ -849,7 +849,38 @@
                   <div class="row row-same-height">
                     <div class="col-md-12">
                       <div class="padding-30 sm-padding-5">
-  
+                        <!-- <p style="font-weight: bold;">ประเภท</p>
+                        <div class="row clearfix">
+                          <input type="hidden" name="event_type" id="event_type">
+                          <div class="form-group-default required">
+                            <div class="col-sm-12">
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '1')? 'checked':''?> type="checkbox"  value="1" name="event_ty" id="event_ty1">
+                                <label for="event_ty1">เยี่ยมชม (Tour)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '2')? 'checked':''?> type="checkbox"  value="2" name="event_ty" id="event_ty2">
+                                <label for="event_ty2">เปิดบ้าน (Open House)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '3')? 'checked':''?> type="checkbox"  value="3" name="event_ty" id="event_ty3">
+                                <label for="event_ty3">การแสดง (Performance)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '4')? 'checked':''?> type="checkbox"  value="4" name="event_ty" id="event_ty4">
+                                <label for="event_ty4">ปาร์ตี้ (Party)</label>
+                              </div>
+                              <div class="checkbox check-success">
+                                <input  <?php echo (@$regis['event_type'] == '5')? 'checked':''?> type="checkbox"  value="5" name="event_ty" id="event_ty5">
+                                <label for="event_ty5">อื่นๆ (โปรดระบุ)</label>
+                                <div class="form-group form-group-default " id="event_type_other" style="display:none;">
+                                  <input type="text" name="event_type_other"  class="form-control" value="<?php echo @$regis['event_type_other']; ?>">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br> -->
                         <p style="font-weight: bold;">ชื่อกิจกรรม</p>
                         <div class="row clearfix">
                             <div class="col-sm-12">
