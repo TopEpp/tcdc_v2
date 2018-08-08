@@ -31,7 +31,7 @@ class Member extends MY_Controller
 				unset($data['project'][$key]);
 			}
 			else if($value->project_type == 4 && !$events){
-				$data['project'][$key]->project_name = 'Events';
+				$data['project'][$key]->project_name = 'Events 2018';
 			}
 		}
 		// print_r($data['project']);die();

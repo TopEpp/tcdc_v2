@@ -58,11 +58,11 @@
 
                 <div class="card card-transparent">
                   <div class="card-header ">
-                    <?php   if($this->session->flashdata('error')){
-                    echo $this->session->flashdata('error');
-                    $this->session->unset_userdata('error');
-                    }  
-                    ?>
+                    <?php if ($this->session->flashdata('error')) {
+    echo $this->session->flashdata('error');
+    $this->session->unset_userdata('error');
+}
+?>
                     <!-- status product -->
                     <?php if ($this->session->flashdata('msg')) {?>
                           <input type="hidden" id="msg" value="<?php echo $this->session->flashdata('msg'); ?>">
@@ -88,45 +88,47 @@
                         </thead>
                         <tbody>
                           <?php
-                        foreach ($project as $key => $prj) {
+foreach ($project as $key => $prj) {
 
-                            $diff = date_diff(date_create($prj->register_finish_date), date_create(date('Y-m-d')));
+    $diff = date_diff(date_create($prj->register_finish_date), date_create(date('Y-m-d')));
 
-                            if (!empty($status_regis[$prj->project_id]->status)) {
-                                if (@$status_regis[$prj->project_id]->reg_status) 
-                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ได้เข้าร่วมกิจกรรม</span>';                         
-                                else
-                                  $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">สมัครแล้ว</span>';
-                            } else {
-                                $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">กดเพื่อสมัคร</span>';
-                            }
+    if (!empty($status_regis[$prj->project_id]->status)) {
+        if (@$status_regis[$prj->project_id]->reg_status) {
+            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ได้เข้าร่วมกิจกรรม</span>';
+        } else {
+            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">สมัครแล้ว</span>';
+        }
 
-                            ?>
+    } else {
+        $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">กดเพื่อสมัคร</span>';
+    }
+
+    ?>
                             <tr id="<?php echo $prj->project_id; ?>">
                               <td class="v-align-middle semi-bold"><?php echo $prj->project_name; ?></td>
                               <td class="v-align-middle semi-bold"><?php echo $prj->type_name; ?></td>
                               <td class="v-align-middle"><?php echo $status; ?></td>
                               <td class="v-align-middle"><?php if (!empty($prj->project_update)) {$project_update = explode(' ', $prj->project_update);
-                                echo $this->mydate->date_2dot(@$project_update[0]) . ' ' . @$project_update[1];}?></td>
+        echo $this->mydate->date_2dot(@$project_update[0]) . ' ' . @$project_update[1];}?></td>
                             </tr>
                           <?php }?>
                         </tbody>
                       </table>
 
                       <?php foreach ($project as $key => $prj) {
-                          $diff = date_diff(date_create($prj->register_finish_date), date_create(date('Y-m-d')));
+    $diff = date_diff(date_create($prj->register_finish_date), date_create(date('Y-m-d')));
 
-                          if ($diff->format("%R%a") < 0) {
-                              $status = 1;
-                          } else {
-                              $status = 0;
-                          }
-                        ?>
+    if ($diff->format("%R%a") < 0) {
+        $status = 1;
+    } else {
+        $status = 0;
+    }
+    ?>
 
                         <div id="table-detail-<?php echo $prj->project_id; ?>" style="display: none">
                           <table class="table table-condensed " >
                             <tbody>
-                              <?php if ($prj->project_type != '4'){ ?>
+                              <?php if ($prj->project_type != '4') {?>
                                 <tr>
                                   <td width="40%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail; ?></p></td>
                                   <?php if ($this->session->userdata('sesUserType') == 1) {?>
@@ -136,27 +138,28 @@
                                     <td width="5%" style="vertical-align:top"></td>
                                   <?php }?>
                                   <?php $start_reg = explode('-', $prj->register_start_date);
-                                      $end_reg = explode('-', $prj->register_finish_date);
-                                      ?>
+        $end_reg = explode('-', $prj->register_finish_date);
+        ?>
                                   <td width="25%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
                                   ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
 
                                   <?php if ($status) {
-                                      $disable = '';
-                                      if (@$status_regis[$prj->project_id]->reg_status) 
-                                          $disable = 'disabled';
-                                    
-                                  ?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?= $disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id).'\''; ?>">สมัคร</button></td>
+            $disable = '';
+            if (@$status_regis[$prj->project_id]->reg_status) {
+                $disable = 'disabled';
+            }
+
+            ?>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>">สมัคร</button></td>
                                   <?php } else {?>
                                     <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                   <?php }?>
                                 </tr>
-                              <?php }else{
-                                  $event_type = ['','เยี่ยมชม (Tour)','เปิดบ้าน (Open House)','การแสดง (Performance)','ปาร์ตี้ (Party)'];
-                                foreach ($prj_events as $key => $prj) { ?>
+                              <?php } else {
+        $event_type = ['', 'เยี่ยมชม (Tour)', 'เปิดบ้าน (Open House)', 'การแสดง (Performance)', 'ปาร์ตี้ (Party)'];
+        foreach ($prj_events as $key => $prj) {?>
                                 <tr>
-                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name.' '.@$event_type[$prj->event_type]; ?><br/>รายละเอียด<p><?php echo $prj->project_detail; ?></p></td>
+                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name . ' ' . @$event_type[$prj->event_type]; ?><br/>รายละเอียด<p><?php echo $prj->project_detail; ?></p></td>
                                   <?php if ($this->session->userdata('sesUserType') == 1) {?>
                                     <td width="5%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg; ?> ราย</td>
 
@@ -164,27 +167,28 @@
                                     <td width="5%" style="vertical-align:top"></td>
                                   <?php }?>
                                   <?php $start_reg = explode('-', $prj->register_start_date);
-                                      $end_reg = explode('-', $prj->register_finish_date);
-                                      ?>
+            $end_reg = explode('-', $prj->register_finish_date);
+            ?>
                                   <td width="25%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
                                   ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
 
                                   <?php if ($status) {
-                                      $disable = '';
-                                      if (@$status_regis[$prj->project_id]->reg_status) 
-                                          $disable = 'disabled';
-                                    
-                                  ?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?= $disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id).'\''; ?>">สมัคร</button></td>
+                $disable = '';
+                if (@$status_regis[$prj->project_id]->reg_status) {
+                    $disable = 'disabled';
+                }
+
+                ?>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>">สมัคร</button></td>
                                   <?php } else {?>
                                     <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
                                   <?php }?>
                                 </tr>
                                 <?php }
-                                
-                              ?>
-                                      
-                              <?php } ?>
+
+        ?>
+
+                              <?php }?>
                             </tbody>
                           </table>
                         </div>
@@ -217,12 +221,12 @@
                   <div class="row">
 
                   <?php foreach ($news as $key => $value) {?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-5">
                       <div id="card-linear-color" class="card card-default card2">
                         <div class="card-header  ">
                           <div class="card-title"><?php echo ($value->news_type == 1) ? 'ประกาศ' : 'ประกาศแจ้ง'; ?>
                           </div>
-                          <div class="card-controls">
+                          <!-- <div class="card-controls">
                             <ul>
                               <li><a href="#" class="card-collapse" data-toggle="collapse"><i class="card-icon card-icon-collapse"></i></a>
                               </li>
@@ -231,7 +235,7 @@
                               <li><a href="#" class="card-close" data-toggle="close"><i class="card-icon card-icon-close"></i></a>
                               </li>
                             </ul>
-                          </div>
+                          </div> -->
                         </div>
 
                         <div class="card-block">
@@ -279,7 +283,7 @@
                       </div>
                     </div> -->
                     <?php foreach (@$alert_data as $key => $value) {
-                      if ($value->reg_status){?>
+    if ($value->reg_status) {?>
                       <div class="col-lg-4" style="display:block;">
                         <div id="card-error" class="card card-default bg-success-light">
                           <div class="card-header ">
@@ -297,19 +301,19 @@
                             </div>
                           </div>
                           <div class="card-block">
-                 
-                            
-                            <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail;?></span></p>
+
+
+                            <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail; ?></span></p>
                             <p class="text-white">
-                            <?php echo 'ณ วันที่  '.  $this->mydate->date_2dot($value->approve_date);?>
+                            <?php echo 'ณ วันที่  ' . $this->mydate->date_2dot($value->approve_date); ?>
                             </p>
 
-                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php  echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id).'/1';?>">ดำเนินการ</a>
+                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id) . '/1'; ?>">ดำเนินการ</a>
                           </div>
                         </div>
                       </div>
 
-                      <?php }else{?>
+                      <?php } else {?>
                         <div class="col-lg-4" style="display:block;">
                         <div id="card-error" class="card card-default bg-danger-light">
                           <div class="card-header ">
@@ -327,21 +331,21 @@
                             </div>
                           </div>
                           <div class="card-block">
-                 
-                            
-                            <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail;?></span></p>
+
+
+                            <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail; ?></span></p>
                             <p class="text-white">
-                            <?php echo 'ณ วันที่  '.  $this->mydate->date_2dot($value->approve_date);?>
+                            <?php echo 'ณ วันที่  ' . $this->mydate->date_2dot($value->approve_date); ?>
                             </p>
 
-                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php  echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id);?>">ดำเนินการ</a>
+                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id); ?>">ดำเนินการ</a>
                           </div>
                         </div>
                       </div>
                      <?php }
-                    ?>
-                      
-                    <?php } ?>
+    ?>
+
+                    <?php }?>
                   </div>
                 </div>
 
