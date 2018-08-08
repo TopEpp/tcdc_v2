@@ -351,7 +351,6 @@ class staff extends MY_Controller {
 			}
 				
 			$data = array(
-				'user_type' => 2,
 				// 'id_number'=>$this->input->post('id_number'),
 				'prename' => $this->input->post('prename'),
 				'prename_detail' => $this->input->post('prename_detail'),
@@ -368,7 +367,7 @@ class staff extends MY_Controller {
 				'province' => $this->input->post('province'),
 				'country' => $this->input->post('country'),
 				'zipcode' => $this->input->post('zipcode'),
-				'user_active' => 1,
+				'user_active' => '1',
 				'user_type' => $this->input->post('user_type')
 				// 'job' => $this->input->post('job'),
 				// 'brand' => $this->input->post('brand'),
@@ -460,6 +459,25 @@ class staff extends MY_Controller {
 
 
 			if($this->staff_model->saveCreateUser($data,$data_company)){
+				## SET PARAM SEND MAIL ##
+				$message = 'ลงทะเบียนสำเร็จแล้ว ท่านสามารถเข้าใช้งานระบบ Chiangmai Design Week 2018 ได้โดยใช้ <br> Email : '.$this->input->post('email').'Password : '.$this->input->post('password');
+
+		        $data_mail['to'] = $this->input->post('email'); 
+		        $data_mail['mail_to'] = $this->input->post('email'); //'natchapol.prms@gmail.com';//
+	        	$data_mail['mail_to_name'] = $this->input->post('firstname').' '.$this->input->post('lastname');
+	        	$data_mail['message'] = $message;
+	        	$data_mail['subject'] = 'ยืนยันการลงทะเบียน Chiangmai Design Week 2018';
+
+	        	$content = array( 
+			     'name' => $data_mail['mail_to_name'], 
+			     'content' => $data_mail['message'], 
+			     'link' => '',
+				 'show_link'=>false
+			    ); 
+
+	        	$this->load->model('project_manage/pm_model');
+			    $this->pm_model->sendEmail($data_mail,$content);
+
 				$this->session->set_flashdata('msg', '<div class="alert alert-success text-center">สร้างผู้ใช้งานเรียบร้อย. </div>');
 			}
 			else{
