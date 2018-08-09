@@ -37,7 +37,7 @@
                 <?php 
                   $first = true; $active = 'active'; $table_prj_id='';
                   foreach ($project_type as $key => $ptype) {  if($ptype->type_id==5){ continue;}?>
-                  <div class="tab-pane padding-20 sm-no-padding <?php if($first){ echo 'active';} ?> slide-left" id="tab<?php echo $key;?>">
+                  <div class="tab-pane sm-no-padding <?php if($first){ echo 'active';} ?> slide-left" id="tab<?php echo $key;?>">
                     <?php 
                           foreach ($project as $key => $prj) { 
                           if($prj->project_type==$ptype->type_id){  $table_prj_id .= $prj->project_id.','; ?>
@@ -68,9 +68,9 @@
                                   <thead>
                                     <tr>
                                       <th style="width:35%">ชื่อ-นามสกุล</th>
-                                      <th style="width:20%">วันที่สมัคร</th>
-                                      <th style="width:20%">สถานะ</th>
-                                      <th style="width:25%">การจัดการ</th>
+                                      <th style="width:15%">วันที่สมัคร</th>
+                                      <th style="width:15%">สถานะ</th>
+                                      <th style="width:35%">การจัดการ</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -86,7 +86,9 @@
                                     <td class="v-align-middle semi-bold"  style="font-family: 'dbch'"><?php echo $mem->member_name;?></td>
                                     <td class="v-align-middle"><?php echo $this->mydate->date_eng2thai($mem->reg_date,543,'S');?></td>
                                     <td class="v-align-middle semi-bold"><?php echo $reg_status;?></td>
-                                      <td class="v-align-middle semi-bold"><a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> แก้ไข</a>
+                                    <td class="v-align-middle semi-bold">
+                                      <a href="<?php echo base_url($this->uri->segment(1).'/project_manage/index/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-edit"></i> แก้ไข</a>
+                                      &nbsp;<a href="<?php echo base_url($this->uri->segment(1).'/project_manage/estimation/'.$prj->project_id.'/'.$mem->user_id)?>"><i class="fa fa-star-half-o"></i> ผลการประเมิน</a>
                                     </td>
                                   </tr>
                                 <?php } ?>

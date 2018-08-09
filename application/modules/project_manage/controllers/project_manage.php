@@ -898,4 +898,13 @@ class project_manage extends MY_Controller {
 		}
 
 	}
+
+	function estimation($id,$user_id){
+		$this->load->model('member/member_model');
+		$this->load->model('staff/staff_model');
+		$data['quiz'] = $this->member_model->getUserQuiz($id,$user_id);
+		$data['member'] = $this->staff_model->getUsers($user_id);	
+		$this->setView('estimation',$data);
+        $this->publish();
+	}
 }

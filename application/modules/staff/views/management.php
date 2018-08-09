@@ -79,7 +79,8 @@
                               
                               <td class="v-align-middle">
                                 <p><a href="<?php echo base_url('staff/show_user/'.$prj->project_id);?>"><i class="fa fa-user"></i> ผู้สมัคร</a> 
-                                &nbsp;<a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a> 
+                                &nbsp;<a href="<?php echo base_url($this->uri->segment(1).'/staff/estimation/'.$prj->project_id) ?>"><i class="fa fa-star-half-o"></i> ผลการประเมิน</a>
+                                <br><a href="<?php echo base_url('staff/project/'.$prj->project_id);?>"><i class="fa fa-edit"></i> แก้ไข</a> 
                                 <?php if($this->session->userdata('sesUserType')==1){ ?>
                                 &nbsp;<a style="cursor: pointer;" onclick="delProject('<?php echo $prj->project_id;?>')"  ><i class="fa fa-trash-o"></i> ลบ</a></p>
                                 <?php } ?>

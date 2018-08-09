@@ -218,4 +218,16 @@ class staff_model extends MY_Model{
         return $query->result();
     }
 
+    function getEstimation($id){
+        $data = array();
+        $this->db->select('*');
+        $this->db->from('tcdc_quiz');
+        $query = $this->db->get();
+        foreach ($query as $key => $value) {
+            
+        }
+
+
+    }
+
 }

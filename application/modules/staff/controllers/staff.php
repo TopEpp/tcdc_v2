@@ -665,56 +665,64 @@ class staff extends MY_Controller {
 
 		//call_back check email uniqe
 	function email_check()
+	{
+		$email = $this->input->post('email');
+		$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
+	
+		if($query->num_rows())
 		{
-			$email = $this->input->post('email');
-			$query = $this->db->query('SELECT * FROM tcdc_member where email ='.'\''.$email.'\''  );
-		
-			if($query->num_rows())
-			{
-				// echo $pass_check .' '. $pass;die();
-				// $this->form_validation->set_message('email_check', 'Try agin, Email is already used.');
-				return FALSE;
-			}
-			else
-			{
-				return TRUE;	 
-			}	
-	
+			// echo $pass_check .' '. $pass;die();
+			// $this->form_validation->set_message('email_check', 'Try agin, Email is already used.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;	 
+		}	
+
+	}
+
+	public function uploadData($file,$file_name,$path){
+
+
+		if (!is_dir($path)) {
+			mkdir($path, 0777, TRUE);
 		}
 
-		public function uploadData($file,$file_name,$path){
+		$config['upload_path'] = $path;
+		$config['allowed_types'] = 'jpg|jpeg';
+		$config['encrypt_name'] = TRUE;
+		$config['max_size'] = '2048'; //2MB
+		$config['overwrite'] = FALSE;
+		// $config['max_width'] = '1024';
+		// $config['max_height'] = '1024';
+		$config['file_name'] = $file_name;
+		$config['remove_spaces'] = TRUE;
 
+		$this->load->library("upload");
+		$this->upload->initialize($config); 
 
-			if (!is_dir($path)) {
-				mkdir($path, 0777, TRUE);
-			}
-	
-			$config['upload_path'] = $path;
-			$config['allowed_types'] = 'jpg|jpeg';
-			$config['encrypt_name'] = TRUE;
-			$config['max_size'] = '2048'; //2MB
-			$config['overwrite'] = FALSE;
-			// $config['max_width'] = '1024';
-			// $config['max_height'] = '1024';
-			$config['file_name'] = $file_name;
-			$config['remove_spaces'] = TRUE;
-	
-			$this->load->library("upload");
-			$this->upload->initialize($config); 
-	
-			if ($this->upload->do_upload($file)) {
-				// Files Upload Success
-				$data = $this->upload->data();
-				return $path.$data['file_name'];
-				 
-			} else {
-			// Files Upload Not Success!!
-			$errors = $this->upload->display_errors();
-			return $errors;
-				
-			}
-	
+		if ($this->upload->do_upload($file)) {
+			// Files Upload Success
+			$data = $this->upload->data();
+			return $path.$data['file_name'];
+			 
+		} else {
+		// Files Upload Not Success!!
+		$errors = $this->upload->display_errors();
+		return $errors;
+			
 		}
+
+	}
+
+	function estimation($id){
+		exit;
+		$data['prj'] = $this->staff_model->getProjectData($id);
+		$data['est'] = $this->staff_model->getEstimation($id);
+		$this->setView('estimation',$data);
+        $this->publish();	
+	}
 		
 	
 }
