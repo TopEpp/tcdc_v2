@@ -287,7 +287,7 @@ foreach ($project as $key => $prj) {
                       <div class="col-lg-4" style="display:block;">
                         <div id="card-error" class="card card-default bg-success-light">
                           <div class="card-header ">
-                            <div class="card-title">ข้อความ
+                            <div class="card-title">กรุณากดปุ่ม 'ดำเนินการ' เพื่อกรอกข้อมูลวิธีการจัดแสดง และกรอกแบบประเมินความพึงพอใจ
                             </div>
                             <div class="card-controls">
                               <!-- <ul>
