@@ -717,9 +717,12 @@ class staff extends MY_Controller {
 	}
 
 	function estimation($id){
-		exit;
 		$data['prj'] = $this->staff_model->getProjectData($id);
 		$data['est'] = $this->staff_model->getEstimation($id);
+		$this->template->javascript->add('assets/plugins/amcharts/amcharts.js');
+		$this->template->javascript->add('assets/plugins/amcharts/serial.js');
+		$this->template->javascript->add('assets/plugins/amcharts/plugins/export/export.js');
+		$this->template->javascript->add('assets/modules/staff/estimation.js');
 		$this->setView('estimation',$data);
         $this->publish();	
 	}

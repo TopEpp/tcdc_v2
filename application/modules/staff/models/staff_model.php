@@ -220,12 +220,18 @@ class staff_model extends MY_Model{
 
     function getEstimation($id){
         $data = array();
-        $this->db->select('*');
+        $this->db->select(' count(user_id) as num_user,
+                            sum(answer_1) as a1,
+                            sum(answer_2) as a2,
+                            sum(answer_3) as a3,
+                            sum(answer_4) as a4,
+                            sum(answer_5) as a5,
+                            sum(answer_6) as a6,
+                            sum(answer_7) as a7 ');
         $this->db->from('tcdc_quiz');
+        $this->db->where('project_id',$id);
         $query = $this->db->get();
-        foreach ($query as $key => $value) {
-            
-        }
+        return $query->result();
 
 
     }
