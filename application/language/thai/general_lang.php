@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 #button
 $lang['register'] = 'สร้างบัญชี';
@@ -23,45 +23,45 @@ $lang['Settings'] = 'ตั้งค่า';
 $lang['Sign out'] = 'ออกจากระบบ';
 
 #home
-$lang['Account'] = 'Chiang Mai Design Week Account';
-$lang['Email'] = 'Email';
-$lang['Required'] = 'Required information';
-$lang['Password'] = 'Password';
-$lang['Remember'] = 'Remember my password';
-$lang['SignIn'] = 'Sign in to your account';
-$lang['Create_account'] = 'Create account';
-$lang['Forget_password'] = 'Forget password';
-$lang['Report_login'] = 'Report a login or sign up issue';
-$lang['Confirm'] = 'Confirm';
-$lang['Cancel'] = 'Cancel';
-$lang['Contact_email'] = 'Contact email address';
-$lang['Description_issue'] = 'Description of the issue';
+$lang['Account'] = 'ระบบเทศกาลงานออกแบบเชียงใหม่';
+$lang['Email'] = 'อีเมล';
+$lang['Required'] = 'ข้อมูลจำเป็น';
+$lang['Password'] = 'รหัสผ่าน';
+$lang['Remember'] = 'จำรหัสผ่าน';
+$lang['SignIn'] = 'เข้าสู่ระบบ';
+$lang['Create_account'] = 'สร้างบัญชี';
+$lang['Forget_password'] = 'ลืมรหัสผ่าน';
+$lang['Report_login'] = 'แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี';
+$lang['Confirm'] = 'ยืนยัน';
+$lang['Cancel'] = 'ยกเลิก';
+$lang['Contact_email'] = 'อีเมลผู้แจ้ง';
+$lang['Description_issue'] = 'ปัญหาที่พบ';
 
 #create account
-$lang['Create_User'] = 'Create a User Account';
-$lang['Confirm_Email'] = 'Confirm Email';
-$lang['Confirm_Password'] = 'Confirm Password';
-$lang['User_Information'] = 'User Information';
-$lang['Title'] = 'Title';
-$lang['Select'] = 'Select';
-$lang['First_Name'] = 'First Name';
-$lang['Last_Name'] = 'Last Name';
-$lang['Birth_Date'] = 'Birth Date';
-$lang['Birth_Month'] = 'Birth Month';
-$lang['Birth_Year'] = 'Birth Year';
-$lang['Contact_Address'] = 'Contact Address';
-$lang['Name_Company';
-$lang['House_No'] = 'House No.';
-$lang['Moo'] = 'Moo';
-$lang['Soi'] = 'Soi';
-$lang['Road'] = 'Road';
-$lang['Subdistrict'] = 'Subdistrict';
-$lang['District/Area'] = 'District/Area';
-$lang['Country'] = 'Country';
-$lang['Province'] = 'Province';
-$lang['Postcode'] = 'Postcode';
-$lang['Profile_Image'] = 'Profile Image';
-$lang['I_have_read'] = 'I have read and agree to the terms and conditions';
+$lang['Create_User'] = 'สร้างบัญชีผู้ใช้งาน';
+$lang['Confirm_Email'] = 'ยืนยันอีเมล';
+$lang['Confirm_Password'] = 'ยืนยันรหัสผ่าน';
+$lang['User_Information'] = 'ข้อมูลผู้ใช้งาน';
+$lang['Title'] = 'คำนำหน้า';
+$lang['Select'] = 'เลือก';
+$lang['First_Name'] = 'ชื่อ';
+$lang['Last_Name'] = 'นามสกุล';
+$lang['Birth_Date'] = 'วันเกิด';
+$lang['Birth_Month'] = 'เดือนเกิด';
+$lang['Birth_Year'] = 'ปีเกิด';
+$lang['Contact_Address'] = 'ที่อยู่สำหรับการติดต่อ';
+$lang['Name_Company'] = 'ชื่อบริษัท/อาคาร';
+$lang['House_No'] = 'เลขที่';
+$lang['Moo'] = 'หมู่';
+$lang['Soi'] = 'ซอย';
+$lang['Road'] = 'ถนน';
+$lang['Subdistrict'] = 'ตำบล';
+$lang['District/Area'] = 'อำเภอ/เขต';
+$lang['Country'] = 'ประเทศ';
+$lang['Province'] = 'จังหวัด';
+$lang['Postcode'] = 'รหัสไปรษณีย์';
+$lang['Profile_Image'] = 'รูปโปรไฟล์';
+$lang['I_have_read'] = "ฉันยอมรับและได้อ่าน<a href='#' id='btn_condition'>เงื่อนไขและข้อตกลงแล้ว</a>";
 
 #News
 $lang['News'] = 'News';
@@ -108,10 +108,10 @@ $lang['Enter_your_new_password'] = 'Enter your new password of at least 8 charac
 $lang['Confirm_New_Password'] = 'Confirm New Password';
 $lang['Enter_your_new_password_again'] = 'Enter your new password again';
 $lang['Choose_a_password'] = 'Choose a password of at least 8 characters containing letters, numbers and symbols';
-$lang['Mr.'] = 'Mr.';
-$lang['Mrs.'] = 'Mrs.Ms.';
-$lang['Ms.'] = 'Ms.';
-$lang['Not_Specify'] = 'Not Specify';
+$lang['Mr.'] = 'นาย';
+$lang['Mrs.'] = 'นาง';
+$lang['Ms.'] = 'นางสาว';
+$lang['Not_Specify'] = 'อื่นๆ';
 
 #Activity
 $lang['Terms_Conditions'] = 'Terms and Conditions';

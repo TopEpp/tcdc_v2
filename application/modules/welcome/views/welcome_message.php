@@ -71,7 +71,7 @@
         </div>
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
           <!-- <img src="<?php echo base_url('assets/img/logo_b.png'); ?>" alt="logo" data-src="<?php echo base_url('assets/img/logo_b.png'); ?>" data-src-retina="<?php echo base_url('assets/img/logo_b.png'); ?>" width="78"> -->
-          <p class="p-t-35 fs-16">ระบบเทศกาลงานออกแบบเชียงใหม่</p>
+          <p class="p-t-35 fs-16"><?=lang('Account')?></p>
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
           <?php $attributes = array('name' => 'frmLogin', 'id' => 'form-login');
 $lang = $this->uri->segment(1);
@@ -111,7 +111,7 @@ echo form_open_multipart($lang . '/login', $attributes);
           <!-- <form id="form-login" class="p-t-15" role="form" action="index.html"> -->
             <!-- START Form Control-->
             <div class="form-group form-group-default ">
-              <label  style="font-family: 'dbch', sans-serif;">อีเมล</label>
+              <label  style="font-family: 'dbch', sans-serif;"><?=lang('Email')?></label>
               <div class="controls">
                 <input type="text" name="username" id="username" placeholder="" class="form-control" required >
               </div>
@@ -119,17 +119,17 @@ echo form_open_multipart($lang . '/login', $attributes);
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default ">
-              <label style="font-family: 'dbch', sans-serif;">รหัสผ่าน</label>
+              <label style="font-family: 'dbch', sans-serif;"><?=lang('Password')?></label>
               <div class="controls">
                 <input type="password" class="form-control" name="password" id="password" placeholder="" required>
               </div>
             </div>
             <!-- START Form Control-->
             <div class="row">
-              <div class="col-md-6 no-padding sm-p-l-10">
+              <div class="col-md-12 no-padding sm-p-l-10">
                 <div class="checkbox ">
                   <input type="checkbox" value="1" id="checkbox1">
-                  <label for="checkbox1" style="font-family: 'dbch', sans-serif;">จำรหัสผ่าน</label>
+                  <label for="checkbox1" style="font-family: 'dbch', sans-serif;"><?=lang('Remember')?></label>
                 </div>
               </div>
               <!-- <div class="col-md-6 d-flex align-items-center justify-content-end">
@@ -139,16 +139,16 @@ echo form_open_multipart($lang . '/login', $attributes);
             <!-- END Form Control-->
             <div>
               <!-- <input type="submit" value="Send Request"> -->
-              <input type="submit" class="btn btn-primary btn-cons m-t-10 fn_from"  id="btn-login" value="<?php echo lang('login'); ?>" ></button>
+              <input type="submit" class="btn btn-primary btn-cons m-t-10 fn_from"  id="btn-login" value="<?php echo lang('SignIn'); ?>" ></button>
             </div>
             <br/>
-            <a style="color: #d61a67;  font-family: 'dbch';" class="fs-15  btn-cons m-t-10 fn_from" href="<?php echo base_url('register') ?>"><?php echo lang('register'); ?></a>
+            <a style="color: #d61a67;  font-family: 'dbch';" class="fs-15  btn-cons m-t-10 fn_from" href="<?php echo base_url('register') ?>"><?php echo lang('Create_account'); ?></a>
             <br/>
             <br/>
             <br/>
             <div class="row">
               <div class="col-md-6 d-flex fs-15">
-                  <a href="#" data-toggle="modal" data-target="#reset_password" class="text-info small" style="font-family: 'dbch', sans-serif;">ลืมรหัสผ่าน</a>
+                  <a href="#" data-toggle="modal" data-target="#reset_password" class="text-info small" style="font-family: 'dbch', sans-serif;"><?php echo lang('Forget_password'); ?></a>
                 </div>
             </div>
             <br/>
@@ -158,7 +158,7 @@ echo form_open_multipart($lang . '/login', $attributes);
               <div class="col-md-12 no-padding sm-p-l-10">
 
                 <div class="col-md-12 d-flex fs-15">
-                  <a href="#" data-toggle="modal" data-target="#norify" class="text-info small" style="font-family: 'dbch', sans-serif;">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</a>
+                  <a href="#" data-toggle="modal" data-target="#norify" class="text-info small" style="font-family: 'dbch', sans-serif;"><?php echo lang('Report_login'); ?></a>
                   <!-- <p style="font-family: 'dbch', sans-serif;" href="#" class="text-info small">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี<br>(Mail to: hello.tcdc@tcdc.or.th)</p> -->
                 </div>
               </div>
@@ -201,14 +201,14 @@ echo form_open_multipart($lang . '/login', $attributes);
       <div class="modal-content  ">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">ลืมรหัสผ่าน</h4>
+          <h4 class="modal-title"><?=lang('Forget_password');?></h4>
           <h4>
         </div>
         <div class="modal-body ">
          <!-- <form id="reset_form" action ="<?php echo base_url('register/reset_password'); ?>" method="POST"> -->
             <div class="form-group ">
 
-                <label style="font-family: 'dbch', sans-serif;">อีเมล</label>
+                <label style="font-family: 'dbch', sans-serif;"><?=lang('Email');?></label>
                 <div class="controls">
                   <input class="form-control" type="text" name="email_reset" id="email_reset">
                   <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
@@ -218,8 +218,8 @@ echo form_open_multipart($lang . '/login', $attributes);
 
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn_resetpassword" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" id="btn_resetpassword" class="btn btn-default"  data-dismiss="modal"><?=lang('Confirm');?></button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><?=lang('Cancel');?></button>
         </div>
       </div>
 
@@ -234,20 +234,20 @@ echo form_open_multipart($lang . '/login', $attributes);
       <div class="modal-content  ">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">แจ้งปัญหาการเข้าสู่ระบบหรือสร้างบัญชี</h4>
+          <h4 class="modal-title"><?=lang('Report_login');?></h4>
           <hr>
         </div>
         <div class="modal-body ">
          <!-- <form id="reset_form" action ="<?php echo base_url('register/reset_password'); ?>" method="POST"> -->
             <div class="form-group  ">
-                <label style="font-family: 'dbch', sans-serif;">อีเมลผู้แจ้ง</label>
+                <label style="font-family: 'dbch', sans-serif;"><?=lang('Contact_email');?></label>
                 <div class="controls">
                   <input class="form-control" type="text" name="norify_email" id="norify_email">
                   <!-- <input type="password" class="form-control" name="password" id="password" placeholder="" required> -->
                 </div>
             </div>
             <div class="form-group ">
-                <label style="font-family: 'dbch', sans-serif;">ปัญหาที่พบ</label>
+                <label style="font-family: 'dbch', sans-serif;"><?=lang('Description_issue');?></label>
                 <div class="controls">
                     <textarea  name="problem" id="problem" style="width: 100%;height:200px;">
                     </textarea>
@@ -258,8 +258,8 @@ echo form_open_multipart($lang . '/login', $attributes);
 
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn_norify" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" id="btn_norify" class="btn btn-default"  data-dismiss="modal"><?=lang('Confirm');?></button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><?=lang('Cancel');?></button>
         </div>
       </div>
 
@@ -324,8 +324,8 @@ echo form_open_multipart($lang . '/login', $attributes);
             username: "required",
           },
           messages: {
-            username: "ข้อมูลจำเป็น",
-            password: "ข้อมูลจำเป็น",
+            username: "<?php echo lang('Required'); ?>",
+            password: "<?php echo lang('Required'); ?>",
 
           }
       });
@@ -357,18 +357,8 @@ echo form_open_multipart($lang . '/login', $attributes);
         lang = 'th';
       }
 
-      window.location.href='<?php echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/" . $this->uri->segment(4) ?>';
+      window.location.href='<?php echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2) ?>';
 
-      // var URL = '<?php echo base_url(); ?>'+lang+'/login/set_lang/'+lang;
-      // var data = { 'lang' : lang}
-      // $.ajax({
-      //     url: URL,
-      //     type: "POST",
-      //     data: data,
-      //     success: function (res) {
-      //         // window.location.reload();
-      //     }
-      // });
     };
     </script>
   </body>

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 #button
 $lang['register'] = 'Register';
@@ -50,7 +50,7 @@ $lang['Birth_Date'] = 'Birth Date';
 $lang['Birth_Month'] = 'Birth Month';
 $lang['Birth_Year'] = 'Birth Year';
 $lang['Contact_Address'] = 'Contact Address';
-$lang['Name_Company';
+$lang['Name_Company'] = 'Name Company';
 $lang['House_No'] = 'House No.';
 $lang['Moo'] = 'Moo';
 $lang['Soi'] = 'Soi';
@@ -61,7 +61,7 @@ $lang['Country'] = 'Country';
 $lang['Province'] = 'Province';
 $lang['Postcode'] = 'Postcode';
 $lang['Profile_Image'] = 'Profile Image';
-$lang['I_have_read'] = 'I have read and agree to the terms and conditions';
+$lang['I_have_read'] = "I have read and <a href='#' id='btn_condition'>agree to the terms and conditions</a>";
 
 #News
 $lang['News'] = 'News';
