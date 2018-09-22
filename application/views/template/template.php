@@ -16,7 +16,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta content="" name="description" />
   <meta content="" name="author" />
-  
+
   <link href="<?php echo base_url('assets/plugins/pace/pace-theme-flash.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" type="text/css" />
@@ -32,7 +32,7 @@
   <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css'); ?>">
   <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-responsive/css/datatables.responsive.css'); ?>">
   <!-- <link media="screen" type="text/css" rel="stylesheet" href="<?php echo base_url('assets/plugins/selectize/css/selectize.css'); ?>"> -->
- 
+
   <!-- change style select2 -->
   <style>
     .select2-container{
@@ -41,7 +41,7 @@
     margin: 0;
     position: relative;
     vertical-align: middle;
-    
+
 
 
   }
@@ -67,11 +67,11 @@
   }
 
   .table tr th{
-    font-family: 'dbch' !important; 
+    font-family: 'dbch' !important;
   }
 
   .table tr td{
-    font-family: 'dbch' !important; 
+    font-family: 'dbch' !important;
   }
   .select2-container .select2-selection .select2-selection__arrow{
     right: 6px !important;
@@ -80,20 +80,20 @@
   /* class active sub menu */
   .page-sidebar .sidebar-menu .menu-items li.active > a {
     color: #fff;
-    <?php if($this->session->userdata('sesUserType')==3){ ?>
+    <?php if ($this->session->userdata('sesUserType') == 3) {?>
       background-color:#a7a7a7;
-    <?php }else{?>
+    <?php } else {?>
       background-color:#d41a69;
     <?php }?>
   }
 
-  .page-sidebar .sidebar-menu .menu-items li:hover > a, 
-  .page-sidebar .sidebar-menu .menu-items li.open > a, 
-  .page-sidebar .sidebar-menu .menu-items li.active > a { 
-    color: #fff; 
-    <?php if($this->session->userdata('sesUserType')==3){ ?>
+  .page-sidebar .sidebar-menu .menu-items li:hover > a,
+  .page-sidebar .sidebar-menu .menu-items li.open > a,
+  .page-sidebar .sidebar-menu .menu-items li.active > a {
+    color: #fff;
+    <?php if ($this->session->userdata('sesUserType') == 3) {?>
       background-color:#a7a7a7;
-    <?php }else{?>
+    <?php } else {?>
       background-color:#d41a69;
     <?php }?>
   }
@@ -122,12 +122,12 @@
   <?php echo $this->template->stylesheet; ?>
 </head>
 <script type="text/javascript">
-    var domain='<?php  echo base_url().$this->uri->segment(1); ?>/';
+    var domain='<?php echo base_url() . $this->uri->segment(1); ?>/';
 </script>
 <body class="fixed-header menu-pin menu-behind">
 
   <!-- BEGIN SIDEBPANEL-->
-  
+
   <!-- END SIDEBAR -->
   <!-- END SIDEBPANEL-->
   <!-- START PAGE-CONTAINER -->
@@ -140,44 +140,44 @@
       <!-- END MOBILE SIDEBAR TOGGLE -->
       <div class="">
         <div class="brand inline  m-l-10 ">
-          <a  href="<?php echo base_url('member');?>"><img width="130px" src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_dashboard.jpg');?> " data-src-retina="<?php echo base_url('assets/img/logo_dashboard.jpg');?> "></a>
+          <a  href="<?php echo base_url('member'); ?>"><img width="130px" src="<?php echo base_url('assets/img/logo_dashboard.jpg'); ?> " alt="logo" data-src="<?php echo base_url('assets/img/logo_dashboard.jpg'); ?> " data-src-retina="<?php echo base_url('assets/img/logo_dashboard.jpg'); ?> "></a>
         </div>
       </div>
       <div class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14" style="font-size: 16px !important; font-family: 'dbch'; ">
-          ไทย <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1)=='en'? 'checked="checked"':''; ?> > English
+          <?=lang('Thai');?> <input type="checkbox" id="toggle_lang" class="switchery" value="1" data-switchery="true"  <?php echo $this->uri->segment(1) == 'en' ? 'checked="checked"' : ''; ?> > English
         </div>
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-          <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName');?></span>
+          <span class="semi-bold"><?php echo $this->session->userdata('sesUserFullName'); ?></span>
         </div>
         <div class="dropdown pull-right hidden-md-down">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="thumbnail-wrapper d32 circular inline">
             <!-- //profile image -->
-            <?php 
-              if ($this->session->userdata('sesUserImage')){ ?>
-                <img src="<?php echo base_url($this->session->userdata('sesUserImage'));?>" alt="" data-src="<?php echo base_url($this->session->userdata('sesUserImage'));?>" data-src-retina="<?php echo base_url($this->session->userdata('sesUserImage'));?>" width="32" height="32">
+            <?php
+if ($this->session->userdata('sesUserImage')) {?>
+                <img src="<?php echo base_url($this->session->userdata('sesUserImage')); ?>" alt="" data-src="<?php echo base_url($this->session->userdata('sesUserImage')); ?>" data-src-retina="<?php echo base_url($this->session->userdata('sesUserImage')); ?>" width="32" height="32">
                 <!-- echo  cl_image_tag($this->session->userdata('sesUserImage'), array( "alt" => "profile" ));  -->
-              <?php }else{ ?>
-                <img src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg');?>" width="32" height="32">
-              <?php } ?>
-              
+              <?php } else {?>
+                <img src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg'); ?>" alt="" data-src="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg'); ?>" data-src-retina="<?php echo base_url('assets/img/profiles/avatar_small2x.jpg'); ?>" width="32" height="32">
+              <?php }?>
+
             </span>
           </button>
           <?php $type = [1 => 'Admin', 2 => 'Program Manager', 3 => 'Member', 4 => 'Editor'];?>
           <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
             <a href="#" class="dropdown-item">
-              <span>Login as <?php echo $type[$this->session->userdata('sesUserType')]?></span>
+              <span>Login as <?php echo $type[$this->session->userdata('sesUserType')] ?></span>
             </a>
-            <?php if($this->session->userdata('sesUserType')!=1){?>
-            <a href="<?php echo base_url('staff/user_edit_profile/'.$this->session->userdata('sesUserID')); ?>" class="dropdown-item"> 
-            <span class="pull-left">ตั้งค่า</span>
+            <?php if ($this->session->userdata('sesUserType') != 1) {?>
+            <a href="<?php echo base_url('staff/user_edit_profile/' . $this->session->userdata('sesUserID')); ?>" class="dropdown-item">
+            <span class="pull-left"><?=lang('Settings');?></span>
               <!-- <span class="pull-right"><i class="pg-settings_small"></i></span> -->
           </a>
           <?php }?>
-            <a href="<?php echo base_url('logout');?>" class="clearfix bg-master-lighter dropdown-item">
-              <span class="pull-left">ออกจากระบบ</span>
+            <a href="<?php echo base_url('logout'); ?>" class="clearfix bg-master-lighter dropdown-item">
+              <span class="pull-left"><?=lang('Sign out');?></span>
               <!-- <span class="pull-right"><i class="pg-power"></i></span> -->
             </a>
           </div>
@@ -189,96 +189,96 @@
     <!-- END HEADER -->
     <!-- START PAGE CONTENT WRAPPER -->
     <div class="page-content-wrapper ">
-      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px; <?php if($this->session->userdata('sesUserType')!=3){ echo 'background-color:#A2144F; color:#fff;';}?>">
+      <nav class="page-sidebar" data-pages="sidebar" style="margin-top: 60px; <?php if ($this->session->userdata('sesUserType') != 3) {echo 'background-color:#A2144F; color:#fff;';}?>">
         <!-- START SIDEBAR MENU -->
         <div class="sidebar-menu fn_from">
           <!-- BEGIN SIDEBAR MENU ITEMS-->
           <ul class="menu-items">
 
 
-            <?php if($this->session->userdata('sesUserType')==1){ ?>
-            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '')?'active':'';?>">
-              <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('bashboard');?></span>
+            <?php if ($this->session->userdata('sesUserType') == 1) {?>
+            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '') ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('Homepage'); ?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'management' || $this->uri->segment(3) == 'project' || $this->uri->segment(3) == 'news'))?'active':'';?>">
-              <a href="<?php echo base_url('staff/management');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('manage');?></span>
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'management' || $this->uri->segment(3) == 'project' || $this->uri->segment(3) == 'news')) ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff/management'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('manage'); ?></span>
                 <!-- <span class="details">มี 10 การแจ้งเตือน</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span> -->
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'show_user_register' || $this->uri->segment(3) == 'show_user' ))?'active':'';?>">
-              <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('joiner');?></span></a>
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'show_user_register' || $this->uri->segment(3) == 'show_user')) ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff/show_user_register'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('joiner'); ?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span> -->
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ( $this->uri->segment(3) == 'user_manage' || $this->uri->segment(3) == 'create_user' || $this->uri->segment(3) == 'user_edit_profile'))?'active':'';?>">
-              <a href="<?php echo base_url('staff/user_manage');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('user');?></span></a>
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && ($this->uri->segment(3) == 'user_manage' || $this->uri->segment(3) == 'create_user' || $this->uri->segment(3) == 'user_edit_profile')) ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff/user_manage'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('user'); ?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-user"></i></span> -->
             </li>
             <!-- <li class="">
-              <a href="<?php echo base_url('staff/faq');?>"><span class="title"><?php echo lang('help');?></span></a>
+              <a href="<?php echo base_url('staff/faq'); ?>"><span class="title"><?php echo lang('help'); ?></span></a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
             </li> -->
 
 
-            <?php }else if($this->session->userdata('sesUserType')==2 || $this->session->userdata('sesUserType')==4){ ?>
-            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '')?'active':'';?>">
-              <a href="<?php echo base_url('staff');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('bashboard');?></span>
+            <?php } else if ($this->session->userdata('sesUserType') == 2 || $this->session->userdata('sesUserType') == 4) {?>
+            <li class="m-t-30 <?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == '') ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('Homepage'); ?></span>
                 <!-- <span class="details">มี 3 การอัปเดท</span> -->
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'news')?'active':'';?>">
-              <a href="<?php echo base_url('news');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('news');?></span>
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'news') ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('news'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('news'); ?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'show_user_register')?'active':'';?>">
-              <a href="<?php echo base_url('staff/show_user_register');?>"  <?php if($this->session->userdata('sesUserType')!=3){ echo ' style="color:#fff";';}?> >
-                <span class="title"><?php echo lang('joiner');?></span></a>
+            <li class="<?php echo ($this->uri->segment(2) == 'staff' && $this->uri->segment(3) == 'show_user_register') ? 'active' : ''; ?>">
+              <a href="<?php echo base_url('staff/show_user_register'); ?>"  <?php if ($this->session->userdata('sesUserType') != 3) {echo ' style="color:#fff";';}?> >
+                <span class="title"><?php echo lang('Profile'); ?></span></a>
               <!-- <span class="bg-success icon-thumbnail"><i class="fa fa-history"></i></span> -->
             </li>
             <!-- <li class="">
-              <a href="<?php echo base_url('faq');?>" class="detailed">
-                <span class="title"><?php echo lang('help');?></span>
+              <a href="<?php echo base_url('faq'); ?>" class="detailed">
+                <span class="title"><?php echo lang('help'); ?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
             </li> -->
 
 
-            <?php }else if($this->session->userdata('sesUserType')==3){ ?>
-            <li class="m-t-30 <?= ($this->uri->segment(2) == 'member' && $this->uri->segment(3) == '')?'active':'';?>">
-              <a href="<?php echo base_url('member');?>" class="detailed">
-                <span class="title"><?php echo lang('bashboard');?></span>
+            <?php } else if ($this->session->userdata('sesUserType') == 3) {?>
+            <li class="m-t-30 <?=($this->uri->segment(2) == 'member' && $this->uri->segment(3) == '') ? 'active' : '';?>">
+              <a href="<?php echo base_url('member'); ?>" class="detailed">
+                <span class="title"><?php echo lang('Homepage'); ?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span> -->
             </li>
-            <li class="<?= ($this->uri->segment(2) == 'news')?'active':'';?>">
-              <a href="<?php echo base_url('news');?>" class="detailed">
-                <span class="title"><?php echo lang('news');?></span>
+            <li class="<?=($this->uri->segment(2) == 'news') ? 'active' : '';?>">
+              <a href="<?php echo base_url('news'); ?>" class="detailed">
+                <span class="title"><?php echo lang('news'); ?></span>
               </a>
               <!-- <span class="bg-success icon-thumbnail"><i class="pg-mail"></i></span> -->
             </li>
-            <li class="<?= ($this->uri->segment(2) == 'member' && $this->uri->segment(3) == 'event_log')?'active':'';?>">
-              <a href="<?php echo base_url('member/event_log');?>" class="detailed">
-                <span class="title"><?php echo lang('history');?></span>
+            <li class="<?=($this->uri->segment(2) == 'member' && $this->uri->segment(3) == 'event_log') ? 'active' : '';?>">
+              <a href="<?php echo base_url('member/event_log'); ?>" class="detailed">
+                <span class="title"><?php echo lang('Profile'); ?></span>
               </a>
               <!-- <span class="icon-thumbnail"><i class="fa fa-history"></i></span> -->
             </li>
             <!-- <li class="">
-              <a href="<?php echo base_url('faq');?>" class="detailed">
-                <span class="title"><?php echo lang('help');?></span>
+              <a href="<?php echo base_url('faq'); ?>" class="detailed">
+                <span class="title"><?php echo lang('help'); ?></span>
               </a>
               <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
-            </li> --> 
+            </li> -->
             <?php }?>
           </ul>
           <div class="clearfix"></div>
@@ -287,7 +287,7 @@
       </nav>
       <!-- START PAGE CONTENT -->
       <!-- <div class="content "> -->
-             <?php echo $this->template->content;?>
+             <?php echo $this->template->content; ?>
       <!-- </div> -->
       <div class=" container-fluid  container-fixed-lg footer" style="padding-left: 60px">
               <div class="copyright sm-text-center">
@@ -304,10 +304,10 @@
             <!-- END COPYRIGHT -->
     </div>
 
-        
+
         <!-- END QUICKVIEW-->
         <!-- START OVERLAY -->
-        
+
         <!-- END OVERLAY -->
         <!-- BEGIN VENDOR JS -->
         <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>" type="text/javascript"></script>
@@ -337,7 +337,7 @@
         <script src="<?php echo base_url('assets/plugins/bootstrap-daterangepicker/daterangepicker.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap-toggle.min.js'); ?>"></script>
-        
+
         <script src="<?php echo base_url('assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>
         <!-- <script src="<?php echo base_url('assets/plugins/selectize/js/selectize.js'); ?>"></script> -->
 
@@ -413,7 +413,7 @@
             }
 
             initTableWithPage();
-            
+
           });
 
           var changeCheckbox = document.querySelector('.switchery');
@@ -425,9 +425,9 @@
               lang = 'th';
             }
 
-            window.location.href='<?php  echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2)."/".$this->uri->segment(3)."/".$this->uri->segment(4)?>';
+            window.location.href='<?php echo base_url(); ?>'+lang+'/<?php echo $this->uri->segment(2) . "/" . $this->uri->segment(3) . "/" . $this->uri->segment(4) ?>';
 
-            // var URL = '<?php  echo base_url(); ?>'+lang+'/login/set_lang/'+lang;
+            // var URL = '<?php echo base_url(); ?>'+lang+'/login/set_lang/'+lang;
             // var data = { 'lang' : lang}
             // $.ajax({
             //     url: URL,

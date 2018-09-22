@@ -19,6 +19,7 @@ $lang['Homepage'] = 'หน้าหลัก';
 $lang['Profile'] = 'โปรไฟล์';
 
 #top menu
+$lang['Thai'] = 'ไทย';
 $lang['Settings'] = 'ตั้งค่า';
 $lang['Sign out'] = 'ออกจากระบบ';
 
@@ -64,50 +65,51 @@ $lang['Profile_Image'] = 'รูปโปรไฟล์';
 $lang['I_have_read'] = "ฉันยอมรับและได้อ่าน<a href='#' id='btn_condition'>เงื่อนไขและข้อตกลงแล้ว</a>";
 
 #News
-$lang['News'] = 'News';
-$lang['Notification'] = 'Notification';
+$lang['News'] = 'ข่าวสาร';
+$lang['Notification'] = 'แจ้งเตือน';
 $lang['Passed'] = 'Passed';
-$lang['Date'] = 'Date';
-$lang['Proceed'] = 'Proceed';
+$lang['Date'] = 'ณ วันที่';
+$lang['Proceed'] = 'ดำเนินการ';
 $lang['Send_additional'] = 'Send additional documents';
 
 #Home User
-$lang['Open_Application'] = 'Open for Application';
-$lang['Activity_Name'] = 'Activity Name';
-$lang['Category'] = 'Category';
-$lang['Status'] = 'Status';
-$lang['Latest_Update'] = 'Latest Update';
-$lang['Applied'] = 'Applied';
-$lang['Details'] = 'Details';
-$lang['Application_Period'] = 'Application Period';
-$lang['Activity_Period'] = 'Activity Period';
-$lang['Apply'] = 'Apply';
-$lang['Click_apply'] = 'Click to apply';
+$lang['Open_Application'] = 'กิจกรรมเปิดรับสมัคร';
+$lang['Activity_Name'] = 'ชื่อกิจกรรม';
+$lang['Category'] = 'ประเภท';
+$lang['Status'] = 'สถานะ';
+$lang['Latest_Update'] = 'อัพเดตล่าสุด';
+$lang['Applied'] = 'สมัครแล้ว';
+$lang['Details'] = 'รายละเอียด';
+$lang['Application_Period'] = 'ระยะเวลารับสมัคร';
+$lang['Activity_Period'] = 'ระยะเวลาจัดกิจกรรม';
+$lang['Apply'] = 'สมัคร';
+$lang['Click_apply'] = 'กดเพื่อสมัคร';
 
 #Profile
-$lang['Waiting_confirmation'] = 'Waiting for confirmation';
+$lang['Waiting_confirmation'] = 'รอยืนยัน';
 $lang['View'] = 'View';
 $lang['Activity_Details'] = 'Activity Details';
 
 #Edit User Account
-$lang['Edit_User_Account'] = 'Edit User Account';
-$lang['Edit_Information'] = 'Edit User Information';
-$lang['Edit_Account'] = 'Edit Account';
-$lang['First_name-Last_name'] = 'First name-Last name';
-$lang['Personal_Information'] = 'Personal Information';
-$lang['Phone_No'] = 'Phone No.';
-$lang['Note_jpg'] = 'Note: .jpg or .png file up to 2 MB';
+$lang['Edit_User_Account'] = 'แก้ไขบัญชีผู้ใช้งาน';
+$lang['Edit_Information'] = 'แก้ไขข้อมูลผู้ใช้งาน';
+$lang['Edit_Account'] = 'แก้ไขบัญชี';
+$lang['First_name-Last_name'] = 'ชื่อ-นามสกุล';
+$lang['Account Type'] = 'ประเภทบัญชี';
+$lang['Personal_Information'] = 'ข้อมูลบุคคล';
+$lang['Phone_No'] = 'เบอร์โทรศัพท์';
+$lang['Note_jpg'] = 'หมายเหตุ ไฟล์ .jpg .png ขนาดไม่เกิน 2 MB';
 
-$lang['Account_Status'] = 'Account Status';
-$lang['Change_Account_Status'] = 'Change Account Status';
-$lang['Account_Information'] = 'Account Information';
-$lang['Old_Password'] = 'Old Password';
-$lang['Enter_your_old_password'] = 'Enter your old password';
-$lang['New_Password'] = 'New Password';
-$lang['Enter_your_new_password'] = 'Enter your new password of at least 8 characters';
-$lang['Confirm_New_Password'] = 'Confirm New Password';
-$lang['Enter_your_new_password_again'] = 'Enter your new password again';
-$lang['Choose_a_password'] = 'Choose a password of at least 8 characters containing letters, numbers and symbols';
+$lang['Account_Status'] = 'สถานะบัญชี';
+$lang['Change_Account_Status'] = 'เปลี่ยนสถานะบัญชี';
+$lang['Account_Information'] = 'ข้อมูลบัญชี';
+$lang['Old_Password'] = 'รหัสผ่านเดิม';
+$lang['Enter_your_old_password'] = 'ใส่รหัสผ่านเดิม';
+$lang['New_Password'] = 'รหัสผ่านใหม่';
+$lang['Enter_your_new_password'] = 'ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร';
+$lang['Confirm_New_Password'] = 'ยืนยันรหัสผ่านใหม่';
+$lang['Enter_your_new_password_again'] = 'พิมพ์รหัสผ่านใหม่อีกครั้ง';
+$lang['Choose_a_password'] = 'ตั้งรหัสผ่านไม่น้อยกว่า 8 ตัวอักษร ประกอบด้วยตัวอักษร ตัวเลข และเครื่องหมาย ';
 $lang['Mr.'] = 'นาย';
 $lang['Mrs.'] = 'นาง';
 $lang['Ms.'] = 'นางสาว';

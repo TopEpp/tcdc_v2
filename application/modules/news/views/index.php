@@ -9,8 +9,8 @@
             <div class="inner">
               <!-- START BREADCRUMB -->
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo base_url("member"); ?>">หน้าแรก</a></li>
-                <li class="breadcrumb-item active">ข่าวสาร</li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url("member"); ?>"><?=lang('Homepage');?></a></li>
+                <li class="breadcrumb-item active"><?=lang('News');?></li>
               </ol>
               <!-- END BREADCRUMB -->
             </div>
@@ -27,7 +27,7 @@
                 <div class="card card-transparent">
                   <div class="card-header ">
                     <div class="card-title">
-                      <h5>ข่าวสาร</h5>
+                      <h5><?=lang('News');?></h5>
 
 
                     </div>

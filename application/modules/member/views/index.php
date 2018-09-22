@@ -6,7 +6,7 @@
               <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="<?php echo base_url('member'); ?>">หน้าแรก</a></li>
+                  <li class="breadcrumb-item"><a href="<?php echo base_url('member'); ?>"><?=lang('Homepage');?></a></li>
                   <!-- <li class="breadcrumb-item active">กิจกรรม</li> -->
                 </ol>
                 <!-- END BREADCRUMB -->
@@ -71,7 +71,7 @@
                     <?php }?>
 
                     <div class="card-title">
-                      <h5>กิจกรรมเปิดรับสมัคร</h5>
+                      <h5><?=lang('Open_Application');?></h5>
 
                     </div>
                   </div>
@@ -80,10 +80,10 @@
                       <table class="table table-hover table-condensed table-detailed" id="detailedTable">
                         <thead>
                           <tr>
-                            <th style="width:35%">ชื่อกิจกรรม</th>
-                            <th style="width:25%">ประเภท</th>
-                            <th style="width:20%">สถานะ</th>
-                            <th style="width:20%">อัพเดตล่าสุด</th>
+                            <th style="width:35%"><?=lang('Activity_Name');?></th>
+                            <th style="width:25%"><?=lang('Category');?></th>
+                            <th style="width:20%"><?=lang('Status');?></th>
+                            <th style="width:20%"><?=lang('Latest_Update');?></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -94,13 +94,13 @@ foreach ($project as $key => $prj) {
 
     if (!empty($status_regis[$prj->project_id]->status)) {
         if (@$status_regis[$prj->project_id]->reg_status) {
-            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ได้เข้าร่วมกิจกรรม</span>';
+            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12"></span>';
         } else {
-            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">สมัครแล้ว</span>';
+            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">' . lang('Applied') . '</span>';
         }
 
     } else {
-        $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">กดเพื่อสมัคร</span>';
+        $status = '<span class=" label label-danger p-t-5 m-l-5 p-b-5 inline fs-12">' . lang('Click_apply') . '</span>';
     }
 
     ?>
@@ -130,7 +130,7 @@ foreach ($project as $key => $prj) {
                             <tbody>
                               <?php if ($prj->project_type != '4') {?>
                                 <tr>
-                                  <td width="40%" style="vertical-align:top">รายละเอียด <p><?php echo $prj->project_detail; ?></p></td>
+                                  <td width="40%" style="vertical-align:top"><?=lang('Details');?> <p><?php echo $prj->project_detail; ?></p></td>
                                   <?php if ($this->session->userdata('sesUserType') == 1) {?>
                                     <td width="5%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg; ?> ราย</td>
 
@@ -140,8 +140,8 @@ foreach ($project as $key => $prj) {
                                   <?php $start_reg = explode('-', $prj->register_start_date);
         $end_reg = explode('-', $prj->register_finish_date);
         ?>
-                                  <td width="25%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
-                                  ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
+                                  <td width="25%" style="vertical-align:top"><?=lang('Application_Period');?> <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
+                                  <?=lang('Activity_Period');?> <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
 
                                   <?php if ($status) {
             $disable = '';
@@ -150,16 +150,16 @@ foreach ($project as $key => $prj) {
             }
 
             ?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>">สมัคร</button></td>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>"><?=lang('Apply');?></button></td>
                                   <?php } else {?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#"><?=lang('Apply');?></a></td>
                                   <?php }?>
                                 </tr>
                               <?php } else {
         $event_type = ['', 'เยี่ยมชม (Tour)', 'เปิดบ้าน (Open House)', 'การแสดง (Performance)', 'ปาร์ตี้ (Party)'];
         foreach ($prj_events as $key => $prj) {?>
                                 <tr>
-                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name . ' ' . @$event_type[$prj->event_type]; ?><br/>รายละเอียด<p><?php echo $prj->project_detail; ?></p></td>
+                                  <td width="40%" style="vertical-align:top"><?php echo $prj->project_name . ' ' . @$event_type[$prj->event_type]; ?><br/><?=lang('Details');?><p><?php echo $prj->project_detail; ?></p></td>
                                   <?php if ($this->session->userdata('sesUserType') == 1) {?>
                                     <td width="5%" style="vertical-align:top">ผู้เข้าร่วม <?php echo $prj->num_reg; ?> ราย</td>
 
@@ -169,8 +169,8 @@ foreach ($project as $key => $prj) {
                                   <?php $start_reg = explode('-', $prj->register_start_date);
             $end_reg = explode('-', $prj->register_finish_date);
             ?>
-                                  <td width="25%" style="vertical-align:top">ระยะเวลารับสมัคร <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
-                                  ระยะเวลาจัดกิจกรรม <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
+                                  <td width="25%" style="vertical-align:top"><?=lang('Application_Period');?> <p><?php echo $start_reg[2] . '.' . $start_reg[1] . '.' . $start_reg[0] . ' - ' . $end_reg[2] . '.' . $end_reg[1] . '.' . $end_reg[0] ?></p>
+                                  <?=lang('Activity_Period');?> <p><?php echo $this->mydate->date_2dot($prj->project_start_date) . ' - ' . $this->mydate->date_2dot($prj->project_finish_date); ?></p></td><br>
 
                                   <?php if ($status) {
                 $disable = '';
@@ -179,9 +179,9 @@ foreach ($project as $key => $prj) {
                 }
 
                 ?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>">สมัคร</button></td>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><button <?=$disable;?>  style="color: white; background: #1dbb99;" class="btn btn-bg-success btn-cons m-t-10 fn_from" onclick="window.location.href='<?php echo base_url($this->uri->segment(1) . '/member/form/' . $prj->project_id) . '\''; ?>"><?=lang('Apply');?></button></td>
                                   <?php } else {?>
-                                    <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#">สมัคร</a></td>
+                                    <td width="20%" style="vertical-align:top; text-align: center;"><a style="color: white; background: #f35958;" class="btn btn-bg-success btn-cons m-t-10 fn_from" href="#"><?=lang('Apply');?></a></td>
                                   <?php }?>
                                 </tr>
                                 <?php }
@@ -209,7 +209,7 @@ foreach ($project as $key => $prj) {
                     <div class="card card-transparent">
                       <div class="card-header ">
                         <div class="card-title">
-                          <h5>ข่าวสาร</h5>
+                          <h5><?=lang('News');?></h5>
 
                     </div>
                   </div>
@@ -255,33 +255,7 @@ foreach ($project as $key => $prj) {
                   <?php }?>
 
 
-                    <!-- <div class="col-lg-4">
-                      <div id="card-circular-color" class="card card-default card2">
-                        <div class="card-header  ">
-                          <div class="card-title">ประกาศแจ้ง
-                          </div>
-                          <div class="card-controls">
-                            <ul>
-                              <li><a href="#" class="card-collapse" data-toggle="collapse"><i
-                        class="card-icon card-icon-collapse"></i></a>
-                              </li>
-                              <li><a href="#" class="card-refresh" data-toggle="refresh"><i
-                        class="card-icon card-icon-refresh"></i></a>
-                              </li>
-                              <li><a href="#" class="card-close" data-toggle="close"><i
-                        class="card-icon card-icon-close"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="card-block">
-                          <h5>
-                            <span class="semi-bold">เปลี่ยนแปลง</span> สถานที่จัดงาน</h5>
-                          <p>เนื่องจากมีการปิดปรับปรุงสถานที่เพื่อซ้อมแซม ทางผู้จัดการโครงการจึงจำเป็นต้องย้ายสถานที่จัดงานจากชั้นที่ 5 โรงแรมน้ำปิง มาเป็นชั้น 2 ห้อง A5 จึงขออภัยในความไม่สะดวกดังกล่าว
-                          </p>
-                        </div>
-                      </div>
-                    </div> -->
+
                     <?php foreach (@$alert_data as $key => $value) {
     if ($value->reg_status) {?>
                       <div class="col-lg-4" style="display:block;">
@@ -305,10 +279,10 @@ foreach ($project as $key => $prj) {
 
                             <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail; ?></span></p>
                             <p class="text-white">
-                            <?php echo 'ณ วันที่  ' . $this->mydate->date_2dot($value->approve_date); ?>
+                            <?php echo lang('Date') . $this->mydate->date_2dot($value->approve_date); ?>
                             </p>
 
-                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id) . '/1'; ?>">ดำเนินการ</a>
+                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id) . '/1'; ?>"><?=lang('Proceed');?></a>
                           </div>
                         </div>
                       </div>
@@ -317,7 +291,7 @@ foreach ($project as $key => $prj) {
                         <div class="col-lg-4" style="display:block;">
                         <div id="card-error" class="card card-default bg-danger-light">
                           <div class="card-header ">
-                            <div class="card-title">แจ้งเตือน
+                            <div class="card-title"><?=lang('Notification');?>
                             </div>
                             <div class="card-controls">
                               <!-- <ul>
@@ -335,10 +309,10 @@ foreach ($project as $key => $prj) {
 
                             <p class="text-white"> <span class="semi-bold text-white">  <?php echo $value->reject_detail; ?></span></p>
                             <p class="text-white">
-                            <?php echo 'ณ วันที่  ' . $this->mydate->date_2dot($value->approve_date); ?>
+                            <?php echo lang('Date') . $this->mydate->date_2dot($value->approve_date); ?>
                             </p>
 
-                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id); ?>">ดำเนินการ</a>
+                            <a class="btn bg-success-lighter btn-cons m-t-10 fn_from" href="<?php echo base_url($this->uri->segment(1) . '/member/form/' . $value->project_id); ?>"><?=lang('Proceed');?></a>
                           </div>
                         </div>
                       </div>

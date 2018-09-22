@@ -19,6 +19,7 @@ $lang['Homepage'] = 'Homepage';
 $lang['Profile'] = 'Profile';
 
 #top menu
+$lang['Thai'] = 'Thai';
 $lang['Settings'] = 'Settings';
 $lang['Sign out'] = 'Sign out';
 
@@ -94,6 +95,7 @@ $lang['Edit_User_Account'] = 'Edit User Account';
 $lang['Edit_Information'] = 'Edit User Information';
 $lang['Edit_Account'] = 'Edit Account';
 $lang['First_name-Last_name'] = 'First name-Last name';
+$lang['Account Type'] = 'Account Type';
 $lang['Personal_Information'] = 'Personal Information';
 $lang['Phone_No'] = 'Phone No.';
 $lang['Note_jpg'] = 'Note: .jpg or .png file up to 2 MB';
