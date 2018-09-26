@@ -94,7 +94,7 @@ foreach ($project as $key => $prj) {
 
     if (!empty($status_regis[$prj->project_id]->status)) {
         if (@$status_regis[$prj->project_id]->reg_status) {
-            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12"></span>';
+            $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">ได้เข้าร่วมแล้ว</span>';
         } else {
             $status = '<span class=" label label-success p-t-5 m-l-5 p-b-5 inline fs-12">' . lang('Applied') . '</span>';
         }

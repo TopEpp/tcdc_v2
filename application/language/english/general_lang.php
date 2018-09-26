@@ -126,13 +126,14 @@ $lang['1_Interested'] = '1.	Interested individuals can complete the online appli
 $lang['2_The_work'] = '2.	The work submitted for display must not copy or duplicate the work of others. In the event of a dispute or claim of infringement of copyright or any other intellectual properties in connection with the displayed work, the participant must assume sole responsibility for payment of compensation for damages resulting from the infringement of copyright or any other rights.';
 $lang['3_articipant'] = '3.	Participant must study the criteria for participating in the activity and follow all of the criteria. Participant must also agree to the disclaimer issued by the Chiang Mai Design Week to cancel, amend, alter or change the terms and conditions as the organiser of Chiang Mai Design Week sees fit without prior notice. At all events, the decision of the organiser of Chiang Mai Design Week shall be final.';
 $lang['4_Application'] = '4.	Application information and documents must be accurate and truthful. In the event that the application information and documents are later found to be inaccurate or false, the participant will be immediately considered lacking in qualifications. And in the case that the participant’s inaccurate or false information causes any damages to the Festival, the participant will accept unconditional responsibility.';
-
+$lang['I_have_read_form'] = "I have read and agree to the terms and conditions";
 $lang['Address_Sending'] = 'Address for Sending Documents';
 $lang['Company/Building_Name'] = 'Company/Building Name';
 $lang['Mobile_Phone'] = 'Mobile Phone';
 
 $lang['In_which_status_do_you_apply'] = 'In which status do you apply?';
-$lang['Which_creative_industry_does_your_work_belong_to'] = 'Which creative industry does your work belong to?';
+$lang['Status_form'] = 'Status';
+$lang['Which_creative'] = 'Which creative industry does your work belong to?';
 $lang['Applicant_Information'] = 'Applicant Information';
 $lang['Experience'] = 'Experience';
 $lang['What_target_group'] = 'What is your target group?';
@@ -151,9 +152,11 @@ $lang['Add_coordinator'] = 'Add coordinator';
 
 $lang['Collection'] = 'Collection';
 $lang['Design_Work_Details'] = 'Design Work Details';
-$lang['Number_of_Design Work'] = 'Number of Design Work';
+$lang['Number_of_Design Work'] = 'No. of Works';
+$lang['Category_event'] = 'Category of Work';
 
 #category
+$lang['Furniture'] = 'Furniture';
 $lang['Lifestyle'] = 'Lifestyle';
 $lang['Home_decor_item'] = 'Home decor item';
 $lang['Accessories'] = 'Accessories';
@@ -167,15 +170,17 @@ $lang['Present_design_work_and_brand_to_the public'] = 'Present design work and 
 $lang['Meet_business_partners_and_generate orders'] = 'Meet business partners and generate orders';
 $lang['Sell_products'] = 'Sell products';
 
-$lang['Category_of_Work'] = 'Category of Work';
+$lang['Title_work'] = 'Title';
 $lang['Main_Material'] = 'Main Material';
 $lang['Design_Year'] = 'Design Year';
 $lang['Size_and_Number_of_Works'] = 'Size and Number of Works';
 $lang['Width'] = 'Width';
 $lang['Length'] = 'Length';
 $lang['Height'] = 'Height';
+$lang['CM'] = ' c.m.';
 $lang['Design_Concept'] = 'Design Concept (Up to 200 words)*';
 $lang['Image_of_Work'] = 'Image of Work';
+$lang['Presentation_Files'] = 'Presentation file';
 $lang['JPG_file_only'] = '(JPG file only, up to 2MB)';
 $lang['Presentation_File'] = 'Presentation File (If any)';
 $lang['Close-up_image'] = 'Close-up image';
@@ -186,19 +191,15 @@ $lang['Add_Design_Work'] = 'Add Design Work';
 $lang['Type_of_Business'] = 'Type of Business';
 $lang['Juristic_Person_Registration_Number'] = 'Juristic Person Registration Number';
 
-$lang['Entrepreneur'] = 'Entrepreneur';
-$lang['Design_Studio'] = 'Design StudioDesign Studio';
+$lang['Entrepreneur'] = 'Business Entrepreneur';
+$lang['Community_Enterprise'] = 'Community Enterprise';
+$lang['Design_Studio'] = 'Design Studio';
 $lang['Designer/Artist/Architect'] = 'Designer/Artist/Architect';
 $lang['Student'] = 'Student';
 $lang['Craftsman/Maker'] = 'Craftsman/Maker';
 $lang['Organisation/Institute'] = 'Organisation/Institute';
 $lang['Educational_Institute'] = 'Educational Institute';
 
-$lang['Business_Entrepreneur'] = 'Business Entrepreneur';
-$lang['Community_Enterprise'] = 'Community EnterpriseCommunity Enterprise';
-$lang['Design_Studio'] = 'Design Studio';
-
-$lang['Community_Enterprise'] = 'Community Enterprise';
 $lang['Advertising'] = 'Advertising';
 $lang['Design_including_fashion)'] = 'Design (including fashion)';
 $lang['Architecture'] = 'Architecture';
@@ -228,7 +229,7 @@ $lang['International_customers'] = 'International customers';
 $lang['Talk/Workshop'] = 'Talk/Workshop';
 $lang['Evaluation_Form'] = 'Evaluation Form';
 $lang['Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions'] = 'Please accept and confirm that you have read the terms and conditions';
-$lang['Close'] = 'Close';
+$lang['Closes'] = 'Close';
 
 #tab3
 $lang['Type'] = 'Type';

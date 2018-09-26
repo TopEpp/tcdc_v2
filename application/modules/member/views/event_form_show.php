@@ -11,10 +11,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>กรุณายอมรับและได้อ่านเงื่อนไขและข้อตกลง.</p>
+        <p><?=lang('Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions');?></p>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><?=lang('Closes');?></button>
       </div>
     </div>
   </div>
@@ -62,19 +62,19 @@ if ($this->session->flashdata('error')) {
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
                 <li class="nav-item">
-                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png'); ?>" width="10px"> <span>เงื่อนไขและข้อตกลง</span></a>
+                  <a class="active" data-toggle="tab" href="#tab1" role="tab"><img src="<?php echo base_url('assets/img/icons/1.png'); ?>" width="10px"> <span> <?=lang('Terms_Conditions');?> </span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png'); ?>" width="10px"> <span>ข้อมูลบุคคล/องค์กร</span></a>
+                  <a class="" data-toggle="tab" href="#tab2" role="tab"><img src="<?php echo base_url('assets/img/icons/2.png'); ?>" width="10px"> <span> <?=lang('Personal/Organisational_Information');?> </span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png'); ?>" width="10px"> <span>ผลงานออกแบบ</span></a>
+                  <a class="" data-toggle="tab" href="#tab3" role="tab"><img src="<?php echo base_url('assets/img/icons/3.png'); ?>" width="10px"> <span><?=lang('Design_Work');?></span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab4" role="tab"><img src="<?php echo base_url('assets/img/icons/4.png'); ?>" width="10px"> <span>วิธีการจัดแสดง</span></a>
+                  <a class="" data-toggle="tab" href="#tab4" role="tab"><img src="<?php echo base_url('assets/img/icons/4.png'); ?>" width="10px"> <span><?=lang('Display_Method');?></span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="" data-toggle="tab" href="#tab5" role="tab"><img src="<?php echo base_url('assets/img/icons/5.png'); ?>" width="10px"> <span>แบบประเมินผล</span></a>
+                  <a class="" data-toggle="tab" href="#tab5" role="tab"><img src="<?php echo base_url('assets/img/icons/5.png'); ?>" width="10px"> <span><?=lang('Evaluation_Form');?></span></a>
                 </li>
               </ul>
               <!-- Tab panes -->
@@ -90,40 +90,26 @@ if ($this->session->flashdata('error')) {
 }
 ?>
                     <div class="row row-same-height">
-                    <!-- <div class="col-md-5 b-r b-dashed b-grey sm-b-b">
-                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-                         -->
-                        <!-- <h2>ที่มาและข้อตกลง</h2>
-                        <p><?php echo $project[0]->project_name . ' ' . $project[0]->project_provenance; ?> </p>
-                        <p class="small hint-text"><?php echo $project[0]->type_name; ?></p><!--งานจัดแสดง , สินค้า , อาหารและเครื่องดืม-->
-                        <!-- <br>
-                        <div>
-                          <div class="profile-img-wrapper m-t-5 inline">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
-                            <div class="chat-status available">
-                            </div>
-                          </div>
-                          <div class="inline m-l-10">
-                            <p class="small hint-text m-t-5"><?php echo @$project[0]->project_update_user; ?>
-                              <br>ผู้ประสานงานโครงการ</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div> -->
+
 
                       <div class="col-md-12" style="font-family: 'dbch';">
                         <div class="padding-30 sm-padding-5">
 
-                          <h5 style="font-family: 'dbch';">เงื่อนไขและข้อตกลงสำหรับการจัดแสดงหรือนิทรรศการ</h5>
+                          <h5 style="font-family: 'dbch';"><?=lang('Terms_Conditions_Participating');?></h5>
                           <div class="row">
                             <div class="card-block">
                               <div class="">
                                 <div class="">
+
                                 <!-- <p>1. ผู้สนใจสามารถกรอกแบบฟอร์มออนไลน์ได้ตั้งแต่วันที่ 16 มิ.ย. – 15 ก.ค. 61</p>
                                  <p> 2. ผลงานที่ส่งเข้าร่วมจัดแสดง ต้องไม่เป็นการคัดลอกหรือทำซ้ำกับผลงานของบุคคลอื่น และหากมีกรณีที่บุคคลภายนอกกล่าวอ้างหรือใช้สิทธิ์เรียกร้องใดๆว่ามีการละเมิดลิขสิทธิ์ หรือทรัพย์สินทางปัญญาอื่นใดเกี่ยวกับผลงานที่ส่งเข้าร่วมจัดแสดง ผู้แสดงผลงานต้องรับผิดชอบ ชดใช้ค่าเสียหายต่อบุคคลภายนอก เนื่องจากผลแห่งการละเมิดลิขสิทธิ์ หรือสิทธิ์อื่นใดดังกล่าวเองทั้งสิ้น</p>
-                                 <p> 3. ผู้จัดแสดงผลงานต้องศึกษารายละเอียดหลักเกณฑ์การเข้าร่วมกิจกรรม และต้องดำเนินการตามหลักเกณฑ์การเข้าร่วมกิจกรรมทุกประการ และยอมรับข้อสงวนสิทธิ์ของ CMDW18 ในการยกเลิก แก้ไข ปรับเปลี่ยน หรือเปลี่ยนแปลงข้อกำหนดและเงื่อนไขต่างๆของเทศกาลที่ CMDW18 เห็นว่าจำเป็นโดยไม่ต้องแจ้งให้ทราบล่วงหน้า ทั้งนี้ การตัดสินใจของ CMDW18 ถือเป็นที่สิ้นสุด</p>
+                                 <p> 3. ผู้จัดแสดงผลงานต้องศึกษารายละเอียดหลักเกณฑ์การเข้าร่วมกิจกรรม และต้องดำเนินการตามหลักเกณฑ์การเข้าร่วมกิจกรรมทุกประการ และยอมรับข้อสงวนสิทธิ์ของ CMDW18 ในการ<?=lang('Cancel');?> แก้ไข ปรับเปลี่ยน หรือเปลี่ยนแปลงข้อกำหนดและเงื่อนไขต่างๆของเทศกาลที่ CMDW18 เห็นว่าจำเป็นโดยไม่ต้องแจ้งให้ทราบล่วงหน้า ทั้งนี้ การตัดสินใจของ CMDW18 ถือเป็นที่สิ้นสุด</p>
                                  <p> 4. ข้อมูลต่างๆและเอกสารประกอบการสมัครเป็นข้อมูลที่ถูกต้องและเป็นจริงทุกประการ หากปรากฏภายหลังว่าข้อมูลต่างๆและเอกสารประกอบการสมัครไม่ถูกต้องและไม่เป็นจริงเมื่อใด ให้ถือว่าผู้แสดงผลงานขาดคุณสมบัติทันที และหากว่าในกรณีการให้ข้อมูลที่ไม่ถูกต้องหรือไม่เป็นจริงของผู้แสดงผลงานก่อให้เกิดความเสียหายแก่เทศกาล ผู้แสดงผลงานยินยอมที่จะรับผิดชอบโดยไม่มีเงื่อนไข</p> -->
-                                 <?php echo @$project[0]->project_provenance; ?>
+                                 <!-- <?php echo @$project[0]->project_provenance; ?> -->
+                                 <?php echo lang('1_Interested'); ?><br/>
+                                 <?php echo lang('2_The_work'); ?><br/>
+                                 <?php echo lang('3_articipant'); ?><br/>
+                                 <?php echo lang('4_Application'); ?>
                                 </div>
                               </div>
                               <br>
@@ -131,7 +117,7 @@ if ($this->session->flashdata('error')) {
                             <div class="checkbox check-success  ">
 
                              <input type="checkbox" value="1" id="checkbox2" <?php echo (!empty($regis['reg_id'])) ? 'checked' : '' ?> >
-                             <label  for="checkbox2">ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว</label>
+                             <label  for="checkbox2"><?=lang('I_have_read_form');?></label>
                            </div>
 
 
@@ -167,7 +153,7 @@ if ($this->session->flashdata('error')) {
                       <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
 
-                            <p style="font-weight: bold">ข้อมูลผู้สมัคร</p>
+                            <p style="font-weight: bold"><?=lang('Applicant_Information');?></p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                 <!-- <div class="col-sm-3">
@@ -178,26 +164,26 @@ if ($this->session->flashdata('error')) {
                                 </div> -->
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
-                                    <label>คำนำหน้า</label>
+                                    <label><?=lang('Title');?></label>
                                     <select style="width:100%;"  id="prename" name="prename" >
 
-                                      <option  <?php echo (@$member->prename == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                      <option  <?php echo (@$member->prename == 1) ? 'selected' : ''; ?> value="1">นาย</option>
-                                      <option  <?php echo (@$member->prename == 2) ? 'selected' : ''; ?> value="2">นาง</option>
-                                      <option  <?php echo (@$member->prename == 3) ? 'selected' : ''; ?> value="3">นางสาว</option>
-                                      <option  <?php echo (@$member->prename == 4) ? 'selected' : ''; ?> value="4">ไม่ระบุ</option>
+                                      <option  <?php echo (@$member->prename == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                      <option  <?php echo (@$member->prename == 1) ? 'selected' : ''; ?> value="1"><?=lang('Mr.');?></option>
+                                      <option  <?php echo (@$member->prename == 2) ? 'selected' : ''; ?> value="2"><?=lang('Mrs.');?></option>
+                                      <option  <?php echo (@$member->prename == 3) ? 'selected' : ''; ?> value="3"><?=lang('Ms.');?></option>
+                                      <option  <?php echo (@$member->prename == 4) ? 'selected' : ''; ?> value="4"><?=lang('Not_Specify');?></option>
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
-                                    <label>ชื่อ</label>
+                                    <label><?=lang('First_Name');?></label>
                                     <input type="text" name="firstname" class="form-control" value="<?php echo $member->firstname; ?>">
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
-                                    <label>นามสกุล</label>
+                                    <label><?=lang('Last_Name');?></label>
                                     <input type="text" class="form-control" name="lastname" value="<?php echo $member->lastname; ?>">
                                   </div>
                                 </div>
@@ -217,12 +203,12 @@ if ($this->session->flashdata('error')) {
 
                             <br>
 
-                            <p style="font-weight: bold">ที่อยู่ในการจัดส่งเอกสาร</p>
+                            <p style="font-weight: bold"><?=lang('Address_Sending');?></p>
                             <div class="form-group-attached">
                               <div class="row clearfix">
                                   <div class="col-sm-12">
                                     <div class="form-group form-group-default ">
-                                      <label>ชื่อบริษัท/อาคารที่ตั้ง</label><span class="text-danger"><?php echo form_error('company_name'); ?></span>
+                                      <label><?=lang('Company/Building_Name');?></label><span class="text-danger"><?php echo form_error('company_name'); ?></span>
                                       <input type="text" name="company_name" class="form-control" placeholder="" value="<?php echo set_value('company_name'); ?>">
                                     </div>
                                   </div>
@@ -232,25 +218,25 @@ if ($this->session->flashdata('error')) {
                               <div class="row clearfix">
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default required">
-                                    <label>เลขที่</label><span class="text-danger"><?php echo form_error('address'); ?></span>
+                                    <label><?=lang('House_No');?></label><span class="text-danger"><?php echo form_error('address'); ?></span>
                                     <input type="text" name="address" class="form-control" placeholder="" value="<?php echo @$member->address; ?>">
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default ">
-                                    <label>หมู่</label><span class="text-danger"><?php echo form_error('village'); ?></span>
+                                    <label><?=lang('Moo');?></label><span class="text-danger"><?php echo form_error('village'); ?></span>
                                     <input type="text" name="village" class="form-control" placeholder="" value="<?php echo @$member->village; ?>">
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default ">
-                                    <label>ซอย</label><span class="text-danger"><?php echo form_error('lane'); ?></span>
+                                    <label><?=lang('Soi');?></label><span class="text-danger"><?php echo form_error('lane'); ?></span>
                                     <input type="text" name="lane" class="form-control" placeholder="" value="<?php echo @$member->lane; ?>">
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group form-group-default ">
-                                    <label>ถนน</label><span class="text-danger"><?php echo form_error('Road'); ?></span>
+                                    <label><?=lang('Road');?></label><span class="text-danger"><?php echo form_error('Road'); ?></span>
                                     <input type="text" name="road" class="form-control" placeholder="" value="<?php echo @$member->road; ?>">
                                   </div>
                                 </div>
@@ -258,13 +244,13 @@ if ($this->session->flashdata('error')) {
                               <div class="row clearfix">
                               <div class="col-sm-6">
                                   <div class="form-group form-group-default required">
-                                    <label>ตำบล/แขวง</label>
+                                    <label><?=lang('Subdistrict');?></label>
                                     <input type="text" class="form-control" placeholder="" name="subdistrict" value="<?php echo $member->subdistrict; ?>" >
                                   </div>
                                 </div>
                                 <div class="col-sm-6">
                                   <div class="form-group form-group-default required">
-                                    <label>เขต/อำเภอ</label>
+                                    <label><?=lang('District/Area');?></label>
                                     <input type="text" class="form-control" name="district" value="<?php echo $member->district; ?>" >
                                   </div>
                                 </div>
@@ -273,9 +259,9 @@ if ($this->session->flashdata('error')) {
 
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx "><!--form-group-default-selectFx-->
-                                    <label>ประเทศ</label><span class="text-danger" style="text-align:center;"><?php echo form_error('country'); ?></span>
+                                    <label><?=lang('Country');?></label><span class="text-danger" style="text-align:center;"><?php echo form_error('country'); ?></span>
                                     <select style="width:100%" name="country" id="country" class=" form-control" data-init-plugin="select2"  >
-                                      <option value="">เลือก</option>
+                                      <option value=""><?=lang('Select');?></option>
                                       <?php foreach ($countries as $key => $value) {?>
                                         <?php
 $select = '';
@@ -284,13 +270,17 @@ $select = '';
             $select = 'selected="selected"';
         }
     } else {
-        if ('Thailand' == $value->name) {
+        if ('ไทย' == $value->name || 'Thailand' == $value->name) {
             $select = 'selected="selected"';
         }
     }
 
     ?>
-                                        <option <?php echo $select; ?>  value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                       <?php if ($this->session->userdata('site_lang') == 'english') {?>
+                                                            <option <?php echo $select; ?>  value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
+                                                            <?php } else {?>
+                                                              <option <?php echo $select; ?>  value="<?php echo $value->id; ?>"><?php echo $value->value; ?></option>
+                                                            <?php }?>
                                       <?php }?>
 
                                     </select>
@@ -298,9 +288,9 @@ $select = '';
                                 </div>
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required form-group-default-selectFx">
-                                    <label for="province">จังหวัด</label>
+                                    <label for="province"><?=lang('Province');?></label>
                                     <select style="width: 100% !important;"   name="province" id="province " class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2">
-                                        <option value="" selected disable>เลือก</option>
+                                        <option value="" selected disable><?=lang('Select');?></option>
                                         <?php
 foreach ($province as $key => $value) {?>
                                           <?php
@@ -308,14 +298,18 @@ $select = '';
     if (@$member->province == $value->code) {
         $select = 'selected';
     }?>
-                                          <option <?php echo $select; ?> value="<?php echo $value->code; ?>"><?php echo $value->name_th; ?></option>
+                                           <?php if ($this->session->userdata('site_lang') == 'english') {?>
+                                                <option <?php echo $select; ?>  value="<?php echo $value->code; ?>"><?php echo $value->name_eng; ?></option>
+                                              <?php } else {?>
+                                                <option <?php echo $select; ?>  value="<?php echo $value->code; ?>"><?php echo $value->name_th; ?></option>
+                                              <?php }?>
                                         <?php }?>
                                       </select>
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
                                   <div class="form-group form-group-default required">
-                                    <label>รหัสไปรษณีย์</label>
+                                    <label><?=lang('Postcode');?></label>
                                     <input type="text" class="form-control" name="zipcode" value="<?php echo (@$member->zipcode != 0) ? @$member->zipcode : ''; ?>" >
                                   </div>
                                 </div>
@@ -326,14 +320,14 @@ $select = '';
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default required">
-                                      <label>อีเมล</label>
+                                      <label><?=lang('Email');?></label>
                                       <input type="text" class="form-control" name="email"  value="<?php echo $member->email; ?>">
                                     </div>
                                   </div>
 
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default required">
-                                      <label>โทรศัพท์มือถือ</label>
+                                      <label><?=lang('Mobile_Phone');?></label>
                                       <input name="phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->phone != 0) ? @$member->phone : ''; ?>">
                                     </div>
                                   </div>
@@ -346,7 +340,7 @@ $select = '';
 
                                   <div class="col-sm-12">
                                     <div class="form-group form-group-default ">
-                                      <label>โทรศัพท์</label>
+                                      <label><?=lang('Phone_No');?></label>
                                       <input name="h_phone" type="text" id="phone" class="form-control" value="<?php echo (@$member->h_phone != 0) ? @$member->h_phone : ''; ?>">
                                     </div>
                                   </div>
@@ -360,15 +354,15 @@ $select = '';
                               <!--  status group -->
                               <div id="commany">
 
-                                <p style="font-weight: bold">คุณสมัครในสถานภาพใด</p>
+                                <p style="font-weight: bold"><?=lang('In_which_status_do_you_apply');?></p>
                                   <div class="row clearfix">
                                     <div class="col-sm-12">
                                       <div class="form-group form-group-default  form-group-default-selectFx  required">
-                                        <label>สถานภาพ</label>
+                                        <label><?=lang('Status_form');?></label>
                                         <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true" >
-                                          <option  <?php echo (@$member->job == '') ? 'selected' : ''; ?> value="" >เลือก</option>
+                                          <option  <?php echo (@$member->job == '') ? 'selected' : ''; ?> value="" ><?=lang('select');?></option>
                                           <?php foreach ($status as $key => $value) {?>
-                                            <option data-group="<?php echo $value->status_group; ?>" <?php echo (@$member->job == $value->status_id) ? 'selected' : ''; ?> value="<?php echo $value->status_id; ?>"><?php echo $value->status_name; ?></option>
+                                            <option data-group="<?php echo $value->status_group; ?>" <?php echo (@$member->job == $value->status_id) ? 'selected' : ''; ?> value="<?php echo $value->status_id; ?>"><?php echo lang($value->status_name); ?></option>
                                           <?php }?>
                                         </select>
                                       </div>
@@ -388,22 +382,22 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด</label>
+                                          <label><?=lang('Which_creative');?></label>
                                           <select style="width:100%" name="job_type_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
 
-                                            <option  <?php echo (@$member->job_type == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->job_type == 1) ? 'selected' : ''; ?> value="1">งานฝีมือและหัตถกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 2) ? 'selected' : ''; ?> value="2">ศิลปการแสดง</option>
-                                            <option  <?php echo (@$member->job_type == 3) ? 'selected' : ''; ?> value="3">ทัศนศิลป์</option>
-                                            <option  <?php echo (@$member->job_type == 4) ? 'selected' : ''; ?> value="4">ดนตรี</option>
+                                            <option  <?php echo (@$member->job_type == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->job_type == 1) ? 'selected' : ''; ?> value="1"><?=lang('Performing_arts');?></option>
+                                            <option  <?php echo (@$member->job_type == 2) ? 'selected' : ''; ?> value="2"><?=lang('Crafts_and_handicrafts');?></option>
+                                            <option  <?php echo (@$member->job_type == 3) ? 'selected' : ''; ?> value="3"><?=lang('Visual_arts');?></option>
+                                            <option  <?php echo (@$member->job_type == 4) ? 'selected' : ''; ?> value="4"><?=lang('Music');?></option>
                                             <option  <?php echo (@$member->job_type == 5) ? 'selected' : ''; ?> value="5">ภาพยนตร์และวิดีทัศน์</option>
                                             <option  <?php echo (@$member->job_type == 6) ? 'selected' : ''; ?> value="6">การพิมพ์</option>
                                             <option  <?php echo (@$member->job_type == 7) ? 'selected' : ''; ?> value="7">การกระจายเสียง</option>
                                             <option  <?php echo (@$member->job_type == 8) ? 'selected' : ''; ?> value="8">ซอฟต์แวร์</option>
-                                            <option  <?php echo (@$member->job_type == 9) ? 'selected' : ''; ?> value="9">การโฆษณา</option>
-                                            <option  <?php echo (@$member->job_type == 10) ? 'selected' : ''; ?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
-                                            <option  <?php echo (@$member->job_type == 11) ? 'selected' : ''; ?> value="11">สถาปัตยกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 12) ? 'selected' : ''; ?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                            <option  <?php echo (@$member->job_type == 9) ? 'selected' : ''; ?> value="9"><?=lang('Advertising');?></option>
+                                            <option  <?php echo (@$member->job_type == 10) ? 'selected' : ''; ?> value="10"><?=lang('Design_including_fashion');?></option>
+                                            <option  <?php echo (@$member->job_type == 11) ? 'selected' : ''; ?> value="11"><?=lang('Architecture');?></option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected' : ''; ?> value="12"><?=lang('Fashion_ready-to-wear_manufacturing');?></option>
                                           </select>
                                         </div>
                                       </div>
@@ -411,14 +405,14 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ประสบการณ์</label>
+                                          <label><?=lang('Experience');?></label>
                                           <select style="width:100%" name="company_service_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
 
-                                            <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
-                                            <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2">0 - 3 ปี</option>
-                                            <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3">3 - 10 ปี</option>
-                                            <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4">มากกว่า 10 ปี</option>
+                                            <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1"><?=lang('Developing_and_testing_prototype');?></option>
+                                            <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2"><?=lang('0-3_years');?></option>
+                                            <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3"><?=lang('3-10_years');?></option>
+                                            <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4"><?=lang('over_10_years');?></option>
 
 
                                           </select>
@@ -428,22 +422,22 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ลูกค้าของคุณคือกลุ่มใด</label>
+                                          <label><?=lang('What_target_group');?></label>
                                           <select style="width:100%" name="company_custom_group" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                            <option  <?php echo (@$member->company_custom_group == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->company_custom_group == 1) ? 'selected' : ''; ?> value="1">ลูกค้าในประเทศ</option>
-                                            <option  <?php echo (@$member->company_custom_group == 2) ? 'selected' : ''; ?> value="2">ลูกค้าต่างประเทศ </option>
+                                            <option  <?php echo (@$member->company_custom_group == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->company_custom_group == 1) ? 'selected' : ''; ?> value="1"><?=lang('Domestic_customers');?></option>
+                                            <option  <?php echo (@$member->company_custom_group == 2) ? 'selected' : ''; ?> value="2"><?=lang('International_customers');?> </option>
                                           </select>
                                         </div>
                                       </div>
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ลักษณะการทำงานของธุรกิจ </label>
+                                          <label><?=lang('Type_of_Business');?> </label>
                                           <select style="width:100%" name="company_business_look_one" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                            <option  <?php echo (@$member->company_business_look == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->company_business_look == 1) ? 'selected' : ''; ?> value="1">รับจ้างผลิต </option>
-                                            <option  <?php echo (@$member->company_business_look == 2) ? 'selected' : ''; ?> value="2">รับจัดจำหน่าย</option>
-                                            <option  <?php echo (@$member->company_business_look == 3) ? 'selected' : ''; ?> value="3">ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง </option>
+                                            <option  <?php echo (@$member->company_business_look == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->company_business_look == 1) ? 'selected' : ''; ?> value="1"><?=lang('OEM');?> </option>
+                                            <option  <?php echo (@$member->company_business_look == 2) ? 'selected' : ''; ?> value="2"><?=lang('Distributor');?></option>
+                                            <option  <?php echo (@$member->company_business_look == 3) ? 'selected' : ''; ?> value="3"><?=lang('Manufacturing_and_distributing_under_own_brand');?> </option>
                                           </select>
                                         </div>
                                       </div>
@@ -451,13 +445,13 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default required ">
-                                          <label>จำนวนพนักงาน (คน) </label>
+                                          <label><?=lang('Number_employees');?> </label>
                                           <input type="text" name="company_people" class="form-control" placeholder="" value="<?php echo @$member->company_people; ?>">
                                         </div>
                                       </div>
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default ">
-                                          <label>เลขทะเบียนนิติบุคคล </label>
+                                          <label><?=lang('Juristic_Person_Registration_Number');?> </label>
                                           <input type="text" name="company_num_regis" class="form-control" placeholder="" value="<?php echo @$member->company_num_regis; ?>">
                                         </div>
                                       </div>
@@ -468,22 +462,22 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด </label>
+                                          <label><?=lang('Which_creative');?> </label>
                                           <select style="width:100%" name="job_type_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
 
-                                            <option  <?php echo (@$member->job_type == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->job_type == 1) ? 'selected' : ''; ?> value="1">งานฝีมือและหัตถกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 2) ? 'selected' : ''; ?> value="2">ศิลปการแสดง</option>
-                                            <option  <?php echo (@$member->job_type == 3) ? 'selected' : ''; ?> value="3">ทัศนศิลป์</option>
-                                            <option  <?php echo (@$member->job_type == 4) ? 'selected' : ''; ?> value="4">ดนตรี</option>
+                                            <option  <?php echo (@$member->job_type == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->job_type == 1) ? 'selected' : ''; ?> value="1"><?=lang('Performing_arts');?></option>
+                                            <option  <?php echo (@$member->job_type == 2) ? 'selected' : ''; ?> value="2"><?=lang('Crafts_and_handicrafts');?></option>
+                                            <option  <?php echo (@$member->job_type == 3) ? 'selected' : ''; ?> value="3"><?=lang('Visual_arts');?></option>
+                                            <option  <?php echo (@$member->job_type == 4) ? 'selected' : ''; ?> value="4"><?=lang('Music');?></option>
                                             <option  <?php echo (@$member->job_type == 5) ? 'selected' : ''; ?> value="5">ภาพยนตร์และวิดีทัศน์</option>
                                             <option  <?php echo (@$member->job_type == 6) ? 'selected' : ''; ?> value="6">การพิมพ์</option>
                                             <option  <?php echo (@$member->job_type == 7) ? 'selected' : ''; ?> value="7">การกระจายเสียง</option>
                                             <option  <?php echo (@$member->job_type == 8) ? 'selected' : ''; ?> value="8">ซอฟต์แวร์</option>
-                                            <option  <?php echo (@$member->job_type == 9) ? 'selected' : ''; ?> value="9">การโฆษณา</option>
-                                            <option  <?php echo (@$member->job_type == 10) ? 'selected' : ''; ?> value="10">การออกแบบ (รวมถึงแฟชั่น)</option>
-                                            <option  <?php echo (@$member->job_type == 11) ? 'selected' : ''; ?> value="11">สถาปัตยกรรม</option>
-                                            <option  <?php echo (@$member->job_type == 12) ? 'selected' : ''; ?> value="12">แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)</option>
+                                            <option  <?php echo (@$member->job_type == 9) ? 'selected' : ''; ?> value="9"><?=lang('Advertising');?></option>
+                                            <option  <?php echo (@$member->job_type == 10) ? 'selected' : ''; ?> value="10"><?=lang('Design_including_fashion');?></option>
+                                            <option  <?php echo (@$member->job_type == 11) ? 'selected' : ''; ?> value="11"><?=lang('Architecture');?></option>
+                                            <option  <?php echo (@$member->job_type == 12) ? 'selected' : ''; ?> value="12"><?=lang('Fashion_ready-to-wear_manufacturing');?></option>
                                           </select>
                                         </div>
                                       </div>
@@ -491,14 +485,14 @@ $select = '';
                                     <div class="row clearfix">
                                       <div class="col-sm-12">
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
-                                          <label>ประสบการณ์</label>
+                                          <label><?=lang('Experience');?></label>
                                           <select style="width:100%" name="company_service_two" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
 
-                                            <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                            <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
-                                            <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2">0 - 3 ปี</option>
-                                            <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3">3 - 10 ปี</option>
-                                            <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4">มากกว่า 10 ปี</option>
+                                            <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                            <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1"><?=lang('Developing_and_testing_prototype');?></option>
+                                            <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2"><?=lang('0-3_years');?></option>
+                                            <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3"><?=lang('3-10_years');?></option>
+                                            <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4"><?=lang('over_10_years');?></option>
 
 
                                           </select>
@@ -511,7 +505,7 @@ $select = '';
                                           <div class="form-group form-group-default  form-group-default-selectFx required">
                                             <label>ลักษณะการทำงาน</label>
                                             <select style="width:100%" name="company_work_look" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_work_look == '') ? 'selected' : ''; ?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_work_look == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_work_look == 1) ? 'selected' : ''; ?> value="1">รับจ้างออกแบบอิสระ</option>
                                               <option  <?php echo (@$member->company_work_look == 2) ? 'selected' : ''; ?> value="2">ทำงานออกแบบอยู่ในบริษัทหรือแบรนด์</option>
                                               <option  <?php echo (@$member->company_work_look == 3) ? 'selected' : ''; ?> value="3">ออกแบบ ผลิตและจำหน่ายเอง</option>
@@ -522,7 +516,7 @@ $select = '';
                                           <div class="form-group form-group-default form-group-default-selectFx required">
                                             <label>ช่องทางการจำหน่าย</label>
                                             <select style="width:100%" name="company_sell_way" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_sell_way == '') ? 'selected' : ''; ?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_sell_way == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_sell_way == 1) ? 'selected' : ''; ?> value="1">ออนไลน์ </option>
                                               <option  <?php echo (@$member->company_sell_way == 2) ? 'selected' : ''; ?> value="2">ร้านค้าหรือออกบูธ</option>
                                             </select>
@@ -535,7 +529,7 @@ $select = '';
                                         <div class="form-group form-group-default form-group-default-selectFx required">
                                             <label>คุณสามารถรับจ้างผลิตสินค้าตามจำนวนได้หรือไม่  </label>
                                             <select style="width:100%" name="company_product_build" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_product_build == '') ? 'selected' : ''; ?> value="" >เลือก</option>
+                                              <option  <?php echo (@$member->company_product_build == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_product_build == 1) ? 'selected' : ''; ?> value="1">ได้ </option>
                                               <option  <?php echo (@$member->company_product_build == 2) ? 'selected' : ''; ?> value="2">ไม่ได้</option>
                                             </select>
@@ -558,7 +552,7 @@ $select = '';
                                               <option  <?php echo (@$member->company_group_product == 4) ? 'selected' : ''; ?> value="4">งานจักรสาน</option>
                                               <option  <?php echo (@$member->company_group_product == 5) ? 'selected' : ''; ?> value="5">งานเขียนสีแต่งลาย</option>
                                               <option  <?php echo (@$member->company_group_product == 6) ? 'selected' : ''; ?> value="6">งานเครื่องเงิน</option>
-                                              <option  <?php echo (@$member->company_group_product == 7) ? 'selected' : ''; ?> value="7">อื่นๆ โปรดระบุ</option>
+                                              <option  <?php echo (@$member->company_group_product == 7) ? 'selected' : ''; ?> value="7"><?=lang('Not_Specify');?> โปรดระบุ</option>
 
                                             </select>
 
@@ -574,11 +568,11 @@ $select = '';
                                             <label>ประสบการณ์</label>
                                             <select style="width:100%" name="company_service_three" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
 
-                                              <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                              <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1">กำลังพัฒนาและทดลองต้นแบบ</option>
-                                              <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2">0 - 3 ปี</option>
-                                              <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3">3 - 10 ปี</option>
-                                              <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4">มากกว่า 10 ปี</option>
+                                              <option  <?php echo (@$member->company_service == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                              <option  <?php echo (@$member->company_service == 1) ? 'selected' : ''; ?> value="1"><?=lang('Developing_and_testing_prototype');?></option>
+                                              <option  <?php echo (@$member->company_service == 2) ? 'selected' : ''; ?> value="2"><?=lang('0-3_years');?></option>
+                                              <option  <?php echo (@$member->company_service == 3) ? 'selected' : ''; ?> value="3"><?=lang('3-10_years');?></option>
+                                              <option  <?php echo (@$member->company_service == 4) ? 'selected' : ''; ?> value="4"><?=lang('over_10_years');?></option>
 
 
                                             </select>
@@ -610,7 +604,7 @@ $select = '';
                                         <div class="form-group form-group-default  form-group-default-selectFx required">
                                           <label> การผลิตสินค้าหรือผลงานของคุณเป็นรูปแบบใด</label>
                                           <select style="width:100%" name="company_product_detail" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                            <option  <?php echo (@$member->company_product_detail == '') ? 'selected' : ''; ?> value="" >เลือก</option>
+                                            <option  <?php echo (@$member->company_product_detail == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
                                             <option  <?php echo (@$member->company_product_detail == 1) ? 'selected' : ''; ?> value="1">แบบศิลปวัฒนธรรมดั้งเดิม </option>
                                             <option  <?php echo (@$member->company_product_detail == 2) ? 'selected' : ''; ?> value="2">แบบตามไอเดียที่คิดขึ้นใหม่</option>
                                           </select>
@@ -634,14 +628,14 @@ $select = '';
                                           <div class="form-group form-group-default  form-group-default-selectFx required">
                                             <label>องค์กรของคุณคือหน่วยงานประเภทใด</label>
                                             <select id="four_eig_detail"  style="width:100%" name="company_department" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_department == '') ? 'selected' : ''; ?> value="">เลือก</option>
+                                              <option  <?php echo (@$member->company_department == '') ? 'selected' : ''; ?> value=""><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_department == 2) ? 'selected' : ''; ?> value="2">องค์กรระหว่างประเทศ </option>
                                               <option  <?php echo (@$member->company_department == 3) ? 'selected' : ''; ?> value="3">หน่วยงานภาครัฐ</option>
                                               <option  <?php echo (@$member->company_department == 4) ? 'selected' : ''; ?> value="4">สถาบันและพิพิธภัณฑ์</option>
                                               <option  <?php echo (@$member->company_department == 5) ? 'selected' : ''; ?> value="5">สื่อมวลชน</option>
                                               <option  <?php echo (@$member->company_department == 6) ? 'selected' : ''; ?> value="6">สมาคม</option>
                                               <option  <?php echo (@$member->company_department == 7) ? 'selected' : ''; ?> value="7">วัดและชุมชน</option>
-                                              <option  <?php echo (@$member->company_department == 8) ? 'selected' : ''; ?> value="8">อื่นๆ</option>
+                                              <option  <?php echo (@$member->company_department == 8) ? 'selected' : ''; ?> value="8"><?=lang('Not_Specify');?></option>
                                             </select>
                                           </div>
                                         </div>
@@ -649,12 +643,12 @@ $select = '';
                                           <div class="form-group form-group-default  form-group-default-selectFx required">
                                             <label>องค์กรของคุณคือหน่วยงานประเภทใด</label>
                                             <select id="four_nine_detail"  style="width:100%" name="company_department" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_department == '') ? 'selected' : ''; ?> value="">เลือก</option>
+                                              <option  <?php echo (@$member->company_department == '') ? 'selected' : ''; ?> value=""><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_department == 2) ? 'selected' : ''; ?> value="2">มหาวิทยาลัย</option>
                                               <option  <?php echo (@$member->company_department == 3) ? 'selected' : ''; ?> value="3">วิทยาลัยอาชีวะศึกษา</option>
                                               <option  <?php echo (@$member->company_department == 4) ? 'selected' : ''; ?> value="4">วิทยาลัยเทคนิค</option>
                                               <option  <?php echo (@$member->company_department == 5) ? 'selected' : ''; ?> value="5">โรงเรียน</option>
-                                              <option  <?php echo (@$member->company_department == 6) ? 'selected' : ''; ?> value="6">อื่นๆ</option>
+                                              <option  <?php echo (@$member->company_department == 6) ? 'selected' : ''; ?> value="6"><?=lang('Not_Specify');?></option>
                                             </select>
                                           </div>
                                         </div>
@@ -662,7 +656,7 @@ $select = '';
                                           <div class="form-group form-group-default  form-group-default-selectFx required">
                                             <label>หน้าที่หลักขององค์กร</label>
                                             <select style="width:100%" name="company_duty" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                              <option  <?php echo (@$member->company_duty == '') ? 'selected' : ''; ?> value="">เลือก</option>
+                                              <option  <?php echo (@$member->company_duty == '') ? 'selected' : ''; ?> value=""><?=lang('Select');?></option>
                                               <option  <?php echo (@$member->company_duty == 1) ? 'selected' : ''; ?> value="1">ส่งเสริมความคิดสร้างสรรค์ และการออกแบบ </option>
                                               <option  <?php echo (@$member->company_duty == 2) ? 'selected' : ''; ?> value="2">ส่งเสริมศิลปวัฒนธรรม </option>
                                               <option  <?php echo (@$member->company_duty == 3) ? 'selected' : ''; ?> value="3">ส่งเสริมความรับผิดชอบต่อสังคม</option>
@@ -696,20 +690,20 @@ $select = '';
                               <br>
 
                               <div class="form-group-attached" >
-                              <p style="font-weight: bold">ข้อมูลเพิ่มเติมสำหรับผู้สมัคร</p>
+                              <p style="font-weight: bold"><?=lang('Additional_Information_for_Applicant');?></p>
 
                               <div class="form-group-attached">
                                 <div class="row clearfix">
                                   <div class="col-sm-6">
                                       <div class="form-group form-group-default">
-                                        <label>ชื่อแบรนด์</label>
+                                        <label><?=lang('Brand_Name');?></label>
                                         <input type="text" class="form-control" name="brand" value="<?php echo @$member->brand; ?>" >
                                       </div>
                                     </div>
 
                                   <div class="col-sm-6">
                                     <div class="form-group form-group-default">
-                                      <label>บริษัท</label>
+                                      <label><?=lang('Company');?></label>
                                       <input type="text" id="company" name="company" class="form-control" value="<?php echo @$member->company; ?>">
                                     </div>
                                   </div>
@@ -720,13 +714,13 @@ $select = '';
                                   <div class="row clearfix">
                                     <div class="col-sm-6">
                                       <div class="form-group form-group-default">
-                                        <label>เฟซบุ๊ค แฟนเพจ</label>
+                                        <label><?=lang('Facebook_Fanpage');?></label>
                                         <input type="text" class="form-control" name="facebook" value="<?php echo @$member->facebook; ?>">
                                       </div>
                                     </div>
                                     <div class="col-sm-6">
                                       <div class="form-group form-group-default">
-                                        <label>อินสตาแกรม</label>
+                                        <label><?=lang('Instagram');?></label>
                                         <input type="text" class="form-control" name="instragram" value="<?php echo @$member->instragram; ?>">
                                       </div>
                                     </div>
@@ -736,13 +730,13 @@ $select = '';
                                   <div class="row clearfix">
                                     <div class="col-sm-6">
                                         <div class="form-group form-group-default ">
-                                          <label>ไลน์ @</label>
+                                          <label><?=lang('Line');?></label>
                                           <input type="text" class="form-control" name="lineid" value="<?php echo @$member->lineid; ?>">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                       <div class="form-group form-group-default">
-                                        <label>เว็บไซต์</label>
+                                        <label><?=lang('Website');?></label>
                                         <input type="text" id="website" name="website" class="form-control" value="<?php echo @$member->website; ?>">
                                       </div>
                                     </div>
@@ -757,19 +751,19 @@ $select = '';
 
                               <br>
                               <?php
-                                  $status2 = 'checked';
-                                  $status1 = '';
-                                  if (@$member->coordinator_type == 0) {
-                                      $status1 = 'checked';
-                                      $status2 = '';
-                                  }?>
-                              <p style="font-weight: bold">ผู้ประสานงานการสมัคร</p>
+$status2 = 'checked';
+$status1 = '';
+if (@$member->coordinator_type == 0) {
+    $status1 = 'checked';
+    $status2 = '';
+}?>
+                              <p style="font-weight: bold"><?=lang('Application_Coordinator');?></p>
                               <br>
                               <div class="radio radio-default">
                                 <input type="radio" value="0" name="radio22" id="radio2Yes" <?php echo $status1; ?> >
-                                <label for="radio2Yes">ฉันเป็นผู้ประสานงาน</label>
+                                <label for="radio2Yes"><?=lang('I_am_the_coordinator');?></label>
                                 <input type="radio" value="1" name="radio22" id="radio2No" <?php echo $status2; ?>>
-                                <label for="radio2No">เพิ่มผู้ประสานงาน</label>
+                                <label for="radio2No"><?=lang('Add_coordinator');?></label>
                               </div>
                               <br><br>
 
@@ -781,25 +775,25 @@ $select = '';
                                   <div class="row clearfix">
                                     <div class="col-sm-3">
                                       <div class="form-group form-group-default required form-group-default-selectFx">
-                                        <label>คำนำหน้า</label>
+                                        <label><?=lang('Title');?></label>
                                         <select style="width:100%" name="coordinator_prename" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true">
-                                          <option <?php echo (@$member->coordinator_prename == '') ? 'selected' : '' ?> value="">โปรดเลือก</option>
-                                          <option <?php echo (@$member->coordinator_prename == '1') ? 'selected' : '' ?> value="1">นาย</option>
-                                          <option <?php echo (@$member->coordinator_prename == '2') ? 'selected' : '' ?> value="2">นาง</option>
-                                          <option <?php echo (@$member->coordinator_prename == '3') ? 'selected' : '' ?> value="3">นางสาว</option>
-                                          <option <?php echo (@$member->coordinator_prename == '4') ? 'selected' : '' ?> value="4">อื่นๆ</option>
+                                          <option <?php echo (@$member->coordinator_prename == '') ? 'selected' : '' ?> value=""><?=lang('Select');?></option>
+                                          <option <?php echo (@$member->coordinator_prename == '1') ? 'selected' : '' ?> value="1"><?=lang('Mr.');?></option>
+                                          <option <?php echo (@$member->coordinator_prename == '2') ? 'selected' : '' ?> value="2"><?=lang('Mrs.');?></option>
+                                          <option <?php echo (@$member->coordinator_prename == '3') ? 'selected' : '' ?> value="3"><?=lang('Ms.');?></option>
+                                          <option <?php echo (@$member->coordinator_prename == '4') ? 'selected' : '' ?> value="4"><?=lang('Not_Specify');?></option>
                                         </select>
                                       </div>
                                     </div>
                                     <div class="col-sm-5">
                                       <div class="form-group form-group-default required">
-                                        <label>ชื่อ</label>
+                                        <label><?=lang('First_Name');?></label>
                                         <input type="text" class="form-control" name="coordinator_firstname" value="<?php echo @$member->coordinator_firstname; ?>">
                                       </div>
                                     </div>
                                     <div class="col-sm-4">
                                       <div class="form-group form-group-default required">
-                                        <label>นามสกุล</label>
+                                        <label><?=lang('Last_Name');?></label>
                                         <input type="text" class="form-control" name="coordinator_lastname" value="<?php echo @$member->coordinator_lastname; ?>">
                                       </div>
                                     </div>
@@ -814,14 +808,14 @@ $select = '';
 
                                      <div class="col-sm-6">
                                         <div class="form-group form-group-default required">
-                                          <label>อีเมล</label>
+                                          <label><?=lang('Email');?></label>
                                           <input type="text" id="phone" class="form-control" name="coordinator_email" value="<?php echo @$member->coordinator_email; ?>">
                                         </div>
                                       </div>
 
                                       <div class="col-sm-6">
                                         <div class="form-group form-group-default required">
-                                          <label>โทรศัพท์มือถือ</label>
+                                          <label><?=lang('Mobile_Phone');?></label>
                                           <input type="text" id="phone" class="form-control" name="coordinator_phone" value="<?php echo @$member->coordinator_phone; ?>">
                                         </div>
                                       </div>
@@ -851,24 +845,24 @@ $select = '';
 
                         <div class="col-md-12">
                         <div class="padding-30 sm-padding-5">
-                        <p style="font-weight: bold">เป้าหมายในการสมัคร</p>
+                        <p style="font-weight: bold"><?=lang('Purpose_of_Application');?></p>
                           <div class="form-group-default required">
 
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 1) ? 'checked' : '' ?> type="checkbox"  value="1" name="target_type" id="target_type1">
-                              <label for="target_type1">นำเสนอผลงานออกแบบและแบรนด์ให้เป็นที่รู้จัก</label>
+                              <label for="target_type1"><?=lang('Present_design_work_and_brand_to_the public');?></label>
                             </div>
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 2) ? 'checked' : '' ?> type="checkbox"  value="2" name="target_type" id="target_type2">
-                              <label for="target_type2">พบคู่ค้าทางธุรกิจและรับออเดอร์</label>
+                              <label for="target_type2"><?=lang('Meet_business_partners_and_generate orders');?></label>
                             </div>
                             <div class="checkbox check-success">
                               <input <?php echo (@$regis['target_type'] == 3) ? 'checked' : '' ?> type="checkbox"  value="3" name="target_type" id="ttttt">
-                              <label for="ttttt">จำหน่ายสินค้า</label>
+                              <label for="ttttt"><?=lang('Sell_products');?></label>
                             </div>
                             <!-- <div class="checkbox check-success">
                               <input  <?php echo (@$regis['target_type'] == 4) ? 'checked' : '' ?> type="checkbox"  value="4" name="target_type" id="target_ty4">
-                              <label for="target_ty4">อื่นๆ (โปรดระบุ)</label>
+                              <label for="target_ty4"><?=lang('Not_Specify');?> (โปรดระบุ)</label>
                             </div> -->
 
                             <div class="form-group-attached" id="target_type_detail" style="display:none;">
@@ -901,20 +895,20 @@ $select = '';
                                   <div class="padding-30 sm-padding-5">
                                   <div class="row clearfix">
                                     <div class="col-md-6">
-                                      <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" >คอลเลกชั่น 1</h5></span>
+                                      <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" ><?=lang('Collection');?> 1</h5></span>
                                     </div>
                                     <div class="col-md-6 text-right" id="remove_clone" style="display:none">
-                                    <a  style="color:white;"  class="btn btn-primary btn-cons remove"><i class="fa fa-times"></i> ยกเลิก</a>
+                                    <a  style="color:white;"  class="btn btn-primary btn-cons remove"><i class="fa fa-times"></i> <?=lang('Cancel');?></a>
                                     </div>
                                   </div>
 
-                                    <p style="font-weight: bold;"> ข้อมูลผลงาน </p>
+                                    <p style="font-weight: bold;"> <?=lang('Design_Work_Details');?> </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                             <div class="col-sm">
 
                                               <div class="form-group form-group-default required">
-                                                <label>จำนวนชิ้นงาน</label>
+                                                <label><?=lang('Number_of_Design');?></label>
 
                                                 <input name="product_amount[0]" class="form-control"  type="text" >
                                               </div>
@@ -924,15 +918,15 @@ $select = '';
 
                                           <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
-                                              <label>ประเภทผลงาน</label>
+                                              <label><?=lang('Category_event');?></label>
                                               <select style="width:100%" name="product_type[0]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2" data-disable-search="true">
-                                                <option  value="">เลือก</option>
-                                                <option  value="1">เฟอร์นิเจอร์</option>
-                                                <option  value="2">ไลฟ์สไตล์</option>
-                                                <option  value="3">ของตกแต่งบ้าน</option>
-                                                <option  value="4">เครื่องประดับ</option>
-                                                <option  value="5">แฟชั่น</option>
-                                                <option  value="6">ออกแบบสื่อ (Multimedia, Graphic, Interactive)</option>
+                                                <option  value=""><?=lang('Select');?></option>
+                                                <option  value="1"><?=lang('Furniture');?></option>
+                                                <option  value="2"><?=lang('Lifestyle');?></option>
+                                                <option  value="3"><?=lang('Home_decor_item');?></option>
+                                                <option  value="4"><?=lang('Accessories');?></option>
+                                                <option  value="5"><?=lang('Fashion');?></option>
+                                                <option  value="6"><?=lang('Media_Design');?></option>
 
                                               </select>
                                             </div>
@@ -940,7 +934,7 @@ $select = '';
 
                                           <div class="col-sm-8">
                                             <div class="form-group form-group-default required">
-                                              <label>ชื่อผลงาน</label>
+                                              <label><?=lang('Title_work');?></label>
                                               <input  id="product_name" name="product_name[0]" type="text" class="form-control" >
                                             </div>
                                           </div>
@@ -952,17 +946,17 @@ $select = '';
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
-                                                <label>วัสดุหลัก</label>
+                                                <label><?=lang('Main_Material');?></label>
                                                 <input name="material[0]" type="text" class="form-control"  >
                                               </div>
                                             </div>
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default form-group-default-selectFx">
-                                                <label >ปีที่ออกแบบ</label>
+                                                <label ><?=lang('Design_Year');?></label>
 
                                               <select style="width:100%" name="product_date[0]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
-                                              <option  value="" >เลือก</option>
+                                              <option  value="" ><?=lang('Select');?></option>
 
                                                 <?php for ($i = 1959; $i <= 2030; $i++) {
     $select = '';
@@ -986,7 +980,7 @@ $select = '';
 
 
                                         <br>
-                                        <p style="font-weight: bold;">ขนาดและจำนวนของผลงาน</p>
+                                        <p style="font-weight: bold;"><?=lang('Size_and_Number_of_Works');?></p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -994,11 +988,11 @@ $select = '';
 
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">กว้าง</label>
+                                                  <label class=""><?=lang('Width');?></label>
                                                   <input name="product_width[0]" class="form-control" type="text" >
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
 
@@ -1007,11 +1001,11 @@ $select = '';
                                             <div class="col-sm-4">
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">ยาว</label>
+                                                  <label class=""><?=lang('Length');?></label>
                                                   <input name="product_length[0]" class="form-control" type="text" >
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
                                             </div>
@@ -1019,11 +1013,11 @@ $select = '';
                                             <div class="col-sm-4">
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">สูง</label>
+                                                  <label class=""><?=lang('Height');?></label>
                                                   <input  name="product_height[0]"class="form-control" type="text" >
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
                                             </div>
@@ -1037,7 +1031,7 @@ $select = '';
                                         <div class="form-group-attached ">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p style="font-weight: bold;">แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p style="font-weight: bold;"><?=lang('Design_Concept');?><span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea name="product_concept[0]" id="" class="product_concept demo-form-wysiwyg"  placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -1054,13 +1048,13 @@ $select = '';
                                         </div>
 
                                         <br>
-                                        <p style="font-weight: bold;">ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p style="font-weight: bold;"><?=lang('Image_of_Work');?><span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ภาพรวมของผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                                  <label><?lang('Presentation files');?> <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span></label>
                                                   <div class="fallback">
                                                     <input id="product_img" class="product_img" name="product_img[0][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1068,7 +1062,7 @@ $select = '';
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
+                                                  <label><?=lang('Presentation_File');?>  <p style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></p></label>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[0][]" type="file" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1080,7 +1074,7 @@ $select = '';
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                                  <label><?=lang('Close-up_image');?> <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span></label>
                                                   <div class="fallback">
                                                     <input id="product_closeup" class="product_closeup" name="product_closeup[0][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1092,7 +1086,7 @@ $select = '';
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                                  <label><?=lang('Pack_shot_image');?> <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span></label>
                                                   <div class="fallback">
                                                     <input id="product_packshot"  class="product_packshot" name="product_packshot[0][]" type="file" multiple="multiple" accept="image/jpg, image/jpeg"  />
                                                   </div>
@@ -1108,19 +1102,19 @@ $select = '';
 
 
                                     <br>
-                                    <p style="font-weight: bold;">ผู้ออกแบบ</p>
+                                    <p style="font-weight: bold;"><?=lang('Designer');?></p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
                                       <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
-                                              <label>คำนำหน้า</label>
+                                              <label><?=lang('Title');?></label>
                                               <select  style="width:100%"  id="product_prename" name="product_prename[0]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="true">
-                                                  <option disabled value="" >เลือก</option>
-                                                  <option  value="1">นาย</option>
-                                                  <option   value="2">นาง</option>
-                                                  <option  value="3">นางสาว</option>
-                                                  <option   value="4">อื่น ๆ</option>
+                                                  <option disabled value="" ><?=lang('Select');?></option>
+                                                  <option  value="1"><?=lang('Mr.');?></option>
+                                                  <option   value="2"><?=lang('Mrs.');?></option>
+                                                  <option  value="3"><?=lang('Ms.');?></option>
+                                                  <option   value="4"><?=lang('Not_Specify');?></option>
                                                 </select>
                                             </div>
                                           </div>
@@ -1128,13 +1122,13 @@ $select = '';
 
                                         <div class="col-sm-4">
                                           <div class="form-group form-group-default required">
-                                            <label>ชื่อ</label>
+                                            <label><?=lang('First_name');?></label>
                                             <input type="text" class="form-control" name="product_firstname[0]" >
                                           </div>
                                         </div>
                                         <div class="col-sm-4">
                                           <div class="form-group form-group-default required">
-                                            <label>นามสกุล</label>
+                                            <label><?=lang('Last_name');?></label>
                                             <input type="text" class="form-control" name="product_lastname[0]" >
                                           </div>
                                         </div>
@@ -1148,7 +1142,7 @@ $select = '';
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
                                             <input type="checkbox" value="1" class="check_product" id="product_check1" <?php echo (!empty($regis['reg_id'])) ? 'checked' : '' ?>>
-                                            <label  class="check_product_for" for="product_check1">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                            <label  class="check_product_for" for="product_check1"><?=lang('I_confirm_that_the_above_design');?></label>
                                         </div>
 
                                         <hr >
@@ -1176,25 +1170,25 @@ $select = '';
                           <div class="row row-same-height " id ="second">
                               <!-- <div class="col-md-5 b-r b-dashed b-grey ">
                                 <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
-                                  <h2>ข้อมูลผลงานออกแบบ</h2>
+                                  <h2><?=lang('Design_Work_Details');?>ออกแบบ</h2>
                                   <p>โปรดกรอกข้อมูลชิ้นงานที่ท่านต้องการจัดแสดงตามแบบฟอร์มของเรา ไม่ต้องกังวลคุณสามารถเข้ามาแก้ไขข้อมูลได้ตามที่คุณต้องการ</p>
                                 </div>
                               </div> -->
                               <!-- <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
-                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys + 1; ?></p></span>
+                                     <span align="center" ><p id="num"  style="font-weight: bold;" class="num text-left" ><?=lang('Collection');?> <?php echo $keys + 1; ?></p></span>
                                   </div>
                               </div> -->
                                 <div class="col-md-12 ">
                                   <div class="padding-30 sm-padding-5">
-                                  <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" >คอลเลกชั่น <?php echo $keys + 1; ?></h5></span>
-                                    <p style="font-weight: bold;">ข้อมูลผลงาน </p>
+                                  <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" ><?=lang('Collection');?> <?php echo $keys + 1; ?></h5></span>
+                                    <p style="font-weight: bold;"><?=lang('Design_Work_Details');?> </p>
                                     <div class="form-group-attached">
                                         <div class="row clearfix">
                                               <div class="col-sm">
 
                                                 <div class="form-group form-group-default  ">
-                                                  <label>จำนวนชิ้นงาน</label>
+                                                  <label><?=lang('Number_of_Design');?></label>
 
                                                   <input name="product_amount[<?php echo $keys; ?>]" class="form-control"  type="text" value="<?php echo @$value['product_amount'] ?>">
                                                 </div>
@@ -1204,15 +1198,15 @@ $select = '';
 
                                           <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
-                                              <label>ประเภทผลงาน</label>
+                                              <label><?=lang('Category_event');?></label>
                                               <select style="width:100%" name="product_type[<?php echo $keys; ?>]" class="cs-select cs-skin-slide cs-transparent form-control product_type" data-init-plugin="select2"  data-disable-search="true">
-                                                <option <?php echo (@$value['product_type'] == '') ? 'selected' : '' ?> value="">เลือก</option>
-                                                <option <?php echo (@$value['product_type'] == '1') ? 'selected' : '' ?> value="1">เฟอร์นิเจอร์</option>
-                                                <option <?php echo (@$value['product_type'] == '2') ? 'selected' : '' ?> value="2">ไลฟ์สไตล์</option>
-                                                <option <?php echo (@$value['product_type'] == '3') ? 'selected' : '' ?> value="3">ของตกแต่งบ้าน</option>
-                                                <option <?php echo (@$value['product_type'] == '4') ? 'selected' : '' ?> value="4">เครื่องประดับ</option>
-                                                <option <?php echo (@$value['product_type'] == '5') ? 'selected' : '' ?> value="5">แฟชั่น</option>
-                                                <option <?php echo (@$value['product_type'] == '6') ? 'selected' : '' ?> value="6">ออกแบบสื่อ (Multimedia, Graphic, Interactive)</option>
+                                                <option <?php echo (@$value['product_type'] == '') ? 'selected' : '' ?> value=""><?=lang('Select');?></option>
+                                                <option <?php echo (@$value['product_type'] == '1') ? 'selected' : '' ?> value="1"><?=lang('Furniture');?></option>
+                                                <option <?php echo (@$value['product_type'] == '2') ? 'selected' : '' ?> value="2"><?=lang('Lifestyle');?></option>
+                                                <option <?php echo (@$value['product_type'] == '3') ? 'selected' : '' ?> value="3"><?=lang('Home_decor_item');?></option>
+                                                <option <?php echo (@$value['product_type'] == '4') ? 'selected' : '' ?> value="4"><?=lang('Accessories');?></option>
+                                                <option <?php echo (@$value['product_type'] == '5') ? 'selected' : '' ?> value="5"><?=lang('Fashion');?></option>
+                                                <option <?php echo (@$value['product_type'] == '6') ? 'selected' : '' ?> value="6"><?=lang('Media_Design');?></option>
 
                                               </select>
                                             </div>
@@ -1220,7 +1214,7 @@ $select = '';
 
                                           <div class="col-sm-8">
                                             <div class="form-group form-group-default required">
-                                              <label>ชื่อผลงาน</label>
+                                              <label><?=lang('Title_work');?></label>
                                               <input  id="product_name" name="product_name[<?php echo $keys; ?>]" type="text" class="form-control" value="<?php echo @$value['product_name'] ?>" >
                                             </div>
                                           </div>
@@ -1232,17 +1226,17 @@ $select = '';
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default required">
-                                                <label>วัสดุหลัก</label>
+                                                <label><?=lang('Main_Material');?></label>
                                                 <input name="material[<?php echo $keys; ?>]" type="text" class="form-control" value="<?php echo @$value['material'] ?>" >
                                               </div>
                                             </div>
 
                                             <div class="col-sm-6">
                                               <div class="form-group form-group-default">
-                                              <label >ปีที่ออกแบบ</label>
+                                              <label ><?=lang('Design_Year');?></label>
 
                                                <select style="width:100%" name="product_date[<?php echo $keys; ?>]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="false">
-                                                <option  value="" >เลือก</option>
+                                                <option  value="" ><?=lang('Select');?></option>
 
                                                   <?php for ($i = 1959; $i <= 2030; $i++) {
     $select = '';
@@ -1265,7 +1259,7 @@ $select = '';
 
 
                                         <br>
-                                        <p style="font-weight: bold;">ขนาดและจำนวนของผลงาน</p>
+                                        <p style="font-weight: bold;"><?=lang('Size_and_Number_of_Works');?></p>
 
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
@@ -1273,11 +1267,11 @@ $select = '';
 
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">กว้าง</label>
+                                                  <label class=""><?=lang('Width');?></label>
                                                   <input name="product_width[<?php echo $keys; ?>]" class="form-control" type="text" value="<?php echo @$value['product_width'] ?>">
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
 
@@ -1286,11 +1280,11 @@ $select = '';
                                             <div class="col-sm-4">
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">ยาว</label>
+                                                  <label class=""><?=lang('Length');?></label>
                                                   <input name="product_length[<?php echo $keys; ?>]" class="form-control" type="text" value="<?php echo @$value['product_length'] ?>">
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
                                             </div>
@@ -1298,11 +1292,11 @@ $select = '';
                                             <div class="col-sm-4">
                                               <div class="form-group form-group-default input-group">
                                                 <div class="form-input-group">
-                                                  <label class="">สูง</label>
+                                                  <label class=""><?=lang('Height');?></label>
                                                   <input  name="product_height[<?php echo $keys; ?>]"class="form-control" type="text" value="<?php echo @$value['product_height'] ?>">
                                                 </div>
                                                 <div class="input-group-addon">
-                                                  ซ.ม.
+                                                  <?=lang('CM');?>
                                                 </div>
                                               </div>
                                             </div>
@@ -1316,7 +1310,7 @@ $select = '';
                                         <div class="form-group-attached">
                                           <div class="row clearfix">
                                             <div class="col-sm-12">
-                                              <p style="font-weight: bold;">แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)<span style="color:red">*</span></p>
+                                              <p style="font-weight: bold;"><?=lang('Design_Concept');?><span style="color:red">*</span></p>
                                               <div class="wysiwyg5-wrapper b-a b-grey">
                                                 <textarea style="  font-family: 'dbch', sans-serif !important;" name="product_concept[<?php echo $keys; ?>]" id="" class="product_concept demo-form-wysiwyg" placeholder="" ui-jq="wysihtml5" ui-options="{
                                                 html: true,
@@ -1333,13 +1327,13 @@ $select = '';
                                         </div>
 
                                         <br>
-                                        <p style="font-weight: bold;">ภาพผลงาน<span style="color:red">*</span></p>
+                                        <p style="font-weight: bold;"><?=lang('Image_of_Work');?><span style="color:red">*</span></p>
 
                                         <div class="col-sm-12">
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span> </label>
+                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span> </label>
                                                   <div class="row">
                                                   <?php
 if (!empty($value['product_img'])) {
@@ -1361,20 +1355,20 @@ if (!empty($value['product_img'])) {
                                               </div>
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน (ถ้ามี)  <p style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</p></label>
+                                                  <label><?=lang('Presentation_File');?>  <p style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></p></label>
                                                     <div class="row">
                                                     <?php
-                                                      if (!empty($value['product_pdf'])) {
-                                                      $product_img = explode(',', $value['product_pdf']);
+if (!empty($value['product_pdf'])) {
+        $product_img = explode(',', $value['product_pdf']);
 
-                                                          foreach ($product_img as $key => $val) {?>
+        foreach ($product_img as $key => $val) {?>
                                                             <img src="<?=base_url() . $val;?>" width='100px' height="100">
                                                             <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
                                                             echo '&nbsp;'; -->
                                                           <?php }
-                                                      }
+    }
 
-                                                      ?>
+    ?>
                                                     </div>
                                                   <div class="fallback">
                                                     <input  id="product_pdf" name="product_pdf[<?php echo $keys; ?>][]" type="file" accept="image/jpg, image/jpeg" />
@@ -1387,20 +1381,20 @@ if (!empty($value['product_img'])) {
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Close Up <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                                  <label><?=lang('Close-up_image');?> <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span></label>
                                                   <div class="row">
                                                   <?php
-                                                    if (!empty($value['product_closeup'])) {
-                                                    $product_img = explode(',', $value['product_closeup']);
+if (!empty($value['product_closeup'])) {
+        $product_img = explode(',', $value['product_closeup']);
 
-                                                        foreach ($product_img as $key => $val) {?>
+        foreach ($product_img as $key => $val) {?>
                                                           <img src="<?=base_url() . $val;?>" width='100px' height="100">
                                                           <!-- echo  cl_image_tag($val, array( "alt" => "profile","width"=>100, "height"=>100 ));
                                                           echo '&nbsp;'; -->
                                                         <?php }
-                                                    }
+    }
 
-                                                    ?>
+    ?>
                                                   </div>
                                                   <div class="fallback">
                                                     <input id="product_closeup" name="product_closeup[<?php echo $keys; ?>][]" type="file" multiple="multiple" accept="image/jpeg, image/png"  />
@@ -1413,7 +1407,7 @@ if (!empty($value['product_img'])) {
                                             <div class="row clearfix">
                                               <div class="col-sm-12">
                                                 <div class="form-group ">
-                                                  <label>ภาพ Pack Shot <span style="color:red; font-size:18px;">(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)</span></label>
+                                                  <label><?=lang('Pack_shot_image');?> <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span></label>
                                                   <div class="row">
                                                   <?php
 if (!empty($value['product_packshot'])) {
@@ -1443,32 +1437,32 @@ if (!empty($value['product_packshot'])) {
 
 
                                     <br>
-                                    <p style="font-weight: bold;">ผู้ออกแบบ</p>
+                                    <p style="font-weight: bold;"><?=lang('Designer');?></p>
 
                                     <div class="form-group-attached">
                                       <div class="row clearfix">
                                         <div class="col-sm-4">
                                             <div class="form-group form-group-default required form-group-default-selectFx">
-                                              <label>คำนำหน้า</label>
+                                              <label><?=lang('Title');?></label>
                                               <select  style="width:100%"  id="product_prename" name="product_prename[<?php echo $keys; ?>]" class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2" data-disable-search="true">
-                                                  <option disabled <?php echo (@$value['product_prename'] == '') ? 'selected' : ''; ?> value="" >เลือก</option>
-                                                  <option  <?php echo (@$value['product_prename'] == 1) ? 'selected' : ''; ?> value="1">นาย</option>
-                                                  <option  <?php echo (@$value['product_prename'] == 2) ? 'selected' : ''; ?> value="2">นาง</option>
-                                                  <option  <?php echo (@$value['product_prename'] == 3) ? 'selected' : ''; ?> value="3">นางสาว</option>
-                                                  <option  <?php echo (@$value['product_prename'] == 4) ? 'selected' : ''; ?> value="4">อื่น ๆ</option>
+                                                  <option disabled <?php echo (@$value['product_prename'] == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
+                                                  <option  <?php echo (@$value['product_prename'] == 1) ? 'selected' : ''; ?> value="1"><?=lang('Mr.');?></option>
+                                                  <option  <?php echo (@$value['product_prename'] == 2) ? 'selected' : ''; ?> value="2"><?=lang('Mrs.');?></option>
+                                                  <option  <?php echo (@$value['product_prename'] == 3) ? 'selected' : ''; ?> value="3"><?=lang('Ms.');?></option>
+                                                  <option  <?php echo (@$value['product_prename'] == 4) ? 'selected' : ''; ?> value="4"><?=lang('Not_Specify');?></option>
                                                 </select>
                                             </div>
                                           </div>
 
                                         <div class="col-sm-4">
                                           <div class="form-group form-group-default required">
-                                            <label>ชื่อ</label>
+                                            <label><?=lang('First_name');?></label>
                                             <input type="text" class="form-control" name="product_firstname[<?php echo $keys; ?>]" value="<?php echo @$value['product_firstname']; ?>" >
                                           </div>
                                         </div>
                                         <div class="col-sm-4">
                                         <div class="form-group form-group-default required">
-                                          <label>นามสกุล</label>
+                                          <label><?=lang('Last_name');?></label>
                                           <input type="text" class="form-control" name="product_lastname[<?php echo $keys; ?>]" value="<?php echo @$value['product_lastname']; ?>">
                                         </div>
                                       </div>
@@ -1483,7 +1477,7 @@ if (!empty($value['product_packshot'])) {
                                       <div class="padding-10 sm-padding-5">
                                         <div class="checkbox check-success  ">
                                             <input type="checkbox" value="1" class="check_product" id="product_check<?php echo $keys + 1; ?>" <?php echo (!empty($regis['reg_id'])) ? 'checked' : '' ?>>
-                                            <label clss="check_product_for" for="product_check<?php echo $keys + 1; ?>">ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น</label>
+                                            <label clss="check_product_for" for="product_check<?php echo $keys + 1; ?>"><?=lang('I_confirm_that_the_above_design');?></label>
                                         </div>
 
                                         <hr >
@@ -1510,7 +1504,7 @@ if (!empty($value['product_packshot'])) {
 
                       <div class="row clearfix">
                         <div class="col-md-5">
-                          <a  style="color:white;" id="clone" class="btn btn-primary btn-cons clone"><i class="fa fa-plus"></i> เพิ่มผลงานออกแบบ</a>
+                          <a  style="color:white;" id="clone" class="btn btn-primary btn-cons clone"><i class="fa fa-plus"></i> <?=lang('Add_Design_Work');?></a>
                         </div>
                       </div>
 
@@ -1798,11 +1792,11 @@ if (!empty($value['product_packshot'])) {
           <h5 class="modal-title"></h5>
         </div>
         <div class="modal-body " >
-        <p>"หากท่านผ่านการคัดเลือกจะสามารถลงทะเบียน<br/>ในขั้นตอนที่ 4 และ 5 ได้"</p>
+        <p><?=lang('Once_you_have_passed_the_selection_process');?></p>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default"  data-dismiss="modal">ยืนยัน</button>
+          <button type="button" class="btn btn-default"  data-dismiss="modal"><?=lang('Confirm');?></button>
         </div>
       </div>
 
@@ -1815,12 +1809,12 @@ if (!empty($value['product_packshot'])) {
     <ul class="pager wizard no-style">
       <li class="next">
         <button id="btn-next" class="btn btn-primary btn-cons btn-animated from-left fa fa-hospital-o pull-right" type="button">
-          <span>ถัดไป <i class="fa fa-angle-right "></i></span>
+          <span><?=lang('next');?> <i class="fa fa-angle-right "></i></span>
         </button>
       </li>
       <li class="next finish hidden">
         <button id="btn-finish" class="btn btn-primary btn-cons btn-animated from-left fa fa-cog pull-right" type="button">
-          <span>ยืนยัน</span>
+          <span><?=lang('Confirm');?></span>
         </button>
       </li>
       <li class="previous first hidden">
@@ -1830,12 +1824,12 @@ if (!empty($value['product_packshot'])) {
       </li>
       <li class="previous" id="hide_back" style="display:none;">
         <button class="btn btn-default btn-cons pull-right" type="button">
-          <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
+          <span><i class="fa fa-angle-left "></i> <?=lang('back');?></span>
         </button>
       </li>
       <li class="previous_tmp" id ="previous_hide" style="display:none;">
         <a  href="<?php echo base_url('member'); ?>"  class="btn btn-white btn-cons pull-right" type="button">
-          <span><i class="fa fa-angle-left "></i> ย้อนกลับ</span>
+          <span><i class="fa fa-angle-left "></i> <?=lang('back');?></span>
         </a>
       </li>
     </ul>

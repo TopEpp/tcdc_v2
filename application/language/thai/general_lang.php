@@ -87,7 +87,7 @@ $lang['Click_apply'] = 'กดเพื่อสมัคร';
 
 #Profile
 $lang['Waiting_confirmation'] = 'รอยืนยัน';
-$lang['View'] = 'View';
+$lang['View'] = 'เรียกดู';
 $lang['Activity_Details'] = 'Activity Details';
 
 #Edit User Account
@@ -116,119 +116,122 @@ $lang['Ms.'] = 'นางสาว';
 $lang['Not_Specify'] = 'อื่นๆ';
 
 #Activity
-$lang['Terms_Conditions'] = 'Terms and Conditions';
-$lang['Personal/Organisational_Information'] = 'Personal/Organisational Information';
-$lang['Design_Work'] = 'Design Work';
-$lang['Display_Method'] = 'Display Method';
-$lang['Evaluation_Form'] = 'Evaluation Form';
-$lang['Terms_Conditions_Participating'] = 'Terms and Conditions for Participating in Showcase or Exhibition';
-$lang['1_Interested'] = '1.	Interested individuals can complete the online application form from June 20 – July 15, 2018.';
-$lang['2_The_work'] = '2.	The work submitted for display must not copy or duplicate the work of others. In the event of a dispute or claim of infringement of copyright or any other intellectual properties in connection with the displayed work, the participant must assume sole responsibility for payment of compensation for damages resulting from the infringement of copyright or any other rights.';
-$lang['3_articipant'] = '3.	Participant must study the criteria for participating in the activity and follow all of the criteria. Participant must also agree to the disclaimer issued by the Chiang Mai Design Week to cancel, amend, alter or change the terms and conditions as the organiser of Chiang Mai Design Week sees fit without prior notice. At all events, the decision of the organiser of Chiang Mai Design Week shall be final.';
-$lang['4_Application'] = '4.	Application information and documents must be accurate and truthful. In the event that the application information and documents are later found to be inaccurate or false, the participant will be immediately considered lacking in qualifications. And in the case that the participant’s inaccurate or false information causes any damages to the Festival, the participant will accept unconditional responsibility.';
+$lang['Terms_Conditions'] = 'เงื่อนไขและข้อตกลง';
+$lang['Personal/Organisational_Information'] = 'ข้อมูลบุคคล/องค์กร';
+$lang['Design_Work'] = 'ผลงานออกแบบ';
+$lang['Display_Method'] = 'วิธีจัดแสดง';
+$lang['Evaluation_Form'] = 'แบบประเมิน';
+$lang['Terms_Conditions_Participating'] = 'เงื่อนไขและข้อตกลงสำหรับการจัดแสดงหรือนิทรรศการ';
+$lang['1_Interested'] = '1. ผู้สนใจสามารถกรอกแบบฟอร์มออนไลน์ได้ตั้งแต่วันที่ 16 มิ.ย. – 15 ก.ค. 61';
+$lang['2_The_work'] = '2. ผลงานที่ส่งเข้าร่วมจัดแสดง ต้องไม่เป็นการคัดลอกหรือทำซ้ำกับผลงานของบุคคลอื่น และหากมีกรณีที่บุคคลภายนอกกล่าวอ้างหรือใช้สิทธิ์เรียกร้องใดๆว่ามีการละเมิดลิขสิทธิ์ หรือทรัพย์สินทางปัญญาอื่นใดเกี่ยวกับผลงานที่ส่งเข้าร่วมจัดแสดง ผู้แสดงผลงานต้องรับผิดชอบ ชดใช้ค่าเสียหายต่อบุคคลภายนอก เนื่องจากผลแห่งการละเมิดลิขสิทธิ์ หรือสิทธิ์อื่นใดดังกล่าวเองทั้งสิ้น';
+$lang['3_articipant'] = '3. ผู้จัดแสดงผลงานต้องศึกษารายละเอียดหลักเกณฑ์การเข้าร่วมกิจกรรม และต้องดำเนินการตามหลักเกณฑ์การเข้าร่วมกิจกรรมทุกประการ และยอมรับข้อสงวนสิทธิ์ของ CMDW18 ในการยกเลิก แก้ไข ปรับเปลี่ยน หรือเปลี่ยนแปลงข้อกำหนดและเงื่อนไขต่างๆของเทศกาลที่ CMDW18 เห็นว่าจำเป็นโดยไม่ต้องแจ้งให้ทราบล่วงหน้า ทั้งนี้ การตัดสินใจของ CMDW18 ถือเป็นที่สิ้นสุด';
+$lang['4_Application'] = '4. ข้อมูลต่างๆและเอกสารประกอบการสมัครเป็นข้อมูลที่ถูกต้องและเป็นจริงทุกประการ หากปรากฏภายหลังว่าข้อมูลต่างๆและเอกสารประกอบการสมัครไม่ถูกต้องและไม่เป็นจริงเมื่อใด ให้ถือว่าผู้แสดงผลงานขาดคุณสมบัติทันที และหากว่าในกรณีการให้ข้อมูลที่ไม่ถูกต้องหรือไม่เป็นจริงของผู้แสดงผลงานก่อให้เกิดความเสียหายแก่เทศกาล ผู้แสดงผลงานยินยอมที่จะรับผิดชอบโดยไม่มีเงื่อนไข ';
+$lang['I_have_read_form'] = "ฉันยอมรับและได้อ่านเงื่อนไขและข้อตกลงแล้ว";
+$lang['Address_Sending'] = 'ที่อยู่ในการจัดส่งเอกสาร';
+$lang['Company/Building_Name'] = 'ชื่อบริษัท/อาคารที่ตั้ง';
+$lang['Mobile_Phone'] = 'โทรศัพท์มือถือ';
 
-$lang['Address_Sending'] = 'Address for Sending Documents';
-$lang['Company/Building_Name'] = 'Company/Building Name';
-$lang['Mobile_Phone'] = 'Mobile Phone';
+$lang['In_which_status_do_you_apply'] = 'คุณสมัครในสถานภาพใด';
+$lang['Status_form'] = 'สถานภาพ';
+$lang['Which_creative'] = 'ผลงานของคุณอยู่ในสาขาอุตสาหกรรมสร้างสรรค์ใด';
+$lang['Applicant_Information'] = 'ข้อมูลผู้สมัคร';
+$lang['Experience'] = 'ประสบการณ์';
+$lang['What_target_group'] = 'ลูกค้าของคุณคือกลุ่มใด';
+$lang['Number_employees'] = 'จำนวนพนักงาน (คน) ';
+$lang['Type_of_Business'] = 'ลักษณะการทำงานของธุรกิจ ';
+$lang['Juristic_Person_Registration_Number'] = 'เลขทะเบียนนิติบุคคล';
+$lang['Additional_Information_for_Applicant'] = 'ข้อมูลเพิ่มเติมสำหรับผู้สมัคร';
 
-$lang['In_which_status_do_you_apply'] = 'In which status do you apply?';
-$lang['Which_creative_industry_does_your_work_belong_to'] = 'Which creative industry does your work belong to?';
-$lang['Applicant_Information'] = 'Applicant Information';
-$lang['Experience'] = 'Experience';
-$lang['What_target_group'] = 'What is your target group?';
-$lang['Number_employees'] = 'Number of employees (person)';
-$lang['Additional_Information_for_Applicant'] = 'Additional Information for Applicant';
+$lang['Brand_Name'] = 'ชื่อแบรนด์';
+$lang['Company'] = 'บริษัท';
+$lang['Facebook_Fanpage'] = 'เฟซบุ๊ค แฟนเพจ';
+$lang['Instagram'] = 'อินสตาแกรม';
+$lang['Line'] = 'ไลน์ @';
+$lang['Website'] = 'เว็บไซต์';
+$lang['Application_Coordinator'] = 'ผู้ประสานงานการสมัคร';
+$lang['I_am_the_coordinator'] = 'ฉันเป็นผู้ประสานงาน';
+$lang['Add_coordinator'] = 'เพิ่มผู้ประสานงาน';
 
-$lang['Brand_Name'] = 'Brand NameBrand Name';
-$lang['Company'] = 'Company';
-$lang['Facebook_Fanpage'] = 'Facebook Fanpage';
-$lang['Instagram'] = 'Instagram';
-$lang['Line'] = 'Line';
-$lang['Website'] = 'Website';
-$lang['Application_Coordinator'] = 'Application Coordinator';
-$lang['I_am_the_coordinator'] = 'I am the coordinator';
-$lang['Add_coordinator'] = 'Add coordinator';
-
-$lang['Collection'] = 'Collection';
-$lang['Design_Work_Details'] = 'Design Work Details';
-$lang['Number_of_Design Work'] = 'Number of Design Work';
+$lang['Collection'] = 'คอลเลกชั่น';
+$lang['Design_Work_Details'] = 'ข้อมูลผลงาน ';
+$lang['Number_of_Design Work'] = 'จำนวนชิ้นงาน';
+$lang['Category_event'] = 'ประเภทผลงาน';
 
 #category
-$lang['Lifestyle'] = 'Lifestyle';
-$lang['Home_decor_item'] = 'Home decor item';
-$lang['Accessories'] = 'Accessories';
-$lang['Fashion'] = 'Fashion';
-$lang['Media_Design'] = 'Media Design (Multimedia, Graphic, Interactive)Media Design (Multimedia, Graphic, Interactive)';
-$lang['Once_you_have_passed_the_selection_process'] = '"Once you have passed the selection process, you will be able to register in the 4th and 5th steps"';
+$lang['Furniture'] = 'เฟอร์นิเจอร์';
+$lang['Lifestyle'] = 'ไลฟ์สไตล์';
+$lang['Home_decor_item'] = 'ของตกแต่งบ้าน';
+$lang['Accessories'] = 'เครื่องประดับ';
+$lang['Fashion'] = 'แฟชั่น';
+$lang['Media_Design'] = 'ออกแบบสื่อ (Multimedia, Graphic, Interactive)';
+$lang['Once_you_have_passed_the_selection_process'] = '"หากท่านผ่านการคัดSelectจะสามารถลงทะเบียนในขั้นตอนที่ 4 และ 5 ได้"';
 
 #tab3
-$lang['Purpose_of_Application'] = 'Purpose of Application';
-$lang['Present_design_work_and_brand_to_the public'] = 'Present design work and brand to the public';
-$lang['Meet_business_partners_and_generate orders'] = 'Meet business partners and generate orders';
-$lang['Sell_products'] = 'Sell products';
+$lang['Purpose_of_Application'] = 'เป้าหมายในการสมัคร';
+$lang['Present_design_work_and_brand_to_the public'] = 'นำเสนอผลงานออกแบบและแบรนด์ให้เป็นที่รู้จัก';
+$lang['Meet_business_partners_and_generate orders'] = 'พบคู่ค้าทางธุรกิจและรับออเดอร์';
+$lang['Sell_products'] = 'จำหน่ายสินค้า';
 
-$lang['Category_of_Work'] = 'Category of Work';
-$lang['Main_Material'] = 'Main Material';
-$lang['Design_Year'] = 'Design Year';
-$lang['Size_and_Number_of_Works'] = 'Size and Number of Works';
-$lang['Width'] = 'Width';
-$lang['Length'] = 'Length';
-$lang['Height'] = 'Height';
-$lang['Design_Concept'] = 'Design Concept (Up to 200 words)*';
-$lang['Image_of_Work'] = 'Image of Work';
-$lang['JPG_file_only'] = '(JPG file only, up to 2MB)';
-$lang['Presentation_File'] = 'Presentation File (If any)';
-$lang['Close-up_image'] = 'Close-up image';
-$lang['Pack_shot_image'] = 'Pack shot image';
-$lang['Designer'] = 'Designer';
-$lang['I_confirm_that_the_above_design'] = 'I confirm that the above design work is not a copy or duplicate of the work of others.';
-$lang['Add_Design_Work'] = 'Add Design Work';
-$lang['Type_of_Business'] = 'Type of Business';
-$lang['Juristic_Person_Registration_Number'] = 'Juristic Person Registration Number';
+$lang['Title_work'] = 'ชื่อผลงาน';
+$lang['Main_Material'] = 'วัสดุหลัก';
+$lang['Design_Year'] = 'ปีที่ออกแบบ';
+$lang['Size_and_Number_of_Works'] = 'ขนาดและจำนวนของผลงาน';
+$lang['Width'] = 'กว้าง';
+$lang['Length'] = 'ยาว';
+$lang['Height'] = 'สูง';
+$lang['CM'] = 'ซ.ม.';
+$lang['Design_Concept'] = 'แนวคิดในการออกแบบผลงาน (ไม่เกิน 200 คำ)';
+$lang['Image_of_Work'] = 'ภาพผลงาน';
+$lang['Presentation_Files'] = 'ไฟล์นำเสนอผลงาน';
+$lang['JPG_file_only'] = '(ส่งเฉพาะไฟล์ JPG ขนาดไม่เกิน 2MB.)';
+$lang['Presentation_File'] = 'ไฟล์นำเสนอผลงาน (ถ้ามี)';
+$lang['Close-up_image'] = 'ภาพ Close Up';
+$lang['Pack_shot_image'] = 'ภาพ Pack Shot';
+$lang['Designer'] = 'ผู้ออกแบบ';
+$lang['I_confirm_that_the_above_design'] = 'ข้าพเจ้ายืนยันว่าผลงานข้างต้นไม่ได้มีการทำซ้ำหรือคัดลอกมาจากผู้อื่น';
+$lang['Add_Design_Work'] = 'เพิ่มผลงานออกแบบ';
+// $lang['Type_of_Business'] = 'Type of Business';
+// $lang['Juristic_Person_Registration_Number'] = 'Juristic Person Registration Number';
 
-$lang['Entrepreneur'] = 'Entrepreneur';
-$lang['Design_Studio'] = 'Design StudioDesign Studio';
-$lang['Designer/Artist/Architect'] = 'Designer/Artist/Architect';
-$lang['Student'] = 'Student';
-$lang['Craftsman/Maker'] = 'Craftsman/Maker';
-$lang['Organisation/Institute'] = 'Organisation/Institute';
-$lang['Educational_Institute'] = 'Educational Institute';
+$lang['Entrepreneur'] = 'ผู้ประกอบการธุรกิจ';
+$lang['Community_Enterprise'] = 'วิสาหกิจชุมชน';
+$lang['Design_Studio'] = 'สตูดิโอออกแบบ';
+$lang['Designer/Artist/Architect'] = 'นักออกแบบ/ศิลปิน/สถาปนิก';
+$lang['Student'] = 'นักเรียน/นักศึกษา';
+$lang['Craftsman/Maker'] = 'ช่างฝีมือ/เมคเกอร์';
+$lang['Organisation/Institute'] = 'องค์กร/สถาบัน';
+$lang['Educational_Institute'] = 'สถาบันการศึกษา';
 
-$lang['Business_Entrepreneur'] = 'Business Entrepreneur';
-$lang['Community_Enterprise'] = 'Community EnterpriseCommunity Enterprise';
-$lang['Design_Studio'] = 'Design Studio';
-
-$lang['Community_Enterprise'] = 'Community Enterprise';
-$lang['Advertising'] = 'Advertising';
-$lang['Design_including_fashion)'] = 'Design (including fashion)';
-$lang['Architecture'] = 'Architecture';
-$lang['Fashion_ready-to-wear_manufacturing'] = 'Fashion (ready-to-wear manufacturing)';
+$lang['Advertising'] = 'การโฆษณา';
+$lang['Design_including_fashion)'] = 'การออกแบบ (รวมถึงแฟชั่น)';
+$lang['Architecture'] = 'สถาปัตยกรรม';
+$lang['Fashion_ready-to-wear_manufacturing'] = 'แฟชั่น (การผลิตเครื่องแต่งกายสำเร็จรูป)';
 
 #Which creative industry does your work belong to?
-$lang['Performing_arts'] = 'Performing arts';
-$lang['Crafts_and_handicrafts'] = 'Crafts and handicrafts';
-$lang['Visual_arts'] = 'Visual arts';
-$lang['Music'] = 'Music';
+$lang['Performing_arts'] = 'งานฝีมือและหัตถกรรม';
+$lang['Crafts_and_handicrafts'] = 'ศิลปการแสดง';
+$lang['Visual_arts'] = 'ทัศนศิลป์';
+$lang['Music'] = 'ดนตรี';
 
-$lang['Developing_and_testing_prototype'] = 'Developing and testing prototype';
-$lang['0-3_years'] = '0-3 years';
-$lang['3-10_years'] = '3-10 years';
-$lang['over_10_years'] = 'over 10 years';
+$lang['Developing_and_testing_prototype'] = 'กำลังพัฒนาและทดลองต้นแบบ';
+$lang['0-3_years'] = '0 - 3 ปี';
+$lang['3-10_years'] = '3 - 10 ปี';
+$lang['over_10_years'] = 'มากกว่า 10 ปี';
 
 #Type of Business
-$lang['OEM'] = 'OEM';
-$lang['Distributor'] = 'Distributor';
-$lang['Manufacturing_and_distributing_under_own_brand'] = 'Manufacturing and distributing under own brand';
+$lang['OEM'] = 'รับจ้างผลิต';
+$lang['Distributor'] = 'รับจัดจำหน่าย';
+$lang['Manufacturing_and_distributing_under_own_brand'] = 'ผลิตและจัดจำหน่ายภายใต้แบรนด์ตนเอง';
 
 #What is your target group?
-$lang['Domestic_customers'] = 'Domestic customers';
-$lang['International_customers'] = 'International customers';
+$lang['Domestic_customers'] = 'ลูกค้าในประเทศ';
+$lang['International_customers'] = 'ลูกค้าต่างประเทศ';
 
 #form 2
 $lang['Talk/Workshop'] = 'Talk/Workshop';
-$lang['Evaluation_Form'] = 'Evaluation Form';
-$lang['Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions'] = 'Please accept and confirm that you have read the terms and conditions';
-$lang['Close'] = 'Close';
+// $lang['Evaluation_Form'] = 'c';
+$lang['Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions'] = 'กรุณายอมรับและได้อ่านเงื่อนไขและข้อตกลง.';
+$lang['Closes'] = 'ปิด';
 
 #tab3
 $lang['Type'] = 'Type';
