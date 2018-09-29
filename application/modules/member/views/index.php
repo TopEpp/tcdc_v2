@@ -353,8 +353,7 @@ foreach ($project as $key => $prj) {
                 <div class="col-md-12">
                 <div class="row">
                     <h1 class="text-left hinted-text p-t-10 p-r-10">
-                      คุณได้สมัครเข้าร่วมกิจกรรมสำเร็จแล้ว<br>
-                      เทศกาลงานออกแบบจะเแจ้งผลการพิจารณา <br>ให้ทราบทางอีเมลต่อไป
+                     <?=lang('You_successfully_applied');?>
                     </h1>
             </div>
                 </div>
@@ -362,7 +361,7 @@ foreach ($project as $key => $prj) {
 
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-default"  data-dismiss="modal">กลับสู่กิจกรรม</button>
+        <button type="button" class="btn btn-default"  data-dismiss="modal"><?=lang('Back_to_Activity');?></button>
         </div>
     </div>
     <!-- /.modal-content -->

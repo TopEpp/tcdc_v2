@@ -230,11 +230,18 @@ $lang['Talk/Workshop'] = 'Talk/Workshop';
 $lang['Evaluation_Form'] = 'Evaluation Form';
 $lang['Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions'] = 'Please accept and confirm that you have read the terms and conditions';
 $lang['Closes'] = 'Close';
+$lang['Guest_Speaker'] = 'Guest Speaker';
+$lang['Image_lecturer'] = 'Image lecturer';
+$lang['Graphics or images of past events'] = 'Graphics or images of past events.';
 
 #tab3
 $lang['Type'] = 'Type';
 $lang['Talk'] = 'Talk';
+$lang['At'] = 'Address';
+$lang['out_At'] = 'Out Address';
+$lang['ME_At'] = 'Myself Address';
 $lang['Workshop'] = 'Workshop';
+$lang['Title_Thai'] = 'Title';
 $lang['Title_English'] = 'Title (English)';
 $lang['Speaker_Name'] = 'Speaker NameSpeaker Name';
 $lang['Scope_of_Content_and_Format'] = 'Scope of Content and Format';
@@ -250,15 +257,16 @@ $lang['End_Time'] = 'End Time';
 $lang['Application_Documents'] = 'Application Documents';
 
 #The Content Scope is Suitable for
-$lang['The_Content_Scope_is_Suitable_for'] = 'The Content Scope is Suitable for';
-$lang['Everyone'] = 'EveryoneEveryone';
+$lang['Everyone'] = 'Everyone';
+$lang['Designers'] = 'Designer';
 $lang['Businesspeople'] = 'Businesspeople';
-$lang['Others'] = 'OthersOthers';
+$lang['Others'] = 'Others';
 
 $lang['You_successfully_applied'] = "You've successfully applied to join the activity. <br>The Design Festival will send you the application result via email.";
 $lang['Back_to_Activity'] = 'Back to Activity';
 
 #form 3
+$lang['Event'] = 'Event';
 $lang['Tour'] = 'Tour';
 $lang['Open_House'] = 'Open House';
 $lang['Performance'] = 'Performance';
@@ -270,7 +278,7 @@ $lang['Activity_Venue'] = 'Activity VenueActivity Venue';
 $lang['Own_space'] = 'Own space';
 $lang['Festival_space'] = 'Festival space';
 $lang['Organiser_profile'] = 'Organiser profile';
-$lang['mage_or_draft_of_previously_organised_activity '] = 'mage or draft of previously organised activity ';
+$lang['mage_or_draft_of_previously_organised_activity'] = 'mage or draft of previously organised activity ';
 $lang['Activity_agenda'] = 'Activity agenda';
 $lang[''] = '';
 $lang[''] = '';

@@ -228,52 +228,60 @@ $lang['Domestic_customers'] = 'ลูกค้าในประเทศ';
 $lang['International_customers'] = 'ลูกค้าต่างประเทศ';
 
 #form 2
-$lang['Talk/Workshop'] = 'Talk/Workshop';
+$lang['Talk/Workshop'] = 'เสวนา/เวิร์กช็อป';
 // $lang['Evaluation_Form'] = 'c';
 $lang['Please_accept_and_confirm_that_you_have_read_the_terms_and_conditions'] = 'กรุณายอมรับและได้อ่านเงื่อนไขและข้อตกลง.';
 $lang['Closes'] = 'ปิด';
+$lang['Guest_Speaker'] = 'โปรไฟล์วิทยากร';
+$lang['Image_lecturer'] = 'ภาพวิทยากร';
+$lang['Graphics or images of past events'] = 'ภาพกราฟิกหรือภาพกิจกรรมที่เคยจัด';
 
 #tab3
-$lang['Type'] = 'Type';
-$lang['Talk'] = 'Talk';
-$lang['Workshop'] = 'Workshop';
-$lang['Title_English'] = 'Title (English)';
-$lang['Speaker_Name'] = 'Speaker NameSpeaker Name';
-$lang['Scope_of_Content_and_Format'] = 'Scope of Content and Format';
+$lang['Type'] = 'ประเภท';
+$lang['Talk'] = 'เสวนา';
+$lang['Workshop'] = 'เวิร์กช็อป';
+$lang['At'] = 'สถานที่';
+$lang['out_At'] = 'นอกสถานที่';
+$lang['ME_At'] = 'สถานที่ตนเอง';
+$lang['Title_Thai'] = 'หัวข้อ';
+$lang['Title_English'] = 'หัวข้อ (ภาษาอังกฤษ)';
+$lang['Speaker_Name'] = 'ชื่อวิทยากร';
+$lang['Scope_of_Content_and_Format'] = 'ขอบเขตเนื้อหาและรูปแบบวิธีการ';
 
-$lang['The_Content_Scope_is_Suitable_for'] = 'The Content Scope is Suitable for';
-$lang['Participant_Qualifications'] = 'Participant Qualifications';
-$lang['Number_of_Participants'] = 'Number of Participants';
-$lang['Date_and_Time_the_Activity_Starts_and_Ends'] = 'Date and Time the Activity Starts and Ends';
-$lang['Start_Date'] = 'Start Date';
-$lang['End_Date'] = 'End Date';
-$lang['Start_Time'] = 'Start Time';
-$lang['End_Time'] = 'End Time';
-$lang['Application_Documents'] = 'Application Documents';
+$lang['The_Content_Scope_is_Suitable_for'] = 'ขอบเขตเนื้อหาเหมาะสมกับ';
+$lang['Participant_Qualifications'] = 'คุณสมบัติผู้เข้าร่วม';
+$lang['Number_of_Participants'] = 'จำนวนผู้เข้าร่วม';
+$lang['Date_and_Time_the_Activity_Starts_and_Ends'] = 'วันที่และเวลา เริ่มต้นและสิ้นสุดกิจกรรม';
+$lang['Start_Date'] = 'วันที่เริ่มต้น';
+$lang['End_Date'] = 'วันที่สิ้นสุด';
+$lang['Start_Time'] = 'เวลาเริ่มต้น';
+$lang['End_Time'] = 'เวลาสิ้นสุด';
+$lang['Application_Documents'] = 'เอกสารประกอบการสมัคร';
 
 #The Content Scope is Suitable for
-$lang['The_Content_Scope_is_Suitable_for'] = 'The Content Scope is Suitable for';
-$lang['Everyone'] = 'EveryoneEveryone';
-$lang['Businesspeople'] = 'Businesspeople';
-$lang['Others'] = 'OthersOthers';
+$lang['Everyone'] = 'ทุกคน';
+$lang['Designers'] = 'นักออกแบบ';
+$lang['Businesspeople'] = 'นักธุรกิจ';
+$lang['Others'] = 'อื่นๆ';
 
-$lang['You_successfully_applied'] = "You've successfully applied to join the activity. <br>The Design Festival will send you the application result via email.";
-$lang['Back_to_Activity'] = 'Back to Activity';
+$lang['You_successfully_applied'] = " คุณได้สมัครเข้าร่วมกิจกรรมสำเร็จแล้ว<br>เทศกาลงานออกแบบจะเแจ้งผลการพิจารณา <br>ให้ทราบทางอีเมลต่อไป";
+$lang['Back_to_Activity'] = 'กลับสู่กิจกรรม';
 
 #form 3
+$lang['Event'] = 'อีเว้นท์';
 $lang['Tour'] = 'Tour';
 $lang['Open_House'] = 'Open House';
 $lang['Performance'] = 'Performance';
 $lang['Party'] = 'Party';
 $lang['Other'] = 'Other (Please specify)';
-$lang['Activity_Title'] = 'Activity Title';
-$lang['Activity_Details_and_Format'] = 'Activity Details and Format';
-$lang['Activity_Venue'] = 'Activity VenueActivity Venue';
-$lang['Own_space'] = 'Own space';
-$lang['Festival_space'] = 'Festival space';
-$lang['Organiser_profile'] = 'Organiser profile';
-$lang['mage_or_draft_of_previously_organised_activity '] = 'mage or draft of previously organised activity ';
-$lang['Activity_agenda'] = 'Activity agenda';
+$lang['Activity_Title'] = 'ชื่อกิจกรรม';
+$lang['Activity_Details_and_Format'] = 'รายละเอียดและรูปแบบกิจกรรม';
+$lang['Activity_Venue'] = 'สถานที่จัดกิจกรรม';
+$lang['Own_space'] = 'พื้นที่ตนเอง';
+$lang['Festival_space'] = 'พื้นที่เทศกาล';
+$lang['Organiser_profile'] = 'โปรไฟล์ของผู้จัด';
+$lang['mage_or_draft_of_previously_organised_activity'] = 'ภาพกิจกรรมที่เคยจัดหรือภาพร่าง';
+$lang['Activity_agenda'] = 'กำหนดการกิจกรรม';
 $lang[''] = '';
 $lang[''] = '';
 $lang[''] = '';

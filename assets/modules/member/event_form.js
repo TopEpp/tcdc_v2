@@ -95,7 +95,7 @@ $(function () {
             .on('click', 'a.remove', remove);
 
 
-        $('#num', clone_data).text("คอลเลกชั่น " + (cloneIndex + 1));
+        $('#num', clone_data).text($('#collection').val() +' '+ (cloneIndex + 1));
         $('input', clone_data).val('');
         $('img', clone_data).remove();
         $('#remove_clone', clone_data).attr('style', "display:'block'");
@@ -326,45 +326,7 @@ $(document).ready(function () {
             $("input[name='pop_product_type']").change(function () {
                 $("input[name='pop_product_type']").not(this).prop('checked', false);
             });
-            //     $("input[name='pop_type']").change(function() {
-            //         $("input[name='pop_type']").not(this).prop('checked', false);
-            //         $("input[name='pop_food']").prop('checked', false);
-            //     });
-            //     $("input[name='pop_food']").change(function() {
-            //         $("input[name='pop_type']").prop('checked', false);
-            //         $("input[name='pop_food']").not(this).prop('checked', false);
-            //     });
-
-            //     if ($('#pop_select1').is(":checked"))
-            //     {
-            //         document.getElementById("product").style.display = "block";
-            //         document.getElementById("food").style.display = "none";
-            //     }
-            //     $("#pop_select1").change(function() {
-            //         if ($('#pop_select1').is(":checked"))
-            //         {
-            //             document.getElementById("product").style.display = "block";
-            //             document.getElementById("food").style.display = "none";
-            //         }
-            //         else{
-            //             document.getElementById("product").style.display = "none";
-            //         }
-            //     });
-            //     if ($('#pop_select2').is(":checked"))
-            //     {
-            //         document.getElementById("food").style.display = "block";
-            //         document.getElementById("product").style.display = "none";
-            //     }
-            //     $("#pop_select2").change(function() {
-            //         if ($('#pop_select2').is(":checked"))
-            //         {
-            //             document.getElementById("food").style.display = "block";
-            //             document.getElementById("product").style.display = "none";
-            //         }
-            //         else{
-            //             document.getElementById("food").style.display = "none";
-            //         }
-            //     });
+           
             break;
         case '4':
             //event form clear checked 
@@ -447,70 +409,6 @@ $(document).ready(function () {
 
 
 
-
-    // if ($('#work_talk_ty_at2').is(":checked"))
-    // {
-    //     document.getElementById("work_talk_type_at_detail1").style.display = "block";
-    //     $("#work_talk_det1").prop('disabled', false);
-    //     $("#work_talk_det2").prop('disabled', true);
-    // }
-    // $("#work_talk_ty_at2").change(function() {
-    //     if ($('#work_talk_ty_at2').is(":checked"))
-    //     {
-    //         document.getElementById("work_talk_type_at_detail1").style.display = "block";
-    //         $("#work_talk_det1").prop('disabled', false);
-    //         $("#work_talk_det2").prop('disabled', true);
-    //     }
-    //     else{
-    //         document.getElementById("work_talk_type_at_detail1").style.display = "none";
-    //     }
-    // });
-    // if ($('#work_talk_ty_at4').is(":checked"))
-    // {
-    //     document.getElementById("work_talk_type_at_detail2").style.display = "block";
-    //     $("#work_talk_det1").prop('disabled', true);
-    //     $("#work_talk_det2").prop('disabled', false);
-    // }
-    // $("#work_talk_ty_at4").change(function() {
-    //     if ($('#work_talk_ty_at4').is(":checked"))
-    //     {
-    //         document.getElementById("work_talk_type_at_detail2").style.display = "block";
-    //         $("#work_talk_det1").prop('disabled', true);
-    //         $("#work_talk_det2").prop('disabled', false);
-
-    //     }
-    //     else{
-    //         document.getElementById("work_talk_type_at_detail2").style.display = "none";
-    //     }
-    // });
-
-
-
-    // //get status company
-    //     $company =   $("input[name=radio1]:checked").map(function() {
-    //     return this.value;
-    //     }).get().join(",");
-
-    //     if ($company != 1){
-    //     document.getElementById("radio-company").style.display = "none";
-    //     }
-    //     else{
-    //     document.getElementById("radio-company").style.display = "block";
-    //     }
-
-    //     $('#radio1No').on('change', function() {
-    //         if($('input[name=radio1]').is(':checked')){
-    //             document.getElementById("radio-company").style.display = "block";
-    //             // $("$company_province").prop( "disabled", 'disabled' );
-    //         }
-    //     });
-
-    //     $('#radio1Yes').on('change', function() {
-    //         if($('input[name=radio1]').is(':checked')){
-    //             document.getElementById("radio-company").style.display = "none";
-    //             // $("$company_province").prop( "disabled", 'disabled' );
-    //         }
-    //     });
 
     //end check company
 

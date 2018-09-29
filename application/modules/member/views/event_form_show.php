@@ -264,18 +264,18 @@ if ($this->session->flashdata('error')) {
                                       <option value=""><?=lang('Select');?></option>
                                       <?php foreach ($countries as $key => $value) {?>
                                         <?php
-$select = '';
-    if (!empty(@$member->country)) {
-        if (@$member->country == $value->id) {
-            $select = 'selected="selected"';
-        }
-    } else {
-        if ('ไทย' == $value->name || 'Thailand' == $value->name) {
-            $select = 'selected="selected"';
-        }
-    }
+                                       $select = '';
+                                          if (!empty(@$member->country)) {
+                                              if (@$member->country == $value->id) {
+                                                  $select = 'selected="selected"';
+                                              }
+                                          } else {
+                                              if ('ไทย' == $value->name || 'Thailand' == $value->name) {
+                                                  $select = 'selected="selected"';
+                                              }
+                                          }
 
-    ?>
+                                          ?>
                                        <?php if ($this->session->userdata('site_lang') == 'english') {?>
                                                             <option <?php echo $select; ?>  value="<?php echo $value->id; ?>"><?php echo $value->name; ?></option>
                                                             <?php } else {?>
@@ -292,12 +292,12 @@ $select = '';
                                     <select style="width: 100% !important;"   name="province" id="province " class="cs-select cs-skin-slide cs-transparent form-control " data-init-plugin="select2">
                                         <option value="" selected disable><?=lang('Select');?></option>
                                         <?php
-foreach ($province as $key => $value) {?>
-                                          <?php
-$select = '';
-    if (@$member->province == $value->code) {
-        $select = 'selected';
-    }?>
+                                          foreach ($province as $key => $value) {?>
+                                                                                    <?php
+                                          $select = '';
+                                              if (@$member->province == $value->code) {
+                                                  $select = 'selected';
+                                              }?>
                                            <?php if ($this->session->userdata('site_lang') == 'english') {?>
                                                 <option <?php echo $select; ?>  value="<?php echo $value->code; ?>"><?php echo $value->name_eng; ?></option>
                                               <?php } else {?>
@@ -360,7 +360,7 @@ $select = '';
                                       <div class="form-group form-group-default  form-group-default-selectFx  required">
                                         <label><?=lang('Status_form');?></label>
                                         <select style="width:100%" name="job" id="job" class="cs-select cs-skin-slide cs-transparent form-control" data-init-plugin="select2" data-disable-search="true" >
-                                          <option  <?php echo (@$member->job == '') ? 'selected' : ''; ?> value="" ><?=lang('select');?></option>
+                                          <option  <?php echo (@$member->job == '') ? 'selected' : ''; ?> value="" ><?=lang('Select');?></option>
                                           <?php foreach ($status as $key => $value) {?>
                                             <option data-group="<?php echo $value->status_group; ?>" <?php echo (@$member->job == $value->status_id) ? 'selected' : ''; ?> value="<?php echo $value->status_id; ?>"><?php echo lang($value->status_name); ?></option>
                                           <?php }?>
@@ -585,8 +585,8 @@ $select = '';
                                         <div class="form-group required">
                                           <label>โปรดระบุเทคนิคหรือความเชี่ยวชาญที่ใช้ทำงาน </label>
                                           <?php if (!empty($member->company_technic)) {
-    $company_technic = explode(',', $member->company_technic);
-    foreach ($company_technic as $key => $value) {?>
+                                              $company_technic = explode(',', $member->company_technic);
+                                              foreach ($company_technic as $key => $value) {?>
                                                   <input type="text" name="company_technic[<?=$key?>]" class="form-control"  value="<?php echo @$value; ?>">
                                             <?php }?>
 
@@ -751,12 +751,12 @@ $select = '';
 
                               <br>
                               <?php
-$status2 = 'checked';
-$status1 = '';
-if (@$member->coordinator_type == 0) {
-    $status1 = 'checked';
-    $status2 = '';
-}?>
+                                  $status2 = 'checked';
+                                  $status1 = '';
+                                  if (@$member->coordinator_type == 0) {
+                                      $status1 = 'checked';
+                                      $status2 = '';
+                                  }?>
                               <p style="font-weight: bold"><?=lang('Application_Coordinator');?></p>
                               <br>
                               <div class="radio radio-default">
@@ -879,6 +879,7 @@ if (@$member->coordinator_type == 0) {
                       </div>
 
                       <div class="clone-form">
+                      <input type="hidden" id="collection" value="<?=lang('Collection');?>">
                       <?php if (empty(@$regis['product'])) {?>
 
                       <div class="clonedInput" id="clonedInput">
@@ -897,6 +898,7 @@ if (@$member->coordinator_type == 0) {
                                     <div class="col-md-6">
                                       <span align="center" ><h5 id="num"  style="font-family: 'dbch';font-weight: bold;" class="num text-left" ><?=lang('Collection');?> 1</h5></span>
                                     </div>
+                                 
                                     <div class="col-md-6 text-right" id="remove_clone" style="display:none">
                                     <a  style="color:white;"  class="btn btn-primary btn-cons remove"><i class="fa fa-times"></i> <?=lang('Cancel');?></a>
                                     </div>
@@ -1333,7 +1335,7 @@ if (@$member->coordinator_type == 0) {
                                             <div class="row clearfix">
                                               <div class="col-sm-6">
                                                 <div class="form-group  ">
-                                                  <label>ไฟล์นำเสนอผลงาน <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span> </label>
+                                                  <label><?=lang('Presentation_Files');?>  <span style="color:red; font-size:18px;"><?=lang('JPG_file_only');?></span> </label>
                                                   <div class="row">
                                                   <?php
 if (!empty($value['product_img'])) {

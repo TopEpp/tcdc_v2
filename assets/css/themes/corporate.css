@@ -6620,7 +6620,7 @@ body>.pgn-wrapper {
   color: rgba(87, 87, 87, 0.7);
   font-size: 22px;
   min-width: 70px;
-  text-transform: uppercase;
+  /* text-transform: lowercase; */
   border-color: transparent;
   position: relative;
   line-height: 1.7em;
